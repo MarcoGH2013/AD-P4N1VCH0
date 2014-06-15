@@ -1,5 +1,5 @@
 ﻿using System;
-//using System.Collections.Generic;
+//using ttttttSystem.Collections.Generic;
 
 using Componentes.ProveedorData;
 using Componentes.Transaccion;
