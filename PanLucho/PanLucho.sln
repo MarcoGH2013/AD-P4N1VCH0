@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controles", "Controles\Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu", "Menu\Menu.csproj", "{93873CFA-5B73-4D7A-A559-C4D4846AC10E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClbFacturas", "ClbFacturas\ClbFacturas.csproj", "{266442E6-E3AE-4078-B070-6936B96791D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,11 +75,22 @@ Global
 		{93873CFA-5B73-4D7A-A559-C4D4846AC10E}.Release|Mixed Platforms.Build.0 = Release|x86
 		{93873CFA-5B73-4D7A-A559-C4D4846AC10E}.Release|x86.ActiveCfg = Release|x86
 		{93873CFA-5B73-4D7A-A559-C4D4846AC10E}.Release|x86.Build.0 = Release|x86
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{266442E6-E3AE-4078-B070-6936B96791D1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F259FB38-F9D4-4F1C-ACF6-A1B7D404720E} = {4B818ABC-4F51-4269-9B5C-07932033BDDC}
+		{266442E6-E3AE-4078-B070-6936B96791D1} = {4B818ABC-4F51-4269-9B5C-07932033BDDC}
 	EndGlobalSection
 EndGlobal

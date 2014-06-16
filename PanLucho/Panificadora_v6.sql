@@ -312,3 +312,7 @@ go
 insert into Estado(Id,descripcion) values(1,'Activo')
 go
 
+INSERT INTO [dbo].[FormaPago] ([Id] ,[Descripcion] ,[IdEstado] ,[FechaCreacion] ,[FechaEdicion] ,[UserCreador] ,[UserEdicion])VALUES (1,  'EFECTIVO',  1, 15-06-2012, 17-06-2012, 'lquinter', 'mmarulanda')  
+go
+INSERT INTO [dbo].[FormaPago] ([Id] ,[Descripcion] ,[IdEstado] ,[FechaCreacion] ,[FechaEdicion] ,[UserCreador] ,[UserEdicion])VALUES (2,  'TARJETA CREDITO',  1, 23-01-2012, 17-06-2012, 'lquinter', 'pxndx')  
+go
