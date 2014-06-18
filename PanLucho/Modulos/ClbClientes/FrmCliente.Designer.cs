@@ -92,7 +92,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(9, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.Size = new System.Drawing.Size(97, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "Tipo Identificación:";
             this.label6.Visible = false;
@@ -101,7 +101,7 @@
             // 
             this.txtECorreo.Location = new System.Drawing.Point(119, 142);
             this.txtECorreo.Name = "txtECorreo";
-            this.txtECorreo.Size = new System.Drawing.Size(182, 22);
+            this.txtECorreo.Size = new System.Drawing.Size(182, 20);
             this.txtECorreo.TabIndex = 10;
             // 
             // dtpFechaNacimiento
@@ -109,7 +109,7 @@
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNacimiento.Location = new System.Drawing.Point(119, 114);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(182, 22);
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(182, 20);
             this.dtpFechaNacimiento.TabIndex = 9;
             // 
             // label5
@@ -117,7 +117,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 145);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Correo Electrónico:";
             // 
@@ -126,7 +126,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(108, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Fecha de Nacimiento";
             // 
@@ -135,7 +135,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 89);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Apellido:";
             // 
@@ -144,7 +144,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nombre:";
             // 
@@ -153,7 +153,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Numero:";
             // 
@@ -161,21 +161,21 @@
             // 
             this.txtApellido.Location = new System.Drawing.Point(79, 86);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(222, 22);
+            this.txtApellido.Size = new System.Drawing.Size(222, 20);
             this.txtApellido.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(79, 58);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(222, 22);
+            this.txtNombre.Size = new System.Drawing.Size(222, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtIdentificacion
             // 
             this.txtIdentificacion.Location = new System.Drawing.Point(79, 30);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(100, 22);
+            this.txtIdentificacion.Size = new System.Drawing.Size(100, 20);
             this.txtIdentificacion.TabIndex = 0;
             // 
             // errorProvider1

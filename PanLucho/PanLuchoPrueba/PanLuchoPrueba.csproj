@@ -77,6 +77,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClbFacturas\ClbFacturas.csproj">
+      <Project>{266442E6-E3AE-4078-B070-6936B96791D1}</Project>
+      <Name>ClbFacturas</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Controles\Controles.csproj">
       <Project>{6CBB89B0-9A9C-42B2-A316-8EC984F1F431}</Project>
       <Name>Controles</Name>
