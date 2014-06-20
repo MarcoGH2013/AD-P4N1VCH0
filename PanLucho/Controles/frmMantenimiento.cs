@@ -173,6 +173,57 @@ namespace Controles
 
             }
         }
+
+        protected virtual void Bloquear()
+        {
+            BloquearControles();
+        }
+
+        public void BloquearControles() //Bloquea solo cajas de texto?
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                    control.Enabled=false;
+                else BloquearControlesRecursivo(control);
+            }
+        }
+        private void BloquearControlesRecursivo(Control control)
+        {
+            foreach (Control controlItem in control.Controls)
+            {
+                if (controlItem is TextBox)
+                    controlItem.Enabled=false;
+                else BloquearControlesRecursivo(controlItem);
+
+            }
+        }
+
+        protected virtual void Desbloquear()
+        {
+            DesbloquearControles();
+        }
+
+        public void DesbloquearControles() //Bloquea solo cajas de texto?
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                    control.Enabled = true;
+                else DesbloquearControlesRecursivo(control);
+            }
+        }
+        private void DesbloquearControlesRecursivo(Control control)
+        {
+            foreach (Control controlItem in control.Controls)
+            {
+                if (controlItem is TextBox)
+                    controlItem.Enabled = true;
+                else DesbloquearControlesRecursivo(controlItem);
+
+            }
+        }
+
         private void tsbModificar_Click(object sender, EventArgs e)
         {
             Modificar();

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.switchButton1 = new DevComponents.DotNetBar.Controls.SwitchButton();
             this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -47,6 +46,7 @@
             this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,20 +105,6 @@
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Información del cliente";
             // 
-            // labelX8
-            // 
-            this.labelX8.AutoSize = true;
-            this.labelX8.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(79, 3);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(182, 15);
-            this.labelX8.TabIndex = 7;
-            this.labelX8.Text = "Factura con datos / Consumidor final";
-            // 
             // switchButton1
             // 
             // 
@@ -130,6 +116,7 @@
             this.switchButton1.Size = new System.Drawing.Size(66, 22);
             this.switchButton1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.switchButton1.TabIndex = 9;
+            this.switchButton1.ValueChanged += new System.EventHandler(this.switchButton1_ValueChanged);
             // 
             // textBoxX7
             // 
@@ -367,6 +354,20 @@
             this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Detalle de artículo(s)";
             // 
+            // labelX8
+            // 
+            this.labelX8.AutoSize = true;
+            this.labelX8.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(79, 3);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(156, 15);
+            this.labelX8.TabIndex = 7;
+            this.labelX8.Text = "Factura: CONSUMIDOR FINAL";
+            // 
             // FrmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,9 +404,9 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
-        private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.Controls.SwitchButton switchButton1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
+        private DevComponents.DotNetBar.LabelX labelX8;
 
 
     }

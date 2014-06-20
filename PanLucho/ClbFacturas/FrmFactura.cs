@@ -18,6 +18,8 @@ namespace ClbFacturas
         public FrmFactura()
         {
             InitializeComponent();
+            if (switchButton1.Value == false)
+            { Bloquear(); }
         }
 
         protected override void Nuevo()
@@ -33,6 +35,31 @@ namespace ClbFacturas
         protected override void Buscar()
         {
             base.Buscar();
+        }
+
+        protected override void Bloquear()
+        {
+            base.Bloquear();
+        }
+
+        protected override void Desbloquear()
+        {
+            base.Desbloquear();
+        }
+
+        private void switchButton1_ValueChanged(object sender, EventArgs e)
+        {
+            if (switchButton1.Value==true)
+            {
+                labelX8.Text = "Factura: DATOS DEL CLIENTE";
+                Desbloquear();
+            }
+            else
+            {
+                labelX8.Text = "Factura: CONSUMIDOR FINAL";
+                Bloquear();
+            }
+            
         }
     }
 }
