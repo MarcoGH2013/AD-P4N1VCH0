@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -62,10 +63,19 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSesion.Designer.cs">
+      <DependentUpon>FrmSesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSesion.resx">
+      <DependentUpon>FrmSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,6 +133,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClbCierreCaja\ClbCierreCaja.csproj">
+      <Project>{3DEA7DA1-6046-451D-AE57-8CE8C987932E}</Project>
+      <Name>ClbCierreCaja</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClbFacturas\ClbFacturas.csproj">
+      <Project>{266442E6-E3AE-4078-B070-6936B96791D1}</Project>
+      <Name>ClbFacturas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbClientes\ClbClientes.csproj">
+      <Project>{F259FB38-F9D4-4F1C-ACF6-A1B7D404720E}</Project>
+      <Name>ClbClientes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbPedidosEspeciales\ClbPedidosEspeciales.csproj">
+      <Project>{6A7D073B-8109-4CCD-9E93-73D88E95D53D}</Project>
+      <Name>ClbPedidosEspeciales</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbRoles\ClbRoles.csproj">
+      <Project>{A3145E16-4BC4-4B32-8BE1-A605791231A9}</Project>
+      <Name>ClbRoles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbUsuarios\ClbUsuarios.csproj">
+      <Project>{DCF1224F-6D32-49D7-BBB5-07024FB8F2FA}</Project>
+      <Name>ClbUsuarios</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

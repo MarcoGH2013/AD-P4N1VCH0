@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ClbCierreCaja;
 
 namespace Menu
 {
     public partial class FrmMenuPrincipal : Form
     {
+        private FrmSesion oFrmSesion= new FrmSesion();
+
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -32,6 +35,31 @@ namespace Menu
         private void iClientes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             
+        }
+
+        private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Si sale se cerrará su sesión, esta seguro que desea salir del programa? ", "Pan Lucho™", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+            {
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void FrmMenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms["FrmSesion"] != null)
+            {
+                oFrmSesion.Visible = true;
+                oFrmSesion.Activate();
+            }
+        }
+
+        private void iCierreCaja_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

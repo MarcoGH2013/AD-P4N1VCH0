@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection();
             this.iSalir = new DevExpress.XtraBars.BarButtonItem();
             this.iCerrarSesion = new DevExpress.XtraBars.BarButtonItem();
             this.iUsuarios = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +40,7 @@
             this.iPedidoEspecial = new DevExpress.XtraBars.BarButtonItem();
             this.iPedidoProductos = new DevExpress.XtraBars.BarButtonItem();
             this.iCierreCaja = new DevExpress.XtraBars.BarButtonItem();
-            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -226,6 +225,7 @@
             this.iCierreCaja.ImageIndex = 9;
             this.iCierreCaja.LargeImageIndex = 9;
             this.iCierreCaja.Name = "iCierreCaja";
+            this.iCierreCaja.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCierreCaja_ItemClick);
             // 
             // imageCollection1_x32
             // 
@@ -412,6 +412,8 @@
             this.IsMdiContainer = true;
             this.Name = "FrmMenuPrincipal";
             this.Text = "FrmMenuPrincipal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenuPrincipal_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1_x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1_x32)).EndInit();
