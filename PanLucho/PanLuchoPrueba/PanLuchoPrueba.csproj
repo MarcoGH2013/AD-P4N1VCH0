@@ -127,6 +127,10 @@
       <Project>{F259FB38-F9D4-4F1C-ACF6-A1B7D404720E}</Project>
       <Name>ClbClientes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbPedidosEspeciales\ClbPedidosEspeciales.csproj">
+      <Project>{6A7D073B-8109-4CCD-9E93-73D88E95D53D}</Project>
+      <Name>ClbPedidosEspeciales</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\log_out_32 %282%29.png" />
