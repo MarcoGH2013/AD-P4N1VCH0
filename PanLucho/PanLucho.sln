@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClbUsuarios", "Modulos\ClbU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClbRoles", "Modulos\ClbRoles\ClbRoles.csproj", "{A3145E16-4BC4-4B32-8BE1-A605791231A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClbCierreCaja", "ClbCierreCaja\ClbCierreCaja.csproj", "{3DEA7DA1-6046-451D-AE57-8CE8C987932E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,16 @@ Global
 		{A3145E16-4BC4-4B32-8BE1-A605791231A9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A3145E16-4BC4-4B32-8BE1-A605791231A9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A3145E16-4BC4-4B32-8BE1-A605791231A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,5 +143,6 @@ Global
 		{6A7D073B-8109-4CCD-9E93-73D88E95D53D} = {4B818ABC-4F51-4269-9B5C-07932033BDDC}
 		{DCF1224F-6D32-49D7-BBB5-07024FB8F2FA} = {4B818ABC-4F51-4269-9B5C-07932033BDDC}
 		{A3145E16-4BC4-4B32-8BE1-A605791231A9} = {4B818ABC-4F51-4269-9B5C-07932033BDDC}
+		{3DEA7DA1-6046-451D-AE57-8CE8C987932E} = {4B818ABC-4F51-4269-9B5C-07932033BDDC}
 	EndGlobalSection
 EndGlobal

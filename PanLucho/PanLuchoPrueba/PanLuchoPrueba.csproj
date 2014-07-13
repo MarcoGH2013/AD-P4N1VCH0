@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -52,11 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DevCompForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevCompForm2.Designer.cs">
+      <DependentUpon>DevCompForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevCompForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevCompForm.Designer.cs">
+      <DependentUpon>DevCompForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDXMenu1.cs">
       <SubType>Form</SubType>
@@ -66,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DevCompForm.resx">
+      <DependentUpon>DevCompForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevCompForm2.resx">
+      <DependentUpon>DevCompForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDXMenu1.resx">
       <DependentUpon>FrmDXMenu1.cs</DependentUpon>
     </EmbeddedResource>
