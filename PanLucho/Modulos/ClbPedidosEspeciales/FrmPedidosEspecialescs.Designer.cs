@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
@@ -99,7 +99,7 @@
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Location = new System.Drawing.Point(0, 42);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(799, 107);
+            this.groupPanel1.Size = new System.Drawing.Size(799, 101);
             // 
             // 
             // 
@@ -263,9 +263,9 @@
             this.groupPanel2.Controls.Add(this.groupPanel5);
             this.groupPanel2.Controls.Add(this.groupPanel4);
             this.groupPanel2.Controls.Add(this.groupPanel3);
-            this.groupPanel2.Location = new System.Drawing.Point(0, 149);
+            this.groupPanel2.Location = new System.Drawing.Point(0, 144);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(799, 339);
+            this.groupPanel2.Size = new System.Drawing.Size(799, 346);
             // 
             // 
             // 
@@ -403,7 +403,7 @@
             this.groupPanel5.Controls.Add(this.groupPanel6);
             this.groupPanel5.Location = new System.Drawing.Point(13, 127);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(772, 186);
+            this.groupPanel5.Size = new System.Drawing.Size(772, 195);
             // 
             // 
             // 
@@ -442,7 +442,7 @@
             this.groupPanel6.Controls.Add(this.panelEx1);
             this.groupPanel6.Location = new System.Drawing.Point(437, 1);
             this.groupPanel6.Name = "groupPanel6";
-            this.groupPanel6.Size = new System.Drawing.Size(326, 162);
+            this.groupPanel6.Size = new System.Drawing.Size(326, 168);
             // 
             // 
             // 
@@ -482,14 +482,14 @@
             this.colDesripcion,
             this.colCantidad,
             this.colPrecio});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(8, 0);
             this.dataGridViewX1.Name = "dataGridViewX1";
@@ -596,7 +596,7 @@
             this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxX6.Location = new System.Drawing.Point(82, 29);
             this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX6.Size = new System.Drawing.Size(283, 22);
             this.textBoxX6.TabIndex = 8;
             // 
             // checkBoxX1
@@ -698,8 +698,9 @@
             this.textBoxX8.Border.Class = "TextBoxBorder";
             this.textBoxX8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxX8.Location = new System.Drawing.Point(82, 136);
+            this.textBoxX8.Multiline = true;
             this.textBoxX8.Name = "textBoxX8";
-            this.textBoxX8.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX8.Size = new System.Drawing.Size(283, 37);
             this.textBoxX8.TabIndex = 13;
             // 
             // colorCombControl1
@@ -715,7 +716,7 @@
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.Location = new System.Drawing.Point(14, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(296, 137);
+            this.panelEx1.Size = new System.Drawing.Size(296, 142);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
