@@ -6,6 +6,7 @@ using ClbClientes;
 using ClbFacturas;
 
 
+
 namespace PanLuchoPrueba
 {
     static class Program
@@ -18,7 +19,8 @@ namespace PanLuchoPrueba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCliente());
+            //Application.Run(new FrmCliente());
+            Application.Run(new Menu.FrmMenuPrincipal());
         }
     }
 }
