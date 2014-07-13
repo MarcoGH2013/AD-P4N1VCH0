@@ -10,9 +10,9 @@ using Controles;
 
 namespace ClbPedidosEspeciales
 {
-    public partial class FrmPedidosEspecialescs : frmMantenimiento
+    public partial class FrmPedidosEspeciales : frmMantenimiento
     {
-        public FrmPedidosEspecialescs()
+        public FrmPedidosEspeciales()
         {
             InitializeComponent();
         }

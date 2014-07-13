@@ -1,6 +1,6 @@
 ﻿namespace ClbPedidosEspeciales
 {
-    partial class FrmPedidosEspecialescs
+    partial class FrmPedidosEspeciales
     {
         /// <summary>
         /// Required designer variable.
