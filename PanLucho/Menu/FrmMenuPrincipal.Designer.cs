@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection();
+            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection(this.components);
             this.iSalir = new DevExpress.XtraBars.BarButtonItem();
             this.iCerrarSesion = new DevExpress.XtraBars.BarButtonItem();
             this.iUsuarios = new DevExpress.XtraBars.BarButtonItem();
@@ -40,7 +41,7 @@
             this.iPedidoEspecial = new DevExpress.XtraBars.BarButtonItem();
             this.iPedidoProductos = new DevExpress.XtraBars.BarButtonItem();
             this.iCierreCaja = new DevExpress.XtraBars.BarButtonItem();
-            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection();
+            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -147,6 +148,7 @@
             this.iCerrarSesion.ImageIndex = 6;
             this.iCerrarSesion.LargeImageIndex = 6;
             this.iCerrarSesion.Name = "iCerrarSesion";
+            this.iCerrarSesion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCerrarSesion_ItemClick);
             // 
             // iUsuarios
             // 
