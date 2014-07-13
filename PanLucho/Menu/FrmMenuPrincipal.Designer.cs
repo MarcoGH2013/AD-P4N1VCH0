@@ -31,6 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.iSalir = new DevExpress.XtraBars.BarButtonItem();
+            this.iCerrarSesion = new DevExpress.XtraBars.BarButtonItem();
+            this.iUsuarios = new DevExpress.XtraBars.BarButtonItem();
+            this.iRoles = new DevExpress.XtraBars.BarButtonItem();
+            this.iFactura = new DevExpress.XtraBars.BarButtonItem();
+            this.iClientes = new DevExpress.XtraBars.BarButtonItem();
+            this.iPedidoEspecial = new DevExpress.XtraBars.BarButtonItem();
+            this.iPedidoProductos = new DevExpress.XtraBars.BarButtonItem();
+            this.iCierreCaja = new DevExpress.XtraBars.BarButtonItem();
+            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -54,17 +65,6 @@
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage10 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection(this.components);
-            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection(this.components);
-            this.iSalir = new DevExpress.XtraBars.BarButtonItem();
-            this.iCerrarSesion = new DevExpress.XtraBars.BarButtonItem();
-            this.iUsuarios = new DevExpress.XtraBars.BarButtonItem();
-            this.iRoles = new DevExpress.XtraBars.BarButtonItem();
-            this.iFactura = new DevExpress.XtraBars.BarButtonItem();
-            this.iClientes = new DevExpress.XtraBars.BarButtonItem();
-            this.iPedidoEspecial = new DevExpress.XtraBars.BarButtonItem();
-            this.iPedidoProductos = new DevExpress.XtraBars.BarButtonItem();
-            this.iCierreCaja = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1_x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1_x32)).BeginInit();
@@ -97,6 +97,162 @@
             this.ribbonPage5});
             this.ribbon.Size = new System.Drawing.Size(665, 142);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            // 
+            // imageCollection1_x16
+            // 
+            this.imageCollection1_x16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1_x16.ImageStream")));
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.help32x32__2_, "help32x32__2_", typeof(global::Menu.Properties.Resources), 0);
+            this.imageCollection1_x16.Images.SetKeyName(0, "help32x32__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.customer__2_, "customer__2_", typeof(global::Menu.Properties.Resources), 1);
+            this.imageCollection1_x16.Images.SetKeyName(1, "customer__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.specialOrder__2_, "specialOrder__2_", typeof(global::Menu.Properties.Resources), 2);
+            this.imageCollection1_x16.Images.SetKeyName(2, "specialOrder__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.roles__2_, "roles__2_", typeof(global::Menu.Properties.Resources), 3);
+            this.imageCollection1_x16.Images.SetKeyName(3, "roles__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.specialOrderInvoice__2_, "specialOrderInvoice__2_", typeof(global::Menu.Properties.Resources), 4);
+            this.imageCollection1_x16.Images.SetKeyName(4, "specialOrderInvoice__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.log_out_32__2_, "log_out_32__2_", typeof(global::Menu.Properties.Resources), 5);
+            this.imageCollection1_x16.Images.SetKeyName(5, "log_out_32__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.disconnect__2_, "disconnect__2_", typeof(global::Menu.Properties.Resources), 6);
+            this.imageCollection1_x16.Images.SetKeyName(6, "disconnect__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.user__2_, "user__2_", typeof(global::Menu.Properties.Resources), 7);
+            this.imageCollection1_x16.Images.SetKeyName(7, "user__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.invoice__2_, "invoice__2_", typeof(global::Menu.Properties.Resources), 8);
+            this.imageCollection1_x16.Images.SetKeyName(8, "invoice__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.closeCash__2_, "closeCash__2_", typeof(global::Menu.Properties.Resources), 9);
+            this.imageCollection1_x16.Images.SetKeyName(9, "closeCash__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.breads__2_, "breads__2_", typeof(global::Menu.Properties.Resources), 10);
+            this.imageCollection1_x16.Images.SetKeyName(10, "breads__2_");
+            // 
+            // iSalir
+            // 
+            this.iSalir.Caption = "Salir";
+            this.iSalir.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iSalir.Description = "Salir del sistema Pan Lucho";
+            this.iSalir.Hint = "Salir del sistema Pan Lucho.";
+            this.iSalir.Id = 1;
+            this.iSalir.ImageIndex = 5;
+            this.iSalir.LargeImageIndex = 5;
+            this.iSalir.Name = "iSalir";
+            this.iSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iSalir_ItemClick);
+            // 
+            // iCerrarSesion
+            // 
+            this.iCerrarSesion.Caption = "Cerrar sesión";
+            this.iCerrarSesion.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iCerrarSesion.Description = "Cierra la sesión actual para poder ingresar con un usuario diferente, sin salir d" +
+    "el sistema";
+            this.iCerrarSesion.Hint = "Cierra la sesión actual para poder ingresar con un usuario diferente, sin salir d" +
+    "el sistema.";
+            this.iCerrarSesion.Id = 2;
+            this.iCerrarSesion.ImageIndex = 6;
+            this.iCerrarSesion.LargeImageIndex = 6;
+            this.iCerrarSesion.Name = "iCerrarSesion";
+            // 
+            // iUsuarios
+            // 
+            this.iUsuarios.Caption = "Usuarios";
+            this.iUsuarios.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iUsuarios.Description = "Editar información variada de los usuarios";
+            this.iUsuarios.Hint = "Editar información variada de los usuarios.";
+            this.iUsuarios.Id = 3;
+            this.iUsuarios.ImageIndex = 7;
+            this.iUsuarios.LargeImageIndex = 7;
+            this.iUsuarios.Name = "iUsuarios";
+            // 
+            // iRoles
+            // 
+            this.iRoles.Caption = "Roles";
+            this.iRoles.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iRoles.Description = "Administrar los permisos que poseen los usuarios";
+            this.iRoles.Hint = "Administrar los permisos que poseen los usuarios.";
+            this.iRoles.Id = 4;
+            this.iRoles.ImageIndex = 3;
+            this.iRoles.LargeImageIndex = 3;
+            this.iRoles.Name = "iRoles";
+            // 
+            // iFactura
+            // 
+            this.iFactura.Caption = "Facturar";
+            this.iFactura.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iFactura.Description = "Registar la venta de los productos";
+            this.iFactura.Hint = "Registar la venta de los productos.";
+            this.iFactura.Id = 5;
+            this.iFactura.ImageIndex = 8;
+            this.iFactura.LargeImageIndex = 8;
+            this.iFactura.Name = "iFactura";
+            // 
+            // iClientes
+            // 
+            this.iClientes.Caption = "Clientes";
+            this.iClientes.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iClientes.Description = "Registrar información acerca de los clientes";
+            this.iClientes.Hint = "Registrar información acerca de los clientes.";
+            this.iClientes.Id = 6;
+            this.iClientes.ImageIndex = 1;
+            this.iClientes.LargeImageIndex = 1;
+            this.iClientes.Name = "iClientes";
+            this.iClientes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iClientes_ItemClick);
+            // 
+            // iPedidoEspecial
+            // 
+            this.iPedidoEspecial.Caption = "Pedido especial";
+            this.iPedidoEspecial.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iPedidoEspecial.Description = "Registra información detallada de un pedido con características inusuales";
+            this.iPedidoEspecial.Hint = "Registra información detallada de un pedido con características inusuales.";
+            this.iPedidoEspecial.Id = 7;
+            this.iPedidoEspecial.ImageIndex = 2;
+            this.iPedidoEspecial.LargeImageIndex = 2;
+            this.iPedidoEspecial.Name = "iPedidoEspecial";
+            // 
+            // iPedidoProductos
+            // 
+            this.iPedidoProductos.Caption = "Pedidos productos";
+            this.iPedidoProductos.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iPedidoProductos.Description = "Se crean requerimientos de productos faltantes a la matriz";
+            this.iPedidoProductos.Hint = "Se crean requerimientos de productos faltantes a la matriz.";
+            this.iPedidoProductos.Id = 8;
+            this.iPedidoProductos.ImageIndex = 10;
+            this.iPedidoProductos.LargeImageIndex = 10;
+            this.iPedidoProductos.Name = "iPedidoProductos";
+            // 
+            // iCierreCaja
+            // 
+            this.iCierreCaja.Caption = "Cierre de caja";
+            this.iCierreCaja.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iCierreCaja.Description = "Se realiza el proceso de cierre de caja";
+            this.iCierreCaja.Hint = "Se realiza el proceso de cierre de caja.";
+            this.iCierreCaja.Id = 9;
+            this.iCierreCaja.ImageIndex = 9;
+            this.iCierreCaja.LargeImageIndex = 9;
+            this.iCierreCaja.Name = "iCierreCaja";
+            // 
+            // imageCollection1_x32
+            // 
+            this.imageCollection1_x32.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageCollection1_x32.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1_x32.ImageStream")));
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.help32x32__2_, "help32x32__2_", typeof(global::Menu.Properties.Resources), 0);
+            this.imageCollection1_x32.Images.SetKeyName(0, "help32x32__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.customer__2_, "customer__2_", typeof(global::Menu.Properties.Resources), 1);
+            this.imageCollection1_x32.Images.SetKeyName(1, "customer__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.specialOrder__2_, "specialOrder__2_", typeof(global::Menu.Properties.Resources), 2);
+            this.imageCollection1_x32.Images.SetKeyName(2, "specialOrder__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.roles__2_, "roles__2_", typeof(global::Menu.Properties.Resources), 3);
+            this.imageCollection1_x32.Images.SetKeyName(3, "roles__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.specialOrderInvoice__2_, "specialOrderInvoice__2_", typeof(global::Menu.Properties.Resources), 4);
+            this.imageCollection1_x32.Images.SetKeyName(4, "specialOrderInvoice__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.log_out_32__2_, "log_out_32__2_", typeof(global::Menu.Properties.Resources), 5);
+            this.imageCollection1_x32.Images.SetKeyName(5, "log_out_32__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.disconnect__2_, "disconnect__2_", typeof(global::Menu.Properties.Resources), 6);
+            this.imageCollection1_x32.Images.SetKeyName(6, "disconnect__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.user__2_, "user__2_", typeof(global::Menu.Properties.Resources), 7);
+            this.imageCollection1_x32.Images.SetKeyName(7, "user__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.invoice__2_, "invoice__2_", typeof(global::Menu.Properties.Resources), 8);
+            this.imageCollection1_x32.Images.SetKeyName(8, "invoice__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.closeCash__2_, "closeCash__2_", typeof(global::Menu.Properties.Resources), 9);
+            this.imageCollection1_x32.Images.SetKeyName(9, "closeCash__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.breads__2_, "breads__2_", typeof(global::Menu.Properties.Resources), 10);
+            this.imageCollection1_x32.Images.SetKeyName(10, "breads__2_");
             // 
             // ribbonPage1
             // 
@@ -245,138 +401,6 @@
             // 
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
             this.ribbonPageGroup12.Text = "Gastos y pagos";
-            // 
-            // imageCollection1_x16
-            // 
-            this.imageCollection1_x16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1_x16.ImageStream")));
-            this.imageCollection1_x16.Images.SetKeyName(0, "help32x32.png");
-            this.imageCollection1_x16.Images.SetKeyName(1, "customer.png");
-            this.imageCollection1_x16.Images.SetKeyName(2, "specialOrder.png");
-            this.imageCollection1_x16.Images.SetKeyName(3, "roles.png");
-            this.imageCollection1_x16.Images.SetKeyName(4, "specialOrderInvoice.png");
-            this.imageCollection1_x16.Images.SetKeyName(5, "log_out_32.png");
-            this.imageCollection1_x16.Images.SetKeyName(6, "disconnect.png");
-            this.imageCollection1_x16.Images.SetKeyName(7, "user.png");
-            this.imageCollection1_x16.Images.SetKeyName(8, "invoice.png");
-            this.imageCollection1_x16.Images.SetKeyName(9, "closeCash.png");
-            this.imageCollection1_x16.Images.SetKeyName(10, "breads.png");
-            // 
-            // imageCollection1_x32
-            // 
-            this.imageCollection1_x32.ImageSize = new System.Drawing.Size(32, 32);
-            this.imageCollection1_x32.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1_x32.ImageStream")));
-            this.imageCollection1_x32.Images.SetKeyName(0, "help32x32 (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(1, "customer (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(2, "specialOrder (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(3, "roles (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(4, "specialOrderInvoice (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(5, "log_out_32 (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(6, "disconnect (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(7, "user (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(8, "invoice (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(9, "closeCash (2).png");
-            this.imageCollection1_x32.Images.SetKeyName(10, "breads (2).png");
-            // 
-            // iSalir
-            // 
-            this.iSalir.Caption = "Salir";
-            this.iSalir.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iSalir.Description = "Salir del sistema Pan Lucho";
-            this.iSalir.Hint = "Salir del sistema Pan Lucho.";
-            this.iSalir.Id = 1;
-            this.iSalir.ImageIndex = 5;
-            this.iSalir.LargeImageIndex = 5;
-            this.iSalir.Name = "iSalir";
-            // 
-            // iCerrarSesion
-            // 
-            this.iCerrarSesion.Caption = "Cerrar sesión";
-            this.iCerrarSesion.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iCerrarSesion.Description = "Cierra la sesión actual para poder ingresar con un usuario diferente, sin salir d" +
-    "el sistema";
-            this.iCerrarSesion.Hint = "Cierra la sesión actual para poder ingresar con un usuario diferente, sin salir d" +
-    "el sistema.";
-            this.iCerrarSesion.Id = 2;
-            this.iCerrarSesion.ImageIndex = 6;
-            this.iCerrarSesion.LargeImageIndex = 6;
-            this.iCerrarSesion.Name = "iCerrarSesion";
-            // 
-            // iUsuarios
-            // 
-            this.iUsuarios.Caption = "Usuarios";
-            this.iUsuarios.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iUsuarios.Description = "Editar información variada de los usuarios";
-            this.iUsuarios.Hint = "Editar información variada de los usuarios.";
-            this.iUsuarios.Id = 3;
-            this.iUsuarios.ImageIndex = 7;
-            this.iUsuarios.LargeImageIndex = 7;
-            this.iUsuarios.Name = "iUsuarios";
-            // 
-            // iRoles
-            // 
-            this.iRoles.Caption = "Roles";
-            this.iRoles.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iRoles.Description = "Administrar los permisos que poseen los usuarios";
-            this.iRoles.Hint = "Administrar los permisos que poseen los usuarios.";
-            this.iRoles.Id = 4;
-            this.iRoles.ImageIndex = 3;
-            this.iRoles.LargeImageIndex = 3;
-            this.iRoles.Name = "iRoles";
-            // 
-            // iFactura
-            // 
-            this.iFactura.Caption = "Facturar";
-            this.iFactura.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iFactura.Description = "Registar la venta de los productos";
-            this.iFactura.Hint = "Registar la venta de los productos.";
-            this.iFactura.Id = 5;
-            this.iFactura.ImageIndex = 8;
-            this.iFactura.LargeImageIndex = 8;
-            this.iFactura.Name = "iFactura";
-            // 
-            // iClientes
-            // 
-            this.iClientes.Caption = "Clientes";
-            this.iClientes.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iClientes.Description = "Registrar información acerca de los clientes";
-            this.iClientes.Hint = "Registrar información acerca de los clientes.";
-            this.iClientes.Id = 6;
-            this.iClientes.ImageIndex = 1;
-            this.iClientes.LargeImageIndex = 1;
-            this.iClientes.Name = "iClientes";
-            // 
-            // iPedidoEspecial
-            // 
-            this.iPedidoEspecial.Caption = "Pedido especial";
-            this.iPedidoEspecial.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iPedidoEspecial.Description = "Registra información detallada de un pedido con características inusuales";
-            this.iPedidoEspecial.Hint = "Registra información detallada de un pedido con características inusuales.";
-            this.iPedidoEspecial.Id = 7;
-            this.iPedidoEspecial.ImageIndex = 2;
-            this.iPedidoEspecial.LargeImageIndex = 2;
-            this.iPedidoEspecial.Name = "iPedidoEspecial";
-            // 
-            // iPedidoProductos
-            // 
-            this.iPedidoProductos.Caption = "Pedidos productos";
-            this.iPedidoProductos.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iPedidoProductos.Description = "Se crean requerimientos de productos faltantes a la matriz";
-            this.iPedidoProductos.Hint = "Se crean requerimientos de productos faltantes a la matriz.";
-            this.iPedidoProductos.Id = 8;
-            this.iPedidoProductos.ImageIndex = 10;
-            this.iPedidoProductos.LargeImageIndex = 10;
-            this.iPedidoProductos.Name = "iPedidoProductos";
-            // 
-            // iCierreCaja
-            // 
-            this.iCierreCaja.Caption = "Cierre de caja";
-            this.iCierreCaja.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.iCierreCaja.Description = "Se realiza el proceso de cierre de caja";
-            this.iCierreCaja.Hint = "Se realiza el proceso de cierre de caja.";
-            this.iCierreCaja.Id = 9;
-            this.iCierreCaja.ImageIndex = 9;
-            this.iCierreCaja.LargeImageIndex = 9;
-            this.iCierreCaja.Name = "iCierreCaja";
             // 
             // FrmMenuPrincipal
             // 

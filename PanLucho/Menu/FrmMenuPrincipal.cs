@@ -15,5 +15,23 @@ namespace Menu
         {
             InitializeComponent();
         }
+
+        private void iSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                Application.Exit();
+                this.Dispose(true);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void iClientes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+        }
     }
 }

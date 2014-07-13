@@ -76,6 +76,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,6 +87,42 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\breads %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeCash %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help32x32 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_out_32 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roles %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\specialOrder %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\specialOrderInvoice %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
