@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.switchButton1 = new DevComponents.DotNetBar.Controls.SwitchButton();
-            this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
@@ -46,22 +45,36 @@
             this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDesripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
+            this.groupPanel2.SuspendLayout();
+            this.groupPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.pictureEdit1);
             this.groupPanel1.Controls.Add(this.labelX8);
             this.groupPanel1.Controls.Add(this.switchButton1);
-            this.groupPanel1.Controls.Add(this.textBoxX7);
-            this.groupPanel1.Controls.Add(this.textBoxX6);
-            this.groupPanel1.Controls.Add(this.textBoxX5);
-            this.groupPanel1.Controls.Add(this.labelX7);
-            this.groupPanel1.Controls.Add(this.labelX6);
-            this.groupPanel1.Controls.Add(this.labelX5);
             this.groupPanel1.Controls.Add(this.labelX4);
             this.groupPanel1.Controls.Add(this.labelX3);
             this.groupPanel1.Controls.Add(this.labelX2);
@@ -73,7 +86,7 @@
             this.groupPanel1.Controls.Add(this.textBoxX1);
             this.groupPanel1.Location = new System.Drawing.Point(12, 63);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(764, 209);
+            this.groupPanel1.Size = new System.Drawing.Size(535, 209);
             // 
             // 
             // 
@@ -118,18 +131,6 @@
             this.switchButton1.TabIndex = 9;
             this.switchButton1.ValueChanged += new System.EventHandler(this.switchButton1_ValueChanged);
             // 
-            // textBoxX7
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX7.Border.Class = "TextBoxBorder";
-            this.textBoxX7.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX7.Location = new System.Drawing.Point(628, 105);
-            this.textBoxX7.Name = "textBoxX7";
-            this.textBoxX7.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX7.TabIndex = 5;
-            // 
             // textBoxX6
             // 
             // 
@@ -137,7 +138,7 @@
             // 
             this.textBoxX6.Border.Class = "TextBoxBorder";
             this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX6.Location = new System.Drawing.Point(628, 58);
+            this.textBoxX6.Location = new System.Drawing.Point(157, 61);
             this.textBoxX6.Name = "textBoxX6";
             this.textBoxX6.Size = new System.Drawing.Size(100, 20);
             this.textBoxX6.TabIndex = 5;
@@ -149,25 +150,10 @@
             // 
             this.textBoxX5.Border.Class = "TextBoxBorder";
             this.textBoxX5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX5.Location = new System.Drawing.Point(628, 15);
+            this.textBoxX5.Location = new System.Drawing.Point(157, 18);
             this.textBoxX5.Name = "textBoxX5";
             this.textBoxX5.Size = new System.Drawing.Size(100, 20);
             this.textBoxX5.TabIndex = 5;
-            // 
-            // labelX7
-            // 
-            this.labelX7.AutoSize = true;
-            this.labelX7.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX7.Location = new System.Drawing.Point(537, 100);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(85, 26);
-            this.labelX7.TabIndex = 8;
-            this.labelX7.Text = "CAMBIO:";
             // 
             // labelX6
             // 
@@ -177,12 +163,13 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX6.Location = new System.Drawing.Point(498, 58);
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX6.Location = new System.Drawing.Point(52, 60);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(124, 26);
+            this.labelX6.Size = new System.Drawing.Size(92, 21);
             this.labelX6.TabIndex = 8;
-            this.labelX6.Text = "POR PAGAR:";
+            this.labelX6.Text = "IVA (12%): ";
+            this.labelX6.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // labelX5
             // 
@@ -192,12 +179,13 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX5.Location = new System.Drawing.Point(551, 16);
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX5.Location = new System.Drawing.Point(68, 17);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(71, 26);
+            this.labelX5.Size = new System.Drawing.Size(78, 21);
             this.labelX5.TabIndex = 7;
-            this.labelX5.Text = "TOTAL:";
+            this.labelX5.Text = "Sub Total:";
+            this.labelX5.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // labelX4
             // 
@@ -320,9 +308,17 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel2.Location = new System.Drawing.Point(12, 291);
+            this.groupPanel2.Controls.Add(this.labelX7);
+            this.groupPanel2.Controls.Add(this.labelX9);
+            this.groupPanel2.Controls.Add(this.textBoxX7);
+            this.groupPanel2.Controls.Add(this.textBoxX8);
+            this.groupPanel2.Controls.Add(this.labelX5);
+            this.groupPanel2.Controls.Add(this.labelX6);
+            this.groupPanel2.Controls.Add(this.textBoxX6);
+            this.groupPanel2.Controls.Add(this.textBoxX5);
+            this.groupPanel2.Location = new System.Drawing.Point(553, 63);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(764, 147);
+            this.groupPanel2.Size = new System.Drawing.Size(266, 209);
             // 
             // 
             // 
@@ -352,7 +348,74 @@
             // 
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 1;
-            this.groupPanel2.Text = "Detalle de artículo(s)";
+            this.groupPanel2.Text = "Desglose";
+            // 
+            // groupPanel3
+            // 
+            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.dataGridViewX1);
+            this.groupPanel3.Location = new System.Drawing.Point(12, 291);
+            this.groupPanel3.Name = "groupPanel3";
+            this.groupPanel3.Size = new System.Drawing.Size(807, 217);
+            // 
+            // 
+            // 
+            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel3.Style.BackColorGradientAngle = 90;
+            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderBottomWidth = 1;
+            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderLeftWidth = 1;
+            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderRightWidth = 1;
+            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderTopWidth = 1;
+            this.groupPanel3.Style.CornerDiameter = 4;
+            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel3.TabIndex = 1;
+            this.groupPanel3.Text = "Detalle producto(s)";
+            // 
+            // dataGridViewX1
+            // 
+            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigo,
+            this.colDesripcion,
+            this.colPresentacion,
+            this.colDescuento,
+            this.colPrecio,
+            this.colCantidad,
+            this.colTotal,
+            this.colStock});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewX1.Name = "dataGridViewX1";
+            this.dataGridViewX1.RowTemplate.Height = 24;
+            this.dataGridViewX1.Size = new System.Drawing.Size(801, 196);
+            this.dataGridViewX1.TabIndex = 0;
             // 
             // labelX8
             // 
@@ -368,19 +431,133 @@
             this.labelX8.TabIndex = 7;
             this.labelX8.Text = "Factura: CONSUMIDOR FINAL";
             // 
+            // labelX7
+            // 
+            this.labelX7.AutoSize = true;
+            this.labelX7.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX7.Location = new System.Drawing.Point(59, 105);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(87, 21);
+            this.labelX7.TabIndex = 11;
+            this.labelX7.Text = "Descuento:";
+            this.labelX7.TextAlignment = System.Drawing.StringAlignment.Far;
+            // 
+            // labelX9
+            // 
+            this.labelX9.AutoSize = true;
+            this.labelX9.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX9.Location = new System.Drawing.Point(8, 142);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(138, 21);
+            this.labelX9.TabIndex = 12;
+            this.labelX9.Text = "TOTAL A PAGAR:";
+            this.labelX9.TextAlignment = System.Drawing.StringAlignment.Far;
+            // 
+            // textBoxX7
+            // 
+            // 
+            // 
+            // 
+            this.textBoxX7.Border.Class = "TextBoxBorder";
+            this.textBoxX7.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxX7.Location = new System.Drawing.Point(157, 143);
+            this.textBoxX7.Name = "textBoxX7";
+            this.textBoxX7.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX7.TabIndex = 9;
+            // 
+            // textBoxX8
+            // 
+            // 
+            // 
+            // 
+            this.textBoxX8.Border.Class = "TextBoxBorder";
+            this.textBoxX8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxX8.Location = new System.Drawing.Point(157, 100);
+            this.textBoxX8.Name = "textBoxX8";
+            this.textBoxX8.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX8.TabIndex = 10;
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(414, 3);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Size = new System.Drawing.Size(100, 96);
+            this.pictureEdit1.TabIndex = 10;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            // 
+            // colDesripcion
+            // 
+            this.colDesripcion.HeaderText = "Descripción";
+            this.colDesripcion.Name = "colDesripcion";
+            // 
+            // colPresentacion
+            // 
+            this.colPresentacion.HeaderText = "Presentación";
+            this.colPresentacion.Name = "colPresentacion";
+            this.colPresentacion.ReadOnly = true;
+            // 
+            // colDescuento
+            // 
+            this.colDescuento.HeaderText = "Descuento %";
+            this.colDescuento.Name = "colDescuento";
+            this.colDescuento.ReadOnly = true;
+            // 
+            // colPrecio
+            // 
+            this.colPrecio.HeaderText = "P.Unitario";
+            this.colPrecio.Name = "colPrecio";
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.Name = "colCantidad";
+            // 
+            // colTotal
+            // 
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            // 
+            // colStock
+            // 
+            this.colStock.HeaderText = "Disp.Stock";
+            this.colStock.Name = "colStock";
+            this.colStock.ReadOnly = true;
+            // 
             // FrmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 450);
+            this.ClientSize = new System.Drawing.Size(835, 520);
+            this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Name = "FrmFactura";
             this.Text = "FrmFactura";
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.Controls.SetChildIndex(this.groupPanel2, 0);
+            this.Controls.SetChildIndex(this.groupPanel3, 0);
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            this.groupPanel2.ResumeLayout(false);
+            this.groupPanel2.PerformLayout();
+            this.groupPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,10 +566,8 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX7;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX6;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX5;
-        private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.LabelX labelX4;
@@ -406,7 +581,22 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private DevComponents.DotNetBar.Controls.SwitchButton switchButton1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX7;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDesripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPresentacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
 
 
     }
