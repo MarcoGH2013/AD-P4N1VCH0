@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ClbCierreCaja;
+using ClbUsuarios;
+//using ClbClientes;
 
 namespace Menu
 {
@@ -34,7 +36,16 @@ namespace Menu
 
         private void iClientes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            try
+            {
+                //this.MdiParent = null;
+                //FrmCliente f = new FrmCliente();
+                //f.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,6 +75,16 @@ namespace Menu
 
         private void iCerrarSesion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+        }
+
+        private void iUsuarios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

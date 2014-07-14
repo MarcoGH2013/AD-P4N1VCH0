@@ -95,7 +95,7 @@
             this.ribbonPage3,
             this.ribbonPage4,
             this.ribbonPage5});
-            this.ribbon.Size = new System.Drawing.Size(665, 142);
+            this.ribbon.Size = new System.Drawing.Size(784, 142);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // imageCollection1_x16
@@ -160,6 +160,7 @@
             this.iUsuarios.ImageIndex = 7;
             this.iUsuarios.LargeImageIndex = 7;
             this.iUsuarios.Name = "iUsuarios";
+            this.iUsuarios.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iUsuarios_ItemClick);
             // 
             // iRoles
             // 
@@ -311,6 +312,7 @@
             this.Pedidos});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "INVENTARIO";
+            this.ribbonPage4.Visible = false;
             // 
             // Pedidos
             // 
@@ -333,10 +335,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 416);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 537);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(665, 27);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(784, 27);
             // 
             // ribbonPage6
             // 
@@ -408,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 443);
+            this.ClientSize = new System.Drawing.Size(784, 564);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -416,6 +418,7 @@
             this.Text = "FrmMenuPrincipal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenuPrincipal_FormClosed);
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1_x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1_x32)).EndInit();
