@@ -73,7 +73,7 @@ namespace Menu
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Bauhaus 93", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelControl4.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
-            this.labelControl4.Location = new System.Drawing.Point(0, 136);
+            this.labelControl4.Location = new System.Drawing.Point(51, 136);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(187, 39);
             this.labelControl4.TabIndex = 5;
@@ -111,7 +111,7 @@ namespace Menu
             this.AcceptButton = this.simpleButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 174);
+            this.ClientSize = new System.Drawing.Size(281, 172);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.labelControl4);
@@ -124,6 +124,7 @@ namespace Menu
             this.MaximumSize = new System.Drawing.Size(297, 210);
             this.MinimumSize = new System.Drawing.Size(297, 210);
             this.Name = "FrmSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PanLucho - Inicio de sesión";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSesion_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();

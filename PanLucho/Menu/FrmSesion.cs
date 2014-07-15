@@ -28,6 +28,7 @@ namespace Menu
             {
                 FrmMenuPrincipal f = new FrmMenuPrincipal();
                 f.Show();
+                f.WindowState=FormWindowState.Maximized;
                 if (Application.OpenForms["FrmMenuPrincipal"] != null)
                 {
                     this.Visible = false;

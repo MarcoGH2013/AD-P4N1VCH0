@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ClbCierreCaja;
+using ClbClientes;
+using ClbFacturas;
+using ClbPedidosEspeciales;
+using ClbRoles;
 using ClbUsuarios;
-//using ClbClientes;
+
 
 namespace Menu
 {
-    public partial class FrmMenuPrincipal : Form
+    public partial class FrmMenuPrincipal : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private FrmSesion oFrmSesion= new FrmSesion();
 
@@ -39,8 +43,9 @@ namespace Menu
             try
             {
                 //this.MdiParent = null;
-                //FrmCliente f = new FrmCliente();
-                //f.ShowDialog();
+                FrmCliente f = new FrmCliente();
+                f.StartPosition=FormStartPosition.CenterScreen;
+                f.ShowDialog();
             }
             catch (Exception exception)
             {
@@ -70,21 +75,87 @@ namespace Menu
 
         private void iCierreCaja_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            try
+            {
+                //this.MdiParent = null;
+                FrmCierreCaja f = new FrmCierreCaja();
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         private void iCerrarSesion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
         }
 
         private void iUsuarios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            try
+            {
+                //this.MdiParent = null;
+                FrmUsuarios f = new FrmUsuarios();
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void iRoles_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                //this.MdiParent = null;
+                FrmRoles f = new FrmRoles();
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
+
+        private void iFactura_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                //this.MdiParent = null;
+                FrmFactura f = new FrmFactura();
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
+
+        private void iPedidoEspecial_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                //this.MdiParent = null;
+                FrmPedidosEspeciales f = new FrmPedidosEspeciales();
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 }

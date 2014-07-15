@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection1_x16 = new DevExpress.Utils.ImageCollection();
             this.iSalir = new DevExpress.XtraBars.BarButtonItem();
             this.iCerrarSesion = new DevExpress.XtraBars.BarButtonItem();
             this.iUsuarios = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +40,7 @@
             this.iPedidoEspecial = new DevExpress.XtraBars.BarButtonItem();
             this.iPedidoProductos = new DevExpress.XtraBars.BarButtonItem();
             this.iCierreCaja = new DevExpress.XtraBars.BarButtonItem();
-            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -95,7 +94,8 @@
             this.ribbonPage3,
             this.ribbonPage4,
             this.ribbonPage5});
-            this.ribbon.Size = new System.Drawing.Size(784, 142);
+            this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
+            this.ribbon.Size = new System.Drawing.Size(784, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // imageCollection1_x16
@@ -172,6 +172,7 @@
             this.iRoles.ImageIndex = 3;
             this.iRoles.LargeImageIndex = 3;
             this.iRoles.Name = "iRoles";
+            this.iRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iRoles_ItemClick);
             // 
             // iFactura
             // 
@@ -183,6 +184,7 @@
             this.iFactura.ImageIndex = 8;
             this.iFactura.LargeImageIndex = 8;
             this.iFactura.Name = "iFactura";
+            this.iFactura.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iFactura_ItemClick);
             // 
             // iClientes
             // 
@@ -206,6 +208,7 @@
             this.iPedidoEspecial.ImageIndex = 2;
             this.iPedidoEspecial.LargeImageIndex = 2;
             this.iPedidoEspecial.Name = "iPedidoEspecial";
+            this.iPedidoEspecial.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iPedidoEspecial_ItemClick);
             // 
             // iPedidoProductos
             // 
@@ -335,10 +338,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 537);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 533);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(784, 27);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(784, 31);
             // 
             // ribbonPage6
             // 
@@ -415,7 +418,10 @@
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
             this.Name = "FrmMenuPrincipal";
-            this.Text = "FrmMenuPrincipal";
+            this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StatusBar = this.ribbonStatusBar;
+            this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenuPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
