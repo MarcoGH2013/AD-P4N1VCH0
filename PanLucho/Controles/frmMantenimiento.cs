@@ -123,6 +123,7 @@ namespace Controles
             // 
             this.ClientSize = new System.Drawing.Size(530, 420);
             this.Controls.Add(this.tstMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMantenimiento";
             this.tstMenu.ResumeLayout(false);
             this.tstMenu.PerformLayout();
