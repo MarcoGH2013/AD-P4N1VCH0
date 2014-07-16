@@ -61,5 +61,11 @@ namespace ClbFacturas
             }
             
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            frmConsulta fcon=new frmConsulta();
+            fcon.ShowDialog();
+        }
     }
 }

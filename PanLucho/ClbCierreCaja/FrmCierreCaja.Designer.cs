@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.class2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.class2BindingSource = new System.Windows.Forms.BindingSource();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colReferencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBanco = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,7 +39,7 @@
             this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.class1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.class1BindingSource = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRuc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,7 +48,7 @@
             this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.class3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.class3BindingSource = new System.Windows.Forms.BindingSource();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRubro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValor2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -356,7 +355,7 @@
             this.ClientSize = new System.Drawing.Size(924, 543);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmCierreCaja";
-            this.Text = "FrmCierreCaja";
+            this.Text = "Cierre de caja";
             this.Controls.SetChildIndex(this.groupControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

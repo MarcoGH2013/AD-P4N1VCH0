@@ -35,6 +35,7 @@ namespace Menu
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
@@ -52,12 +53,17 @@ namespace Menu
             // 
             // lookUpEdit1
             // 
+            this.lookUpEdit1.EditValue = "Matriz";
             this.lookUpEdit1.Location = new System.Drawing.Point(81, 82);
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre2", "Nombre2"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre3", "Nombre3")});
             this.lookUpEdit1.Size = new System.Drawing.Size(162, 20);
             this.lookUpEdit1.TabIndex = 3;
+            this.lookUpEdit1.Visible = false;
             // 
             // labelControl1
             // 
@@ -106,12 +112,23 @@ namespace Menu
             this.txtUser.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.txtUser.ToolTipTitle = "Usuario";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Matriz"});
+            this.comboBox1.Location = new System.Drawing.Point(98, 81);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 6;
+            // 
             // FrmSesion
             // 
             this.AcceptButton = this.simpleButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 172);
+            this.ClientSize = new System.Drawing.Size(281, 174);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.labelControl4);
@@ -143,5 +160,6 @@ namespace Menu
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtPass;
         private DevExpress.XtraEditors.TextEdit txtUser;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
     }

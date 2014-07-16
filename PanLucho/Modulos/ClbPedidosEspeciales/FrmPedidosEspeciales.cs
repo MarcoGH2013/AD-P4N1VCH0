@@ -16,5 +16,12 @@ namespace ClbPedidosEspeciales
         {
             InitializeComponent();
         }
+
+        protected override void Buscar()
+        {
+            base.Buscar();
+            frmConsulta fcon = new frmConsulta();
+            fcon.ShowDialog();
+        }
     }
 }

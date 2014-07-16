@@ -136,7 +136,7 @@
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.Location = new System.Drawing.Point(79, 3);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(141, 17);
+            this.labelX8.Size = new System.Drawing.Size(156, 15);
             this.labelX8.TabIndex = 7;
             this.labelX8.Text = "Factura: CONSUMIDOR FINAL";
             // 
@@ -163,7 +163,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Location = new System.Drawing.Point(25, 166);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(45, 17);
+            this.labelX4.Size = new System.Drawing.Size(48, 15);
             this.labelX4.TabIndex = 7;
             this.labelX4.Text = "Teléfono:";
             // 
@@ -177,7 +177,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(21, 115);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(48, 17);
+            this.labelX3.Size = new System.Drawing.Size(52, 15);
             this.labelX3.TabIndex = 7;
             this.labelX3.Text = "Dirección:";
             // 
@@ -191,7 +191,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(33, 78);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(37, 17);
+            this.labelX2.Size = new System.Drawing.Size(40, 15);
             this.labelX2.TabIndex = 7;
             this.labelX2.Text = "Cliente:";
             // 
@@ -205,7 +205,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Location = new System.Drawing.Point(3, 43);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(65, 17);
+            this.labelX1.Size = new System.Drawing.Size(70, 15);
             this.labelX1.TabIndex = 6;
             this.labelX1.Text = "Identificación:";
             // 
@@ -219,6 +219,7 @@
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 5;
             this.buttonX1.Text = "Buscar";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // textBoxX4
             // 
@@ -231,7 +232,7 @@
             this.textBoxX4.ForeColor = System.Drawing.Color.Black;
             this.textBoxX4.Location = new System.Drawing.Point(79, 161);
             this.textBoxX4.Name = "textBoxX4";
-            this.textBoxX4.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX4.Size = new System.Drawing.Size(100, 20);
             this.textBoxX4.TabIndex = 4;
             // 
             // textBoxX3
@@ -261,7 +262,7 @@
             this.textBoxX2.ForeColor = System.Drawing.Color.Black;
             this.textBoxX2.Location = new System.Drawing.Point(79, 77);
             this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(297, 22);
+            this.textBoxX2.Size = new System.Drawing.Size(297, 20);
             this.textBoxX2.TabIndex = 2;
             // 
             // textBoxX1
@@ -275,7 +276,7 @@
             this.textBoxX1.ForeColor = System.Drawing.Color.Black;
             this.textBoxX1.Location = new System.Drawing.Point(79, 42);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX1.Size = new System.Drawing.Size(100, 20);
             this.textBoxX1.TabIndex = 1;
             // 
             // textBoxX6
@@ -289,7 +290,7 @@
             this.textBoxX6.ForeColor = System.Drawing.Color.Black;
             this.textBoxX6.Location = new System.Drawing.Point(157, 61);
             this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX6.Size = new System.Drawing.Size(100, 20);
             this.textBoxX6.TabIndex = 5;
             // 
             // textBoxX5
@@ -303,7 +304,7 @@
             this.textBoxX5.ForeColor = System.Drawing.Color.Black;
             this.textBoxX5.Location = new System.Drawing.Point(157, 18);
             this.textBoxX5.Name = "textBoxX5";
-            this.textBoxX5.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX5.Size = new System.Drawing.Size(100, 20);
             this.textBoxX5.TabIndex = 5;
             // 
             // labelX6
@@ -428,7 +429,7 @@
             this.textBoxX7.ForeColor = System.Drawing.Color.Black;
             this.textBoxX7.Location = new System.Drawing.Point(157, 143);
             this.textBoxX7.Name = "textBoxX7";
-            this.textBoxX7.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX7.Size = new System.Drawing.Size(100, 20);
             this.textBoxX7.TabIndex = 9;
             // 
             // textBoxX8
@@ -442,7 +443,7 @@
             this.textBoxX8.ForeColor = System.Drawing.Color.Black;
             this.textBoxX8.Location = new System.Drawing.Point(157, 100);
             this.textBoxX8.Name = "textBoxX8";
-            this.textBoxX8.Size = new System.Drawing.Size(100, 22);
+            this.textBoxX8.Size = new System.Drawing.Size(100, 20);
             this.textBoxX8.TabIndex = 10;
             // 
             // groupPanel3
@@ -506,11 +507,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.RowTemplate.Height = 24;
-            this.dataGridViewX1.Size = new System.Drawing.Size(801, 194);
+            this.dataGridViewX1.Size = new System.Drawing.Size(801, 196);
             this.dataGridViewX1.TabIndex = 0;
             // 
             // colCodigo

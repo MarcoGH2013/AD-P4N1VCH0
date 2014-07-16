@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Componentes.Transaccion;
 using Controles;
+using Componentes;
 
 namespace ClbUsuarios
 {
@@ -15,6 +17,26 @@ namespace ClbUsuarios
         public FrmUsuarios()
         {
             InitializeComponent();
+        }
+
+        protected override void Buscar()
+        {
+            base.Buscar();
+            frmConsulta fcon = new frmConsulta();
+
+            //List<Usuario> lstUsuarios = new List<Usuario>();
+            //Usuario u= new Usuario();
+            //u.Nick = "admin";
+            //u.contrasena = "12345";
+            //u.rol = "administrador";
+            //u.nombre = "Marco";
+            //u.apellido = "Castro";
+            //u.email = "macastro@espol.edu.ec";
+            //lstUsuarios.Add(u);
+
+            ////fcon.CargarGrid(lstUsuarios);
+            //fcon.gridControl1.DataSource = lstUsuarios;
+            fcon.ShowDialog();
         }
     }
 }

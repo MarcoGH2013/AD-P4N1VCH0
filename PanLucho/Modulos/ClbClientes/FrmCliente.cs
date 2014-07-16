@@ -157,6 +157,8 @@ namespace ClbClientes
         protected override void Buscar()
         {
             base.Buscar();
+            frmConsulta fcon = new frmConsulta();
+            fcon.ShowDialog();
             
         }
 

@@ -41,6 +41,7 @@
             this.iPedidoEspecial = new DevExpress.XtraBars.BarButtonItem();
             this.iPedidoProductos = new DevExpress.XtraBars.BarButtonItem();
             this.iCierreCaja = new DevExpress.XtraBars.BarButtonItem();
+            this.iReporteFacturas = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection1_x32 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -49,6 +50,7 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Pedidos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -84,10 +86,11 @@
             this.iClientes,
             this.iPedidoEspecial,
             this.iPedidoProductos,
-            this.iCierreCaja});
+            this.iCierreCaja,
+            this.iReporteFacturas});
             this.ribbon.LargeImages = this.imageCollection1_x32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 10;
+            this.ribbon.MaxItemId = 11;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -124,6 +127,8 @@
             this.imageCollection1_x16.Images.SetKeyName(9, "closeCash__2_");
             this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.breads__2_, "breads__2_", typeof(global::Menu.Properties.Resources), 10);
             this.imageCollection1_x16.Images.SetKeyName(10, "breads__2_");
+            this.imageCollection1_x16.InsertImage(global::Menu.Properties.Resources.reports__2_, "reports__2_", typeof(global::Menu.Properties.Resources), 11);
+            this.imageCollection1_x16.Images.SetKeyName(11, "reports__2_");
             // 
             // iSalir
             // 
@@ -234,6 +239,18 @@
             this.iCierreCaja.Name = "iCierreCaja";
             this.iCierreCaja.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCierreCaja_ItemClick);
             // 
+            // iReporteFacturas
+            // 
+            this.iReporteFacturas.Caption = "Facturas emitidas";
+            this.iReporteFacturas.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.iReporteFacturas.Description = "Crea reportes según criterios elegidos";
+            this.iReporteFacturas.Hint = "Crea reportes según criterios elegidos.";
+            this.iReporteFacturas.Id = 10;
+            this.iReporteFacturas.ImageIndex = 11;
+            this.iReporteFacturas.LargeImageIndex = 11;
+            this.iReporteFacturas.Name = "iReporteFacturas";
+            this.iReporteFacturas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iReporteFacturas_ItemClick);
+            // 
             // imageCollection1_x32
             // 
             this.imageCollection1_x32.ImageSize = new System.Drawing.Size(32, 32);
@@ -260,6 +277,8 @@
             this.imageCollection1_x32.Images.SetKeyName(9, "closeCash__2_");
             this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.breads__2_, "breads__2_", typeof(global::Menu.Properties.Resources), 10);
             this.imageCollection1_x32.Images.SetKeyName(10, "breads__2_");
+            this.imageCollection1_x32.InsertImage(global::Menu.Properties.Resources.reports__2_, "reports__2_", typeof(global::Menu.Properties.Resources), 11);
+            this.imageCollection1_x32.Images.SetKeyName(11, "reports__2_");
             // 
             // ribbonPage1
             // 
@@ -293,7 +312,8 @@
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup5});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "VENTAS";
             // 
@@ -309,6 +329,12 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.iPedidoEspecial);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Pedidos";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.iReporteFacturas);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Reportes";
             // 
             // ribbonPage4
             // 
@@ -470,6 +496,8 @@
         private DevExpress.XtraBars.BarButtonItem iPedidoEspecial;
         private DevExpress.XtraBars.BarButtonItem iPedidoProductos;
         private DevExpress.XtraBars.BarButtonItem iCierreCaja;
+        private DevExpress.XtraBars.BarButtonItem iReporteFacturas;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
 
     }
 }

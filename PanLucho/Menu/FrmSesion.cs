@@ -22,7 +22,7 @@ namespace Menu
         {
             if ((string.IsNullOrWhiteSpace(txtUser.Text)) || (string.IsNullOrWhiteSpace(txtPass.Text)))
             {
-                MessageBox.Show("Falta uno o más campos", "Pan Lucho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Falta uno o más campos", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -44,5 +44,6 @@ namespace Menu
         {
             Application.Exit();
         }
+
     }
 }

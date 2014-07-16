@@ -167,5 +167,20 @@ namespace Menu
                 return false;
             }
         }
+
+        private void iReporteFacturas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                FrmReporteFactura f = new FrmReporteFactura();
+                f.MdiParent = this;
+                f.Show();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+
+        }
     }
 }
