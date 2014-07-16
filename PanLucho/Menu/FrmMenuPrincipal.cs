@@ -42,10 +42,9 @@ namespace Menu
         {
             try
             {
-                //this.MdiParent = null;
-                FrmCliente f = new FrmCliente();
-                f.StartPosition=FormStartPosition.CenterScreen;
-                f.ShowDialog();
+                 FrmCliente f = new FrmCliente();
+                    f.MdiParent = this;
+                    f.Show();   
             }
             catch (Exception exception)
             {
@@ -79,8 +78,8 @@ namespace Menu
             {
                 //this.MdiParent = null;
                 FrmCierreCaja f = new FrmCierreCaja();
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.ShowDialog();
+                f.MdiParent = this;
+                f.Show();
             }
             catch (Exception exception)
             {
@@ -99,8 +98,9 @@ namespace Menu
             {
                 //this.MdiParent = null;
                 FrmUsuarios f = new FrmUsuarios();
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.ShowDialog();
+                f.MdiParent = this;
+               // f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show();
             }
             catch (Exception exception)
             {
@@ -117,10 +117,9 @@ namespace Menu
         {
             try
             {
-                //this.MdiParent = null;
                 FrmRoles f = new FrmRoles();
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.ShowDialog();
+                f.MdiParent = this;
+                f.Show();
             }
             catch (Exception exception)
             {
@@ -132,10 +131,9 @@ namespace Menu
         {
             try
             {
-                //this.MdiParent = null;
                 FrmFactura f = new FrmFactura();
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.ShowDialog();
+                f.MdiParent = this;
+                f.Show();
             }
             catch (Exception exception)
             {
@@ -147,14 +145,26 @@ namespace Menu
         {
             try
             {
-                //this.MdiParent = null;
                 FrmPedidosEspeciales f = new FrmPedidosEspeciales();
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.ShowDialog();
+                f.MdiParent = this;
+                f.Show();
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
+            }
+        }
+
+        private bool noChild()
+        {
+            Form[] fcChild = MdiChildren;
+            if (fcChild.Count() == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
