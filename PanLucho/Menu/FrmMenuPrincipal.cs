@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Windows.Forms;
 using ClbCierreCaja;
@@ -12,6 +13,7 @@ using ClbFacturas;
 using ClbPedidosEspeciales;
 using ClbRoles;
 using ClbUsuarios;
+using DevExpress.XtraBars;
 
 
 namespace Menu
@@ -19,6 +21,7 @@ namespace Menu
     public partial class FrmMenuPrincipal : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private FrmSesion oFrmSesion= new FrmSesion();
+        private Form[] hijos;
 
         public FrmMenuPrincipal()
         {
@@ -38,13 +41,31 @@ namespace Menu
             }
         }
 
-        private void iClientes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void iClientes_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
-                 FrmCliente f = new FrmCliente();
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmCliente))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmCliente f = new FrmCliente();
                     f.MdiParent = this;
-                    f.Show();   
+                    f.Show();
+                }
             }
             catch (Exception exception)
             {
@@ -76,10 +97,27 @@ namespace Menu
         {
             try
             {
-                //this.MdiParent = null;
-                FrmCierreCaja f = new FrmCierreCaja();
-                f.MdiParent = this;
-                f.Show();
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmCierreCaja))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmCierreCaja f = new FrmCierreCaja();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
             catch (Exception exception)
             {
@@ -92,15 +130,31 @@ namespace Menu
 
         }
 
-        private void iUsuarios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void iUsuarios_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
-                //this.MdiParent = null;
-                FrmUsuarios f = new FrmUsuarios();
-                f.MdiParent = this;
-               // f.StartPosition = FormStartPosition.CenterScreen;
-                f.Show();
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmUsuarios))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmUsuarios f = new FrmUsuarios();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
             catch (Exception exception)
             {
@@ -117,9 +171,27 @@ namespace Menu
         {
             try
             {
-                FrmRoles f = new FrmRoles();
-                f.MdiParent = this;
-                f.Show();
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmRoles))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmRoles f = new FrmRoles();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
             catch (Exception exception)
             {
@@ -131,9 +203,27 @@ namespace Menu
         {
             try
             {
-                FrmFactura f = new FrmFactura();
-                f.MdiParent = this;
-                f.Show();
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmFactura))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmFactura f = new FrmFactura();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
             catch (Exception exception)
             {
@@ -145,9 +235,60 @@ namespace Menu
         {
             try
             {
-                FrmPedidosEspeciales f = new FrmPedidosEspeciales();
-                f.MdiParent = this;
-                f.Show();
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmPedidosEspeciales))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmPedidosEspeciales f = new FrmPedidosEspeciales();
+                    f.MdiParent = this;
+                    f.Show();
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
+
+       
+        private void iReporteFacturas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                hijos = MdiChildren;
+                bool mostrar = true;
+                if (hijos.Count() != 0)
+                {
+                    foreach (var frm in MdiChildren)
+                    {
+                        if (frm.GetType() == typeof(FrmReporteFactura))
+                        {
+                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            frm.Focus();
+                            mostrar = false;
+                        }
+                    }
+                }
+                if (mostrar == true)
+                {
+                    FrmReporteFactura f = new FrmReporteFactura();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
             catch (Exception exception)
             {
@@ -168,19 +309,5 @@ namespace Menu
             }
         }
 
-        private void iReporteFacturas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            try
-            {
-                FrmReporteFactura f = new FrmReporteFactura();
-                f.MdiParent = this;
-                f.Show();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-            }
-
-        }
     }
 }
