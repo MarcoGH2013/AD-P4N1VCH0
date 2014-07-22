@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.class2BindingSource = new System.Windows.Forms.BindingSource();
+            this.class2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colReferencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBanco = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,7 +40,7 @@
             this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.class1BindingSource = new System.Windows.Forms.BindingSource();
+            this.class1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRuc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,7 +49,7 @@
             this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.class3BindingSource = new System.Windows.Forms.BindingSource();
+            this.class3BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRubro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValor2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,6 +111,7 @@
             this.groupControl6.Size = new System.Drawing.Size(610, 145);
             this.groupControl6.TabIndex = 7;
             this.groupControl6.Text = "Total de depósitos";
+            this.groupControl6.Visible = false;
             // 
             // gridControl2
             // 

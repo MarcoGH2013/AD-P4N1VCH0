@@ -69,6 +69,7 @@ namespace Controles
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // frmConsulta
             // 
@@ -91,7 +92,7 @@ namespace Controles
 
         #endregion
 
-        Object oGenerico = new Object();
+        public Object oGenerico = new Object();
 
         public frmConsulta()
         {
@@ -118,6 +119,8 @@ namespace Controles
 
 
 
+
+
 #region "codigo sin uso"
         protected virtual void FillGrid()
         {
@@ -139,6 +142,25 @@ namespace Controles
             }
         }
 #endregion
+
+        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            oGenerico = getRow((DevExpress.XtraGrid.Views.Grid.GridView)sender);
+            Close();
+        }
+
+        private Object getRow(DevExpress.XtraGrid.Views.Grid.GridView view)
+        {
+            try
+            {
+                return (Object)view.GetRow(view.FocusedRowHandle);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
 
     }
 }
