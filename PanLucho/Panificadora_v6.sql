@@ -316,3 +316,43 @@ INSERT INTO [dbo].[FormaPago] ([Id] ,[Descripcion] ,[IdEstado] ,[FechaCreacion] 
 go
 INSERT INTO [dbo].[FormaPago] ([Id] ,[Descripcion] ,[IdEstado] ,[FechaCreacion] ,[FechaEdicion] ,[UserCreador] ,[UserEdicion])VALUES (2,  'TARJETA CREDITO',  1, 23-01-2012, 17-06-2012, 'lquinter', 'pxndx')  
 go
+
+
+CREATE TABLE Configuracion(
+	Tipo nchar(10) NULL,
+	Valor nchar(10) NULL,
+	Descripcion nchar(10) NULL
+) 
+GO
+
+CREATE TABLE Rol(
+	Id varchar(50) NULL,
+	Nombre nchar(10) NULL,
+	Descripcion nchar(10) NULL
+)
+go
+
+CREATE TABLE Modulo(
+	Id nchar(10) NULL,
+	IdModuloCategoria char(10) NULL,
+	Nombre nchar(10) NULL,
+	Descripcion nchar(10) NULL,
+	Assembly char(10) NULL,
+	LibreriaClase nchar(10) NULL,
+	NombreFormulario nchar(10) NULL,
+	Imagen nchar(10) NULL
+)
+go
+
+CREATE TABLE ModuloCategoria(
+	Id nchar(10) NULL,
+	Nombre nchar(10) NULL,
+	Descripcion nchar(10) NULL
+)
+go
+
+CREATE TABLE ModulosXRol(
+	IdRol nchar(10) NULL,
+	IdModulo nchar(10) NULL
+)
+go
