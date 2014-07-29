@@ -1,7 +1,7 @@
 --region Drop Existing Procedures
 
-IF OBJECT_ID(N'[dbo].[spInsertCliente]') IS NOT NULL
-	DROP PROCEDURE [dbo].[spInsertCliente]
+IF OBJECT_ID(N'[dbo].[spClienteInsertar]') IS NOT NULL
+	DROP PROCEDURE [dbo].[spClienteInsertar]
 
 --endregion
 
@@ -16,7 +16,7 @@ GO
 -- Date Generated: lunes, 28 de julio de 2014
 ------------------------------------------------------------------------------------------------------------------------
 
-CREATE PROCEDURE [dbo].[spInsertCliente]
+CREATE PROCEDURE [dbo].[spClienteInsertar]
 	@Id numeric(5, 0) output,
 	@Nombre varchar(100),
 	@Apellido varchar(100),
