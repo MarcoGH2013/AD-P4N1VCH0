@@ -343,6 +343,7 @@ namespace Componentes.ProveedorData
             var usuario = new Usuario();
             if (valorData != null)
             {
+                usuario.Id = (Decimal)valorData["Id"];
                 usuario.IdRol = (Decimal)valorData["IdRol"];
                 usuario.Nombre = (String)valorData["Nombre"];
                 usuario.Apellido = (String)valorData["Apellido"];

@@ -34,6 +34,9 @@
             this.txtApellido = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtNombre = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cbxRol = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.comboItem1 = new DevComponents.Editors.ComboItem();
+            this.comboItem2 = new DevComponents.Editors.ComboItem();
+            this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.txtRepetir = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtContraseña = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtUsuario = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -45,9 +48,6 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboItem1 = new DevComponents.Editors.ComboItem();
-            this.comboItem2 = new DevComponents.Editors.ComboItem();
-            this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +156,18 @@
             this.cbxRol.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbxRol.TabIndex = 11;
             // 
+            // comboItem1
+            // 
+            this.comboItem1.Text = "Administrador";
+            // 
+            // comboItem2
+            // 
+            this.comboItem2.Text = "Facturador";
+            // 
+            // comboItem3
+            // 
+            this.comboItem3.Text = "Pedidos";
+            // 
             // txtRepetir
             // 
             // 
@@ -165,6 +177,7 @@
             this.txtRepetir.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtRepetir.Location = new System.Drawing.Point(153, 70);
             this.txtRepetir.Name = "txtRepetir";
+            this.txtRepetir.PasswordChar = '#';
             this.txtRepetir.Size = new System.Drawing.Size(149, 22);
             this.txtRepetir.TabIndex = 10;
             // 
@@ -177,6 +190,7 @@
             this.txtContraseña.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtContraseña.Location = new System.Drawing.Point(153, 41);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '#';
             this.txtContraseña.Size = new System.Drawing.Size(149, 22);
             this.txtContraseña.TabIndex = 9;
             // 
@@ -293,18 +307,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // comboItem1
-            // 
-            this.comboItem1.Text = "Administrador";
-            // 
-            // comboItem2
-            // 
-            this.comboItem2.Text = "Facturador";
-            // 
-            // comboItem3
-            // 
-            this.comboItem3.Text = "Pedidos";
             // 
             // FrmUsuarios
             // 

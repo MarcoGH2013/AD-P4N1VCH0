@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ClbClientes;
 using ClbFacturas;
+using ClbUsuarios;
 using Menu;
 
 
@@ -20,7 +21,7 @@ namespace PanLuchoPrueba
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmCliente());
-            Application.Run(new FrmCliente());
+            Application.Run(new FrmUsuarios());
         }
     }
 }
