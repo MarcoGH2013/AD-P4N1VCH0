@@ -27,12 +27,12 @@ namespace ClbUsuarios
 
             var lstUsuarios = new List<Usuario>();
             var u = new Usuario();
-            u.Nick = "admin";
-            u.contrasena = "12345";
-            u.rol = "administrador";
-            u.nombre = "Marco";
-            u.apellido = "Castro";
-            u.email = "macastro@espol.edu.ec";
+            //u.Nick = "admin";
+            //u.contrasena = "12345";
+            //u.rol = "administrador";
+            //u.nombre = "Marco";
+            //u.apellido = "Castro";
+            //u.email = "macastro@espol.edu.ec";
             lstUsuarios.Add(u);
 
             //fcon.CargarGrid(lstUsuarios);

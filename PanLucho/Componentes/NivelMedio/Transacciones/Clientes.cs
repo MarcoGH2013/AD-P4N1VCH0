@@ -1,6 +1,6 @@
 ﻿using System;
 //using System.Collections.Generic;
-
+using System.Collections.Generic;
 using Componentes.ProveedorData;
 using Componentes.Transaccion;
 
@@ -38,7 +38,14 @@ namespace Componentes.NivelMedio.Transacciones
             var sp = new SqlProveedorData();
             return sp.Obtener(clienteid);
         }
+        #endregion
+        #region Multiple Selection
 
+        public static List<Cliente> ObtenerLista()
+        {
+            var sp = new SqlProveedorData();
+            return sp.ObtenerClientes();
+        }
         #endregion
     }
 }

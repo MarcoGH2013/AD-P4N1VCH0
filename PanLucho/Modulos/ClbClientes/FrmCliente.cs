@@ -20,7 +20,7 @@ namespace ClbClientes
         public FrmCliente()
         {
             InitializeComponent();
-            dtpFechaNacimiento.Value = DateTime.Now;
+            //dtpFechaNacimiento.Value = DateTime.Now;
             txtIdentificacion.Text = Parametros;
 
             txtIdentificacion.KeyPress += Comun.SoloNumeros;
@@ -122,9 +122,9 @@ namespace ClbClientes
                                                        Ecorreo = txtECorreo.Text,
                                                        FechaNacimiento = dtpFechaNacimiento.Value,
                                                        Estado = 1,
-                                                       FechaCreacion = FechaCreacion,
+                                                       FechaCreacion = DateTime.Now,
                                                        FechaModificacion = DateTime.Now,
-                                                       UsuarioCreacion = UsuarioCreacion,
+                                                       UsuarioCreacion = "vari",
                                                        UsuarioActualizacion = "variableLogin"
                                                    };
                                 switch (txtIdentificacion.Text.Length)
@@ -141,7 +141,7 @@ namespace ClbClientes
                                 LimpiarContenidoControles();
                                 MessageBox.Show("Datos Modificados con Exito", Application.ProductName,
                                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                
+                                FormModoParametro=FormModo.Nuevo;
 
                                 break;
                             }
@@ -158,8 +158,20 @@ namespace ClbClientes
         {
             base.Buscar();
             frmConsulta fcon = new frmConsulta();
+            fcon.gridControl1.DataSource = Clientes.ObtenerLista();
             fcon.ShowDialog();
-            
+            var oCliente = new Cliente();
+            if (fcon.oGenerico!=null)
+            {
+                oCliente = (Cliente) fcon.oGenerico;
+                Codigo = oCliente.Id;
+                txtIdentificacion.Text = oCliente.NumeroIdentificacion;
+                txtNombre.Text = oCliente.Nombre;
+                txtApellido.Text = oCliente.Apellido;
+                dtpFechaNacimiento.Value =(DateTime) oCliente.FechaNacimiento;
+                txtECorreo.Text = oCliente.Ecorreo;
+                this.FormModoParametro=FormModo.Edicion;
+            }
         }
 
         

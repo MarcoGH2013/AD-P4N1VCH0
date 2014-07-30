@@ -94,9 +94,13 @@ namespace Controles
 
         public Object oGenerico = new Object();
 
+        
+        
+
         public frmConsulta()
         {
             InitializeComponent();
+            oGenerico = null;
         }
 
         private void frmConsulta_Load(object sender, EventArgs e)

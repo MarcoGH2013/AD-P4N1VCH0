@@ -67,14 +67,13 @@ namespace Componentes.ProveedorData
                 miBase.AddInParameter(bdc, "@FechaNacimiento", DbType.Date, cliente.FechaNacimiento);
                 miBase.AddInParameter(bdc, "@Estado", DbType.Boolean, cliente.Estado);
                 miBase.AddInParameter(bdc, "@FechaCreacion", DbType.DateTime, cliente.FechaCreacion);
-                miBase.AddInParameter(bdc, "@FechaModificacion", DbType.DateTime, cliente.FechaModificacion);
+                miBase.AddInParameter(bdc, "@FechaEdicion", DbType.DateTime, cliente.FechaModificacion);
                 miBase.AddInParameter(bdc, "@UsuarioCreacion", DbType.String, cliente.UsuarioCreacion);
-                miBase.AddInParameter(bdc, "@UsuarioActualizacion", DbType.String, cliente.UsuarioActualizacion);
+                miBase.AddInParameter(bdc, "@UsuarioEdicion", DbType.String, cliente.UsuarioActualizacion);
 
                 return miBase.ExecuteNonQuery(bdc);
-
-            }
-            throw new ArgumentNullException("cliente");
+                }
+            else throw new ArgumentNullException("cliente");
         }
         public int EliminarCliente(int id)
         {
@@ -129,7 +128,7 @@ namespace Componentes.ProveedorData
         public List<Cliente> ObtenerClientes()
         {
             Database miBase = DatabaseFactory.CreateDatabase("basedatos");
-            string pa = string.Format("{0}.spClientesObtenerLista", PropietarioBD);
+            string pa = string.Format("{0}.spClienteObtenerLista", PropietarioBD);
 
             DbCommand bdc = miBase.GetStoredProcCommand(pa);
             bdc.CommandType = CommandType.StoredProcedure;
@@ -156,7 +155,7 @@ namespace Componentes.ProveedorData
             var cliente = new Cliente();
             if (valorData != null)
             {
-                cliente.Id = (int)valorData["Id"];
+                cliente.Id = int.Parse(valorData["Id"].ToString());
                 cliente.Nombre = (string)valorData["Nombre"];
                 cliente.Apellido = (string)valorData["Apellido"];
                 cliente.TipoIdentificacion = (string)valorData["TipoIdentificacion"];
@@ -168,15 +167,15 @@ namespace Componentes.ProveedorData
                 if (!string.IsNullOrEmpty(valorData["FechaNacimiento"].ToString()))
                     cliente.FechaNacimiento = (DateTime)valorData["FechaNacimiento"];
 
-                cliente.Estado = (Int16)valorData["Estado"];
+                cliente.Estado = int.Parse(valorData["Estado"].ToString());
                 cliente.FechaCreacion = (DateTime)valorData["FechaCreacion"];
-                cliente.FechaModificacion = (DateTime)valorData["FechaModificacion"];
+                cliente.FechaModificacion = (DateTime)valorData["FechaEdicion"];
 
                 if (!string.IsNullOrEmpty(valorData["UsuarioCreacion"].ToString()))
                     cliente.UsuarioCreacion = (string)valorData["UsuarioCreacion"];
 
-                if (!string.IsNullOrEmpty(valorData["UsuarioActualizacion"].ToString()))
-                    cliente.UsuarioActualizacion = (string)valorData["UsuarioActualizacion"];
+                if (!string.IsNullOrEmpty(valorData["UsuarioEdicion"].ToString()))
+                    cliente.UsuarioActualizacion = (string)valorData["UsuarioEdicion"];
             }
             return cliente;
         }
