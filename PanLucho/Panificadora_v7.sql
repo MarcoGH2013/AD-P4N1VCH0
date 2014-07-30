@@ -61,19 +61,20 @@ create table ModuloCategoria(
 )
 go
 create table Modulo(
-	Id numeric(5, 0) not null primary key,
+	Id numeric(5, 0) identity primary key ,
 	IdModuloCategoria numeric(5, 0) null,
 	Nombre varchar(20) null,
-	Descripcion varchar(20) null,
+	Descripcion varchar(50) null,
 	Assembler varchar(20) null,
 	LibreriaClase varchar(20) null,
 	NombreFormulario varchar(20) null,
 	Imagen varchar(100) null,
 	FechaCreacion datetime null,
 	FechaEdicion datetime null,
-	IdEstado varchar(20) null,
+	IdEstado numeric(5,0) null,
 	UsuarioEdicion varchar(20) null,
-	foreign key(IdModuloCategoria)references ModuloCategoria
+	foreign key(IdModuloCategoria)references ModuloCategoria,
+	foreign key(IdEstado) references Estado
 )
 go
 
@@ -87,6 +88,7 @@ create table Rol(
 )
 go
 create table ModulosXRol(
+	Id numeric(5,0) identity primary key ,
 	IdRol numeric(5, 0) null,
 	IdModulo numeric(5, 0) null,
 	Parametros nvarchar(10) null, --ej: c|r|u|d
@@ -336,4 +338,14 @@ create table Configuracion(
 )
 go
 
-
+PRINT N'5.creando vistas'
+create view vwUsuarioPermisos as
+select distinct row_number() over(order by Usuario.Id) as id, Usuario.Id as IdUsuario, Usuario.Ecorreo as Nick, Rol.Nombre as Descripcion, 
+	Modulo.NombreFormulario as NombreFormulario, Modulo.LibreriaClase as LibreriaClase, ModuloCategoria.Nombre as Menu, ModulosXRol.Parametros as Permisos 
+from	Usuario, Rol, Modulo, ModuloCategoria, ModulosXRol, Estado
+where	Modulo.IdModuloCategoria=ModuloCategoria.Id
+	and Usuario.IdRol=Rol.Id
+	and	ModulosXRol.IdRol=Usuario.IdRol --lo mismo al reves
+	and ModulosXRol.IdModulo=Modulo.Id	 
+	and Usuario.IdEstado= Estado.Id
+go
