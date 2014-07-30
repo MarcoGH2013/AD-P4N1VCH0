@@ -1,3 +1,5 @@
+use PanLucho
+go
 --region Drop Existing Procedures
 
 IF OBJECT_ID(N'[dbo].[spClienteInsertar]') IS NOT NULL
