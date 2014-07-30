@@ -29,7 +29,7 @@ create schema rh --recursos humanos
 go
 
 PRINT N'3.Falta agregar tablas a schema correspondiente '
-PRINT N'4.  '
+PRINT N'4. PanLucho v8 '
 
 --create table Historial(
 --IdHistorial int primary key,
@@ -51,36 +51,37 @@ descripcion varchar(20)
 go
 create table ModuloCategoria(
 	Id numeric(5, 0) not null primary key,
-	Nombre nchar(10) null,
-	Descripcion nchar(10) null,
+	Nombre varchar(20) null,
+	Descripcion nchar(20) null,
 	FechaCreacion DateTime null,
 	FechaEdicion DateTime null,
 	IdEstado numeric(5, 0) null,
-	UsuarioEdicion nchar(10) null,
+	UsuarioEdicion varchar(20) null,
 	foreign key(IdEstado)references Estado
 )
 go
 create table Modulo(
 	Id numeric(5, 0) not null primary key,
 	IdModuloCategoria numeric(5, 0) null,
-	Nombre nchar(10) null,
-	Descripcion nchar(10) null,
-	Assembly nchar(10) null,
-	LibreriaClase nchar(10) null,
-	NombreFormulario nchar(10) null,
-	Imagen nchar(10) null,
-	FechaCreacion nchar(10) null,
-	FechaEdicion nchar(10) null,
-	IdEstado nchar(10) null,
-	UsuarioEdicion nchar(10) null,
+	Nombre varchar(20) null,
+	Descripcion varchar(20) null,
+	Assembler varchar(20) null,
+	LibreriaClase varchar(20) null,
+	NombreFormulario varchar(20) null,
+	Imagen varchar(100) null,
+	FechaCreacion datetime null,
+	FechaEdicion datetime null,
+	IdEstado varchar(20) null,
+	UsuarioEdicion varchar(20) null,
 	foreign key(IdModuloCategoria)references ModuloCategoria
 )
+go
 
 go
 create table Rol(
 	Id numeric(5, 0) not null primary key,
-	Nombre nchar(10) null,
-	Descripcion nchar(10) null,
+	Nombre varchar(20) null,
+	Descripcion varchar(20) null,
 	IdEstado numeric(5, 0) null,
 	foreign key(IdEstado)references Estado
 )
@@ -88,7 +89,7 @@ go
 create table ModulosXRol(
 	IdRol numeric(5, 0) null,
 	IdModulo numeric(5, 0) null,
-	Parametros nchar(10) null,
+	Parametros nvarchar(10) null, --ej: c|r|u|d
 	foreign key(IdRol)references Rol,
 	foreign key(IdModulo)references Modulo
 )
@@ -125,7 +126,7 @@ create table Usuario(
 	IdRol numeric(5, 0) null,
 	Nombre varchar(100) null,
 	Apellido varchar(100) null,
-	Ecorreo nchar(10) null,
+	Ecorreo varchar(50) null,
 	Identificacion varchar(25) null,
 	Contraseña varchar(255) null, --usar ENCRYPTBYPASSPHRASE
 	FechaCreacion datetime null,
@@ -135,6 +136,7 @@ foreign key(IdEstado)references Estado,
 foreign key(IdRol)references Rol
 )
 go
+
 create table Cliente(
 Id numeric(5,0) identity(1,1) primary key,
 Nombre varchar(100),
@@ -333,6 +335,5 @@ create table Configuracion(
 	Descripcion nchar(10) null
 )
 go
-insert into Estado(Id,descripcion) values(1,'Activo')
-go
+
 
