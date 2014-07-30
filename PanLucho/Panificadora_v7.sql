@@ -122,7 +122,7 @@ foreign key(IdTipoError)references TipoError
 )
 go
 create table Usuario(
-	Id numeric(5, 0) primary key,
+	Id numeric(5, 0) identity(1,1) primary key,
 	IdRol numeric(5, 0) null,
 	Nombre varchar(100) null,
 	Apellido varchar(100) null,
