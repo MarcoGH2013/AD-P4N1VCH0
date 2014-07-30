@@ -184,3 +184,161 @@ WHERE
 [Id] = @Id
 
 GO
+
+
+------------------------------------------------------------------------------------------------------------------------
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        30/07/2014
+*/
+CREATE PROCEDURE [dbo].spUsuarioEliminar
+@Id numeric(5, 0)
+AS
+
+DELETE FROM
+[dbo].[Usuario]
+WHERE
+[Id] = @Id
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        30/07/2014
+*/
+CREATE PROCEDURE [dbo].spUsuarioObtener
+@Id numeric(5, 0)
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[IdRol],
+[Nombre],
+[Apellido],
+[Ecorreo],
+[Identificacion],
+[Contraseña],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado]
+FROM
+[dbo].[Usuario]
+WHERE
+[Id] = @Id
+
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        30/07/2014
+*/
+
+CREATE PROCEDURE [dbo].spUsuarioObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[IdRol],
+[Nombre],
+[Apellido],
+[Ecorreo],
+[Identificacion],
+[Contraseña],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado]
+FROM
+[dbo].[Usuario]
+
+GO
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        30/07/2014
+*/
+
+CREATE PROCEDURE [dbo].spUsuarioInsertar
+@Id numeric(5, 0) output,
+@IdRol numeric(5, 0),
+@Nombre varchar(100),
+@Apellido varchar(100),
+@Ecorreo nchar(10),
+@Identificacion varchar(25),
+@Contraseña varchar(50),
+@FechaCreacion datetime,
+@FechaEdicion datetime,
+@IdEstado numeric(5, 0)
+AS
+
+INSERT INTO [dbo].[Usuario] (
+[IdRol],
+[Nombre],
+[Apellido],
+[Ecorreo],
+[Identificacion],
+[Contraseña],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado]
+) VALUES (
+@IdRol,
+@Nombre,
+@Apellido,
+@Ecorreo,
+@Identificacion,
+@Contraseña,
+@FechaCreacion,
+@FechaEdicion,
+@IdEstado
+)
+set @Id = @@identity
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        30/07/2014
+*/
+
+CREATE PROCEDURE [dbo].spUsuarioActualizar
+@Id numeric(5, 0), 
+@IdRol numeric(5, 0), 
+@Nombre varchar(100), 
+@Apellido varchar(100), 
+@Ecorreo nchar(10), 
+@Identificacion varchar(25), 
+@Contraseña varchar(50), 
+@FechaCreacion datetime, 
+@FechaEdicion datetime, 
+@IdEstado numeric(5, 0) 
+AS
+
+UPDATE [dbo].[Usuario] SET
+[IdRol] = @IdRol,
+[Nombre] = @Nombre,
+[Apellido] = @Apellido,
+[Ecorreo] = @Ecorreo,
+[Identificacion] = @Identificacion,
+[Contraseña] = @Contraseña,
+[FechaCreacion] = @FechaCreacion,
+[FechaEdicion] = @FechaEdicion,
+[IdEstado] = @IdEstado
+WHERE
+[Id] = @Id
+
+GO
+
+
