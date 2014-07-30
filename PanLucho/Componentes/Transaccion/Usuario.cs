@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Componentes.Transaccion
+﻿namespace Componentes.Transaccion
 {
     public class Usuario
     {
-        public string Nick { get; set; }
-        public string contrasena { get; set; }
-        public string rol { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string email { get; set; }
+        #region AutoPropiedades
+        public decimal Id { get; set; }
+        public decimal IdRol { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Ecorreo { get; set; }
+        public string Identificacion { get; set; }
+        public string Contraseña { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
+        public System.DateTime FechaEdicion { get; set; }
+        public decimal IdEstado { get; set; }
+        #endregion
     }
 }
+
