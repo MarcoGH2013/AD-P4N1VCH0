@@ -223,7 +223,7 @@ namespace Componentes.ProveedorData
         /// Actuliza el usuario.
         /// </summary>
         /// <param name="usuario">The usuario.</param>
-        public void ActualizarUsuario(Usuario usuario)
+        public decimal ActualizarUsuario(Usuario usuario)
         {
             if (usuario != null)
             {
@@ -244,9 +244,7 @@ namespace Componentes.ProveedorData
                 _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
                 _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
 
-                _Db.ExecuteNonQuery(dbc);
-
-                return;
+                return _Db.ExecuteNonQuery(dbc); 
             }
             else throw new ArgumentNullException("usuario");
         }

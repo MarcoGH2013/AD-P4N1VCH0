@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtECorreo = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtApellido = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtNombre = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.cbxRol = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtRepetir = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtContraseña = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtUsuario = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
@@ -43,20 +44,25 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.comboItem1 = new DevComponents.Editors.ComboItem();
+            this.comboItem2 = new DevComponents.Editors.ComboItem();
+            this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.textBoxX6);
-            this.groupPanel1.Controls.Add(this.textBoxX5);
-            this.groupPanel1.Controls.Add(this.textBoxX4);
-            this.groupPanel1.Controls.Add(this.comboBoxEx1);
-            this.groupPanel1.Controls.Add(this.textBoxX3);
-            this.groupPanel1.Controls.Add(this.textBoxX2);
-            this.groupPanel1.Controls.Add(this.textBoxX1);
+            this.groupPanel1.Controls.Add(this.txtECorreo);
+            this.groupPanel1.Controls.Add(this.txtApellido);
+            this.groupPanel1.Controls.Add(this.txtNombre);
+            this.groupPanel1.Controls.Add(this.cbxRol);
+            this.groupPanel1.Controls.Add(this.txtRepetir);
+            this.groupPanel1.Controls.Add(this.txtContraseña);
+            this.groupPanel1.Controls.Add(this.txtUsuario);
             this.groupPanel1.Controls.Add(this.labelX7);
             this.groupPanel1.Controls.Add(this.labelX6);
             this.groupPanel1.Controls.Add(this.labelX5);
@@ -98,89 +104,93 @@
             this.groupPanel1.TabIndex = 2;
             this.groupPanel1.Text = "Usuarios";
             // 
-            // textBoxX6
+            // txtECorreo
             // 
             // 
             // 
             // 
-            this.textBoxX6.Border.Class = "TextBoxBorder";
-            this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX6.Location = new System.Drawing.Point(153, 186);
-            this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(224, 20);
-            this.textBoxX6.TabIndex = 14;
+            this.txtECorreo.Border.Class = "TextBoxBorder";
+            this.txtECorreo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtECorreo.Location = new System.Drawing.Point(153, 186);
+            this.txtECorreo.Name = "txtECorreo";
+            this.txtECorreo.Size = new System.Drawing.Size(224, 22);
+            this.txtECorreo.TabIndex = 14;
             // 
-            // textBoxX5
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX5.Border.Class = "TextBoxBorder";
-            this.textBoxX5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX5.Location = new System.Drawing.Point(153, 157);
-            this.textBoxX5.Name = "textBoxX5";
-            this.textBoxX5.Size = new System.Drawing.Size(224, 20);
-            this.textBoxX5.TabIndex = 13;
-            // 
-            // textBoxX4
+            // txtApellido
             // 
             // 
             // 
             // 
-            this.textBoxX4.Border.Class = "TextBoxBorder";
-            this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.Location = new System.Drawing.Point(153, 128);
-            this.textBoxX4.Name = "textBoxX4";
-            this.textBoxX4.Size = new System.Drawing.Size(224, 20);
-            this.textBoxX4.TabIndex = 12;
+            this.txtApellido.Border.Class = "TextBoxBorder";
+            this.txtApellido.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtApellido.Location = new System.Drawing.Point(153, 157);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(224, 22);
+            this.txtApellido.TabIndex = 13;
             // 
-            // comboBoxEx1
-            // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 16;
-            this.comboBoxEx1.Location = new System.Drawing.Point(153, 98);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(149, 22);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 11;
-            // 
-            // textBoxX3
+            // txtNombre
             // 
             // 
             // 
             // 
-            this.textBoxX3.Border.Class = "TextBoxBorder";
-            this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX3.Location = new System.Drawing.Point(153, 70);
-            this.textBoxX3.Name = "textBoxX3";
-            this.textBoxX3.Size = new System.Drawing.Size(149, 20);
-            this.textBoxX3.TabIndex = 10;
+            this.txtNombre.Border.Class = "TextBoxBorder";
+            this.txtNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtNombre.Location = new System.Drawing.Point(153, 128);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(224, 22);
+            this.txtNombre.TabIndex = 12;
             // 
-            // textBoxX2
+            // cbxRol
+            // 
+            this.cbxRol.DisplayMember = "Text";
+            this.cbxRol.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.ItemHeight = 16;
+            this.cbxRol.Items.AddRange(new object[] {
+            this.comboItem1,
+            this.comboItem2,
+            this.comboItem3});
+            this.cbxRol.Location = new System.Drawing.Point(153, 98);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(149, 22);
+            this.cbxRol.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbxRol.TabIndex = 11;
+            // 
+            // txtRepetir
             // 
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(153, 41);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(149, 20);
-            this.textBoxX2.TabIndex = 9;
+            this.txtRepetir.Border.Class = "TextBoxBorder";
+            this.txtRepetir.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRepetir.Location = new System.Drawing.Point(153, 70);
+            this.txtRepetir.Name = "txtRepetir";
+            this.txtRepetir.Size = new System.Drawing.Size(149, 22);
+            this.txtRepetir.TabIndex = 10;
             // 
-            // textBoxX1
-            // 
-            // 
+            // txtContraseña
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(153, 12);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(149, 20);
-            this.textBoxX1.TabIndex = 8;
+            // 
+            // 
+            this.txtContraseña.Border.Class = "TextBoxBorder";
+            this.txtContraseña.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtContraseña.Location = new System.Drawing.Point(153, 41);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(149, 22);
+            this.txtContraseña.TabIndex = 9;
+            // 
+            // txtUsuario
+            // 
+            // 
+            // 
+            // 
+            this.txtUsuario.Border.Class = "TextBoxBorder";
+            this.txtUsuario.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtUsuario.Location = new System.Drawing.Point(153, 12);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(149, 22);
+            this.txtUsuario.TabIndex = 8;
             // 
             // labelX7
             // 
@@ -280,6 +290,22 @@
             this.labelX1.Text = "Nombre de Usuario:";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // comboItem1
+            // 
+            this.comboItem1.Text = "Administrador";
+            // 
+            // comboItem2
+            // 
+            this.comboItem2.Text = "Facturador";
+            // 
+            // comboItem3
+            // 
+            this.comboItem3.Text = "Pedidos";
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +316,7 @@
             this.Text = "Administración de usuarios";
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,13 +325,13 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX6;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX5;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtECorreo;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtApellido;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtNombre;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbxRol;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtRepetir;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtContraseña;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtUsuario;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX5;
@@ -312,5 +339,9 @@
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevComponents.Editors.ComboItem comboItem1;
+        private DevComponents.Editors.ComboItem comboItem2;
+        private DevComponents.Editors.ComboItem comboItem3;
     }
 }
