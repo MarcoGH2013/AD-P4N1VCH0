@@ -63,3 +63,122 @@ set @Id = @@identity
 
 GO
 
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        29/07/2014
+*/
+CREATE PROCEDURE [dbo].spClienteEliminar
+@Id numeric(5, 0)
+AS
+
+DELETE FROM
+[dbo].[Cliente]
+WHERE
+[Id] = @Id
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        29/07/2014
+*/
+CREATE PROCEDURE [dbo].spClienteObtener
+@Id numeric(5, 0)
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Nombre],
+[Apellido],
+[TipoIdentificacion],
+[NumeroIdentificacion],
+[Ecorreo],
+[FechaNacimiento],
+[Estado],
+[FechaCreacion],
+[FechaEdicion],
+[UsuarioCreacion],
+[UsuarioEdicion]
+FROM
+[dbo].[Cliente]
+WHERE
+[Id] = @Id
+
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        29/07/2014
+*/
+
+CREATE PROCEDURE [dbo].spClienteObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Nombre],
+[Apellido],
+[TipoIdentificacion],
+[NumeroIdentificacion],
+[Ecorreo],
+[FechaNacimiento],
+[Estado],
+[FechaCreacion],
+[FechaEdicion],
+[UsuarioCreacion],
+[UsuarioEdicion]
+FROM
+[dbo].[Cliente]
+
+GO
+
+
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        29/07/2014
+*/
+
+CREATE PROCEDURE [dbo].spClienteActualizar
+@Id numeric(5, 0), 
+@Nombre varchar(100), 
+@Apellido varchar(100), 
+@TipoIdentificacion varchar(20), 
+@NumeroIdentificacion varchar(20), 
+@Ecorreo varchar(50), 
+@FechaNacimiento datetime, 
+@Estado numeric(5, 0), 
+@FechaCreacion datetime, 
+@FechaEdicion datetime, 
+@UsuarioCreacion varchar(25), 
+@UsuarioEdicion varchar(25) 
+AS
+
+UPDATE [dbo].[Cliente] SET
+[Nombre] = @Nombre,
+[Apellido] = @Apellido,
+[TipoIdentificacion] = @TipoIdentificacion,
+[NumeroIdentificacion] = @NumeroIdentificacion,
+[Ecorreo] = @Ecorreo,
+[FechaNacimiento] = @FechaNacimiento,
+[Estado] = @Estado,
+[FechaCreacion] = @FechaCreacion,
+[FechaEdicion] = @FechaEdicion,
+[UsuarioCreacion] = @UsuarioCreacion,
+[UsuarioEdicion] = @UsuarioEdicion
+WHERE
+[Id] = @Id
+
+GO
