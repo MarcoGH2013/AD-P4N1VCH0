@@ -56,6 +56,7 @@
     <Compile Include="Transaccion\Cliente.cs" />
     <Compile Include="Transaccion\Factura.cs" />
     <Compile Include="Transaccion\Usuario.cs" />
+    <Compile Include="Transaccion\UsuarioPermisos.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-
+using System.Windows.Forms;
 using Componentes.Transaccion;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
@@ -357,6 +357,151 @@ namespace Componentes.ProveedorData
             return usuario;
         }
         #endregion
+        #endregion
+
+        #region Metodos Seguridad
+        public bool ValidarCredenciales(string nick, string pass)
+        {
+            try
+            {
+                var miBase = DatabaseFactory.CreateDatabase("basedatos");
+                
+
+                object obj=miBase.ExecuteScalar(CommandType.Text,
+                    "Select * from Usuario where Ecorreo='" + nick + "' and contraseña='" + pass + "' and IdEstado=1");
+                if (obj!= null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error SqlProveedorData-InicioSesion");
+                return false;
+            }
+        }
+
+        public Usuario ValidarCredenciales2(string nick, string pass)//funcional
+        {
+            try
+            {
+                var miBase = DatabaseFactory.CreateDatabase("basedatos");
+                string query = "select id from Usuario where Ecorreo=@Ecorreo and contraseña=@contrasena";
+                DbCommand cmd = miBase.GetSqlStringCommand(query);
+                miBase.AddInParameter(cmd, "Ecorreo", DbType.String, nick);
+                miBase.AddInParameter(cmd, "contrasena", DbType.String, pass);
+
+                object obj = miBase.ExecuteScalar(cmd);
+                int codigo = Convert.ToInt32(obj);
+                cmd.Dispose();
+
+                Usuario oUser = new Usuario();
+
+                if (obj != null)
+                {oUser=ObtenerUsuario(codigo);
+                    return oUser;
+                }
+                else
+                {
+                    return oUser;
+                }
+            }
+            catch (Exception){
+                Console.WriteLine("Error SqlProveedorData-InicioSesion");
+                return null;
+            }
+        }
+
+        
+
+        public List<UsuarioPermisos> LeerPermisos(decimal idUsuario)
+        {
+            try
+            {
+                List<UsuarioPermisos> listaPermisos= new List<UsuarioPermisos>();
+                
+                var miBase = DatabaseFactory.CreateDatabase("basedatos");
+                string query = "select * from vwUsuarioPermisos where IdUsuario=" + idUsuario;
+
+                using (IDataReader dr=miBase.ExecuteReader(CommandType.Text, query))
+                {
+                    while (dr.Read())
+                    {
+                        listaPermisos.Add(LLenarPermisosDeIData(dr));
+                    }
+                    dr.Close();
+                    return listaPermisos;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        private UsuarioPermisos LLenarPermisosDeIData(IDataReader dr)
+        {
+            try
+            {
+                UsuarioPermisos oUsuarioPermisos= new UsuarioPermisos();
+                if (dr != null)
+                {
+                    oUsuarioPermisos.id = Convert.ToInt32(dr["id"]);
+                    oUsuarioPermisos.idUsuario = (decimal) dr["IdUsuario"];
+                    oUsuarioPermisos.nick=(string)dr["Nick"];
+                    oUsuarioPermisos.descripcion = (string) dr["Descripcion"];
+                    oUsuarioPermisos.nombreForm= (string) dr["NombreFormulario"];
+                    oUsuarioPermisos.libreriaClase = (string) dr["LibreriaClase"];
+                    oUsuarioPermisos.menu = (string) dr["Menu"];
+                    oUsuarioPermisos.permisos = (string) dr["Permisos"];
+                }
+                return oUsuarioPermisos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.ToString());
+                return null;
+            }
+        }
+
+        //public Usuario IniciarSesion(string nick, string pass)
+        //{
+        //    try
+        //    {
+        //        var miBase = DatabaseFactory.CreateDatabase("basedatos");
+        //        string query = "select * from Usuario where Ecorreo='"+nick+ "' and contraseña='" + pass+"'";
+        //        //DbCommand cmd = miBase.GetSqlStringCommand(query);
+        //        //miBase.AddInParameter(cmd, "Ecorreo", DbType.String, nick);
+        //        //miBase.AddInParameter(cmd, "contrasena", DbType.String, pass);
+
+        //        using (IDataReader dr= miBase.ExecuteReader(CommandType.Text,query))
+        //        {
+        //            if (dr.Read())
+        //            {
+                        
+        //            }
+        //        }
+
+
+        //        if (obj != null)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        Console.WriteLine("Error SqlProveedorData-InicioSesion");
+        //        return false;
+        //    }
+        //}
         #endregion
     }
 }

@@ -145,6 +145,10 @@
       <Project>{266442E6-E3AE-4078-B070-6936B96791D1}</Project>
       <Name>ClbFacturas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Componentes\Componentes.csproj">
+      <Project>{6977647E-1FB4-49FB-9809-1591D3557734}</Project>
+      <Name>Componentes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Controles\Controles.csproj">
       <Project>{6CBB89B0-9A9C-42B2-A316-8EC984F1F431}</Project>
       <Name>Controles</Name>

@@ -59,8 +59,7 @@ namespace Menu
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre2", "Nombre2"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre3", "Nombre3")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre5", "Matriz")});
             this.lookUpEdit1.Size = new System.Drawing.Size(162, 20);
             this.lookUpEdit1.TabIndex = 3;
             this.lookUpEdit1.Visible = false;
@@ -72,6 +71,7 @@ namespace Menu
             this.labelControl1.Size = new System.Drawing.Size(28, 13);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Local:";
+            this.labelControl1.Visible = false;
             // 
             // labelControl4
             // 
@@ -117,10 +117,11 @@ namespace Menu
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Matriz"});
-            this.comboBox1.Location = new System.Drawing.Point(98, 81);
+            this.comboBox1.Location = new System.Drawing.Point(171, 120);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 6;
+            this.comboBox1.Visible = false;
             // 
             // FrmSesion
             // 
