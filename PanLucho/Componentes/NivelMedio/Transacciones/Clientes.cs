@@ -23,7 +23,12 @@ namespace Componentes.NivelMedio.Transacciones
             var sp = new SqlProveedorData();
             return sp.ActualizarCliente(cliente);
         }
-        
+        public static int Eliminar(int customerId)
+        {
+            if (customerId == null) throw new ArgumentNullException("customerId");
+            var sp = new SqlProveedorData();
+            return sp.EliminarCliente(customerId);
+        }
         #endregion
         #region Selección Simple
 

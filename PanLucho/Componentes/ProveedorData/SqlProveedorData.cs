@@ -52,7 +52,7 @@ namespace Componentes.ProveedorData
             if (cliente != null)
             {
                 Database miBase = DatabaseFactory.CreateDatabase("basedatos");
-                string pa = string.Format("{0}.spClientesActualizar", PropietarioBD);
+                string pa = string.Format("{0}.spClienteActualizar", PropietarioBD);
 
                 DbCommand bdc = miBase.GetStoredProcCommand(pa);
                 bdc.CommandType = CommandType.StoredProcedure;
@@ -75,6 +75,23 @@ namespace Componentes.ProveedorData
 
             }
             throw new ArgumentNullException("cliente");
+        }
+        public int EliminarCliente(int id)
+        {
+            if (id >= 0)
+            {
+                Database database = DatabaseFactory.CreateDatabase("basedatos");
+                string sp = string.Format("{0}.spClienteEliminar", PropietarioBD);
+
+                DbCommand dbc = database.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                database.AddInParameter(dbc, "@id", DbType.Int32, id);
+
+                return database.ExecuteNonQuery(dbc);
+
+            }
+            throw new ArgumentNullException("id");
         }
 
         #endregion
@@ -166,6 +183,182 @@ namespace Componentes.ProveedorData
 
         #endregion
 
+        #endregion
+        #region Usuarios
+
+        #region Administración
+        /// <summary>
+        /// Crear el usuario n.
+        /// </summary>
+        /// <param name="usuario">The usuario.</param>
+        /// <returns></returns>
+        public decimal CrearUsuario(Usuario usuario)
+        {
+            if (usuario != null)
+            {
+                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                string sp = string.Format("{0}.spUsuarioInsertar", PropietarioBD);
+
+                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                _Db.AddInParameter(dbc, "@IdRol", DbType.Decimal, usuario.IdRol);
+                _Db.AddInParameter(dbc, "@Nombre", DbType.String, usuario.Nombre);
+                _Db.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
+                _Db.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
+                _Db.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
+                _Db.AddInParameter(dbc, "@Contraseña", DbType.String, usuario.Contraseña);
+                _Db.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
+                _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
+                _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
+                _Db.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+
+                _Db.ExecuteNonQuery(dbc);
+
+                usuario.Id = (int)_Db.GetParameterValue(dbc, "@Id");
+                return usuario.Id;
+            }
+            else throw new ArgumentNullException("usuario");
+        }
+        /// <summary>
+        /// Actuliza el usuario.
+        /// </summary>
+        /// <param name="usuario">The usuario.</param>
+        public void ActualizarUsuario(Usuario usuario)
+        {
+            if (usuario != null)
+            {
+                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                string sp = string.Format("{0}.spUsuarioActualizar", PropietarioBD);
+
+                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                _Db.AddInParameter(dbc, "@Id", DbType.Decimal, usuario.Id);
+                _Db.AddInParameter(dbc, "@IdRol", DbType.Decimal, usuario.IdRol);
+                _Db.AddInParameter(dbc, "@Nombre", DbType.String, usuario.Nombre);
+                _Db.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
+                _Db.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
+                _Db.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
+                _Db.AddInParameter(dbc, "@Contraseña", DbType.String, usuario.Contraseña);
+                _Db.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
+                _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
+                _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
+
+                _Db.ExecuteNonQuery(dbc);
+
+                return;
+            }
+            else throw new ArgumentNullException("usuario");
+        }
+        /// <summary>
+        /// Elimina el usuario.
+        /// </summary>
+        /// <param name="usuarioId">The usuario id.</param>
+        public int EliminarUsuario(int usuarioId)
+        {
+            if (usuarioId >= 0)
+            {
+                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                string sp = string.Format("{0}.spUsuarioEliminar", PropietarioBD);
+
+                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                _Db.AddInParameter(dbc, "@Id", DbType.Int32, usuarioId);
+
+                return _Db.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("usuarioId");
+        }
+        #endregion
+
+        #region Selección Simple
+        /// <summary>
+        /// Obtiene el usuario.
+        /// </summary>
+        /// <param name="usuarioId">The usuario id.</param>
+        /// <returns></returns>
+        public Usuario ObtenerUsuario(int usuarioId)
+        {
+            if (usuarioId >= 0)
+            {
+                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                string sp = string.Format("{0}.spUsuarioObtener", PropietarioBD);
+
+                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                _Db.AddInParameter(dbc, "@Id", DbType.Int32, usuarioId);
+
+                Usuario usuario = new Usuario();
+                using (IDataReader dataReader = _Db.ExecuteReader(dbc))
+                {
+                    while (dataReader.Read())
+                    {
+                        usuario = RellenarUsuarioDeLectorIData(dataReader);
+                    }
+                    dataReader.Close();
+                }
+                dbc.Dispose();
+
+                return usuario;
+            }
+            else throw new ArgumentNullException("usuarioId");
+        }
+        #endregion
+
+        #region Selección múltiple
+        /// <summary>
+        /// Obtine el usuario.
+        /// </summary>
+        /// <returns></returns>
+        public List<Usuario> ObtenerUsuarios()
+        {
+            Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+            string sp = string.Format("{0}.spUsuarioObtenerLista", PropietarioBD);
+
+            DbCommand dbc = _Db.GetStoredProcCommand(sp);
+            dbc.CommandType = CommandType.StoredProcedure;
+
+            var usuarios = new List<Usuario>();
+            using (IDataReader dataReader = _Db.ExecuteReader(dbc))
+            {
+                while (dataReader.Read())
+                {
+                    usuarios.Add(RellenarUsuarioDeLectorIData(dataReader));
+                }
+                dataReader.Close();
+            }
+            dbc.Dispose();
+            return usuarios;
+        }
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el usuario del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro usuario.</param>
+        /// <returns></returns>
+        public static Usuario RellenarUsuarioDeLectorIData(IDataRecord valorData)
+        {
+            var usuario = new Usuario();
+            if (valorData != null)
+            {
+                usuario.IdRol = (Decimal)valorData["IdRol"];
+                usuario.Nombre = (String)valorData["Nombre"];
+                usuario.Apellido = (String)valorData["Apellido"];
+                usuario.Ecorreo = (String)valorData["Ecorreo"];
+                usuario.Identificacion = (String)valorData["Identificacion"];
+                usuario.Contraseña = (String)valorData["Contraseña"];
+                usuario.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                usuario.FechaEdicion = (DateTime)valorData["FechaEdicion"];
+                usuario.IdEstado = (Decimal)valorData["IdEstado"];
+            }
+            return usuario;
+        }
+        #endregion
         #endregion
     }
 }
