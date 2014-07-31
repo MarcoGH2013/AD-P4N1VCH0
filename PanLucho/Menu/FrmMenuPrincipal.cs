@@ -13,6 +13,7 @@ using ClbFacturas;
 using ClbPedidosEspeciales;
 using ClbRoles;
 using ClbUsuarios;
+using Componentes.Transaccion;
 using DevExpress.XtraBars;
 
 
@@ -22,6 +23,18 @@ namespace Menu
     {
         private FrmSesion oFrmSesion= new FrmSesion();
         private Form[] hijos;
+        //public List<UsuarioPermisos> lstUsuarioPermisos = new List<UsuarioPermisos>(); 
+        
+
+        public static List<UsuarioPermisos> permissionsAll = new List<UsuarioPermisos>();
+        public static Usuario usuarioInformacion = new Usuario();
+        private void CargarPermisos()
+        {
+            permissionsAll = FrmSesion.LstUsuarioPermisos;
+            usuarioInformacion = FrmSesion.oUsuarioInformacion;
+            toolStripStatusLabel1.Text = "Bienvenido a su sesión " + usuarioInformacion.Nombre + " " + usuarioInformacion.Apellido
+                +" - " + usuarioInformacion.Ecorreo;
+        }
 
         public FrmMenuPrincipal()
         {
@@ -164,7 +177,8 @@ namespace Menu
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            toolStripStatusLabel1.Text = "....Sin conexión...";
+            CargarPermisos();
         }
 
         private void iRoles_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

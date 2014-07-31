@@ -16,7 +16,9 @@ namespace Menu
     public partial class FrmSesion : DevComponents.DotNetBar.Metro.MetroForm
     {
         private SqlProveedorData oSqlProveedorData = new SqlProveedorData();
-        public List<UsuarioPermisos> LstPermisos= new List<UsuarioPermisos>();
+        public static List<UsuarioPermisos> LstUsuarioPermisos = new List<UsuarioPermisos>();
+        public static Usuario oUsuarioInformacion = new Usuario();
+
         public FrmSesion()
         {
             InitializeComponent();
@@ -25,44 +27,38 @@ namespace Menu
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             if ((string.IsNullOrWhiteSpace(txtUser.Text)) || (string.IsNullOrWhiteSpace(txtPass.Text)))
-            {MessageBox.Show("Falta uno o más campos", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                MessageBox.Show("Falta uno o más campos", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 IntentoInicio(txtUser.Text, txtPass.Text);
-                //FrmMenuPrincipal f = new FrmMenuPrincipal();
-                //f.Show();
-                //f.WindowState=FormWindowState.Maximized;
-                //if (Application.OpenForms["FrmMenuPrincipal"] != null)
-                //{
-                //    this.Visible = false;
-                //}
-                //else
-                //{
-                //    this.Visible = true;
-                //}
             }
         }
 
         private void IntentoInicio(string nick, string contrasena)
         {
-            Usuario oUsuario = new Usuario();
-            oUsuario = oSqlProveedorData.ValidarCredenciales2(nick, contrasena);
-            if (oUsuario.Nombre!=null)
+            oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales2(nick, contrasena);
+            if (oUsuarioInformacion.Nombre != null)
             {
-                MessageBox.Show("BIENVENIDO !!!! " + oUsuario.Nombre + " " + oUsuario.Apellido);
-                LstPermisos = oSqlProveedorData.LeerPermisos(oUsuario.Id);
-                MessageBox.Show(LstPermisos.ToString());
+                //MessageBox.Show("BIENVENIDO !!!! " + oUsuarioInformacion.Nombre + " " + oUsuarioInformacion.Apellido);
+                LstUsuarioPermisos = oSqlProveedorData.LeerPermisos(oUsuarioInformacion.Id);
+                FrmMenuPrincipal f = new FrmMenuPrincipal();
+                f.Show();
+                f.WindowState = FormWindowState.Maximized;
+                if (Application.OpenForms["FrmMenuPrincipal"] != null)
+                {
+                    this.Visible = false;
+                }
+                else
+                {
+                    this.Visible = true;
+                }
             }
-            //if (oSqlProveedorData.ValidarCredenciales2(nick, contrasena))
-            //{
-            //    MessageBox.Show("Usuario encontrado");
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Usuario no existe o esta deshabilitado");
-            //}            
+            else
+            {
+                MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void FrmSesion_FormClosed(object sender, FormClosedEventArgs e)
