@@ -360,6 +360,21 @@ namespace Componentes.ProveedorData
         #endregion
 
         #region Metodos Seguridad
+
+        //public List<ModuloCategoria> ConsultaMenusUsuario(Usuario u)
+        //{
+        //    try
+        //    {
+        //        List<ModuloCategoria> lista= new List<ModuloCategoria>();
+        //        var miBase = DatabaseFactory.CreateDatabase("basedatos");
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return null;
+        //    }
+        //}
+
         public bool ValidarCredenciales(string nick, string pass)
         {
             try
@@ -402,7 +417,8 @@ namespace Componentes.ProveedorData
                 Usuario oUser = new Usuario();
 
                 if (obj != null)
-                {oUser=ObtenerUsuario(codigo);
+                {
+                    oUser=ObtenerUsuario(codigo);
                     return oUser;
                 }
                 else
@@ -411,7 +427,7 @@ namespace Componentes.ProveedorData
                 }
             }
             catch (Exception){
-                Console.WriteLine("Error SqlProveedorData-InicioSesion");
+                Console.WriteLine("Error SqlProveedorData-ValidarCredenciales2");
                 return null;
             }
         }

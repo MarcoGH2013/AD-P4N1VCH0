@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -45,7 +44,7 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -112,7 +111,7 @@
             this.lblTipo.AutoSize = true;
             this.lblTipo.Location = new System.Drawing.Point(9, 6);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(91, 13);
+            this.lblTipo.Size = new System.Drawing.Size(97, 13);
             this.lblTipo.TabIndex = 11;
             this.lblTipo.Text = "Tipo Identificación:";
             this.lblTipo.Visible = false;
@@ -121,7 +120,7 @@
             // 
             this.txtECorreo.Location = new System.Drawing.Point(119, 142);
             this.txtECorreo.Name = "txtECorreo";
-            this.txtECorreo.Size = new System.Drawing.Size(182, 22);
+            this.txtECorreo.Size = new System.Drawing.Size(182, 20);
             this.txtECorreo.TabIndex = 10;
             // 
             // dtpFechaNacimiento
@@ -131,7 +130,7 @@
             this.dtpFechaNacimiento.MaxDate = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
             this.dtpFechaNacimiento.MinDate = new System.DateTime(1914, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(182, 22);
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(182, 20);
             this.dtpFechaNacimiento.TabIndex = 9;
             this.dtpFechaNacimiento.Value = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
             // 
@@ -140,7 +139,7 @@
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Location = new System.Drawing.Point(9, 145);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(96, 13);
+            this.lblCorreo.Size = new System.Drawing.Size(97, 13);
             this.lblCorreo.TabIndex = 7;
             this.lblCorreo.Text = "Correo Electrónico:";
             // 
@@ -149,7 +148,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Location = new System.Drawing.Point(9, 121);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(104, 13);
+            this.lblFecha.Size = new System.Drawing.Size(108, 13);
             this.lblFecha.TabIndex = 6;
             this.lblFecha.Text = "Fecha de Nacimiento";
             // 
@@ -158,7 +157,7 @@
             this.lblApellido.AutoSize = true;
             this.lblApellido.Location = new System.Drawing.Point(9, 89);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(46, 13);
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 5;
             this.lblApellido.Text = "Apellido:";
             // 
@@ -167,7 +166,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(9, 61);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(48, 13);
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 4;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -176,7 +175,7 @@
             this.lblNumero.AutoSize = true;
             this.lblNumero.Location = new System.Drawing.Point(9, 33);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(48, 13);
+            this.lblNumero.Size = new System.Drawing.Size(47, 13);
             this.lblNumero.TabIndex = 3;
             this.lblNumero.Text = "Numero:";
             // 
@@ -184,21 +183,21 @@
             // 
             this.txtApellido.Location = new System.Drawing.Point(79, 86);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(222, 22);
+            this.txtApellido.Size = new System.Drawing.Size(222, 20);
             this.txtApellido.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(79, 58);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(222, 22);
+            this.txtNombre.Size = new System.Drawing.Size(222, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtIdentificacion
             // 
             this.txtIdentificacion.Location = new System.Drawing.Point(79, 30);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(100, 22);
+            this.txtIdentificacion.Size = new System.Drawing.Size(100, 20);
             this.txtIdentificacion.TabIndex = 0;
             // 
             // errorProvider1

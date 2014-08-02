@@ -52,7 +52,7 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.Pedidos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgPedidos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -173,6 +173,7 @@
             this.iUsuarios.ImageIndex = 7;
             this.iUsuarios.LargeImageIndex = 7;
             this.iUsuarios.Name = "iUsuarios";
+            this.iUsuarios.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iUsuarios.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iUsuarios_ItemClick);
             // 
             // iRoles
@@ -185,6 +186,7 @@
             this.iRoles.ImageIndex = 3;
             this.iRoles.LargeImageIndex = 3;
             this.iRoles.Name = "iRoles";
+            this.iRoles.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iRoles_ItemClick);
             // 
             // iFactura
@@ -197,6 +199,7 @@
             this.iFactura.ImageIndex = 8;
             this.iFactura.LargeImageIndex = 8;
             this.iFactura.Name = "iFactura";
+            this.iFactura.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iFactura.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iFactura_ItemClick);
             // 
             // iClientes
@@ -209,6 +212,7 @@
             this.iClientes.ImageIndex = 1;
             this.iClientes.LargeImageIndex = 1;
             this.iClientes.Name = "iClientes";
+            this.iClientes.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iClientes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iClientes_ItemClick);
             // 
             // iPedidoEspecial
@@ -221,6 +225,7 @@
             this.iPedidoEspecial.ImageIndex = 2;
             this.iPedidoEspecial.LargeImageIndex = 2;
             this.iPedidoEspecial.Name = "iPedidoEspecial";
+            this.iPedidoEspecial.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iPedidoEspecial.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iPedidoEspecial_ItemClick);
             // 
             // iPedidoProductos
@@ -233,6 +238,7 @@
             this.iPedidoProductos.ImageIndex = 10;
             this.iPedidoProductos.LargeImageIndex = 10;
             this.iPedidoProductos.Name = "iPedidoProductos";
+            this.iPedidoProductos.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // iCierreCaja
             // 
@@ -244,6 +250,7 @@
             this.iCierreCaja.ImageIndex = 9;
             this.iCierreCaja.LargeImageIndex = 9;
             this.iCierreCaja.Name = "iCierreCaja";
+            this.iCierreCaja.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iCierreCaja.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCierreCaja_ItemClick);
             // 
             // iReporteFacturas
@@ -256,6 +263,7 @@
             this.iReporteFacturas.ImageIndex = 11;
             this.iReporteFacturas.LargeImageIndex = 11;
             this.iReporteFacturas.Name = "iReporteFacturas";
+            this.iReporteFacturas.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iReporteFacturas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iReporteFacturas_ItemClick);
             // 
             // imageCollection1_x32
@@ -315,6 +323,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.iRoles);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Seguridad";
+            this.ribbonPageGroup2.Visible = false;
             // 
             // ribbonPage3
             // 
@@ -332,39 +341,43 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.iClientes);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Facturación";
+            this.ribbonPageGroup4.Visible = false;
             // 
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.iPedidoEspecial);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Pedidos";
+            this.ribbonPageGroup3.Visible = false;
             // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.iReporteFacturas);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Reportes";
+            this.ribbonPageGroup5.Visible = false;
             // 
             // ribbonPage4
             // 
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Pedidos});
+            this.rpgPedidos});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "INVENTARIO";
             this.ribbonPage4.Visible = false;
             // 
-            // Pedidos
+            // rpgPedidos
             // 
-            this.Pedidos.ItemLinks.Add(this.iPedidoProductos);
-            this.Pedidos.Name = "Pedidos";
-            this.Pedidos.Text = "Inventario";
+            this.rpgPedidos.ItemLinks.Add(this.iPedidoProductos);
+            this.rpgPedidos.Name = "rpgPedidos";
+            this.rpgPedidos.Text = "Inventario";
+            this.rpgPedidos.Visible = false;
             // 
             // ribbonPage5
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6});
             this.ribbonPage5.Name = "ribbonPage5";
-            this.ribbonPage5.Text = "GASTOS Y PAGOS";
+            this.ribbonPage5.Text = "GASTOS-PAGOS";
             this.ribbonPage5.Visible = false;
             // 
             // ribbonPageGroup6
@@ -372,6 +385,7 @@
             this.ribbonPageGroup6.ItemLinks.Add(this.iCierreCaja);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Gastos y pagos";
+            this.ribbonPageGroup6.Visible = false;
             // 
             // ribbonPage6
             // 
@@ -452,7 +466,7 @@
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 144);
             this.barDockControlTop.Size = new System.Drawing.Size(784, 0);
             // 
             // barDockControlBottom
@@ -466,15 +480,15 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 560);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 144);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 416);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(784, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 560);
+            this.barDockControlRight.Location = new System.Drawing.Point(784, 144);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 416);
             // 
             // statusStrip1
             // 
@@ -533,7 +547,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup Pedidos;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPedidos;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;

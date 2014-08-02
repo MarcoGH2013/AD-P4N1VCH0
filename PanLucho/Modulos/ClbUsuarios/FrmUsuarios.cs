@@ -156,5 +156,11 @@ namespace ClbUsuarios
 
         }
 
+        private void FrmUsuarios_Load(object sender, EventArgs e)
+        {
+            String[] permiso=Parametros.Split('|');
+            BotonesSegunPermisos();
+        }
+
     }
 }

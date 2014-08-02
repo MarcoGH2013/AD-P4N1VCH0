@@ -16,9 +16,9 @@ insert into Rol( Id, Nombre, Descripcion, IdEstado )values( 1,'ADMIN', 'admin',1
 insert into Rol( Id, Nombre, Descripcion, IdEstado )values( 2,'VENDEDOR', 'factura',1);
 --insert into Rol( Id, Nombre, Descripcion, IdEstado )values( 3,'PEDIDOSESPECIALES', 'personal con acceso a pantallas de pedidos',1);
 
-insert into ModuloCategoria( Id ,Nombre ,Descripcion ,FechaCreacion ,FechaEdicion ,IdEstado ,UsuarioEdicion)values( 1 ,'SEGURIDAD' , 'frm menu seguridad' , '2014-07-30 19:00:01' , '2014-07-30 20:07:53' , 1 , 'lquinter'  );
-insert into ModuloCategoria( Id,Nombre ,Descripcion ,FechaCreacion ,FechaEdicion ,IdEstado ,UsuarioEdicion)values(2, 'VENTAS' , 'frm menu ventas' , '2014-07-30 19:00:01' , '2014-07-30 20:07:53' , 1 , 'lquinter'  );
-insert into ModuloCategoria( Id ,Nombre ,Descripcion ,FechaCreacion ,FechaEdicion ,IdEstado ,UsuarioEdicion)values( 3 ,'GASTOSyPAGOS' , 'frm menu ventas' , '2014-07-30 19:33:01' , '2014-07-30 20:07:53' , 1 , 'macastro'  );
+insert into ModuloCategoria values( 1 ,'SEGURIDAD' , 'frm menu seguridad' , '2014-07-30 19:00:01' , '2014-07-30 20:07:53' , 1 , 'lquinter'  );
+insert into ModuloCategoria values(2, 'VENTAS' , 'frm menu ventas' , '2014-07-30 19:00:01' , '2014-07-30 20:07:53' , 1 , 'lquinter'  );
+insert into ModuloCategoria values( 3 ,'GASTOS-PAGOS' , 'frm menu ventas' , '2014-07-30 19:33:01' , '2014-07-30 20:07:53' , 1 , 'macastro'  );
 
 insert into Modulo values  (
           1 , -- IdModuloCategoria - numeric

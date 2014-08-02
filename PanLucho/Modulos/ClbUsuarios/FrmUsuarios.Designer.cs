@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtECorreo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtApellido = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -47,13 +46,14 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
             // 
+            this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.txtECorreo);
@@ -106,38 +106,44 @@
             // 
             // txtECorreo
             // 
+            this.txtECorreo.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtECorreo.Border.Class = "TextBoxBorder";
             this.txtECorreo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtECorreo.ForeColor = System.Drawing.Color.Black;
             this.txtECorreo.Location = new System.Drawing.Point(153, 186);
             this.txtECorreo.Name = "txtECorreo";
-            this.txtECorreo.Size = new System.Drawing.Size(224, 22);
+            this.txtECorreo.Size = new System.Drawing.Size(224, 20);
             this.txtECorreo.TabIndex = 14;
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtApellido.Border.Class = "TextBoxBorder";
             this.txtApellido.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtApellido.ForeColor = System.Drawing.Color.Black;
             this.txtApellido.Location = new System.Drawing.Point(153, 157);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(224, 22);
+            this.txtApellido.Size = new System.Drawing.Size(224, 20);
             this.txtApellido.TabIndex = 13;
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtNombre.Border.Class = "TextBoxBorder";
             this.txtNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(153, 128);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(224, 22);
+            this.txtNombre.Size = new System.Drawing.Size(224, 20);
             this.txtNombre.TabIndex = 12;
             // 
             // cbxRol
@@ -170,11 +176,13 @@
             // 
             // txtRepetir
             // 
+            this.txtRepetir.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtRepetir.Border.Class = "TextBoxBorder";
             this.txtRepetir.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRepetir.ForeColor = System.Drawing.Color.Black;
             this.txtRepetir.Location = new System.Drawing.Point(153, 70);
             this.txtRepetir.Name = "txtRepetir";
             this.txtRepetir.PasswordChar = '#';
@@ -183,11 +191,13 @@
             // 
             // txtContraseña
             // 
+            this.txtContraseña.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtContraseña.Border.Class = "TextBoxBorder";
             this.txtContraseña.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtContraseña.ForeColor = System.Drawing.Color.Black;
             this.txtContraseña.Location = new System.Drawing.Point(153, 41);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '#';
@@ -196,14 +206,16 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtUsuario.Border.Class = "TextBoxBorder";
             this.txtUsuario.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.Location = new System.Drawing.Point(153, 12);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(149, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(149, 20);
             this.txtUsuario.TabIndex = 8;
             // 
             // labelX7
@@ -316,6 +328,7 @@
             this.Controls.Add(this.groupPanel1);
             this.Name = "FrmUsuarios";
             this.Text = "Administración de usuarios";
+            this.Load += new System.EventHandler(this.FrmUsuarios_Load);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

@@ -173,9 +173,6 @@ namespace ClbClientes
                 this.FormModoParametro=FormModo.Edicion;
             }
         }
-
-        
-
-        
+      
     }
 }

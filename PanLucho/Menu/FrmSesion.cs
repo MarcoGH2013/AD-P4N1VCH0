@@ -32,13 +32,27 @@ namespace Menu
             }
             else
             {
-                IntentoInicio(txtUser.Text, txtPass.Text);
+                //IntentoInicio(txtUser.Text, txtPass.Text);
+                oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales2(txtUser.Text, txtPass.Text);
+                if (oUsuarioInformacion==null)
+                {
+                    MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if (oUsuarioInformacion.IdEstado != 1)
+                {
+                    MessageBox.Show("El usuario " + oUsuarioInformacion.Nombre + " NO se encuentra habilitado, consulte con el administrador del sistema", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    IntentoInicio();
+                }
+
             }
         }
 
-        private void IntentoInicio(string nick, string contrasena)
+        #region Pasando parametros al menu principal
+        private void IntentoInicio()
         {
-            oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales2(nick, contrasena);
             if (oUsuarioInformacion.Nombre != null)
             {
                 //MessageBox.Show("BIENVENIDO !!!! " + oUsuarioInformacion.Nombre + " " + oUsuarioInformacion.Apellido);
@@ -60,6 +74,7 @@ namespace Menu
                 MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #endregion
 
         private void FrmSesion_FormClosed(object sender, FormClosedEventArgs e)
         {

@@ -134,6 +134,7 @@ namespace Controles
         #endregion
 
         private FormModo formModoParametro = FormModo.Predeterminado;
+
         public frmMantenimiento()
         {
             InitializeComponent();
@@ -144,7 +145,9 @@ namespace Controles
             get { return formModoParametro; }
             set { formModoParametro = value; }
         }
-        public string Parametros { get; set; }
+        public string Parametros { get; set; } //ej: c|r|u|d
+
+
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             Nuevo();
@@ -172,6 +175,18 @@ namespace Controles
                     controlItem.Text = "";
                 else LimpiarContenidoRecursivoControles(controlItem);
 
+            }
+        }
+
+        protected virtual void BotonesSegunPermisos()
+        {
+            if (Parametros!=null)
+            {
+                MessageBox.Show("Se puede validar");
+            }
+            else
+            {
+                MessageBox.Show("No se puede");
             }
         }
 
