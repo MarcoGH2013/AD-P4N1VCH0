@@ -15,7 +15,9 @@ using ClbRoles;
 using ClbUsuarios;
 using Componentes.Transaccion;
 using Controles;
+using DevExpress.Data.Filtering.Helpers;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Controls;
 
 
 namespace Menu
@@ -71,8 +73,8 @@ namespace Menu
                     {
                         if (frm.GetType() == typeof(FrmCliente))
                         {
-                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                            //MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                            //    MessageBoxIcon.Information);
                             frm.Focus();
                             mostrar = false;
                         }
@@ -80,8 +82,13 @@ namespace Menu
                 }
                 if (mostrar == true)
                 {
-                            FrmCliente f = new FrmCliente();
-                            //f.Parametros = p.permisos;
+                            var permiso = (from a in permissionsAll
+                                           where
+                                               a.libreriaClase == typeof(FrmCliente).Namespace &&
+                                               a.nombreForm == typeof(FrmCliente).Name
+                                           select a.permisos).First();
+                            FrmCliente f = new FrmCliente(); //llamar en evento Load a: BotonesSegunPermisos();
+                            f.Parametros = permiso;//enviando ej: c|r|u|d
                             f.MdiParent = this;
                             f.Show();
                 }
@@ -124,8 +131,8 @@ namespace Menu
                     {
                         if (frm.GetType() == typeof(FrmCierreCaja))
                         {
-                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                            //MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                            //    MessageBoxIcon.Information);
                             frm.Focus();
                             mostrar = false;
                         }
@@ -161,8 +168,8 @@ namespace Menu
                     {
                         if (frm.GetType() == typeof(FrmUsuarios))
                         {
-                            MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                            //MessageBox.Show("La ventana se encuentra abierta", "Pan Lucho™", MessageBoxButtons.OK,
+                            //    MessageBoxIcon.Information);
                             frm.Focus();
                             mostrar = false;
                         }
@@ -170,17 +177,13 @@ namespace Menu
                 }
                 if (mostrar == true)
                 {
-                    foreach (var p in permissionsAll)
-                    {
-                        if (p.libreriaClase+"."+p.nombreForm == typeof(FrmUsuarios).ToString())
-                        {
-                            FrmUsuarios f = new FrmUsuarios();
-                            f.Parametros = p.permisos;
-                            f.MdiParent = this;
-                            f.Show();
-                            break;
-                        }
-                    }
+                    var permiso = (from a in permissionsAll where
+                                    a.libreriaClase == typeof (FrmUsuarios).Namespace && 
+                                    a.nombreForm== typeof(FrmUsuarios).Name select  a.permisos).First();
+                    FrmUsuarios f = new FrmUsuarios(); //llamar en evento Load a: BotonesSegunPermisos();
+                    f.Parametros = permiso;//enviando ej: c|r|u|d
+                    f.MdiParent = this;
+                    f.Show();
                 }
             }
             catch (Exception exception)
@@ -294,7 +297,13 @@ namespace Menu
                 }
                 if (mostrar == true)
                 {
-                    FrmRoles f = new FrmRoles();
+                    var permiso = (from a in permissionsAll
+                                   where
+                                       a.libreriaClase == typeof(FrmRoles).Namespace &&
+                                       a.nombreForm == typeof(FrmRoles).Name
+                                   select a.permisos).First();
+                    FrmRoles f = new FrmRoles(); //llamar en evento Load a: BotonesSegunPermisos();
+                    f.Parametros = permiso;//enviando ej: c|r|u|d
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -325,7 +334,13 @@ namespace Menu
                 }
                 if (mostrar == true)
                 {
-                    FrmFactura f = new FrmFactura();
+                    var permiso = (from a in permissionsAll
+                                   where
+                                       a.libreriaClase == typeof(FrmFactura).Namespace &&
+                                       a.nombreForm == typeof(FrmFactura).Name
+                                   select a.permisos).First();
+                    FrmFactura f = new FrmFactura(); //llamar en evento Load a: BotonesSegunPermisos();
+                    f.Parametros = permiso;//enviando ej: c|r|u|d
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -356,7 +371,13 @@ namespace Menu
                 }
                 if (mostrar == true)
                 {
-                    FrmPedidosEspeciales f = new FrmPedidosEspeciales();
+                    var permiso = (from a in permissionsAll
+                                   where
+                                       a.libreriaClase == typeof(FrmPedidosEspeciales).Namespace &&
+                                       a.nombreForm == typeof(FrmPedidosEspeciales).Name
+                                   select a.permisos).First();
+                    FrmPedidosEspeciales f = new FrmPedidosEspeciales(); //llamar en evento Load a: BotonesSegunPermisos();
+                    f.Parametros = permiso;//enviando ej: c|r|u|d
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -419,6 +440,11 @@ namespace Menu
             }
         }
         #endregion        
+
+        private void iPedidoProductos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
 
     }
 }

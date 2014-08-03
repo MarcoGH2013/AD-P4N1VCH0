@@ -568,6 +568,7 @@
             this.Controls.Add(this.groupPanel1);
             this.Name = "FrmFactura";
             this.Text = "Factura";
+            this.Load += new System.EventHandler(this.FrmFactura_Load);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.Controls.SetChildIndex(this.groupPanel2, 0);
             this.Controls.SetChildIndex(this.groupPanel3, 0);

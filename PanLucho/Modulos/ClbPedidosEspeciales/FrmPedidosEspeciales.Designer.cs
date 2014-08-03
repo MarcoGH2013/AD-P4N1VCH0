@@ -855,6 +855,7 @@
             this.Controls.Add(this.groupPanel2);
             this.Name = "FrmPedidosEspeciales";
             this.Text = "Pedidos especiales";
+            this.Load += new System.EventHandler(this.FrmPedidosEspeciales_Load);
             this.Controls.SetChildIndex(this.groupPanel2, 0);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.groupPanel1.ResumeLayout(false);

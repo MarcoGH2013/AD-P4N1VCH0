@@ -180,14 +180,47 @@ namespace Controles
 
         protected virtual void BotonesSegunPermisos()
         {
+            OcultarControles();
             if (Parametros!=null)
             {
-                MessageBox.Show("Se puede validar");
+                String[] permiso = Parametros.Split('|');
+                foreach (var i in permiso)
+                {
+                    switch (i[0])
+                    {
+                        case 'c':
+                            tsbNuevo.Visible = true;
+                            tsbGuardar.Visible=true;
+                            break;
+                        case 'r':
+                            tsbBuscar.Visible = true;
+                            break;
+                        case 'u':
+                            tsbModificar.Visible = true;
+                            break;
+                        case 'd':
+                            tsbEliminar.Visible = true;
+                            break;
+                        default:
+                            OcultarControles();
+                            break;
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("No se puede");
+                MessageBox.Show("Usted no tiene permisos asignados a esta pantalla, se han inhabilitado todas las opciones, " +
+                                "consulte con el administrador del sistema", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void OcultarControles()
+        {
+            tsbNuevo.Visible = false;
+            tsbGuardar.Visible = false;
+            tsbBuscar.Visible = false;
+            tsbModificar.Visible = false;
+            tsbEliminar.Visible = false;
         }
 
         protected virtual void Bloquear()

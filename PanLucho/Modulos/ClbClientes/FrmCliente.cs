@@ -173,6 +173,11 @@ namespace ClbClientes
                 this.FormModoParametro=FormModo.Edicion;
             }
         }
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+            BotonesSegunPermisos();//copy seguridad
+        }
       
     }
 }

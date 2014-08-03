@@ -18,5 +18,10 @@ namespace ClbCierreCaja
 
             dateEdit1.DateTime = DateTime.Now;
         }
+
+        private void FrmCierreCaja_Load(object sender, EventArgs e)
+        {
+            BotonesSegunPermisos();//copy seguridad
+        }
     }
 }

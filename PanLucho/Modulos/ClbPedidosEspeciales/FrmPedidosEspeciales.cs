@@ -23,5 +23,10 @@ namespace ClbPedidosEspeciales
             frmConsulta fcon = new frmConsulta();
             fcon.ShowDialog();
         }
+
+        private void FrmPedidosEspeciales_Load(object sender, EventArgs e)
+        {
+            BotonesSegunPermisos();//copy seguridad
+        }
     }
 }

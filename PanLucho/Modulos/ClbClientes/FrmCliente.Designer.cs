@@ -212,6 +212,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmCliente";
             this.Text = "Mantenimiento de Clientes";
+            this.Load += new System.EventHandler(this.FrmCliente_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -67,5 +67,10 @@ namespace ClbFacturas
             frmConsulta fcon=new frmConsulta();
             fcon.ShowDialog();
         }
+
+        private void FrmFactura_Load(object sender, EventArgs e)
+        {
+            BotonesSegunPermisos();//copy seguridad
+        }
     }
 }

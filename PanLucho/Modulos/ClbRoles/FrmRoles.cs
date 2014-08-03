@@ -16,5 +16,10 @@ namespace ClbRoles
         {
             InitializeComponent();
         }
+
+        private void FrmRoles_Load(object sender, EventArgs e)
+        {
+            BotonesSegunPermisos();//copy seguridad
+        }
     }
 }

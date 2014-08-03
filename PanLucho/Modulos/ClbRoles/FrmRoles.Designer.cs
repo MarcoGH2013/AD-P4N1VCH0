@@ -331,6 +331,7 @@
             this.Controls.Add(this.groupPanel1);
             this.Name = "FrmRoles";
             this.Text = "Asignacion de roles";
+            this.Load += new System.EventHandler(this.FrmRoles_Load);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.Controls.SetChildIndex(this.groupPanel2, 0);
             this.groupPanel1.ResumeLayout(false);
