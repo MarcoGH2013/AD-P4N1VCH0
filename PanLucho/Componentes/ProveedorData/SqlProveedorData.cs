@@ -155,14 +155,13 @@ namespace Componentes.ProveedorData
             var cliente = new Cliente();
             if (valorData != null)
             {
-                cliente.Id = int.Parse(valorData["Id"].ToString());
-                cliente.Nombre = (string)valorData["Nombre"];
-                cliente.Apellido = (string)valorData["Apellido"];
-                cliente.TipoIdentificacion = (string)valorData["TipoIdentificacion"];
+                cliente.Id                   = int.Parse(valorData["Id"].ToString());
+                cliente.Nombre               = (string)valorData["Nombre"];
+                cliente.Apellido             = (string)valorData["Apellido"];
+                cliente.TipoIdentificacion   = (string)valorData["TipoIdentificacion"];
                 cliente.NumeroIdentificacion = (string)valorData["NumeroIdentificacion"];
 
-
-                cliente.Ecorreo = (string)valorData["Ecorreo"];
+                cliente.Ecorreo              = (string)valorData["Ecorreo"];
 
                 if (!string.IsNullOrEmpty(valorData["FechaNacimiento"].ToString()))
                     cliente.FechaNacimiento = (DateTime)valorData["FechaNacimiento"];
@@ -343,16 +342,16 @@ namespace Componentes.ProveedorData
             var usuario = new Usuario();
             if (valorData != null)
             {
-                usuario.Id = (Decimal)valorData["Id"];
-                usuario.IdRol = (Decimal)valorData["IdRol"];
-                usuario.Nombre = (String)valorData["Nombre"];
-                usuario.Apellido = (String)valorData["Apellido"];
-                usuario.Ecorreo = (String)valorData["Ecorreo"];
+                usuario.Id             = (Decimal)valorData["Id"];
+                usuario.IdRol          = (Decimal)valorData["IdRol"];
+                usuario.Nombre         = (String)valorData["Nombre"];
+                usuario.Apellido       = (String)valorData["Apellido"];
+                usuario.Ecorreo        = (String)valorData["Ecorreo"];
                 usuario.Identificacion = (String)valorData["Identificacion"];
-                usuario.Contraseña = (String)valorData["Contraseña"];
-                usuario.FechaCreacion = (DateTime)valorData["FechaCreacion"];
-                usuario.FechaEdicion = (DateTime)valorData["FechaEdicion"];
-                usuario.IdEstado = (Decimal)valorData["IdEstado"];
+                usuario.Contraseña     = (String)valorData["Contraseña"];
+                usuario.FechaCreacion  = (DateTime)valorData["FechaCreacion"];
+                usuario.FechaEdicion   = (DateTime)valorData["FechaEdicion"];
+                usuario.IdEstado       = (Decimal)valorData["IdEstado"];
             }
             return usuario;
         }
