@@ -39,7 +39,7 @@ namespace Componentes.NivelMedio.Transacciones
             return sp.Obtener(clienteid);
         }
         #endregion
-        #region Multiple Selection
+        #region Selección Multiple
 
         public static List<Cliente> ObtenerLista()
         {
