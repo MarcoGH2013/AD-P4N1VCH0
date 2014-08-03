@@ -43,14 +43,9 @@
     <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DevCompForm2.cs">
@@ -111,29 +106,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClbFacturas\ClbFacturas.csproj">
-      <Project>{266442E6-E3AE-4078-B070-6936B96791D1}</Project>
-      <Name>ClbFacturas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Controles\Controles.csproj">
-      <Project>{6CBB89B0-9A9C-42B2-A316-8EC984F1F431}</Project>
-      <Name>Controles</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Menu\Menu.csproj">
       <Project>{93873CFA-5B73-4D7A-A559-C4D4846AC10E}</Project>
       <Name>Menu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Modulos\ClbClientes\ClbClientes.csproj">
-      <Project>{F259FB38-F9D4-4F1C-ACF6-A1B7D404720E}</Project>
-      <Name>ClbClientes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Modulos\ClbPedidosEspeciales\ClbPedidosEspeciales.csproj">
-      <Project>{6A7D073B-8109-4CCD-9E93-73D88E95D53D}</Project>
-      <Name>ClbPedidosEspeciales</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Modulos\ClbUsuarios\ClbUsuarios.csproj">
-      <Project>{DCF1224F-6D32-49D7-BBB5-07024FB8F2FA}</Project>
-      <Name>ClbUsuarios</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

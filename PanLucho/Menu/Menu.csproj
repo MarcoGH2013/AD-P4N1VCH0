@@ -137,14 +137,6 @@
     <None Include="Resources\user %282%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClbCierreCaja\ClbCierreCaja.csproj">
-      <Project>{3DEA7DA1-6046-451D-AE57-8CE8C987932E}</Project>
-      <Name>ClbCierreCaja</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClbFacturas\ClbFacturas.csproj">
-      <Project>{266442E6-E3AE-4078-B070-6936B96791D1}</Project>
-      <Name>ClbFacturas</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Componentes\Componentes.csproj">
       <Project>{6977647E-1FB4-49FB-9809-1591D3557734}</Project>
       <Name>Componentes</Name>
@@ -153,9 +145,17 @@
       <Project>{6CBB89B0-9A9C-42B2-A316-8EC984F1F431}</Project>
       <Name>Controles</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbCierreCaja\ClbCierreCaja.csproj">
+      <Project>{3DEA7DA1-6046-451D-AE57-8CE8C987932E}</Project>
+      <Name>ClbCierreCaja</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modulos\ClbClientes\ClbClientes.csproj">
       <Project>{F259FB38-F9D4-4F1C-ACF6-A1B7D404720E}</Project>
       <Name>ClbClientes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbFacturas\ClbFacturas.csproj">
+      <Project>{266442E6-E3AE-4078-B070-6936B96791D1}</Project>
+      <Name>ClbFacturas</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modulos\ClbPedidosEspeciales\ClbPedidosEspeciales.csproj">
       <Project>{6A7D073B-8109-4CCD-9E93-73D88E95D53D}</Project>
