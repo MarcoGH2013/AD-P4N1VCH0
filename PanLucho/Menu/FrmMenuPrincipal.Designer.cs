@@ -139,7 +139,7 @@
             // 
             // iSalir
             // 
-            this.iSalir.Caption = "Salir";
+            this.iSalir.Caption = "Salir del sistema";
             this.iSalir.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.iSalir.Description = "Salir del sistema Pan Lucho";
             this.iSalir.Hint = "Salir del sistema Pan Lucho.";
@@ -161,6 +161,7 @@
             this.iCerrarSesion.ImageIndex = 6;
             this.iCerrarSesion.LargeImageIndex = 6;
             this.iCerrarSesion.Name = "iCerrarSesion";
+            this.iCerrarSesion.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.iCerrarSesion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCerrarSesion_ItemClick);
             // 
             // iUsuarios
@@ -467,7 +468,7 @@
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 144);
             this.barDockControlTop.Size = new System.Drawing.Size(784, 0);
             // 
             // barDockControlBottom
@@ -481,15 +482,15 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 560);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 144);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 416);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(784, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 560);
+            this.barDockControlRight.Location = new System.Drawing.Point(784, 144);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 416);
             // 
             // statusStrip1
             // 

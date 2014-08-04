@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.ComponentModel;using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Versioning;
@@ -52,8 +51,8 @@ namespace Menu
         {
             try
             {
+                this.Dispose(true);
                 Application.Exit();
-                //this.Dispose(true);
             }
             catch (Exception)
             {
@@ -116,6 +115,7 @@ namespace Menu
             {
                 oFrmSesion.Visible = true;
                 oFrmSesion.Activate();
+               // this.Close();
             }
         }
 
@@ -153,7 +153,7 @@ namespace Menu
 
         private void iCerrarSesion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            
         }
 
         private void iUsuarios_ItemClick(object sender, ItemClickEventArgs e)
@@ -229,7 +229,7 @@ namespace Menu
                     {
                         this.ribbonPage3.Visible = true;
                         this.ribbonPageGroup4.Visible = true;
-                        this.ribbonPageGroup3.Visible = true;
+                        //this.ribbonPageGroup3.Visible = true;
                         this.ribbonPageGroup5.Visible = true;
 
                     }
