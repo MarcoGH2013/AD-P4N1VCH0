@@ -143,17 +143,23 @@ namespace ClbUsuarios
             var oCliente = new Usuario();
             if (fcon.oGenerico != null)
             {
-                oCliente = (Usuario)fcon.oGenerico;
-                Codigo = oCliente.Id;
-                txtUsuario.Text = oCliente.Identificacion;
-                txtNombre.Text = oCliente.Nombre;
+                oCliente             = (Usuario)fcon.oGenerico;
+                Codigo               = oCliente.Id;
+                txtUsuario.Text      = oCliente.Identificacion;
+                txtNombre.Text       = oCliente.Nombre;
                 cbxRol.SelectedIndex = int.Parse((oCliente.IdRol - 1).ToString());
-                txtApellido.Text = oCliente.Apellido;
-                txtContraseña.Text = oCliente.Contraseña;
-                txtECorreo.Text = oCliente.Ecorreo;
+                txtApellido.Text     = oCliente.Apellido;
+                txtContraseña.Text   = oCliente.Contraseña;
+                txtECorreo.Text      = oCliente.Ecorreo;
                 this.FormModoParametro = FormModo.Edicion;
             }
 
+        }
+
+        protected override void Eliminar()
+        {
+            base.Eliminar();
+            Usuarios.Eliminar(int.Parse(Codigo.ToString("G")));//new
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)

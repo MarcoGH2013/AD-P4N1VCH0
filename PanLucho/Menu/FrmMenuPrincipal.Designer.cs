@@ -468,7 +468,7 @@
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 144);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Size = new System.Drawing.Size(784, 0);
             // 
             // barDockControlBottom
@@ -482,15 +482,15 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 144);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 416);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 560);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(784, 144);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 416);
+            this.barDockControlRight.Location = new System.Drawing.Point(784, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 560);
             // 
             // statusStrip1
             // 

@@ -174,6 +174,12 @@ namespace ClbClientes
             }
         }
 
+        protected override void Eliminar()
+        {
+            base.Eliminar();
+            Clientes.Eliminar(Codigo);
+        }
+
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             BotonesSegunPermisos();//copy seguridad
