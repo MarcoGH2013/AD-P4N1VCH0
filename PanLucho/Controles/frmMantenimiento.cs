@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
-using DevExpress.XtraLayout.Converter;
 
 namespace Controles
 {
@@ -16,7 +11,7 @@ namespace Controles
         #region Windows Form Codigo generado por el diseñador
         private ToolStrip tstMenu;
         private ToolStripButton tsbNuevo;
-        private ToolStripButton tsbModificar;
+        private ToolStripButton tsbDeshacer;
         private ToolStripButton tsbEliminar;
         private ToolStripButton tsbGuardar;
         private ToolStripButton tsbBuscar;
@@ -26,7 +21,7 @@ namespace Controles
         {
             this.tstMenu = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
+            this.tsbDeshacer = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
@@ -38,7 +33,7 @@ namespace Controles
             // 
             this.tstMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
-            this.tsbModificar,
+            this.tsbDeshacer,
             this.tsbEliminar,
             this.tsbGuardar,
             this.tsbBuscar,
@@ -57,21 +52,22 @@ namespace Controles
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(36, 36);
-            this.tsbNuevo.Tag = "01";
+            this.tsbNuevo.Tag = "c";
             this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
-            // tsbModificar
+            // tsbDeshacer
             // 
-            this.tsbModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificar.Image = global::Controles.Properties.Resources.Modificar;
-            this.tsbModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificar.Name = "tsbModificar";
-            this.tsbModificar.Size = new System.Drawing.Size(36, 36);
-            this.tsbModificar.Tag = "02";
-            this.tsbModificar.Text = "Modificar";
-            this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
+            this.tsbDeshacer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDeshacer.Image = global::Controles.Properties.Resources.Modificar;
+            this.tsbDeshacer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbDeshacer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeshacer.Name = "tsbDeshacer";
+            this.tsbDeshacer.Size = new System.Drawing.Size(36, 36);
+            this.tsbDeshacer.Tag = "u";
+            this.tsbDeshacer.Text = "Deshacer";
+            this.tsbDeshacer.ToolTipText = "Deshacer";
+            this.tsbDeshacer.Click += new System.EventHandler(this.tsbDeshacer_Click);
             // 
             // tsbEliminar
             // 
@@ -81,7 +77,7 @@ namespace Controles
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(36, 36);
-            this.tsbEliminar.Tag = "03";
+            this.tsbEliminar.Tag = "d";
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
@@ -93,7 +89,7 @@ namespace Controles
             this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbGuardar.Name = "tsbGuardar";
             this.tsbGuardar.Size = new System.Drawing.Size(36, 36);
-            this.tsbGuardar.Tag = "04";
+            this.tsbGuardar.Tag = "c";
             this.tsbGuardar.Text = "Guardar";
             this.tsbGuardar.Click += new System.EventHandler(this.tsbGuardad_Click);
             // 
@@ -105,7 +101,7 @@ namespace Controles
             this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBuscar.Name = "tsbBuscar";
             this.tsbBuscar.Size = new System.Drawing.Size(36, 36);
-            this.tsbBuscar.Tag = "05";
+            this.tsbBuscar.Tag = "r";
             this.tsbBuscar.Text = "Buscar";
             this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
             // 
@@ -117,7 +113,7 @@ namespace Controles
             this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Size = new System.Drawing.Size(36, 36);
-            this.tsbSalir.Tag = "06";
+            this.tsbSalir.Tag = "00";
             this.tsbSalir.Text = "Cerrar";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
@@ -127,6 +123,7 @@ namespace Controles
             this.Controls.Add(this.tstMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMantenimiento";
+            this.Tag = "";
             this.tstMenu.ResumeLayout(false);
             this.tstMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -136,7 +133,7 @@ namespace Controles
         #endregion
 
         private FormModo formModoParametro = FormModo.Predeterminado;
-
+        
         public frmMantenimiento()
         {
             InitializeComponent();
@@ -155,14 +152,28 @@ namespace Controles
             EstablecerColorFocoCajaTexto();
             if (string.IsNullOrEmpty(Parametros))
             {
-                
+                ModoPredeterminado();
             }
-            
+            BotonVisible();
         }
 
+        public void BotonVisible()
+        {
+            if (!string.IsNullOrEmpty(Tag.ToString()))
+            {
+                foreach (ToolStripItem control in tstMenu.Items)
+                {
+                    if (Tag.ToString().Contains(control.Tag.ToString()) || control.Tag.ToString().Contains("00"))
+                        control.Visible = true;
+                    else
+                        control.Visible = false;
+                }
+            }
+        }
+        
         private void EstablecerColorFocoCajaTexto()
         {
-            foreach (Control control in this.Controls)
+            foreach (Control control in Controls)
             {
                 if (control is TextBoxX)
                 {
@@ -209,7 +220,7 @@ namespace Controles
             DeshabilitarTodaBarraHerramienta();
             ActivarTodoControl();
             tsbGuardar.Enabled = true;
-            tsbModificar.Enabled = true;
+            tsbDeshacer.Enabled = true;
             formModoParametro=FormModo.Nuevo;
 
         }
@@ -219,7 +230,7 @@ namespace Controles
             ActivarTodoControl();
             DeshabilitarTodaBarraHerramienta();
             tsbGuardar.Enabled = true;
-            tsbModificar.Enabled = true;
+            tsbDeshacer.Enabled = true;
             formModoParametro=FormModo.Edicion;
         }
         public void InactivarTodoControl()
@@ -244,10 +255,9 @@ namespace Controles
 
         public void DeshabilitarTodaBarraHerramienta()
         {
-            foreach (ToolStripItem mnuBoton in tstMenu.Items)
+            foreach (ToolStripItem mnuBoton in tstMenu.Items.Cast<ToolStripItem>().Where(mnuBoton => !mnuBoton.Tag.ToString().Contains("00")))
             {
-                if (!mnuBoton.Tag.ToString().Contains("00"))
-                    mnuBoton.Enabled = false;
+                mnuBoton.Enabled = false;
             }
         }
 
@@ -277,8 +287,7 @@ namespace Controles
 
         protected virtual void Nuevo()
         {
-            formModoParametro=FormModo.Nuevo;
-            LimpiarContenidoControles();
+            ModoNuevo();
         }
         public void LimpiarContenidoControles()
         {
@@ -318,7 +327,7 @@ namespace Controles
                             tsbBuscar.Visible = true;
                             break;
                         case 'u':
-                            tsbModificar.Visible = true;
+                            tsbDeshacer.Visible = true;
                             break;
                         case 'd':
                             tsbEliminar.Visible = true;
@@ -341,7 +350,7 @@ namespace Controles
             tsbNuevo.Visible = false;
             tsbGuardar.Visible = false;
             tsbBuscar.Visible = false;
-            tsbModificar.Visible = false;
+            tsbDeshacer.Visible = false;
             tsbEliminar.Visible = false;
         }
 
@@ -395,14 +404,14 @@ namespace Controles
             }
         }
 
-        private void tsbModificar_Click(object sender, EventArgs e)
+        private void tsbDeshacer_Click(object sender, EventArgs e)
         {
-            Modificar();
+            Deshacer();
         }
 
-        protected virtual void Modificar()
+        protected virtual void Deshacer()
         {
-            
+            ModoPredeterminado();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)

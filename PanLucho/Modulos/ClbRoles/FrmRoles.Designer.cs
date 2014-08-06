@@ -280,7 +280,7 @@
             this.checkBoxX3.Size = new System.Drawing.Size(100, 16);
             this.checkBoxX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.checkBoxX3.TabIndex = 3;
-            this.checkBoxX3.Text = "Modificar";
+            this.checkBoxX3.Text = "Deshacer";
             // 
             // checkBoxX2
             // 
