@@ -110,6 +110,10 @@
       <Project>{93873CFA-5B73-4D7A-A559-C4D4846AC10E}</Project>
       <Name>Menu</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbUsuarios\ClbUsuarios.csproj">
+      <Project>{DCF1224F-6D32-49D7-BBB5-07024FB8F2FA}</Project>
+      <Name>ClbUsuarios</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\log_out_32 %282%29.png" />

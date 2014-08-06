@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using System.Windows.Forms;
+using ClbUsuarios;
 using Menu;
 
 
@@ -16,7 +17,7 @@ namespace PanLuchoPrueba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmSesion());
+            Application.Run(new FrmUsuarios(){Tag = "c|r|u|d|00"});
         }
     }
 }
