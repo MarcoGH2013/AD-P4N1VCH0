@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevComponents.DotNetBar.Controls;
+using DevExpress.XtraLayout.Converter;
 
 namespace Controles
 {
@@ -147,7 +149,127 @@ namespace Controles
         }
         public string Parametros { get; set; } //ej: c|r|u|d
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            EstablecerColorFocoCajaTexto();
+            if (string.IsNullOrEmpty(Parametros))
+            {
+                
+            }
+            
+        }
 
+        private void EstablecerColorFocoCajaTexto()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBoxX)
+                {
+                    var txt = (TextBoxX) control;
+                    txt.FocusHighlightColor = Color.FromArgb(0, 255, 255);
+                    txt.FocusHighlightEnabled = true;
+                }
+                if (control.HasChildren)
+                {
+                    EstablecerColorFocoCajaTextoRecursiva(control);
+                }
+            }
+        }
+
+        private void EstablecerColorFocoCajaTextoRecursiva(Control control)
+        {
+            foreach (Control subControl in control.Controls)
+            {
+                if (subControl is TextBoxX)
+                {
+                    var txt = (TextBoxX) subControl;
+                    txt.FocusHighlightColor = Color.FromArgb(0, 255,255);
+                    txt.FocusHighlightEnabled = true;
+                }
+                if (subControl.HasChildren)
+                {
+                    EstablecerColorFocoCajaTextoRecursiva(subControl);
+                }
+            }
+        }
+
+        protected void ModoPredeterminado()
+        {
+            InactivarTodoControl();
+            DeshabilitarTodaBarraHerramienta();
+            tsbNuevo.Enabled = true;
+            tsbBuscar.Enabled = true;
+            formModoParametro=FormModo.Predeterminado;
+        }
+
+        protected virtual void ModoNuevo()
+        {
+            LimpiarContenidoControles();
+            DeshabilitarTodaBarraHerramienta();
+            ActivarTodoControl();
+            tsbGuardar.Enabled = true;
+            tsbModificar.Enabled = true;
+            formModoParametro=FormModo.Nuevo;
+
+        }
+
+        public void ModoEdicion()
+        {
+            ActivarTodoControl();
+            DeshabilitarTodaBarraHerramienta();
+            tsbGuardar.Enabled = true;
+            tsbModificar.Enabled = true;
+            formModoParametro=FormModo.Edicion;
+        }
+        public void InactivarTodoControl()
+        {
+            foreach (Control control in Controls)
+            {
+                if (!(control is ToolStrip))
+                    control.Enabled = false;
+                InactivarTodoControlRecursiva(control);
+            }
+        }
+
+        public void InactivarTodoControlRecursiva(Control control)
+        {
+            foreach (Control subControl in control.Controls)
+            {
+                if (!(subControl is ToolStrip))
+                    subControl.Enabled = false;
+                InactivarTodoControlRecursiva(subControl);
+            }
+        }
+
+        public void DeshabilitarTodaBarraHerramienta()
+        {
+            foreach (ToolStripItem mnuBoton in tstMenu.Items)
+            {
+                if (!mnuBoton.Tag.ToString().Contains("00"))
+                    mnuBoton.Enabled = false;
+            }
+        }
+
+        public void ActivarTodoControl()
+        {
+            foreach (Control control in Controls)
+            {
+                if (!(control is ToolStrip))
+                    control.Enabled = true;
+                ActivarTodoControlRecursiva(control);
+            }
+        }
+
+        public void ActivarTodoControlRecursiva(Control control)
+        {
+            foreach (Control subControl in control.Controls)
+            {
+                if (!(subControl is ToolStrip))
+                    subControl.Enabled = true;
+                ActivarTodoControlRecursiva(subControl);
+            }
+        }
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             Nuevo();
