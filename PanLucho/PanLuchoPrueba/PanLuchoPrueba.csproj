@@ -106,6 +106,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controles\Controles.csproj">
+      <Project>{6CBB89B0-9A9C-42B2-A316-8EC984F1F431}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu\Menu.csproj">
       <Project>{93873CFA-5B73-4D7A-A559-C4D4846AC10E}</Project>
       <Name>Menu</Name>

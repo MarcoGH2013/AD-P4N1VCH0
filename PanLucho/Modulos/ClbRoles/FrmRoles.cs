@@ -19,7 +19,7 @@ namespace ClbRoles
 
         private void FrmRoles_Load(object sender, EventArgs e)
         {
-            BotonesSegunPermisos();//copy seguridad
+            //BotonesSegunPermisos();//copy seguridad
         }
     }
 }

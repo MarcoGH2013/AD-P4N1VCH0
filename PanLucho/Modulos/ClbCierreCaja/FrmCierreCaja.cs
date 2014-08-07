@@ -21,7 +21,7 @@ namespace ClbCierreCaja
 
         private void FrmCierreCaja_Load(object sender, EventArgs e)
         {
-            BotonesSegunPermisos();//copy seguridad
+            //BotonesSegunPermisos();//copy seguridad
         }
     }
 }

@@ -2,12 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Windows.Forms;
 using System.Windows.Forms;
 using Componentes.Comun;
 using Componentes.NivelMedio.Transacciones;
@@ -164,7 +158,7 @@ namespace ClbUsuarios
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            BotonesSegunPermisos();//copy seguridad
+            //BotonesSegunPermisos();//copy seguridad
         }
 
     }

@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Controles;
 
 namespace ClbFacturas
 {
-    public partial class FrmReporteFactura : Form
+    public partial class FrmReporteFactura : frmMantenimiento
     {
         public FrmReporteFactura()
         {

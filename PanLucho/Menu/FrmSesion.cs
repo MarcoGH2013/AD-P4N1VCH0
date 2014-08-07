@@ -26,27 +26,35 @@ namespace Menu
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if ((string.IsNullOrWhiteSpace(txtUser.Text)) || (string.IsNullOrWhiteSpace(txtPass.Text)))
+            try
             {
-                MessageBox.Show("Falta uno o más campos", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                //IntentoInicio(txtUser.Text, txtPass.Text);
-                oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales2(txtUser.Text, txtPass.Text);
-                if (oUsuarioInformacion==null)
+                if ((string.IsNullOrWhiteSpace(txtUser.Text)) || (string.IsNullOrWhiteSpace(txtPass.Text)))
                 {
-                    MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                if (oUsuarioInformacion.IdEstado != 1)
-                {
-                    MessageBox.Show("El usuario " + oUsuarioInformacion.Nombre + " NO se encuentra habilitado, consulte con el administrador del sistema", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Falta uno o más campos", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    IntentoInicio();
-                }
+                    //IntentoInicio(txtUser.Text, txtPass.Text);
+                    oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales2(txtUser.Text, txtPass.Text);
+                    if (oUsuarioInformacion==null)
+                    {
+                        MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    if (oUsuarioInformacion.IdEstado != 1)
+                    {
+                        MessageBox.Show("El usuario " + oUsuarioInformacion.Nombre + " NO se encuentra habilitado, consulte con el administrador del sistema", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        IntentoInicio();
+                    }
 
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                MessageBox.Show( "Lo sentimos, imposible conectar, inténtelo más tarde o consulte con el administrador del sistema ", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

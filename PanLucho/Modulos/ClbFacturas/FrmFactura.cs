@@ -70,7 +70,7 @@ namespace ClbFacturas
 
         private void FrmFactura_Load(object sender, EventArgs e)
         {
-            BotonesSegunPermisos();//copy seguridad
+            //BotonesSegunPermisos();//copy seguridad
         }
     }
 }
