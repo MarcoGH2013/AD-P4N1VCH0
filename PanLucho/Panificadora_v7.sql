@@ -140,21 +140,21 @@ foreign key(IdRol)references Rol
 go
 
 create table Cliente(
-Id numeric(5,0) identity(1,1) primary key,
-Nombre varchar(100),
-Apellido varchar(100),
-TipoIdentificacion varchar(20),
-NumeroIdentificacion varchar(20),
-Ecorreo varchar(50),
-FechaNacimiento datetime, --de q sirve?
-Estado numeric(5,0), --si no es tabla nos jode
---IdDireccion numeric(5,0),
---IdTelefono numeric(5,0),
-FechaCreacion datetime,
-FechaEdicion datetime,
-UsuarioCreacion varchar(25),
-UsuarioEdicion varchar(25),
-foreign key(Estado) references Estado,
+	Id numeric(5,0) identity(1,1) primary key,
+	Nombre nvarchar(30) null,
+	Apellido nvarchar(30) null,
+	TipoIdentificacion nchar(1) null,
+	NumeroIdentificacion varchar(13) null,
+	Ecorreo nvarchar(50) null,
+	FechaNacimiento date null, --de q sirve?
+	Estado numeric(5, 0) null, --si no es tabla nos jode
+	--IdDireccion numeric(5,0),
+    --IdTelefono numeric(5,0),
+	FechaCreacion datetime null,
+	FechaEdicion datetime null,
+	UsuarioCreacion nvarchar(25) null,
+	UsuarioEdicion nvarchar(25) null
+foreign key(Estado) references Estado
 --foreign key(IdDireccion)references Direccion,
 --foreign key(IdTelefono)references Telefono
 )
@@ -211,19 +211,19 @@ UserEdicion varchar(25),
 )
 go
 create table Producto(
-	Id numeric(5, 0) IDENTITY(1,1) NOT NULL primary key,
-	Descripcion nvarchar(30) NOT NULL,
-	DescripcionDetallada nvarchar(50) NULL,
-	ClaseProducto nvarchar(4) NULL,
-	UnidadMedida nvarchar(3) NOT NULL,
-	Existencias decimal(8, 4) NOT NULL,
-	Precio smallmoney NOT NULL,
+	Id numeric(5, 0) IDENTITY(1,1) NOT null primary key,
+	Descripcion nvarchar(30) NOT null,
+	DescripcionDetallada nvarchar(50) null,
+	ClaseProducto nvarchar(4) null,
+	UnidadMedida nvarchar(3) NOT null,
+	Existencias decimal(8, 4) NOT null,
+	Precio smallmoney NOT null,
 	IdEstado numeric(5,0),
-	EsGrabado bit NOT NULL,
-	FechaCreacion datetime NOT NULL,
-	FechaEdicion datetime NOT NULL,
-	UsuarioCreacion nvarchar(25) NOT NULL,
-	UsuarioEdicion nvarchar(25) NOT NULL,
+	EsGrabado bit NOT null,
+	FechaCreacion datetime NOT null,
+	FechaEdicion datetime NOT null,
+	UsuarioCreacion nvarchar(25) NOT null,
+	UsuarioEdicion nvarchar(25) NOT null,
 foreign key(IdEstado)references Estado
 )
 go
