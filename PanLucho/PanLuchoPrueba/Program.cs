@@ -17,8 +17,8 @@ namespace PanLuchoPrueba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmUsuarios() { Tag = "c|u|00" });
-            Application.Run(new FrmSesion());
+            Application.Run(new FrmUsuarios() { Tag = "c|u|00" });
+            //Application.Run(new FrmSesion());
         }
     }
 }
