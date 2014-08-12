@@ -341,4 +341,55 @@ WHERE
 
 GO
 
+CREATE PROCEDURE [dbo].[spProductoObtenerParaFactura]
+	@Id numeric(5, 0)
+AS
 
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+	[Id],
+	[Descripcion],
+	[DescripcionDetallada],
+	[UnidadMedida],
+	[Existencias],
+	[Precio]
+FROM
+	[dbo].[Producto]
+WHERE
+	[Id] = @Id
+
+--endregion
+
+GO
+
+CREATE PROCEDURE [dbo].[spProductoObtener]
+	@Id numeric(5, 0)
+AS
+
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+	[Id],
+	[Descripcion],
+	[DescripcionDetallada],
+	[ClaseProducto],
+	[UnidadMedida],
+	[Existencias],
+	[Precio],
+	[IdEstado],
+	[EsGrabado],
+	[FechaCreacion],
+	[FechaEdicion],
+	[UsuarioCreacion],
+	[UsuarioEdicion]
+FROM
+	[dbo].[Producto]
+WHERE
+	[Id] = @Id
+
+--endregion
+
+GO
