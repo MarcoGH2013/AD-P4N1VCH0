@@ -518,5 +518,63 @@ namespace Componentes.ProveedorData
         //    }
         //}
         #endregion
+
+        #region Facturacion
+
+        public Producto ObtenerProductoParaFactura(decimal codigo) //funcional
+        {
+            try
+            {
+                //if (codigo==0)
+                //{
+                //    return null;
+                //}
+                Producto p = new Producto();
+                Database db = DatabaseFactory.CreateDatabase("basedatos"); //ver app.config
+                using (IDataReader dataReader = db.ExecuteReader(PropietarioBD +"."+"spProductoObtenerParaFactura", codigo))
+                {
+                    if (dataReader.Read())
+                    {
+                        p = LlenarProductoDeIData(dataReader);
+                    }
+                }
+                return p;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
+        }
+
+        private Producto LlenarProductoDeIData(IDataReader datos)
+        {
+            try
+            {
+                Producto pro = new Producto();
+                if (datos != null)
+                {
+                    pro.id = (decimal) datos["Id"];
+                    pro.descripcion = (string) datos["Descripcion"];
+                    pro.descripcionDetallada = (string) datos["DescripcionDetallada"];
+                    pro.unidadMedida = (string)datos["UnidadMedida"];
+                    pro.existencias = (decimal) datos["Existencias"];
+                    pro.precio = (decimal) datos["Precio"];
+                    //if (!string.IsNullOrEmpty(datos["cantidad"].ToString()))
+                    //{
+                    //    oProducto.cantidad = (int)datos["Cantidad"];
+                    //}
+                }
+                return pro;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
+        }
+
+        #endregion
+
     }
 }

@@ -48,16 +48,35 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Comun\Comun.cs" />
-    <Compile Include="NivelMedio\Transacciones\Clientes.cs" />
-    <Compile Include="NivelMedio\Transacciones\Facturas.cs" />
-    <Compile Include="NivelMedio\Transacciones\Usuarios.cs" />
+    <Compile Include="NivelMedio\Transacciones\Clientes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NivelMedio\Transacciones\Facturas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NivelMedio\Transacciones\Productos.cs" />
+    <Compile Include="NivelMedio\Transacciones\Usuarios.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorData\SqlProveedorData.cs" />
-    <Compile Include="Transaccion\Cliente.cs" />
-    <Compile Include="Transaccion\Factura.cs" />
-    <Compile Include="Transaccion\ModuloCategoria.cs" />
-    <Compile Include="Transaccion\Usuario.cs" />
-    <Compile Include="Transaccion\UsuarioPermisos.cs" />
+    <Compile Include="Transaccion\Cliente.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transaccion\Factura.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transaccion\FacturaGrid.cs" />
+    <Compile Include="Transaccion\ModuloCategoria.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transaccion\Producto.cs" />
+    <Compile Include="Transaccion\Usuario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transaccion\UsuarioPermisos.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

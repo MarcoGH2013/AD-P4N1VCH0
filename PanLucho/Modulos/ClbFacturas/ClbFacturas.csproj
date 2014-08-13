@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="FrmFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +90,11 @@
       <DependentUpon>FrmReporteFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\DataSources\Componentes.Transaccion.FacturaGrid.datasource" />
+    <None Include="Properties\DataSources\Componentes.Transaccion.Producto.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

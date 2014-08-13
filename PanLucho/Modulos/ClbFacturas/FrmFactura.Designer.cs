@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
@@ -52,20 +52,27 @@
             this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDesripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcionDetallada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colunidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescuento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colexistencias = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.groupPanel2.SuspendLayout();
             this.groupPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -451,10 +458,10 @@
             this.groupPanel3.BackColor = System.Drawing.Color.White;
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel3.Controls.Add(this.dataGridViewX1);
+            this.groupPanel3.Controls.Add(this.gridControl1);
             this.groupPanel3.Location = new System.Drawing.Point(12, 291);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(807, 217);
+            this.groupPanel3.Size = new System.Drawing.Size(807, 267);
             // 
             // 
             // 
@@ -486,83 +493,110 @@
             this.groupPanel3.TabIndex = 1;
             this.groupPanel3.Text = "Detalle producto(s)";
             // 
-            // dataGridViewX1
+            // gridControl1
             // 
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
-            this.colDesripcion,
-            this.colPresentacion,
-            this.colDescuento,
-            this.colPrecio,
-            this.colCantidad,
-            this.colTotal,
-            this.colStock});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.RowTemplate.Height = 24;
-            this.dataGridViewX1.Size = new System.Drawing.Size(801, 196);
-            this.dataGridViewX1.TabIndex = 0;
+            this.gridControl1.DataSource = this.facturaGridBindingSource;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(801, 246);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // colCodigo
+            // facturaGridBindingSource
             // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
+            this.facturaGridBindingSource.DataSource = typeof(Componentes.Transaccion.FacturaGrid);
             // 
-            // colDesripcion
+            // gridView1
             // 
-            this.colDesripcion.HeaderText = "Descripción";
-            this.colDesripcion.Name = "colDesripcion";
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.coldescripcion,
+            this.coldescripcionDetallada,
+            this.colunidadMedida,
+            this.colcantidad,
+            this.colprecio,
+            this.coldescuento,
+            this.coltotal,
+            this.colexistencias});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
-            // colPresentacion
+            // colid
             // 
-            this.colPresentacion.HeaderText = "Presentación";
-            this.colPresentacion.Name = "colPresentacion";
-            this.colPresentacion.ReadOnly = true;
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
             // 
-            // colDescuento
+            // coldescripcion
             // 
-            this.colDescuento.HeaderText = "Descuento %";
-            this.colDescuento.Name = "colDescuento";
-            this.colDescuento.ReadOnly = true;
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 1;
             // 
-            // colPrecio
+            // coldescripcionDetallada
             // 
-            this.colPrecio.HeaderText = "P.Unitario";
-            this.colPrecio.Name = "colPrecio";
+            this.coldescripcionDetallada.FieldName = "descripcionDetallada";
+            this.coldescripcionDetallada.Name = "coldescripcionDetallada";
+            this.coldescripcionDetallada.Visible = true;
+            this.coldescripcionDetallada.VisibleIndex = 2;
             // 
-            // colCantidad
+            // colunidadMedida
             // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
+            this.colunidadMedida.FieldName = "unidadMedida";
+            this.colunidadMedida.Name = "colunidadMedida";
+            this.colunidadMedida.Visible = true;
+            this.colunidadMedida.VisibleIndex = 3;
             // 
-            // colTotal
+            // colcantidad
             // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
+            this.colcantidad.FieldName = "cantidad";
+            this.colcantidad.Name = "colcantidad";
+            this.colcantidad.Visible = true;
+            this.colcantidad.VisibleIndex = 4;
             // 
-            // colStock
+            // colprecio
             // 
-            this.colStock.HeaderText = "Disp.Stock";
-            this.colStock.Name = "colStock";
-            this.colStock.ReadOnly = true;
+            this.colprecio.FieldName = "precio";
+            this.colprecio.Name = "colprecio";
+            this.colprecio.Visible = true;
+            this.colprecio.VisibleIndex = 5;
+            // 
+            // coldescuento
+            // 
+            this.coldescuento.FieldName = "descuento";
+            this.coldescuento.Name = "coldescuento";
+            this.coldescuento.Visible = true;
+            this.coldescuento.VisibleIndex = 6;
+            // 
+            // coltotal
+            // 
+            this.coltotal.FieldName = "total";
+            this.coltotal.Name = "coltotal";
+            this.coltotal.Visible = true;
+            this.coltotal.VisibleIndex = 7;
+            // 
+            // colexistencias
+            // 
+            this.colexistencias.FieldName = "existencias";
+            this.colexistencias.Name = "colexistencias";
+            this.colexistencias.Visible = true;
+            this.colexistencias.VisibleIndex = 8;
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
             // 
             // FrmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 520);
+            this.ClientSize = new System.Drawing.Size(830, 570);
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
@@ -578,7 +612,10 @@
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
             this.groupPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -603,21 +640,25 @@
         private DevComponents.DotNetBar.Controls.SwitchButton switchButton1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX7;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDesripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPresentacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource productoBindingSource;
+        private System.Windows.Forms.BindingSource facturaGridBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcionDetallada;
+        private DevExpress.XtraGrid.Columns.GridColumn colunidadMedida;
+        private DevExpress.XtraGrid.Columns.GridColumn colcantidad;
+        private DevExpress.XtraGrid.Columns.GridColumn colprecio;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescuento;
+        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
+        private DevExpress.XtraGrid.Columns.GridColumn colexistencias;
 
 
     }
