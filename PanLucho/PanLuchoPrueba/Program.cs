@@ -1,6 +1,7 @@
 ﻿using System;
 
 using System.Windows.Forms;
+using ClbFacturas;
 using ClbUsuarios;
 using Menu;
 
@@ -17,8 +18,8 @@ namespace PanLuchoPrueba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUsuarios() { Tag = "c|u|00" });
-            //Application.Run(new FrmSesion());
+           // Application.Run(new FrmUsuarios() { Tag = "c|u|00" });
+            Application.Run(new FrmFactura());
         }
     }
 }

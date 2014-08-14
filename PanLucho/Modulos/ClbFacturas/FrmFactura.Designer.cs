@@ -527,6 +527,7 @@
             // 
             // colid
             // 
+            this.colid.Caption = "Código";
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             this.colid.Visible = true;
@@ -534,8 +535,10 @@
             // 
             // coldescripcion
             // 
+            this.coldescripcion.Caption = "Descripción";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.OptionsColumn.AllowFocus = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 1;
             // 
@@ -543,50 +546,59 @@
             // 
             this.coldescripcionDetallada.FieldName = "descripcionDetallada";
             this.coldescripcionDetallada.Name = "coldescripcionDetallada";
-            this.coldescripcionDetallada.Visible = true;
-            this.coldescripcionDetallada.VisibleIndex = 2;
             // 
             // colunidadMedida
             // 
+            this.colunidadMedida.Caption = "UNI.";
             this.colunidadMedida.FieldName = "unidadMedida";
             this.colunidadMedida.Name = "colunidadMedida";
+            this.colunidadMedida.OptionsColumn.AllowFocus = false;
             this.colunidadMedida.Visible = true;
-            this.colunidadMedida.VisibleIndex = 3;
+            this.colunidadMedida.VisibleIndex = 2;
             // 
             // colcantidad
             // 
+            this.colcantidad.Caption = "Cantidad";
             this.colcantidad.FieldName = "cantidad";
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
-            this.colcantidad.VisibleIndex = 4;
+            this.colcantidad.VisibleIndex = 3;
             // 
             // colprecio
             // 
+            this.colprecio.Caption = "Precio";
             this.colprecio.FieldName = "precio";
             this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.AllowFocus = false;
             this.colprecio.Visible = true;
-            this.colprecio.VisibleIndex = 5;
+            this.colprecio.VisibleIndex = 4;
             // 
             // coldescuento
             // 
+            this.coldescuento.Caption = "Descuento";
             this.coldescuento.FieldName = "descuento";
             this.coldescuento.Name = "coldescuento";
+            this.coldescuento.OptionsColumn.AllowFocus = false;
             this.coldescuento.Visible = true;
-            this.coldescuento.VisibleIndex = 6;
+            this.coldescuento.VisibleIndex = 5;
             // 
             // coltotal
             // 
+            this.coltotal.Caption = "Total";
             this.coltotal.FieldName = "total";
             this.coltotal.Name = "coltotal";
+            this.coltotal.OptionsColumn.AllowFocus = false;
             this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 7;
+            this.coltotal.VisibleIndex = 6;
             // 
             // colexistencias
             // 
+            this.colexistencias.Caption = "Existencias";
             this.colexistencias.FieldName = "existencias";
             this.colexistencias.Name = "colexistencias";
+            this.colexistencias.OptionsColumn.AllowFocus = false;
             this.colexistencias.Visible = true;
-            this.colexistencias.VisibleIndex = 8;
+            this.colexistencias.VisibleIndex = 7;
             // 
             // productoBindingSource
             // 
