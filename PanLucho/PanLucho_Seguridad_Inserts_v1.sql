@@ -115,7 +115,32 @@ insert into Modulo values(
           1 , -- IdEstado - 
           'lquinter'  -- UsuarioEdicion - varchar(20)
         );
-insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contraseña ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 1 , 'Miguel' , 'Aspiazu' , 'lquinter@espol.edu.ec' , '0930456773' , '123' , '2014-07-29 22:33:28' , '2014-07-29 23:37:28' ,1);
-insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contraseña ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 1 , 'Marco' , 'Castro' , 'macastro@espol.edu.ec' , '0989345662' , '1234' , '2014-07-29 22:33:15' , '2014-07-29 23:49:00' ,1);
-insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contraseña ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 2 , 'Bruce' , 'Wayne' , 'wayne@gotik.uk' , '0938461123' , '1234' , '2014-07-29 21:11:10' , '2014-07-29 22:21:05' ,1);
-insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contraseña ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 2 , 'Peter' , 'Parker' , 'petpar@dcomic.com' , '0989345662' , '1234' , '2014-07-29 22:33:15' , '2014-07-29 23:49:00' ,1);
+insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contrasena ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 1 , 'Miguel' , 'Aspiazu' , 'lquinter@espol.edu.ec' , '0930456773' , '123' , '2014-07-29 22:33:28' , '2014-07-29 23:37:28' ,1);
+insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contrasena ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 1 , 'Marco' , 'Castro' , 'macastro@espol.edu.ec' , '0989345662' , '1234' , '2014-07-29 22:33:15' , '2014-07-29 23:49:00' ,1);
+insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contrasena ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 2 , 'Bruce' , 'Wayne' , 'wayne@gotik.uk' , '0938461123' , '1234' , '2014-07-29 21:11:10' , '2014-07-29 22:21:05' ,1);
+insert into Usuario( IdRol ,Nombre ,Apellido ,Ecorreo ,Identificacion ,Contrasena ,FechaCreacion ,FechaEdicion ,IdEstado)values  ( 2 , 'Peter' , 'Parker' , 'petpar@dcomic.com' , '0989345662' , '1234' , '2014-07-29 22:33:15' , '2014-07-29 23:49:00' ,1);
+
+set identity_insert [modulosxrol] on 
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(1 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(1 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(2 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(2 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(3 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(3 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(4 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(4 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(5 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(5 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(6 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(6 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(7 as numeric(5, 0)), cast(1 as numeric(5, 0)), cast(7 as numeric(5, 0)), n'c|r|u|d')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(8 as numeric(5, 0)), cast(2 as numeric(5, 0)), cast(3 as numeric(5, 0)), n'c|r')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(9 as numeric(5, 0)), cast(2 as numeric(5, 0)), cast(4 as numeric(5, 0)), n'c|r')
+go
+insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(10 as numeric(5, 0)), cast(2 as numeric(5, 0)), cast(5 as numeric(5, 0)), n'c|r')
+go
+set identity_insert [modulosxrol] off
+go

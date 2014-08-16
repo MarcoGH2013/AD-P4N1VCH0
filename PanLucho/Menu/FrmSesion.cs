@@ -35,20 +35,23 @@ namespace Menu
                 else
                 {
                     //IntentoInicio(txtUser.Text, txtPass.Text);
-                    oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales2(txtUser.Text, txtPass.Text);
-                    if (oUsuarioInformacion==null)
+                    oUsuarioInformacion = oSqlProveedorData.ValidarCredenciales3(txtUser.Text, txtPass.Text);
+                    if (oUsuarioInformacion.Id==0)
                     {
-                        MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Nombre de usuario no existe", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    if (oUsuarioInformacion.Contrasena!= txtPass.Text)
+                    {
+                        MessageBox.Show("Nombre de usuario y/o contraseña incorrecta", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                     if (oUsuarioInformacion.IdEstado != 1)
                     {
                         MessageBox.Show("El usuario " + oUsuarioInformacion.Nombre + " NO se encuentra habilitado, consulte con el administrador del sistema", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
-                    else
-                    {
-                        IntentoInicio();
-                    }
-
+                    IntentoInicio();
                 }
             }
             catch (Exception exception)
@@ -61,8 +64,6 @@ namespace Menu
         #region Pasando parametros al menu principal
         private void IntentoInicio()
         {
-            if (oUsuarioInformacion.Nombre != null)
-            {
                 //MessageBox.Show("BIENVENIDO !!!! " + oUsuarioInformacion.Nombre + " " + oUsuarioInformacion.Apellido);
                 LstUsuarioPermisos = oSqlProveedorData.LeerPermisos(oUsuarioInformacion.Id);
                 FrmMenuPrincipal f = new FrmMenuPrincipal();
@@ -76,11 +77,6 @@ namespace Menu
                 {
                     this.Visible = true;
                 }
-            }
-            else
-            {
-                MessageBox.Show("Nombre de usuario y/o clave incorrecta, recuerde que su nombre de usuario es su correo electrónico", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
         #endregion
 

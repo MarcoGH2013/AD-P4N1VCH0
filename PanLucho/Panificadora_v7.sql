@@ -30,7 +30,7 @@ go
 
 PRINT N'3.Falta agregar tablas a schema correspondiente '
 PRINT N'4. PanLucho v8 '
-
+go
 --create table Historial(
 --IdHistorial int primary key,
 --IdUsuario numeric(5,0),
@@ -130,7 +130,7 @@ create table Usuario(
 	Apellido varchar(100) null,
 	Ecorreo varchar(50) null,
 	Identificacion varchar(25) null,
-	Contraseña varchar(255) null, --usar ENCRYPTBYPASSPHRASE
+	Contrasena varchar(255) null, --usar ENCRYPTBYPASSPHRASE
 	FechaCreacion datetime null,
 	FechaEdicion datetime null,
 	IdEstado numeric(5, 0) null,
@@ -339,6 +339,8 @@ create table Configuracion(
 go
 
 PRINT N'5.creando vistas'
+go
+
 create view vwUsuarioPermisos as
 select distinct row_number() over(order by Usuario.Id) as id, Usuario.Id as IdUsuario, Usuario.Ecorreo as Nick, Rol.Nombre as Descripcion, 
 	Modulo.NombreFormulario as NombreFormulario, Modulo.LibreriaClase as LibreriaClase, ModuloCategoria.Nombre as Menu, ModulosXRol.Parametros as Permisos 

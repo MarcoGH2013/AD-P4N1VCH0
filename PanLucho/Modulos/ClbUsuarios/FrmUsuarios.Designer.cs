@@ -285,7 +285,7 @@
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(109, 23);
             this.labelX3.TabIndex = 3;
-            this.labelX3.Text = "Confirme Contraseña:";
+            this.labelX3.Text = "Confirme Contrasena:";
             this.labelX3.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // labelX2
@@ -299,7 +299,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(109, 23);
             this.labelX2.TabIndex = 2;
-            this.labelX2.Text = "Contraseña:";
+            this.labelX2.Text = "Contrasena:";
             this.labelX2.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // labelX1

@@ -205,7 +205,7 @@ namespace Componentes.ProveedorData
                 _Db.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
                 _Db.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
                 _Db.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
-                _Db.AddInParameter(dbc, "@Contraseña", DbType.String, usuario.Contraseña);
+                _Db.AddInParameter(dbc, "@Contrasena", DbType.String, usuario.Contrasena);
                 _Db.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
                 _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
                 _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
@@ -238,7 +238,7 @@ namespace Componentes.ProveedorData
                 _Db.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
                 _Db.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
                 _Db.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
-                _Db.AddInParameter(dbc, "@Contraseña", DbType.String, usuario.Contraseña);
+                _Db.AddInParameter(dbc, "@Contrasena", DbType.String, usuario.Contrasena);
                 _Db.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
                 _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
                 _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
@@ -348,7 +348,7 @@ namespace Componentes.ProveedorData
                 usuario.Apellido       = (String)valorData["Apellido"];
                 usuario.Ecorreo        = (String)valorData["Ecorreo"];
                 usuario.Identificacion = (String)valorData["Identificacion"];
-                usuario.Contraseña     = (String)valorData["Contraseña"];
+                usuario.Contrasena     = (String)valorData["Contrasena"];
                 usuario.FechaCreacion  = (DateTime)valorData["FechaCreacion"];
                 usuario.FechaEdicion   = (DateTime)valorData["FechaEdicion"];
                 usuario.IdEstado       = (Decimal)valorData["IdEstado"];
@@ -360,20 +360,6 @@ namespace Componentes.ProveedorData
 
         #region Metodos Seguridad
 
-        //public List<ModuloCategoria> ConsultaMenusUsuario(Usuario u)
-        //{
-        //    try
-        //    {
-        //        List<ModuloCategoria> lista= new List<ModuloCategoria>();
-        //        var miBase = DatabaseFactory.CreateDatabase("basedatos");
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
-
         public bool ValidarCredenciales(string nick, string pass)
         {
             try
@@ -382,7 +368,7 @@ namespace Componentes.ProveedorData
                 
 
                 object obj=miBase.ExecuteScalar(CommandType.Text,
-                    "Select * from Usuario where Ecorreo='" + nick + "' and contraseña='" + pass + "' and IdEstado=1");
+                    "Select * from Usuario where Ecorreo='" + nick + "' and contrasena='" + pass + "' and IdEstado=1");
                 if (obj!= null)
                 {
                     return true;
@@ -398,13 +384,44 @@ namespace Componentes.ProveedorData
                 return false;
             }
         }
+        public Usuario ValidarCredenciales3(string nick, string pass){
+            try
+            {
+                var miBase = DatabaseFactory.CreateDatabase("basedatos");
+                string query = "select id from Usuario where Ecorreo=@Ecorreo";
+                DbCommand cmd = miBase.GetSqlStringCommand(query);
+                miBase.AddInParameter(cmd, "Ecorreo", DbType.String, nick);
+                //miBase.AddInParameter(cmd, "contrasena", DbType.String, pass);
+
+                object obj = miBase.ExecuteScalar(cmd);
+                int codigo = Convert.ToInt32(obj);
+                cmd.Dispose();
+
+                Usuario oUser = new Usuario();
+
+                if (obj != null)
+                {
+                    oUser = ObtenerUsuario(codigo);
+                    return oUser;
+                }
+                else
+                {
+                    return oUser;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error SqlProveedorData-ValidarCredenciales2");
+                return null;
+            }
+        }
 
         public Usuario ValidarCredenciales2(string nick, string pass)//funcional
         {
             try
             {
                 var miBase = DatabaseFactory.CreateDatabase("basedatos");
-                string query = "select id from Usuario where Ecorreo=@Ecorreo and contraseña=@contrasena";
+                string query = "select id from Usuario where Ecorreo=@Ecorreo and contrasena=@contrasena";
                 DbCommand cmd = miBase.GetSqlStringCommand(query);
                 miBase.AddInParameter(cmd, "Ecorreo", DbType.String, nick);
                 miBase.AddInParameter(cmd, "contrasena", DbType.String, pass);
@@ -483,40 +500,7 @@ namespace Componentes.ProveedorData
             }
         }
 
-        //public Usuario IniciarSesion(string nick, string pass)
-        //{
-        //    try
-        //    {
-        //        var miBase = DatabaseFactory.CreateDatabase("basedatos");
-        //        string query = "select * from Usuario where Ecorreo='"+nick+ "' and contraseña='" + pass+"'";
-        //        //DbCommand cmd = miBase.GetSqlStringCommand(query);
-        //        //miBase.AddInParameter(cmd, "Ecorreo", DbType.String, nick);
-        //        //miBase.AddInParameter(cmd, "contrasena", DbType.String, pass);
-
-        //        using (IDataReader dr= miBase.ExecuteReader(CommandType.Text,query))
-        //        {
-        //            if (dr.Read())
-        //            {
-                        
-        //            }
-        //        }
-
-
-        //        if (obj != null)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Console.WriteLine("Error SqlProveedorData-InicioSesion");
-        //        return false;
-        //    }
-        //}
+        
         #endregion
 
         #region Facturacion

@@ -87,7 +87,7 @@ namespace Menu
             // 
             // txtPass
             // 
-            this.txtPass.EditValue = "Contraseña";
+            this.txtPass.EditValue = "Contrasena";
             this.txtPass.Location = new System.Drawing.Point(44, 47);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -97,7 +97,7 @@ namespace Menu
             this.txtPass.TabIndex = 2;
             this.txtPass.ToolTip = "Escriba la clave que le fué designada a su usuario, recuerde no dársela a nadie";
             this.txtPass.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            this.txtPass.ToolTipTitle = "Contraseña";
+            this.txtPass.ToolTipTitle = "Contrasena";
             // 
             // txtUser
             // 

@@ -47,7 +47,7 @@ namespace ClbUsuarios
             }
             if (string.IsNullOrEmpty(txtContraseña.Text))
             {
-                errorProvider1.SetError(txtContraseña, "Ingrese Contraseña");
+                errorProvider1.SetError(txtContraseña, "Ingrese Contrasena");
                 valid = false;
             }
             if (txtContraseña.Text!=txtRepetir.Text)
@@ -70,7 +70,7 @@ namespace ClbUsuarios
                                     Apellido = txtApellido.Text,
                                     Identificacion = txtUsuario.Text,
                                     Ecorreo = txtECorreo.Text,
-                                    Contraseña = txtContraseña.Text,
+                                    Contrasena = txtContraseña.Text,
                                     IdEstado = 1,
                                     FechaCreacion = DateTime.Now,
                                     FechaEdicion = DateTime.Now,
@@ -103,7 +103,7 @@ namespace ClbUsuarios
                                     Apellido = txtApellido.Text,
                                     Identificacion = txtUsuario.Text,
                                     Ecorreo = txtECorreo.Text,
-                                    Contraseña = txtContraseña.Text,
+                                    Contrasena = txtContraseña.Text,
                                     IdEstado = 1,
                                     FechaCreacion = DateTime.Now,
                                     FechaEdicion = DateTime.Now,
@@ -143,7 +143,7 @@ namespace ClbUsuarios
                 txtNombre.Text       = oCliente.Nombre;
                 cbxRol.SelectedIndex = int.Parse((oCliente.IdRol - 1).ToString());
                 txtApellido.Text     = oCliente.Apellido;
-                txtContraseña.Text   = oCliente.Contraseña;
+                txtContraseña.Text   = oCliente.Contrasena;
                 txtECorreo.Text      = oCliente.Ecorreo;
                 this.FormModoParametro = FormModo.Edicion;
             }

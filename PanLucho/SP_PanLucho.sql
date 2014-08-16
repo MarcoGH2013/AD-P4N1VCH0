@@ -222,7 +222,7 @@ SELECT
 [Apellido],
 [Ecorreo],
 [Identificacion],
-[Contraseña],
+[Contrasena],
 [FechaCreacion],
 [FechaEdicion],
 [IdEstado]
@@ -252,7 +252,7 @@ SELECT
 [Apellido],
 [Ecorreo],
 [Identificacion],
-[Contraseña],
+[Contrasena],
 [FechaCreacion],
 [FechaEdicion],
 [IdEstado]
@@ -276,7 +276,7 @@ CREATE PROCEDURE [dbo].spUsuarioInsertar
 @Apellido varchar(100),
 @Ecorreo nchar(10),
 @Identificacion varchar(25),
-@Contraseña varchar(50),
+@Contrasena varchar(50),
 @FechaCreacion datetime,
 @FechaEdicion datetime,
 @IdEstado numeric(5, 0)
@@ -288,7 +288,7 @@ INSERT INTO [dbo].[Usuario] (
 [Apellido],
 [Ecorreo],
 [Identificacion],
-[Contraseña],
+[Contrasena],
 [FechaCreacion],
 [FechaEdicion],
 [IdEstado]
@@ -298,7 +298,7 @@ INSERT INTO [dbo].[Usuario] (
 @Apellido,
 @Ecorreo,
 @Identificacion,
-@Contraseña,
+@Contrasena,
 @FechaCreacion,
 @FechaEdicion,
 @IdEstado
@@ -320,7 +320,7 @@ CREATE PROCEDURE [dbo].spUsuarioActualizar
 @Apellido varchar(100), 
 @Ecorreo nchar(10), 
 @Identificacion varchar(25), 
-@Contraseña varchar(50), 
+@Contrasena varchar(50), 
 @FechaCreacion datetime, 
 @FechaEdicion datetime, 
 @IdEstado numeric(5, 0) 
@@ -332,7 +332,7 @@ UPDATE [dbo].[Usuario] SET
 [Apellido] = @Apellido,
 [Ecorreo] = @Ecorreo,
 [Identificacion] = @Identificacion,
-[Contraseña] = @Contraseña,
+[Contrasena] = @Contrasena,
 [FechaCreacion] = @FechaCreacion,
 [FechaEdicion] = @FechaEdicion,
 [IdEstado] = @IdEstado

@@ -42,15 +42,15 @@
             this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtIva = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtSubTotal = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtTotPagar = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtDescuento = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -286,33 +286,33 @@
             this.textBoxX1.Size = new System.Drawing.Size(100, 20);
             this.textBoxX1.TabIndex = 1;
             // 
-            // textBoxX6
+            // txtIva
             // 
-            this.textBoxX6.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX6.Border.Class = "TextBoxBorder";
-            this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX6.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX6.Location = new System.Drawing.Point(157, 61);
-            this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX6.TabIndex = 5;
-            // 
-            // textBoxX5
-            // 
-            this.textBoxX5.BackColor = System.Drawing.Color.White;
+            this.txtIva.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX5.Border.Class = "TextBoxBorder";
-            this.textBoxX5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX5.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX5.Location = new System.Drawing.Point(157, 18);
-            this.textBoxX5.Name = "textBoxX5";
-            this.textBoxX5.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX5.TabIndex = 5;
+            this.txtIva.Border.Class = "TextBoxBorder";
+            this.txtIva.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtIva.ForeColor = System.Drawing.Color.Black;
+            this.txtIva.Location = new System.Drawing.Point(157, 61);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(100, 20);
+            this.txtIva.TabIndex = 5;
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtSubTotal.Border.Class = "TextBoxBorder";
+            this.txtSubTotal.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSubTotal.ForeColor = System.Drawing.Color.Black;
+            this.txtSubTotal.Location = new System.Drawing.Point(157, 18);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtSubTotal.TabIndex = 5;
             // 
             // labelX6
             // 
@@ -353,12 +353,12 @@
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.labelX7);
             this.groupPanel2.Controls.Add(this.labelX9);
-            this.groupPanel2.Controls.Add(this.textBoxX7);
-            this.groupPanel2.Controls.Add(this.textBoxX8);
+            this.groupPanel2.Controls.Add(this.txtTotPagar);
+            this.groupPanel2.Controls.Add(this.txtDescuento);
             this.groupPanel2.Controls.Add(this.labelX5);
             this.groupPanel2.Controls.Add(this.labelX6);
-            this.groupPanel2.Controls.Add(this.textBoxX6);
-            this.groupPanel2.Controls.Add(this.textBoxX5);
+            this.groupPanel2.Controls.Add(this.txtIva);
+            this.groupPanel2.Controls.Add(this.txtSubTotal);
             this.groupPanel2.Location = new System.Drawing.Point(553, 63);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(266, 209);
@@ -425,33 +425,33 @@
             this.labelX9.Text = "TOTAL A PAGAR:";
             this.labelX9.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
-            // textBoxX7
+            // txtTotPagar
             // 
-            this.textBoxX7.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX7.Border.Class = "TextBoxBorder";
-            this.textBoxX7.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX7.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX7.Location = new System.Drawing.Point(157, 143);
-            this.textBoxX7.Name = "textBoxX7";
-            this.textBoxX7.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX7.TabIndex = 9;
-            // 
-            // textBoxX8
-            // 
-            this.textBoxX8.BackColor = System.Drawing.Color.White;
+            this.txtTotPagar.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX8.Border.Class = "TextBoxBorder";
-            this.textBoxX8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX8.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX8.Location = new System.Drawing.Point(157, 100);
-            this.textBoxX8.Name = "textBoxX8";
-            this.textBoxX8.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX8.TabIndex = 10;
+            this.txtTotPagar.Border.Class = "TextBoxBorder";
+            this.txtTotPagar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTotPagar.ForeColor = System.Drawing.Color.Black;
+            this.txtTotPagar.Location = new System.Drawing.Point(157, 143);
+            this.txtTotPagar.Name = "txtTotPagar";
+            this.txtTotPagar.Size = new System.Drawing.Size(100, 20);
+            this.txtTotPagar.TabIndex = 9;
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtDescuento.Border.Class = "TextBoxBorder";
+            this.txtDescuento.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDescuento.ForeColor = System.Drawing.Color.Black;
+            this.txtDescuento.Location = new System.Drawing.Point(157, 100);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(100, 20);
+            this.txtDescuento.TabIndex = 10;
             // 
             // groupPanel3
             // 
@@ -636,8 +636,8 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX6;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX5;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtIva;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtSubTotal;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.LabelX labelX4;
@@ -656,8 +656,8 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX9;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX7;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX8;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtTotPagar;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtDescuento;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource productoBindingSource;
