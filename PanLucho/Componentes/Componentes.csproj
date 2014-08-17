@@ -66,6 +66,7 @@
     <Compile Include="Transaccion\Factura.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Transaccion\FacturaDet.cs" />
     <Compile Include="Transaccion\FacturaGrid.cs" />
     <Compile Include="Transaccion\ModuloCategoria.cs">
       <SubType>Code</SubType>

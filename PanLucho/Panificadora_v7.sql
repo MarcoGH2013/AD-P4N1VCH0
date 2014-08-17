@@ -29,7 +29,7 @@ create schema rh --recursos humanos
 go
 
 PRINT N'3.Falta agregar tablas a schema correspondiente '
-PRINT N'4. PanLucho v8 '
+PRINT N'4. PanLucho v9 '
 go
 --create table Historial(
 --IdHistorial int primary key,
@@ -242,30 +242,30 @@ foreign key(IdEstado)references Estado
 go
 
 create table FacturaCab(
-Id int primary key,--numero
+Id numeric(5, 0) IDENTITY(1,1) primary key,--numero
 IdCliente numeric(5,0) not null,
 FechaFacturacion datetime,
 FacturaSRI varchar(max),
 SubTotal money,
 IVA money,
 Descuento money,
-Total money,
+TotalPagar money,
 
 FechaCreacion datetime,
 UserCreador varchar(25),
 Procesado bit,
-EstaCancelado bit,
+EsCancelado bit,
 IdSucursal numeric(5,0),
 foreign key(IdCliente)references Cliente,
 foreign key(IdSucursal)references Sucursal,
 )
 go
 create table FacturaDetalle(
-IdFacturaCab int not null, --Pk y FK
-linea numeric(5,0) not null, --Pk
+IdFacturaCab numeric(5, 0) IDENTITY(1,1), --Pk y FK
+linea numeric(5,0) not null, --Pk por producto
 IdProducto numeric(5,0),
 Cantidad numeric(9,0),
-TotalPagar smallmoney, --SubTotal campo calculado
+TotalLinea smallmoney, --SubTotal campo calculado
 Iva numeric(4,2), --el porcentaje max 99,99
 DescuentoPorcentaje numeric(4,2),--el porcentaje
 DescuentoValor numeric(4,2)
@@ -276,9 +276,9 @@ foreign key(IdProducto)references Producto
 )
 go
 create table FacturaDetallePago(
-	IdFormaPago numeric(5, 0) not null,
+	IdFormaPago numeric(5, 0) IDENTITY(1,1),
 	IdFactura numeric(5, 0) not null,
-	Cantidad numeric(7, 2) not null
+	Cantidad smallmoney
 )
 go
 
