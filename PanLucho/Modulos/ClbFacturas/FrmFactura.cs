@@ -69,8 +69,18 @@ namespace ClbFacturas
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
-            frmConsulta fcon=new frmConsulta();
+            frmConsulta fcon = new frmConsulta();
+            fcon.gridControl1.DataSource = Clientes.ObtenerLista();
             fcon.ShowDialog();
+            var oCliente = new Cliente();
+            if (fcon.oGenerico != null)
+            {
+                oCliente = (Cliente)fcon.oGenerico;
+                txtCedRUC.Text = oCliente.NumeroIdentificacion;
+                txtCliente.Text = oCliente.NombreCompleto;
+                txtId.Text = oCliente.Id.ToString();
+                //this.FormModoParametro = FormModo.Edicion;
+            }
         }
 
         private void FrmFactura_Load(object sender, EventArgs e)

@@ -38,10 +38,10 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtTelef = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtDirecc = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCliente = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCedRUC = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtIva = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtSubTotal = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -65,6 +65,8 @@
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colexistencias = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtId = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.groupPanel2.SuspendLayout();
@@ -80,6 +82,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.labelX10);
+            this.groupPanel1.Controls.Add(this.txtId);
             this.groupPanel1.Controls.Add(this.pictureEdit1);
             this.groupPanel1.Controls.Add(this.labelX8);
             this.groupPanel1.Controls.Add(this.switchButton1);
@@ -88,10 +92,10 @@
             this.groupPanel1.Controls.Add(this.labelX2);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Controls.Add(this.buttonX1);
-            this.groupPanel1.Controls.Add(this.textBoxX4);
-            this.groupPanel1.Controls.Add(this.textBoxX3);
-            this.groupPanel1.Controls.Add(this.textBoxX2);
-            this.groupPanel1.Controls.Add(this.textBoxX1);
+            this.groupPanel1.Controls.Add(this.txtTelef);
+            this.groupPanel1.Controls.Add(this.txtDirecc);
+            this.groupPanel1.Controls.Add(this.txtCliente);
+            this.groupPanel1.Controls.Add(this.txtCedRUC);
             this.groupPanel1.Location = new System.Drawing.Point(12, 63);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(535, 209);
@@ -210,11 +214,11 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(3, 43);
+            this.labelX1.Location = new System.Drawing.Point(207, 166);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(70, 15);
+            this.labelX1.Size = new System.Drawing.Size(40, 15);
             this.labelX1.TabIndex = 6;
-            this.labelX1.Text = "Identificación:";
+            this.labelX1.Text = "Código:";
             // 
             // buttonX1
             // 
@@ -228,63 +232,63 @@
             this.buttonX1.Text = "Buscar";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
-            // textBoxX4
+            // txtTelef
             // 
-            this.textBoxX4.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX4.Border.Class = "TextBoxBorder";
-            this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX4.Location = new System.Drawing.Point(79, 161);
-            this.textBoxX4.Name = "textBoxX4";
-            this.textBoxX4.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX4.TabIndex = 4;
-            // 
-            // textBoxX3
-            // 
-            this.textBoxX3.BackColor = System.Drawing.Color.White;
+            this.txtTelef.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX3.Border.Class = "TextBoxBorder";
-            this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX3.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX3.Location = new System.Drawing.Point(79, 112);
-            this.textBoxX3.Multiline = true;
-            this.textBoxX3.Name = "textBoxX3";
-            this.textBoxX3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxX3.Size = new System.Drawing.Size(297, 34);
-            this.textBoxX3.TabIndex = 3;
+            this.txtTelef.Border.Class = "TextBoxBorder";
+            this.txtTelef.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTelef.ForeColor = System.Drawing.Color.Black;
+            this.txtTelef.Location = new System.Drawing.Point(79, 161);
+            this.txtTelef.Name = "txtTelef";
+            this.txtTelef.Size = new System.Drawing.Size(100, 20);
+            this.txtTelef.TabIndex = 4;
             // 
-            // textBoxX2
+            // txtDirecc
             // 
-            this.textBoxX2.BackColor = System.Drawing.Color.White;
+            this.txtDirecc.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX2.Location = new System.Drawing.Point(79, 77);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(297, 20);
-            this.textBoxX2.TabIndex = 2;
+            this.txtDirecc.Border.Class = "TextBoxBorder";
+            this.txtDirecc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDirecc.ForeColor = System.Drawing.Color.Black;
+            this.txtDirecc.Location = new System.Drawing.Point(79, 112);
+            this.txtDirecc.Multiline = true;
+            this.txtDirecc.Name = "txtDirecc";
+            this.txtDirecc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDirecc.Size = new System.Drawing.Size(297, 34);
+            this.txtDirecc.TabIndex = 3;
             // 
-            // textBoxX1
+            // txtCliente
             // 
-            this.textBoxX1.BackColor = System.Drawing.Color.White;
+            this.txtCliente.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX1.Location = new System.Drawing.Point(79, 42);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX1.TabIndex = 1;
+            this.txtCliente.Border.Class = "TextBoxBorder";
+            this.txtCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCliente.ForeColor = System.Drawing.Color.Black;
+            this.txtCliente.Location = new System.Drawing.Point(79, 77);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(297, 20);
+            this.txtCliente.TabIndex = 2;
+            // 
+            // txtCedRUC
+            // 
+            this.txtCedRUC.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtCedRUC.Border.Class = "TextBoxBorder";
+            this.txtCedRUC.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCedRUC.ForeColor = System.Drawing.Color.Black;
+            this.txtCedRUC.Location = new System.Drawing.Point(79, 42);
+            this.txtCedRUC.Name = "txtCedRUC";
+            this.txtCedRUC.Size = new System.Drawing.Size(100, 20);
+            this.txtCedRUC.TabIndex = 1;
             // 
             // txtIva
             // 
@@ -604,6 +608,34 @@
             // 
             this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
             // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtId.Border.Class = "TextBoxBorder";
+            this.txtId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtId.ForeColor = System.Drawing.Color.Black;
+            this.txtId.Location = new System.Drawing.Point(253, 161);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 11;
+            // 
+            // labelX10
+            // 
+            this.labelX10.AutoSize = true;
+            this.labelX10.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(7, 47);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(67, 15);
+            this.labelX10.TabIndex = 12;
+            this.labelX10.Text = "Cédula/RUC:";
+            // 
             // FrmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,10 +677,10 @@
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtTelef;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtDirecc;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCliente;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCedRUC;
         private DevComponents.DotNetBar.Controls.SwitchButton switchButton1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
@@ -671,6 +703,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldescuento;
         private DevExpress.XtraGrid.Columns.GridColumn coltotal;
         private DevExpress.XtraGrid.Columns.GridColumn colexistencias;
+        private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtId;
 
 
     }
