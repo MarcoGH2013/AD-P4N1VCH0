@@ -391,5 +391,50 @@ WHERE
 	[Id] = @Id
 
 --endregion
+GO
 
+/****** Objecto:  StoredProcedure [dbo].[spProductosOtenerParaVenta]  ******/
+------------------------------------------------------------------------------------------------------------------------
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        17/08/2014
+		exec spProductosObtenerParaVenta @Filtro=MOL,@Estado=1,@EsCodigo=0
+		exec spProductosObtenerParaVenta @Filtro=1	,@Estado=1,@EsCodigo=1
+*/
+CREATE PROCEDURE [dbo].[spProductosObtenerParaVenta]
+	@Filtro				varchar(15),
+	@Estado				numeric(5,0),
+	@EsCodigo			bit
+AS
+	select		Id						=	prd.Id,
+				Descripcion				=	prd.Descripcion,
+				DescripcionDetallada	=	prd.DescripcionDetallada,
+				ClaseProducto			=	prd.ClaseProducto,
+				UnidadMedida			=	prd.UnidadMedida,
+				Existencias				=	prd.Existencias,
+				Precio					=	prd.Precio,
+				IdEstado				=	prd.IdEstado,
+				EsGrabado				=	prd.EsGrabado,
+				FechaCreacion			=	prd.FechaCreacion,
+				FechaEdicion			=	prd.FechaEdicion,
+				UsuarioCreacion			=	prd.UsuarioCreacion,
+				UsuarioEdicion			=	prd.UsuarioEdicion				
+	from		dbo.Producto		prd		with(nolock)				
+	where		prd.Id					=	(
+												case	@EsCodigo
+												when	1		then	@Filtro	
+												else					prd.Id
+												end
+											)
+				and 
+				DescripcionDetallada	like(
+												case	@EsCodigo
+												when	0		then '%' + @Filtro + '%'
+												else					   prd.DescripcionDetallada
+												end
+											)	
+				and 
+				IdEstado = @Estado
 GO

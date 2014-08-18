@@ -503,10 +503,10 @@ namespace Componentes.ProveedorData
         
         #endregion
         #region Producto
-        public List<Producto> ObtenerProductosVenta(string filtro, Boolean estado, Boolean esCodigo)
+        public List<Producto> ObtenerProductosVenta(string filtro, decimal estado, Boolean esCodigo)
         {
             var database = DatabaseFactory.CreateDatabase("database");
-            var sp = string.Format("{0}.spProductosOtenerParaVenta", PropietarioBD);
+            var sp = string.Format("{0}.spProductosObtenerParaVenta", PropietarioBD);
 
             var dbc = database.GetStoredProcCommand(sp);
             dbc.CommandType = CommandType.StoredProcedure;

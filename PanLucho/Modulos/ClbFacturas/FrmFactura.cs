@@ -102,15 +102,15 @@ namespace ClbFacturas
                 decimal cod = (decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id"); //es caseSensitive
                 oProducto = Productos.ObtenerParaGrid(cod);
 
-                oFacturaGrid.id                   = oProducto.id;
-                oFacturaGrid.descripcion          = oProducto.descripcion;
-                oFacturaGrid.descripcionDetallada = oProducto.descripcionDetallada;
-                oFacturaGrid.unidadMedida         = oProducto.unidadMedida;
+                oFacturaGrid.id                   = oProducto.Id;
+                oFacturaGrid.descripcion          = oProducto.Descripcion;
+                oFacturaGrid.descripcionDetallada = oProducto.DescripcionDetallada;
+                oFacturaGrid.unidadMedida         = oProducto.UnidadMedida;
                 oFacturaGrid.cantidad             = 0;
-                oFacturaGrid.precio               = oProducto.precio;
+                oFacturaGrid.precio               = oProducto.Precio;
                 oFacturaGrid.descuento            = 0;
                 oFacturaGrid.total                = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
-                oFacturaGrid.existencias          = oProducto.existencias;
+                oFacturaGrid.existencias          = oProducto.Existencias;
 
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.descripcionDetallada);

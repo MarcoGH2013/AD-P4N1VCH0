@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.txtId = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.switchButton1 = new DevComponents.DotNetBar.Controls.SwitchButton();
@@ -65,8 +67,6 @@
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colexistencias = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtId = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.groupPanel2.SuspendLayout();
@@ -130,6 +130,34 @@
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Información del cliente";
             // 
+            // labelX10
+            // 
+            this.labelX10.AutoSize = true;
+            this.labelX10.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(7, 47);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(61, 17);
+            this.labelX10.TabIndex = 12;
+            this.labelX10.Text = "Cédula/RUC:";
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtId.Border.Class = "TextBoxBorder";
+            this.txtId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtId.ForeColor = System.Drawing.Color.Black;
+            this.txtId.Location = new System.Drawing.Point(253, 161);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 22);
+            this.txtId.TabIndex = 11;
+            // 
             // pictureEdit1
             // 
             this.pictureEdit1.Location = new System.Drawing.Point(414, 3);
@@ -147,7 +175,7 @@
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.Location = new System.Drawing.Point(79, 3);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(156, 15);
+            this.labelX8.Size = new System.Drawing.Size(141, 17);
             this.labelX8.TabIndex = 7;
             this.labelX8.Text = "Factura: CONSUMIDOR FINAL";
             // 
@@ -174,7 +202,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Location = new System.Drawing.Point(25, 166);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(48, 15);
+            this.labelX4.Size = new System.Drawing.Size(45, 17);
             this.labelX4.TabIndex = 7;
             this.labelX4.Text = "Teléfono:";
             // 
@@ -188,7 +216,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(21, 115);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(52, 15);
+            this.labelX3.Size = new System.Drawing.Size(48, 17);
             this.labelX3.TabIndex = 7;
             this.labelX3.Text = "Dirección:";
             // 
@@ -202,7 +230,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(33, 78);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(40, 15);
+            this.labelX2.Size = new System.Drawing.Size(37, 17);
             this.labelX2.TabIndex = 7;
             this.labelX2.Text = "Cliente:";
             // 
@@ -216,7 +244,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Location = new System.Drawing.Point(207, 166);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(40, 15);
+            this.labelX1.Size = new System.Drawing.Size(39, 17);
             this.labelX1.TabIndex = 6;
             this.labelX1.Text = "Código:";
             // 
@@ -243,7 +271,7 @@
             this.txtTelef.ForeColor = System.Drawing.Color.Black;
             this.txtTelef.Location = new System.Drawing.Point(79, 161);
             this.txtTelef.Name = "txtTelef";
-            this.txtTelef.Size = new System.Drawing.Size(100, 20);
+            this.txtTelef.Size = new System.Drawing.Size(100, 22);
             this.txtTelef.TabIndex = 4;
             // 
             // txtDirecc
@@ -273,7 +301,7 @@
             this.txtCliente.ForeColor = System.Drawing.Color.Black;
             this.txtCliente.Location = new System.Drawing.Point(79, 77);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(297, 20);
+            this.txtCliente.Size = new System.Drawing.Size(297, 22);
             this.txtCliente.TabIndex = 2;
             // 
             // txtCedRUC
@@ -287,7 +315,7 @@
             this.txtCedRUC.ForeColor = System.Drawing.Color.Black;
             this.txtCedRUC.Location = new System.Drawing.Point(79, 42);
             this.txtCedRUC.Name = "txtCedRUC";
-            this.txtCedRUC.Size = new System.Drawing.Size(100, 20);
+            this.txtCedRUC.Size = new System.Drawing.Size(100, 22);
             this.txtCedRUC.TabIndex = 1;
             // 
             // txtIva
@@ -301,7 +329,7 @@
             this.txtIva.ForeColor = System.Drawing.Color.Black;
             this.txtIva.Location = new System.Drawing.Point(157, 61);
             this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(100, 20);
+            this.txtIva.Size = new System.Drawing.Size(100, 22);
             this.txtIva.TabIndex = 5;
             // 
             // txtSubTotal
@@ -315,7 +343,7 @@
             this.txtSubTotal.ForeColor = System.Drawing.Color.Black;
             this.txtSubTotal.Location = new System.Drawing.Point(157, 18);
             this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtSubTotal.Size = new System.Drawing.Size(100, 22);
             this.txtSubTotal.TabIndex = 5;
             // 
             // labelX6
@@ -440,7 +468,7 @@
             this.txtTotPagar.ForeColor = System.Drawing.Color.Black;
             this.txtTotPagar.Location = new System.Drawing.Point(157, 143);
             this.txtTotPagar.Name = "txtTotPagar";
-            this.txtTotPagar.Size = new System.Drawing.Size(100, 20);
+            this.txtTotPagar.Size = new System.Drawing.Size(100, 22);
             this.txtTotPagar.TabIndex = 9;
             // 
             // txtDescuento
@@ -454,7 +482,7 @@
             this.txtDescuento.ForeColor = System.Drawing.Color.Black;
             this.txtDescuento.Location = new System.Drawing.Point(157, 100);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(100, 20);
+            this.txtDescuento.Size = new System.Drawing.Size(100, 22);
             this.txtDescuento.TabIndex = 10;
             // 
             // groupPanel3
@@ -504,7 +532,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(801, 246);
+            this.gridControl1.Size = new System.Drawing.Size(801, 244);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -607,34 +635,6 @@
             // productoBindingSource
             // 
             this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
-            // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtId.Border.Class = "TextBoxBorder";
-            this.txtId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtId.ForeColor = System.Drawing.Color.Black;
-            this.txtId.Location = new System.Drawing.Point(253, 161);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 11;
-            // 
-            // labelX10
-            // 
-            this.labelX10.AutoSize = true;
-            this.labelX10.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(7, 47);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(67, 15);
-            this.labelX10.TabIndex = 12;
-            this.labelX10.Text = "Cédula/RUC:";
             // 
             // FrmFactura
             // 
