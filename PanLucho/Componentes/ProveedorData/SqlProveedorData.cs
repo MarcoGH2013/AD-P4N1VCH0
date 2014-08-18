@@ -558,6 +558,53 @@ namespace Componentes.ProveedorData
         }
         #endregion
         #endregion
+        #region Eventos
+
+        #region Selección múltiple
+        /// <summary>
+        /// Obtine el evento.
+        /// </summary>
+        /// <returns></returns>
+        public List<Evento> ObtenerEventos()
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            string sp = string.Format("{0}.spEventoObtenerLista", PropietarioBD);
+
+            DbCommand dbc = miBase.GetStoredProcCommand(sp);
+            dbc.CommandType = CommandType.StoredProcedure;
+
+            List<Evento> eventos = new List<Evento>();
+            using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+            {
+                while (dataReader.Read())
+                {
+                    eventos.Add(RellenarEventoDeLectorIData(dataReader));
+                }
+                dataReader.Close();
+            }
+            dbc.Dispose();
+            return eventos;
+        }
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el evento del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro evento.</param>
+        /// <returns></returns>
+        public static Evento RellenarEventoDeLectorIData(IDataRecord valorData)
+        {
+            var evento = new Evento();
+            if (valorData != null)
+            {
+                evento.Descripcion = (String)valorData["Descripcion"];
+                evento.IdEstado = (Decimal)valorData["IdEstado"];
+            }
+            return evento;
+        }
+        #endregion
+        #endregion
         #region Facturacion
 
         public Producto ObtenerProductoParaFactura(decimal codigo) //funcional

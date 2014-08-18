@@ -18,16 +18,16 @@ namespace ClbPedidosEspeciales
         public FrmPedidosEspeciales()
         {
             InitializeComponent();
-            //Color[] colores = new Color[] {
-            //    Color.Yellow,
-            //    Color.Blue,    // <- color 2
-            //    Color.Red,     // <- color 0
-            //    Color.White,   // <- color 1
-            //    Color.Green,
-            //    // <- ...
-            //    Color.Pink
-            //};
-            //repositoryItemColorEdit1.CustomColors = colores;
+            Color[] colores = new Color[] {
+                Color.Yellow,
+                Color.Blue,    // <- color 2
+                Color.Red,     // <- color 0
+                Color.White,   // <- color 1
+                Color.Green,
+                // <- ...
+                Color.Pink
+            };
+            repositoryItemColorEdit1.CustomColors = colores;
         }
 
         protected override void Nuevo()

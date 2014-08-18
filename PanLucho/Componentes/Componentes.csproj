@@ -51,6 +51,7 @@
     <Compile Include="NivelMedio\Transacciones\Clientes.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NivelMedio\Transacciones\Eventos.cs" />
     <Compile Include="NivelMedio\Transacciones\Facturas.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -63,6 +64,7 @@
     <Compile Include="Transaccion\Cliente.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Transaccion\Evento.cs" />
     <Compile Include="Transaccion\Factura.cs">
       <SubType>Code</SubType>
     </Compile>

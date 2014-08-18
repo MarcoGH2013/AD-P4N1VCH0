@@ -144,3 +144,24 @@ insert [modulosxrol] ([id], [idrol], [idmodulo], [parametros]) values (cast(10 a
 go
 set identity_insert [modulosxrol] off
 go
+
+
+SET IDENTITY_INSERT Evento ON
+go
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (1, 'Quinceañera', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (2, 'Matrimonio', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (3, 'Bautizo', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (4, 'BabyShower', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (5, 'Graduación', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (6, 'Aniversario', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (7, 'Primera Comunión', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (8, 'Navidad', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (9, 'Cumpleaños', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (10, 'Dia de la Madre', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (11, 'Dia del Niño', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (12, 'Dia del Padre', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (13, 'Halloween', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (14, 'San Valentín', 1)
+INSERT Evento ([Id], Descripcion, IdEstado) VALUES (15, 'Deportivo', 1)
+SET IDENTITY_INSERT Evento OFF
+go
