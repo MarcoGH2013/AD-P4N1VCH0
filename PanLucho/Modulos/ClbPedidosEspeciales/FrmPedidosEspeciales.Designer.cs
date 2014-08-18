@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX12 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX11 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -75,19 +77,17 @@
             this.colunidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescuento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colexistencias = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colImagen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLeyenda = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCbxColor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCbxEvento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.colCbxColor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
+            this.colLeyenda = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colImagen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.groupPanel4.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.groupPanel5.SuspendLayout();
@@ -99,7 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -152,6 +152,15 @@
             this.groupPanel1.TabIndex = 2;
             this.groupPanel1.Text = "Datos del Cliente";
             this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(59, 77);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(110, 20);
+            this.comboBoxEdit1.TabIndex = 11;
             // 
             // groupPanel4
             // 
@@ -826,6 +835,7 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.DataSource = this.facturaGridBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
@@ -852,10 +862,7 @@
             this.colCbxColor,
             this.colLeyenda,
             this.colImagen,
-            this.colComentario,
-            this.coldescuento,
-            this.coltotal,
-            this.colexistencias});
+            this.colComentario});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
@@ -908,63 +915,6 @@
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 4;
             // 
-            // coldescuento
-            // 
-            this.coldescuento.Caption = "Descuento";
-            this.coldescuento.FieldName = "descuento";
-            this.coldescuento.Name = "coldescuento";
-            this.coldescuento.OptionsColumn.AllowFocus = false;
-            this.coldescuento.Visible = true;
-            this.coldescuento.VisibleIndex = 10;
-            // 
-            // coltotal
-            // 
-            this.coltotal.Caption = "Total";
-            this.coltotal.FieldName = "total";
-            this.coltotal.Name = "coltotal";
-            this.coltotal.OptionsColumn.AllowFocus = false;
-            this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 11;
-            // 
-            // colexistencias
-            // 
-            this.colexistencias.Caption = "Existencias";
-            this.colexistencias.FieldName = "existencias";
-            this.colexistencias.Name = "colexistencias";
-            this.colexistencias.OptionsColumn.AllowFocus = false;
-            this.colexistencias.Visible = true;
-            this.colexistencias.VisibleIndex = 12;
-            // 
-            // colComentario
-            // 
-            this.colComentario.Caption = "Comentario";
-            this.colComentario.Name = "colComentario";
-            this.colComentario.Visible = true;
-            this.colComentario.VisibleIndex = 5;
-            // 
-            // colImagen
-            // 
-            this.colImagen.Caption = "Imagen";
-            this.colImagen.ColumnEdit = this.repositoryItemImageEdit1;
-            this.colImagen.Name = "colImagen";
-            this.colImagen.Visible = true;
-            this.colImagen.VisibleIndex = 8;
-            // 
-            // colLeyenda
-            // 
-            this.colLeyenda.Caption = "Leyenda";
-            this.colLeyenda.Name = "colLeyenda";
-            this.colLeyenda.Visible = true;
-            this.colLeyenda.VisibleIndex = 7;
-            // 
-            // colCbxColor
-            // 
-            this.colCbxColor.Caption = "Color";
-            this.colCbxColor.ColumnEdit = this.repositoryItemColorEdit1;
-            this.colCbxColor.Name = "colCbxColor";
-            this.colCbxColor.Visible = true;
-            this.colCbxColor.VisibleIndex = 6;
-            // 
             // colCbxEvento
             // 
             this.colCbxEvento.Caption = "Evento";
@@ -980,12 +930,35 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
+            // colCbxColor
+            // 
+            this.colCbxColor.Caption = "Color";
+            this.colCbxColor.ColumnEdit = this.repositoryItemColorEdit1;
+            this.colCbxColor.Name = "colCbxColor";
+            this.colCbxColor.Visible = true;
+            this.colCbxColor.VisibleIndex = 6;
+            // 
             // repositoryItemColorEdit1
             // 
             this.repositoryItemColorEdit1.AutoHeight = false;
             this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
+            // 
+            // colLeyenda
+            // 
+            this.colLeyenda.Caption = "Leyenda";
+            this.colLeyenda.Name = "colLeyenda";
+            this.colLeyenda.Visible = true;
+            this.colLeyenda.VisibleIndex = 7;
+            // 
+            // colImagen
+            // 
+            this.colImagen.Caption = "Imagen";
+            this.colImagen.ColumnEdit = this.repositoryItemImageEdit1;
+            this.colImagen.Name = "colImagen";
+            this.colImagen.Visible = true;
+            this.colImagen.VisibleIndex = 8;
             // 
             // repositoryItemImageEdit1
             // 
@@ -994,14 +967,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
             // 
-            // comboBoxEdit1
+            // colComentario
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(59, 77);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(110, 20);
-            this.comboBoxEdit1.TabIndex = 11;
+            this.colComentario.Caption = "Comentario";
+            this.colComentario.Name = "colComentario";
+            this.colComentario.Visible = true;
+            this.colComentario.VisibleIndex = 9;
+            // 
+            // facturaGridBindingSource
+            // 
+            this.facturaGridBindingSource.DataSource = typeof(Componentes.Transaccion.FacturaGrid);
             // 
             // FrmPedidosEspeciales
             // 
@@ -1016,6 +991,7 @@
             this.Controls.SetChildIndex(this.groupPanel2, 0);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.groupPanel4.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel5.ResumeLayout(false);
@@ -1027,7 +1003,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1082,9 +1058,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colunidadMedida;
         private DevExpress.XtraGrid.Columns.GridColumn colcantidad;
         private DevExpress.XtraGrid.Columns.GridColumn colprecio;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescuento;
-        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
-        private DevExpress.XtraGrid.Columns.GridColumn colexistencias;
         private DevExpress.XtraGrid.Columns.GridColumn colCbxEvento;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraGrid.Columns.GridColumn colCbxColor;
@@ -1094,5 +1067,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colComentario;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private System.Windows.Forms.BindingSource facturaGridBindingSource;
     }
 }

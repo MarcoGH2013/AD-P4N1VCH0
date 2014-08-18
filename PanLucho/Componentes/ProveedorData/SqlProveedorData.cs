@@ -505,7 +505,7 @@ namespace Componentes.ProveedorData
         #region Producto
         public List<Producto> ObtenerProductosVenta(string filtro, decimal estado, Boolean esCodigo)
         {
-            var database = DatabaseFactory.CreateDatabase("database");
+            var database = DatabaseFactory.CreateDatabase("basedatos");
             var sp = string.Format("{0}.spProductosObtenerParaVenta", PropietarioBD);
 
             var dbc = database.GetStoredProcCommand(sp);
