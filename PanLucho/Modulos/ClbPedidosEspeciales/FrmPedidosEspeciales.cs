@@ -18,6 +18,12 @@ namespace ClbPedidosEspeciales
         public FrmPedidosEspeciales()
         {
             InitializeComponent();
+            var events = Eventos.GetList();
+
+            foreach (var eventType in events)
+            {
+                repositoryItemComboBox1.Items.Add(eventType.Descripcion);
+            }
             Color[] colores = new Color[] {
                 Color.Yellow,
                 Color.Blue,    // <- color 2
