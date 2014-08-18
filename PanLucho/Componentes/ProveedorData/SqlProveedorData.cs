@@ -512,10 +512,10 @@ namespace Componentes.ProveedorData
             dbc.CommandType = CommandType.StoredProcedure;
 
             if (filtro != null)
-                database.AddInParameter(dbc, "@Filter", DbType.String, filtro.ToUpper());
+                database.AddInParameter(dbc, "@Filtro", DbType.String, filtro.ToUpper());
 
-            database.AddInParameter(dbc, "@Status", DbType.Boolean, estado);
-            database.AddInParameter(dbc, "@IsCode", DbType.Boolean, esCodigo);
+            database.AddInParameter(dbc, "@Estado", DbType.Boolean, estado);
+            database.AddInParameter(dbc, "@EsCodigo", DbType.Boolean, esCodigo);
 
             var products = new List<Producto>();
             using (var dataReader = database.ExecuteReader(dbc))
