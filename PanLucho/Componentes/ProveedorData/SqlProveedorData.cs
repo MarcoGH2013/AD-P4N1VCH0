@@ -502,7 +502,62 @@ namespace Componentes.ProveedorData
 
         
         #endregion
+        #region Producto
+        public List<Producto> ObtenerProductosVenta(string filtro, Boolean estado, Boolean esCodigo)
+        {
+            var database = DatabaseFactory.CreateDatabase("database");
+            var sp = string.Format("{0}.spProductosOtenerParaVenta", PropietarioBD);
 
+            var dbc = database.GetStoredProcCommand(sp);
+            dbc.CommandType = CommandType.StoredProcedure;
+
+            if (filtro != null)
+                database.AddInParameter(dbc, "@Filter", DbType.String, filtro.ToUpper());
+
+            database.AddInParameter(dbc, "@Status", DbType.Boolean, estado);
+            database.AddInParameter(dbc, "@IsCode", DbType.Boolean, esCodigo);
+
+            var products = new List<Producto>();
+            using (var dataReader = database.ExecuteReader(dbc))
+            {
+                while (dataReader.Read())
+                {
+                    products.Add(RellenarProductoDeLectorIData(dataReader));
+                }
+                dataReader.Close();
+            }
+            dbc.Dispose();
+
+            return products;
+        }
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el producto del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro producto.</param>
+        /// <returns></returns>
+        public static Producto RellenarProductoDeLectorIData(IDataRecord valorData)
+        {
+            var producto = new Producto();
+            if (valorData != null)
+            {
+                producto.Descripcion = (String)valorData["Descripcion"];
+                producto.DescripcionDetallada = (String)valorData["DescripcionDetallada"];
+                producto.ClaseProducto = (String)valorData["ClaseProducto"];
+                producto.UnidadMedida = (String)valorData["UnidadMedida"];
+                producto.Existencias = (Decimal)valorData["Existencias"];
+                producto.Precio = (Decimal)valorData["Precio"];
+                producto.IdEstado = (Decimal)valorData["IdEstado"];
+                producto.EsGrabado = (Boolean)valorData["EsGrabado"];
+                producto.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                producto.FechaEdicion = (DateTime)valorData["FechaEdicion"];
+                producto.UsuarioCreacion = (String)valorData["UsuarioCreacion"];
+                producto.UsuarioEdicion = (String)valorData["UsuarioEdicion"];
+            }
+            return producto;
+        }
+        #endregion
+        #endregion
         #region Facturacion
 
         public Producto ObtenerProductoParaFactura(decimal codigo) //funcional
@@ -538,12 +593,12 @@ namespace Componentes.ProveedorData
                 Producto pro = new Producto();
                 if (datos != null)
                 {
-                    pro.id = (decimal) datos["Id"];
-                    pro.descripcion = (string) datos["Descripcion"];
-                    pro.descripcionDetallada = (string) datos["DescripcionDetallada"];
-                    pro.unidadMedida = (string)datos["UnidadMedida"];
-                    pro.existencias = (decimal) datos["Existencias"];
-                    pro.precio = (decimal) datos["Precio"];
+                    pro.Id = (decimal) datos["Id"];
+                    pro.Descripcion = (string) datos["Descripcion"];
+                    pro.DescripcionDetallada = (string) datos["DescripcionDetallada"];
+                    pro.UnidadMedida = (string)datos["UnidadMedida"];
+                    pro.Existencias = (decimal) datos["Existencias"];
+                    pro.Precio = (decimal) datos["Precio"];
                     //if (!string.IsNullOrEmpty(datos["cantidad"].ToString()))
                     //{
                     //    oProducto.cantidad = (int)datos["Cantidad"];
