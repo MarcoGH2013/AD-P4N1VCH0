@@ -21,8 +21,7 @@ namespace ClbPedidosEspeciales
             var eventos = Eventos.GetList();
 
             foreach (var evento in eventos)
-            {
-                repositoryItemComboBox1.Items.Add(evento.Descripcion);
+            {repositoryItemComboBox1.Items.Add(evento.Descripcion);
             }
             Color[] colores = new Color[] {
                 Color.Yellow,
