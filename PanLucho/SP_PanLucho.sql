@@ -438,3 +438,36 @@ AS
 				and 
 				IdEstado = @Estado
 GO
+
+
+------------------------------
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        18/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spUsuarioObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[IdRol],
+[Nombre],
+[Apellido],
+[Ecorreo],
+[Identificacion],
+[Contrasena],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado]
+FROM
+[dbo].[Usuario]
+
+GO
+
+
+
