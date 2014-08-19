@@ -146,6 +146,25 @@ namespace Componentes.ProveedorData
             return clientes;
         }
 
+        public List<Cliente> ObtenerClientes2()
+        {
+            Database db = DatabaseFactory.CreateDatabase("basedatos");
+            var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spClienteObtenerLista");
+            sp.CommandType = CommandType.StoredProcedure;
+
+            List<Cliente> lista = new List<Cliente>();
+            using (IDataReader dataReader = db.ExecuteReader(sp))
+            {
+                while (dataReader.Read())
+                {
+                    lista.Add(RellenarClienteDeLectorIData2(dataReader));
+                }
+                dataReader.Close();
+            }
+            sp.Dispose();
+            return lista;
+        }
+
         #endregion
 
         #region Región de Relleno
@@ -177,6 +196,43 @@ namespace Componentes.ProveedorData
                     cliente.UsuarioActualizacion = (string)valorData["UsuarioEdicion"];
             }
             return cliente;
+        }
+
+        public static Cliente RellenarClienteDeLectorIData2(IDataRecord datos)
+        {
+            try
+            {
+                var cliente = new Cliente();
+                if (datos != null)
+                {
+                    cliente.Id = Convert.ToInt32(datos["Id"].ToString());
+                    cliente.Nombre = datos["Nombre"].ToString();
+                    cliente.Apellido = datos["Apellido"].ToString();
+                    cliente.TipoIdentificacion = datos["TipoIdentificacion"].ToString();
+                    cliente.NumeroIdentificacion = datos["NumeroIdentificacion"].ToString();
+                    
+                    if (!string.IsNullOrEmpty(datos["Ecorreo"].ToString()))
+                        cliente.Ecorreo = datos["Ecorreo"].ToString();
+
+                    if (!string.IsNullOrEmpty(datos["FechaNacimiento"].ToString()))
+                        cliente.FechaNacimiento = (DateTime)datos["FechaNacimiento"];
+                    cliente.Estado = Convert.ToInt32(datos["Estado"].ToString());
+                    //cliente.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                    //cliente.FechaModificacion = (DateTime)valorData["FechaEdicion"];
+
+                    //if (!string.IsNullOrEmpty(valorData["UsuarioCreacion"].ToString()))
+                    //    cliente.UsuarioCreacion = (string)valorData["UsuarioCreacion"];
+
+                    //if (!string.IsNullOrEmpty(valorData["UsuarioEdicion"].ToString()))
+                    //    cliente.UsuarioActualizacion = (string)valorData["UsuarioEdicion"];
+                }
+                return cliente;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
         }
 
         #endregion
@@ -384,7 +440,7 @@ namespace Componentes.ProveedorData
                 return false;
             }
         }
-        public Usuario ValidarCredenciales3(string nick, string pass){
+        public Usuario ValidarCredenciales3(string nick, string pass){//funcional
             try
             {
                 var miBase = DatabaseFactory.CreateDatabase("basedatos");
@@ -411,12 +467,12 @@ namespace Componentes.ProveedorData
             }
             catch (Exception)
             {
-                Console.WriteLine("Error SqlProveedorData-ValidarCredenciales2");
+                Console.WriteLine("Error SqlProveedorData-ValidarCredenciales3");
                 return null;
             }
         }
 
-        public Usuario ValidarCredenciales2(string nick, string pass)//funcional
+        public Usuario ValidarCredenciales2(string nick, string pass)
         {
             try
             {

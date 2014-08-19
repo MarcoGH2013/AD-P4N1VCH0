@@ -46,6 +46,11 @@ namespace Componentes.NivelMedio.Transacciones
             var sp = new SqlProveedorData();
             return sp.ObtenerClientes();
         }
+        public static List<Cliente> ObtenerLista2()
+        {
+            var sp = new SqlProveedorData();
+            return sp.ObtenerClientes2();
+        }
         #endregion
     }
 }

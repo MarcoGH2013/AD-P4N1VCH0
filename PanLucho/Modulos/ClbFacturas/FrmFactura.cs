@@ -70,16 +70,15 @@ namespace ClbFacturas
         private void buttonX1_Click(object sender, EventArgs e)
         {
             frmConsulta fcon = new frmConsulta();
-            fcon.gridControl1.DataSource = Clientes.ObtenerLista();
+            fcon.gridControl1.DataSource = Clientes.ObtenerLista2();
             fcon.ShowDialog();
-            var oCliente = new Cliente();
+           // var oCliente = new Cliente();
             if (fcon.oGenerico != null)
             {
-                oCliente = (Cliente)fcon.oGenerico;
+                var oCliente = (Cliente)fcon.oGenerico;
                 txtCedRUC.Text = oCliente.NumeroIdentificacion;
                 txtCliente.Text = oCliente.NombreCompleto;
-                txtId.Text = oCliente.Id.ToString();
-                //this.FormModoParametro = FormModo.Edicion;
+                txtId.Text = oCliente.Id.ToString();//this.FormModoParametro = FormModo.Edicion;
             }
         }
 
