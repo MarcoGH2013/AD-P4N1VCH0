@@ -168,7 +168,7 @@ namespace ClbClientes
                 txtIdentificacion.Text = oCliente.NumeroIdentificacion;
                 txtNombre.Text = oCliente.Nombre;
                 txtApellido.Text = oCliente.Apellido;
-                dtpFechaNacimiento.Value =(DateTime) oCliente.FechaNacimiento;
+                if (oCliente.FechaNacimiento != null) dtpFechaNacimiento.Value =(DateTime)oCliente.FechaNacimiento;
                 txtECorreo.Text = oCliente.Ecorreo;
                 this.FormModoParametro=FormModo.Edicion;
             }

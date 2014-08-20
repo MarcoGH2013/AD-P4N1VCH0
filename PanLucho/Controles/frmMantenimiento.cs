@@ -441,7 +441,7 @@ namespace Controles
 
         protected virtual void Buscar()
         {
-            
+            ModoEdicion();
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)

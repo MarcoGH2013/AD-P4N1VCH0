@@ -1,6 +1,7 @@
 ﻿using System;
 
 using System.Windows.Forms;
+using ClbClientes;
 using ClbFacturas;
 using ClbPedidosEspeciales;using ClbUsuarios;
 using Menu;
