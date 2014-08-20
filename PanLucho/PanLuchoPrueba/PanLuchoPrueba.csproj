@@ -126,6 +126,10 @@
       <Project>{6A7D073B-8109-4CCD-9E93-73D88E95D53D}</Project>
       <Name>ClbPedidosEspeciales</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modulos\ClbRoles\ClbRoles.csproj">
+      <Project>{A3145E16-4BC4-4B32-8BE1-A605791231A9}</Project>
+      <Name>ClbRoles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modulos\ClbUsuarios\ClbUsuarios.csproj">
       <Project>{DCF1224F-6D32-49D7-BBB5-07024FB8F2FA}</Project>
       <Name>ClbUsuarios</Name>

@@ -1288,7 +1288,8 @@ namespace Componentes.ProveedorData
             {
                 MessageBox.Show(e.ToString());
             }
-        }
+            return null;}
+
         #endregion
         #endregion
         #region Eventos
