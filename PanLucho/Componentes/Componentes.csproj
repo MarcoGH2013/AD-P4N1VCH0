@@ -55,7 +55,11 @@
     <Compile Include="NivelMedio\Transacciones\Facturas.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NivelMedio\Transacciones\ModuloCategorias.cs" />
+    <Compile Include="NivelMedio\Transacciones\Modulos.cs" />
+    <Compile Include="NivelMedio\Transacciones\ModulosXRols.cs" />
     <Compile Include="NivelMedio\Transacciones\Productos.cs" />
+    <Compile Include="NivelMedio\Transacciones\Roles.cs" />
     <Compile Include="NivelMedio\Transacciones\Usuarios.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,10 +74,13 @@
     </Compile>
     <Compile Include="Transaccion\FacturaDet.cs" />
     <Compile Include="Transaccion\FacturaGrid.cs" />
+    <Compile Include="Transaccion\Modulo.cs" />
     <Compile Include="Transaccion\ModuloCategoria.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Transaccion\ModulosXRol.cs" />
     <Compile Include="Transaccion\Producto.cs" />
+    <Compile Include="Transaccion\Rol.cs" />
     <Compile Include="Transaccion\Usuario.cs">
       <SubType>Code</SubType>
     </Compile>

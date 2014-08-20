@@ -244,32 +244,32 @@ namespace Componentes.ProveedorData
         /// <summary>
         /// Crear el usuario n.
         /// </summary>
-        /// <param name="usuario">The usuario.</param>
+        /// <param name="usuario">El usuario.</param>
         /// <returns></returns>
         public decimal CrearUsuario(Usuario usuario)
         {
             if (usuario != null)
             {
-                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                Database miBase = DatabaseFactory.CreateDatabase("basedatos");
                 string sp = string.Format("{0}.spUsuarioInsertar", PropietarioBD);
 
-                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
                 dbc.CommandType = CommandType.StoredProcedure;
 
-                _Db.AddInParameter(dbc, "@IdRol", DbType.Decimal, usuario.IdRol);
-                _Db.AddInParameter(dbc, "@Nombre", DbType.String, usuario.Nombre);
-                _Db.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
-                _Db.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
-                _Db.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
-                _Db.AddInParameter(dbc, "@Contrasena", DbType.String, usuario.Contrasena);
-                _Db.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
-                _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
-                _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
-                _Db.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+                miBase.AddInParameter(dbc, "@IdRol", DbType.Decimal, usuario.IdRol);
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, usuario.Nombre);
+                miBase.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
+                miBase.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
+                miBase.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
+                miBase.AddInParameter(dbc, "@Contrasena", DbType.String, usuario.Contrasena);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
+                miBase.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
+                miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
 
-                _Db.ExecuteNonQuery(dbc);
+                miBase.ExecuteNonQuery(dbc);
 
-                usuario.Id = (int)_Db.GetParameterValue(dbc, "@Id");
+                usuario.Id = (int)miBase.GetParameterValue(dbc, "@Id");
                 return usuario.Id;
             }
             else throw new ArgumentNullException("usuario");
@@ -277,29 +277,29 @@ namespace Componentes.ProveedorData
         /// <summary>
         /// Actuliza el usuario.
         /// </summary>
-        /// <param name="usuario">The usuario.</param>
+        /// <param name="usuario">El usuario.</param>
         public decimal ActualizarUsuario(Usuario usuario)
         {
             if (usuario != null)
             {
-                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                Database miBase = DatabaseFactory.CreateDatabase("basedatos");
                 string sp = string.Format("{0}.spUsuarioActualizar", PropietarioBD);
 
-                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
                 dbc.CommandType = CommandType.StoredProcedure;
 
-                _Db.AddInParameter(dbc, "@Id", DbType.Decimal, usuario.Id);
-                _Db.AddInParameter(dbc, "@IdRol", DbType.Decimal, usuario.IdRol);
-                _Db.AddInParameter(dbc, "@Nombre", DbType.String, usuario.Nombre);
-                _Db.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
-                _Db.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
-                _Db.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
-                _Db.AddInParameter(dbc, "@Contrasena", DbType.String, usuario.Contrasena);
-                _Db.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
-                _Db.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
-                _Db.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
+                miBase.AddInParameter(dbc, "@Id", DbType.Decimal, usuario.Id);
+                miBase.AddInParameter(dbc, "@IdRol", DbType.Decimal, usuario.IdRol);
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, usuario.Nombre);
+                miBase.AddInParameter(dbc, "@Apellido", DbType.String, usuario.Apellido);
+                miBase.AddInParameter(dbc, "@Ecorreo", DbType.String, usuario.Ecorreo);
+                miBase.AddInParameter(dbc, "@Identificacion", DbType.String, usuario.Identificacion);
+                miBase.AddInParameter(dbc, "@Contrasena", DbType.String, usuario.Contrasena);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, usuario.FechaCreacion);
+                miBase.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, usuario.FechaEdicion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, usuario.IdEstado);
 
-                return _Db.ExecuteNonQuery(dbc); 
+                return miBase.ExecuteNonQuery(dbc); 
             }
             else throw new ArgumentNullException("usuario");
         }
@@ -311,15 +311,15 @@ namespace Componentes.ProveedorData
         {
             if (usuarioId >= 0)
             {
-                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                Database miBase = DatabaseFactory.CreateDatabase("basedatos");
                 string sp = string.Format("{0}.spUsuarioEliminar", PropietarioBD);
 
-                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
                 dbc.CommandType = CommandType.StoredProcedure;
 
-                _Db.AddInParameter(dbc, "@Id", DbType.Int32, usuarioId);
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, usuarioId);
 
-                return _Db.ExecuteNonQuery(dbc);
+                return miBase.ExecuteNonQuery(dbc);
             }
             else throw new ArgumentNullException("usuarioId");
         }
@@ -335,16 +335,16 @@ namespace Componentes.ProveedorData
         {
             if (usuarioId >= 0)
             {
-                Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+                Database miBase = DatabaseFactory.CreateDatabase("basedatos");
                 string sp = string.Format("{0}.spUsuarioObtener", PropietarioBD);
 
-                DbCommand dbc = _Db.GetStoredProcCommand(sp);
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
                 dbc.CommandType = CommandType.StoredProcedure;
 
-                _Db.AddInParameter(dbc, "@Id", DbType.Int32, usuarioId);
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, usuarioId);
 
                 Usuario usuario = new Usuario();
-                using (IDataReader dataReader = _Db.ExecuteReader(dbc))
+                using (IDataReader dataReader = miBase.ExecuteReader(dbc))
                 {
                     while (dataReader.Read())
                     {
@@ -367,14 +367,14 @@ namespace Componentes.ProveedorData
         /// <returns></returns>
         public List<Usuario> ObtenerUsuarios()
         {
-            Database _Db = DatabaseFactory.CreateDatabase("basedatos");
+            Database miBase = DatabaseFactory.CreateDatabase("basedatos");
             string sp = string.Format("{0}.spUsuarioObtenerLista", PropietarioBD);
 
-            DbCommand dbc = _Db.GetStoredProcCommand(sp);
+            DbCommand dbc = miBase.GetStoredProcCommand(sp);
             dbc.CommandType = CommandType.StoredProcedure;
 
             var usuarios = new List<Usuario>();
-            using (IDataReader dataReader = _Db.ExecuteReader(dbc))
+            using (IDataReader dataReader = miBase.ExecuteReader(dbc))
             {
                 while (dataReader.Read())
                 {
@@ -413,7 +413,676 @@ namespace Componentes.ProveedorData
         }
         #endregion
         #endregion
+        #region Modulos
 
+        #region Administración
+        /// <summary>
+        /// Crear el modulo n.
+        /// </summary>
+        /// <param name="modulo">The modulo.</param>
+        /// <returns></returns>
+        public int CrearModulo(Modulo modulo)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulo != null)
+            {
+                string sp = string.Format("{0}.spModuloInsertar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@IdModuloCategoria", DbType.Decimal, modulo.IdModuloCategoria);
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, modulo.Nombre);
+                miBase.AddInParameter(dbc, "@Descripcion", DbType.String, modulo.Descripcion);
+                miBase.AddInParameter(dbc, "@Assembler", DbType.String, modulo.Assembler);
+                miBase.AddInParameter(dbc, "@LibreriaClase", DbType.String, modulo.LibreriaClase);
+                miBase.AddInParameter(dbc, "@NombreFormulario", DbType.String, modulo.NombreFormulario);
+                miBase.AddInParameter(dbc, "@Imagen", DbType.String, modulo.Imagen);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, modulo.FechaCreacion);
+                miBase.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, modulo.FechaEdicion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, modulo.IdEstado);
+                miBase.AddInParameter(dbc, "@UsuarioEdicion", DbType.String, modulo.UsuarioEdicion);
+                miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+
+                miBase.ExecuteNonQuery(dbc);
+
+                modulo.Id = (int)miBase.GetParameterValue(dbc, "@Id");
+                return (int)modulo.Id;
+            }
+            else throw new ArgumentNullException("modulo");
+        }
+        /// <summary>
+        /// Actuliza el modulo.
+        /// </summary>
+        /// <param name="modulo">The modulo.</param>
+        public int ActualizarModulo(Modulo modulo)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulo != null)
+            {
+                string sp = string.Format("{0}.spModuloActualizar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Decimal, modulo.Id);
+                miBase.AddInParameter(dbc, "@IdModuloCategoria", DbType.Decimal, modulo.IdModuloCategoria);
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, modulo.Nombre);
+                miBase.AddInParameter(dbc, "@Descripcion", DbType.String, modulo.Descripcion);
+                miBase.AddInParameter(dbc, "@Assembler", DbType.String, modulo.Assembler);
+                miBase.AddInParameter(dbc, "@LibreriaClase", DbType.String, modulo.LibreriaClase);
+                miBase.AddInParameter(dbc, "@NombreFormulario", DbType.String, modulo.NombreFormulario);
+                miBase.AddInParameter(dbc, "@Imagen", DbType.String, modulo.Imagen);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, modulo.FechaCreacion);
+                miBase.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, modulo.FechaEdicion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, modulo.IdEstado);
+                miBase.AddInParameter(dbc, "@UsuarioEdicion", DbType.String, modulo.UsuarioEdicion);
+
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("modulo");
+        }
+        /// <summary>
+        /// Elimina el modulo.
+        /// </summary>
+        /// <param name="moduloId">The modulo id.</param>
+        public int EliminarModulo(int moduloId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (moduloId >= 0)
+            {
+                string sp = string.Format("{0}.spModuloEliminar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, moduloId);
+
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("moduloId");
+        }
+        #endregion
+
+        #region Selección Simple
+        /// <summary>
+        /// Obtiene el modulo.
+        /// </summary>
+        /// <param name="moduloId">The modulo id.</param>
+        /// <returns></returns>
+        public Modulo ObtenerModulo(int moduloId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (moduloId >= 0)
+            {
+                string sp = string.Format("{0}.spModuloObtener", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, moduloId);
+
+                Modulo modulo = new Modulo();
+                using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+                {
+                    while (dataReader.Read())
+                    {
+                        modulo = RellenarModuloDeLectorIData(dataReader);
+                    }
+                    dataReader.Close();
+                }
+                dbc.Dispose();
+
+                return modulo;
+            }
+            else throw new ArgumentNullException("moduloId");
+        }
+        #endregion
+
+        #region Selección múltiple
+        /// <summary>
+        /// Obtine el modulo.
+        /// </summary>
+        /// <returns></returns>
+        public List<Modulo> ObtenerModulos()
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            string sp = string.Format("{0}.spModuloObtenerLista", PropietarioBD);
+
+            DbCommand dbc = miBase.GetStoredProcCommand(sp);
+            dbc.CommandType = CommandType.StoredProcedure;
+
+            var modulos = new List<Modulo>();
+            using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+            {
+                while (dataReader.Read())
+                {
+                    modulos.Add(RellenarModuloDeLectorIData(dataReader));
+                }
+                dataReader.Close();
+            }
+            dbc.Dispose();
+            return modulos;
+        }
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el modulo del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro modulo.</param>
+        /// <returns></returns>
+        public static Modulo RellenarModuloDeLectorIData(IDataRecord valorData)
+        {
+            var modulo = new Modulo();
+            if (valorData != null)
+            {
+                modulo.Id = (decimal) valorData["Id"];
+                modulo.IdModuloCategoria = (Decimal)valorData["IdModuloCategoria"];
+                modulo.Nombre = (String)valorData["Nombre"];
+                modulo.Descripcion = (String)valorData["Descripcion"];
+                modulo.Assembler = (String)valorData["Assembler"];
+                modulo.LibreriaClase = (String)valorData["LibreriaClase"];
+                modulo.NombreFormulario = (String)valorData["NombreFormulario"];
+                modulo.Imagen = (String)valorData["Imagen"];
+                modulo.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                modulo.FechaEdicion = (DateTime)valorData["FechaEdicion"];
+                modulo.IdEstado = (Decimal)valorData["IdEstado"];
+                modulo.UsuarioEdicion = (String)valorData["UsuarioEdicion"];
+            }
+            return modulo;
+        }
+        #endregion
+        #endregion
+        #region ModuloCategorias
+
+        #region Administración
+        /// <summary>
+        /// Crear el modulocategoria n.
+        /// </summary>
+        /// <param name="modulocategoria">El modulocategoria.</param>
+        /// <returns></returns>
+        public int CrearModuloCategoria(ModuloCategoria modulocategoria)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulocategoria != null)
+            {
+                string sp = string.Format("{0}.spModuloCategoriaInsertar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, modulocategoria.Nombre);
+                miBase.AddInParameter(dbc, "@Descripcion", DbType.String, modulocategoria.Descripcion);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, modulocategoria.FechaCreacion);
+                miBase.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, modulocategoria.FechaEdicion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, modulocategoria.IdEstado);
+                miBase.AddInParameter(dbc, "@UsuarioEdicion", DbType.String, modulocategoria.UsuarioEdicion);
+                miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+
+                miBase.ExecuteNonQuery(dbc);
+
+                modulocategoria.Id = (int)miBase.GetParameterValue(dbc, "@Id");
+                return (int)modulocategoria.Id;
+            }
+            else throw new ArgumentNullException("modulocategoria");
+        }
+        /// <summary>
+        /// Actuliza el modulocategoria.
+        /// </summary>
+        /// <param name="modulocategoria">El modulocategoria.</param>
+        public int ActualizarModuloCategoria(ModuloCategoria modulocategoria)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulocategoria != null)
+            {
+                string sp = string.Format("{0}.spModuloCategoriaActualizar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Decimal, modulocategoria.Id);
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, modulocategoria.Nombre);
+                miBase.AddInParameter(dbc, "@Descripcion", DbType.String, modulocategoria.Descripcion);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, modulocategoria.FechaCreacion);
+                miBase.AddInParameter(dbc, "@FechaEdicion", DbType.DateTime, modulocategoria.FechaEdicion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, modulocategoria.IdEstado);
+                miBase.AddInParameter(dbc, "@UsuarioEdicion", DbType.String, modulocategoria.UsuarioEdicion);
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("modulocategoria");
+        }
+        /// <summary>
+        /// Elimina el modulocategoria.
+        /// </summary>
+        /// <param name="modulocategoriaId">El modulocategoria id.</param>
+        public int EliminarModuloCategoria(int modulocategoriaId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulocategoriaId >= 0)
+            {
+                string sp = string.Format("{0}.spModuloCategoriaEliminar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, modulocategoriaId);
+
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("modulocategoriaId");
+        }
+        #endregion
+
+        #region Selección Simple
+        /// <summary>
+        /// Obtiene el modulocategoria.
+        /// </summary>
+        /// <param name="modulocategoriaId">El modulocategoria id.</param>
+        /// <returns></returns>
+        public ModuloCategoria ObtenerModuloCategoria(int modulocategoriaId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulocategoriaId >= 0)
+            {
+                string sp = string.Format("{0}.spModuloCategoriaObtener", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, modulocategoriaId);
+
+                ModuloCategoria modulocategoria = new ModuloCategoria();
+                using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+                {
+                    while (dataReader.Read())
+                    {
+                        modulocategoria = RellenarModuloCategoriaDeLectorIData(dataReader);
+                    }
+                    dataReader.Close();
+                }
+                dbc.Dispose();
+
+                return modulocategoria;
+            }
+            else throw new ArgumentNullException("modulocategoriaId");
+        }
+        #endregion
+
+        #region Selección múltiple
+        /// <summary>
+        /// Obtiene el modulocategoria.
+        /// </summary>
+        /// <returns></returns>
+        public List<ModuloCategoria> ObtenerModuloCategorias()
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            string sp = string.Format("{0}.spModuloCategoriaObtenerLista", PropietarioBD);
+
+            DbCommand dbc = miBase.GetStoredProcCommand(sp);
+            dbc.CommandType = CommandType.StoredProcedure;
+
+            var modulocategorias = new List<ModuloCategoria>();
+            using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+            {
+                while (dataReader.Read())
+                {
+                    modulocategorias.Add(RellenarModuloCategoriaDeLectorIData(dataReader));
+                }
+                dataReader.Close();
+            }
+            dbc.Dispose();
+            return modulocategorias;
+        }
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el modulocategoria del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro modulocategoria.</param>
+        /// <returns></returns>
+        public static ModuloCategoria RellenarModuloCategoriaDeLectorIData(IDataRecord valorData)
+        {
+            var modulocategoria = new ModuloCategoria();
+            if (valorData != null)
+            {
+                modulocategoria.Nombre = (String)valorData["Nombre"];
+                modulocategoria.Descripcion = (String)valorData["Descripcion"];
+                modulocategoria.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                modulocategoria.FechaEdicion = (DateTime)valorData["FechaEdicion"];
+                modulocategoria.IdEstado = (Decimal)valorData["IdEstado"];
+                modulocategoria.UsuarioEdicion = (String)valorData["UsuarioEdicion"];
+            }
+            return modulocategoria;
+        }
+        #endregion
+        #endregion
+        #region Rols
+
+        #region Administración
+        /// <summary>
+        /// Crear el rol n.
+        /// </summary>
+        /// <param name="rol">El rol.</param>
+        /// <returns></returns>
+        public int CrearRol(Rol rol)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (rol != null)
+            {
+                string sp = string.Format("{0}.spRolInsertar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, rol.Nombre);
+                miBase.AddInParameter(dbc, "@Descripcion", DbType.String, rol.Descripcion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, rol.IdEstado);
+                miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+
+                miBase.ExecuteNonQuery(dbc);
+
+                rol.Id = (int)miBase.GetParameterValue(dbc, "@Id");
+                return (int)rol.Id;
+            }
+            else throw new ArgumentNullException("rol");
+        }
+        /// <summary>
+        /// Actuliza el rol.
+        /// </summary>
+        /// <param name="rol">El rol.</param>
+        public int ActualizarRol(Rol rol)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (rol != null)
+            {
+                string sp = string.Format("{0}.spRolActualizar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Decimal, rol.Id);
+                miBase.AddInParameter(dbc, "@Nombre", DbType.String, rol.Nombre);
+                miBase.AddInParameter(dbc, "@Descripcion", DbType.String, rol.Descripcion);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, rol.IdEstado);
+                
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("rol");
+        }
+        /// <summary>
+        /// Elimina el rol.
+        /// </summary>
+        /// <param name="rolId">El rol id.</param>
+        public int EliminarRol(int rolId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (rolId >= 0)
+            {
+                string sp = string.Format("{0}.spRolEliminar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, rolId);
+
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("rolId");
+        }
+        #endregion
+
+        #region Selección Simple
+        /// <summary>
+        /// Obtiene el rol.
+        /// </summary>
+        /// <param name="rolId">El rol id.</param>
+        /// <returns></returns>
+        public Rol ObtenerRol(int rolId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (rolId >= 0)
+            {
+                string sp = string.Format("{0}.spRolObtener", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, rolId);
+
+                Rol rol = new Rol();
+                using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+                {
+                    while (dataReader.Read())
+                    {
+                        rol = RellenarRolDeLectorIData(dataReader);
+                    }
+                    dataReader.Close();
+                }
+                dbc.Dispose();
+
+                return rol;
+            }
+            else throw new ArgumentNullException("rolId");
+        }
+        #endregion
+
+        #region Selección múltiple
+        /// <summary>
+        /// Obtine el rol.
+        /// </summary>
+        /// <returns></returns>
+        public List<Rol> ObtenerRols()
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            string sp = string.Format("{0}.spRolObtenerLista", PropietarioBD);
+
+            DbCommand dbc = miBase.GetStoredProcCommand(sp);
+            dbc.CommandType = CommandType.StoredProcedure;
+
+            List<Rol> rols = new List<Rol>();
+            using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+            {
+                while (dataReader.Read())
+                {
+                    rols.Add(RellenarRolDeLectorIData(dataReader));
+                }
+                dataReader.Close();
+            }
+            dbc.Dispose();
+            return rols;
+        }
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el rol del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro rol.</param>
+        /// <returns></returns>
+        public static Rol RellenarRolDeLectorIData(IDataRecord valorData)
+        {
+            var rol = new Rol();
+            if (valorData != null)
+            {
+                rol.Id = (decimal) valorData["Id"];
+                rol.Nombre = (String)valorData["Nombre"];
+                rol.Descripcion = (String)valorData["Descripcion"];
+                rol.IdEstado = (Decimal)valorData["IdEstado"];
+            }
+            return rol;
+        }
+        #endregion
+        #endregion
+        #region ModulosXRols
+
+        #region Administración
+        /// <summary>
+        /// Crear el modulosxrol n.
+        /// </summary>
+        /// <param name="modulosxrol">El modulosxrol.</param>
+        /// <returns></returns>
+        public int CrearModulosXRol(ModulosXRol modulosxrol)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulosxrol != null)
+            {
+                string sp = string.Format("{0}.spModulosXRolInsertar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@IdRol", DbType.Decimal, modulosxrol.IdRol);
+                miBase.AddInParameter(dbc, "@IdModulo", DbType.Decimal, modulosxrol.IdModulo);
+                miBase.AddInParameter(dbc, "@Parametros", DbType.String, modulosxrol.Parametros);
+                miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+
+                miBase.ExecuteNonQuery(dbc);
+
+                modulosxrol.Id = (int)miBase.GetParameterValue(dbc, "@Id");
+                return (int)modulosxrol.Id;
+            }
+            else throw new ArgumentNullException("modulosxrol");
+        }
+        /// <summary>
+        /// Actuliza el modulosxrol.
+        /// </summary>
+        /// <param name="modulosxrol">El modulosxrol.</param>
+        public int ActualizarModulosXRol(ModulosXRol modulosxrol)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulosxrol != null)
+            {
+                string sp = string.Format("{0}.spModulosXRolActualizar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Decimal, modulosxrol.Id);
+                miBase.AddInParameter(dbc, "@IdRol", DbType.Decimal, modulosxrol.IdRol);
+                miBase.AddInParameter(dbc, "@IdModulo", DbType.Decimal, modulosxrol.IdModulo);
+                miBase.AddInParameter(dbc, "@Parametros", DbType.String, modulosxrol.Parametros);
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("modulosxrol");
+        }
+        /// <summary>
+        /// Elimina el modulosxrol.
+        /// </summary>
+        /// <param name="modulosxrolId">El modulosxrol id.</param>
+        public int EliminarModulosXRol(int modulosxrolId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulosxrolId >= 0)
+            {
+                string sp = string.Format("{0}.spModulosXRolEliminar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, modulosxrolId);
+
+                return miBase.ExecuteNonQuery(dbc);
+            }
+            else throw new ArgumentNullException("modulosxrolId");
+        }
+        #endregion
+
+        #region Selección Simple
+        /// <summary>
+        /// Obtiene el modulosxrol.
+        /// </summary>
+        /// <param name="modulosxrolId">El modulosxrol id.</param>
+        /// <returns></returns>
+        public ModulosXRol ObtenerModulosXRol(int modulosxrolId)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (modulosxrolId >= 0)
+            {
+                string sp = string.Format("{0}.spModulosXRolObtener", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, modulosxrolId);
+
+                ModulosXRol modulosxrol = new ModulosXRol();
+                using (IDataReader dataReader = miBase.ExecuteReader(dbc))
+                {
+                    while (dataReader.Read())
+                    {
+                        modulosxrol = RellenarModulosXRolDeLectorIData(dataReader);
+                    }
+                    dataReader.Close();
+                }
+                dbc.Dispose();
+
+                return modulosxrol;
+            }
+            else throw new ArgumentNullException("modulosxrolId");
+        }
+        #endregion
+
+        #region Selección múltiple
+        /// <summary>
+        /// Obtine el modulosxrol.
+        /// </summary>
+        /// <returns></returns>
+        public List<ModulosXRol> ObtenerModulosXRols(int rolId)
+        {
+            if (rolId <= 0) throw new ArgumentNullException("rolId");
+            try
+            {
+                Database database = DatabaseFactory.CreateDatabase("basedatos");
+                string sql = " SELECT ";
+                sql += " IdModulo,Parametros,IdRol";
+                sql += " FROM ModulosXRol ";
+                sql += " WHERE IdRol=@RolId";
+
+
+                DbCommand dbc = database.GetSqlStringCommand(sql);
+                dbc.CommandType = CommandType.Text;
+                database.AddInParameter(dbc, "@RolId", DbType.Int32, rolId);
+
+                List<ModulosXRol> rolmodules = new List<ModulosXRol>();
+                using (IDataReader dataReader = database.ExecuteReader(dbc))
+                {
+                    while (dataReader.Read())
+                    {
+                        rolmodules.Add(RellenarModulosXRolDeLectorIData(dataReader));
+                    }
+                    dataReader.Close();
+                }
+                dbc.Dispose();
+                return rolmodules;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el modulosxrol del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro modulosxrol.</param>
+        /// <returns></returns>
+        public static ModulosXRol RellenarModulosXRolDeLectorIData(IDataRecord valorData)
+        {
+            var modulosxrol = new ModulosXRol();
+            if (valorData != null)
+            {
+                modulosxrol.IdRol = (Decimal)valorData["IdRol"];
+                modulosxrol.IdModulo = (Decimal)valorData["IdModulo"];
+                modulosxrol.Parametros = (String)valorData["Parametros"];
+            }
+            return modulosxrol;
+        }
+        #endregion
+        #endregion
         #region Metodos Seguridad
 
         public bool ValidarCredenciales(string nick, string pass)
