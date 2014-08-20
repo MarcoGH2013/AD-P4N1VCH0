@@ -471,3 +471,266 @@ GO
 
 
 
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+CREATE PROCEDURE [dbo].spModuloObtener
+@Id numeric(5, 0)
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[IdModuloCategoria],
+[Nombre],
+[Descripcion],
+[Assembler],
+[LibreriaClase],
+[NombreFormulario],
+[Imagen],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado],
+[UsuarioEdicion]
+FROM
+[dbo].[Modulo]
+WHERE
+[Id] = @Id
+
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spModuloObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[IdModuloCategoria],
+[Nombre],
+[Descripcion],
+[Assembler],
+[LibreriaClase],
+[NombreFormulario],
+[Imagen],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado],
+[UsuarioEdicion]
+FROM
+[dbo].[Modulo]
+
+GO
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+CREATE PROCEDURE [dbo].spModuloCategoriaObtener
+@Id numeric(5, 0)
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Nombre],
+[Descripcion],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado],
+[UsuarioEdicion]
+FROM
+[dbo].[ModuloCategoria]
+WHERE
+[Id] = @Id
+
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spModuloCategoriaObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Nombre],
+[Descripcion],
+[FechaCreacion],
+[FechaEdicion],
+[IdEstado],
+[UsuarioEdicion]
+FROM
+[dbo].[ModuloCategoria]
+
+GO
+
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+CREATE PROCEDURE [dbo].spRolEliminar
+@Id numeric(5, 0)
+AS
+
+DELETE FROM
+[dbo].[Rol]
+WHERE
+[Id] = @Id
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+CREATE PROCEDURE [dbo].spRolObtener
+@Id numeric(5, 0)
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Nombre],
+[Descripcion],
+[IdEstado]
+FROM
+[dbo].[Rol]
+WHERE
+[Id] = @Id
+
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spRolObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Nombre],
+[Descripcion],
+[IdEstado]
+FROM
+[dbo].[Rol]
+
+GO
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spRolInsertar
+@Id numeric(5, 0) output,
+@Nombre varchar(20),
+@Descripcion varchar(20),
+@IdEstado numeric(5, 0)
+AS
+
+-- THIS STORED PROCEDURE NEEDS TO BE MANUALLY COMPLETED
+-- MULITPLE PRIMARY KEY MEMBERS OR NON-GUID/INT PRIMARY KEY
+
+INSERT INTO [dbo].[Rol] (
+[Nombre],
+[Descripcion],
+[IdEstado]
+) VALUES (
+@Nombre,
+@Descripcion,
+@IdEstado
+)
+set @Id = @@identity
+
+GO
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spRolActualizar
+@Id numeric(5, 0), 
+@Nombre varchar(20), 
+@Descripcion varchar(20), 
+@IdEstado numeric(5, 0) 
+AS
+
+UPDATE [dbo].[Rol] SET
+[Nombre] = @Nombre,
+[Descripcion] = @Descripcion,
+[IdEstado] = @IdEstado
+WHERE
+[Id] = @Id
+
+GO
+
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Historia    :   
+                        19/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spModulosXRolInsertar
+@Id numeric(5, 0) output,
+@IdRol numeric(5, 0),
+@IdModulo numeric(5, 0),
+@Parametros nvarchar(10)
+AS
+
+-- THIS STORED PROCEDURE NEEDS TO BE MANUALLY COMPLETED
+-- MULITPLE PRIMARY KEY MEMBERS OR NON-GUID/INT PRIMARY KEY
+
+INSERT INTO [dbo].[ModulosXRol] (
+[IdRol],
+[IdModulo],
+[Parametros]
+) VALUES (
+@IdRol,
+@IdModulo,
+@Parametros
+)
+set @Id = @@identity
+GO
