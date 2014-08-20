@@ -80,7 +80,7 @@ go
 
 go
 create table Rol(
-	Id numeric(5, 0) not null primary key,
+	Id numeric(5, 0) identity primary key,
 	Nombre varchar(20) null,
 	Descripcion varchar(20) null,
 	IdEstado numeric(5, 0) null,
