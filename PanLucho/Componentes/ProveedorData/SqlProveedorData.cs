@@ -570,7 +570,7 @@ namespace Componentes.ProveedorData
             if (filtro != null)
                 database.AddInParameter(dbc, "@Filtro", DbType.String, filtro.ToUpper());
 
-            database.AddInParameter(dbc, "@Estado", DbType.Boolean, estado);
+            database.AddInParameter(dbc, "@Estado", DbType.Decimal, estado);
             database.AddInParameter(dbc, "@EsCodigo", DbType.Boolean, esCodigo);
 
             var products = new List<Producto>();
@@ -594,23 +594,31 @@ namespace Componentes.ProveedorData
         /// <returns></returns>
         public static Producto RellenarProductoDeLectorIData(IDataRecord valorData)
         {
-            var producto = new Producto();
-            if (valorData != null)
+            try
             {
-                producto.Descripcion = (String)valorData["Descripcion"];
-                producto.DescripcionDetallada = (String)valorData["DescripcionDetallada"];
-                producto.ClaseProducto = (String)valorData["ClaseProducto"];
-                producto.UnidadMedida = (String)valorData["UnidadMedida"];
-                producto.Existencias = (Decimal)valorData["Existencias"];
-                producto.Precio = (Decimal)valorData["Precio"];
-                producto.IdEstado = (Decimal)valorData["IdEstado"];
-                producto.EsGrabado = (Boolean)valorData["EsGrabado"];
-                producto.FechaCreacion = (DateTime)valorData["FechaCreacion"];
-                producto.FechaEdicion = (DateTime)valorData["FechaEdicion"];
-                producto.UsuarioCreacion = (String)valorData["UsuarioCreacion"];
-                producto.UsuarioEdicion = (String)valorData["UsuarioEdicion"];
+                var producto = new Producto();
+                if (valorData != null)
+                {
+                    producto.Id = (Decimal) valorData["Id"];
+                    producto.Descripcion = (String)valorData["Descripcion"];
+                    producto.DescripcionDetallada = (String)valorData["DescripcionDetallada"];
+                    producto.ClaseProducto = (String)valorData["ClaseProducto"];
+                    producto.UnidadMedida = (String)valorData["UnidadMedida"];
+                    producto.Existencias = (Decimal)valorData["Existencias"];
+                    producto.Precio = (Decimal)valorData["Precio"];
+                    producto.IdEstado = (Decimal)valorData["IdEstado"];
+                    producto.EsGrabado = (Boolean)valorData["EsGrabado"];
+                    producto.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                    producto.FechaEdicion = (DateTime)valorData["FechaEdicion"];
+                    producto.UsuarioCreacion = (String)valorData["UsuarioCreacion"];
+                    producto.UsuarioEdicion = (String)valorData["UsuarioEdicion"];
+                }
+                return producto;
             }
-            return producto;
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
         #endregion
         #endregion

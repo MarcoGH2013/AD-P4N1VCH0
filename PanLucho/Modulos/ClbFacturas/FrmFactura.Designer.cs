@@ -57,6 +57,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcionDetallada = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +67,6 @@
             this.coldescuento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colexistencias = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.groupPanel2.SuspendLayout();
@@ -98,7 +98,7 @@
             this.groupPanel1.Controls.Add(this.txtCedRUC);
             this.groupPanel1.Location = new System.Drawing.Point(12, 63);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(535, 209);
+            this.groupPanel1.Size = new System.Drawing.Size(493, 209);
             // 
             // 
             // 
@@ -140,7 +140,7 @@
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX10.Location = new System.Drawing.Point(7, 47);
             this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(61, 17);
+            this.labelX10.Size = new System.Drawing.Size(67, 15);
             this.labelX10.TabIndex = 12;
             this.labelX10.Text = "Cédula/RUC:";
             // 
@@ -155,15 +155,16 @@
             this.txtId.ForeColor = System.Drawing.Color.Black;
             this.txtId.Location = new System.Drawing.Point(253, 161);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 22);
+            this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 11;
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(414, 3);
+            this.pictureEdit1.Location = new System.Drawing.Point(382, 3);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Size = new System.Drawing.Size(100, 96);
             this.pictureEdit1.TabIndex = 10;
+            this.pictureEdit1.Visible = false;
             // 
             // labelX8
             // 
@@ -175,7 +176,7 @@
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.Location = new System.Drawing.Point(79, 3);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(141, 17);
+            this.labelX8.Size = new System.Drawing.Size(156, 15);
             this.labelX8.TabIndex = 7;
             this.labelX8.Text = "Factura: CONSUMIDOR FINAL";
             // 
@@ -202,9 +203,10 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Location = new System.Drawing.Point(25, 166);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(45, 17);
+            this.labelX4.Size = new System.Drawing.Size(48, 15);
             this.labelX4.TabIndex = 7;
             this.labelX4.Text = "Teléfono:";
+            this.labelX4.Visible = false;
             // 
             // labelX3
             // 
@@ -216,9 +218,10 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(21, 115);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(48, 17);
+            this.labelX3.Size = new System.Drawing.Size(52, 15);
             this.labelX3.TabIndex = 7;
             this.labelX3.Text = "Dirección:";
+            this.labelX3.Visible = false;
             // 
             // labelX2
             // 
@@ -230,7 +233,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(33, 78);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(37, 17);
+            this.labelX2.Size = new System.Drawing.Size(40, 15);
             this.labelX2.TabIndex = 7;
             this.labelX2.Text = "Cliente:";
             // 
@@ -244,7 +247,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Location = new System.Drawing.Point(207, 166);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(39, 17);
+            this.labelX1.Size = new System.Drawing.Size(40, 15);
             this.labelX1.TabIndex = 6;
             this.labelX1.Text = "Código:";
             // 
@@ -271,8 +274,9 @@
             this.txtTelef.ForeColor = System.Drawing.Color.Black;
             this.txtTelef.Location = new System.Drawing.Point(79, 161);
             this.txtTelef.Name = "txtTelef";
-            this.txtTelef.Size = new System.Drawing.Size(100, 22);
+            this.txtTelef.Size = new System.Drawing.Size(100, 20);
             this.txtTelef.TabIndex = 4;
+            this.txtTelef.Visible = false;
             // 
             // txtDirecc
             // 
@@ -289,6 +293,7 @@
             this.txtDirecc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDirecc.Size = new System.Drawing.Size(297, 34);
             this.txtDirecc.TabIndex = 3;
+            this.txtDirecc.Visible = false;
             // 
             // txtCliente
             // 
@@ -301,7 +306,7 @@
             this.txtCliente.ForeColor = System.Drawing.Color.Black;
             this.txtCliente.Location = new System.Drawing.Point(79, 77);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(297, 22);
+            this.txtCliente.Size = new System.Drawing.Size(354, 20);
             this.txtCliente.TabIndex = 2;
             // 
             // txtCedRUC
@@ -315,7 +320,7 @@
             this.txtCedRUC.ForeColor = System.Drawing.Color.Black;
             this.txtCedRUC.Location = new System.Drawing.Point(79, 42);
             this.txtCedRUC.Name = "txtCedRUC";
-            this.txtCedRUC.Size = new System.Drawing.Size(100, 22);
+            this.txtCedRUC.Size = new System.Drawing.Size(100, 20);
             this.txtCedRUC.TabIndex = 1;
             // 
             // txtIva
@@ -329,7 +334,7 @@
             this.txtIva.ForeColor = System.Drawing.Color.Black;
             this.txtIva.Location = new System.Drawing.Point(157, 61);
             this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(100, 22);
+            this.txtIva.Size = new System.Drawing.Size(100, 20);
             this.txtIva.TabIndex = 5;
             // 
             // txtSubTotal
@@ -343,7 +348,7 @@
             this.txtSubTotal.ForeColor = System.Drawing.Color.Black;
             this.txtSubTotal.Location = new System.Drawing.Point(157, 18);
             this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtSubTotal.Size = new System.Drawing.Size(100, 20);
             this.txtSubTotal.TabIndex = 5;
             // 
             // labelX6
@@ -468,7 +473,7 @@
             this.txtTotPagar.ForeColor = System.Drawing.Color.Black;
             this.txtTotPagar.Location = new System.Drawing.Point(157, 143);
             this.txtTotPagar.Name = "txtTotPagar";
-            this.txtTotPagar.Size = new System.Drawing.Size(100, 22);
+            this.txtTotPagar.Size = new System.Drawing.Size(100, 20);
             this.txtTotPagar.TabIndex = 9;
             // 
             // txtDescuento
@@ -482,7 +487,7 @@
             this.txtDescuento.ForeColor = System.Drawing.Color.Black;
             this.txtDescuento.Location = new System.Drawing.Point(157, 100);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(100, 22);
+            this.txtDescuento.Size = new System.Drawing.Size(100, 20);
             this.txtDescuento.TabIndex = 10;
             // 
             // groupPanel3
@@ -532,7 +537,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(801, 244);
+            this.gridControl1.Size = new System.Drawing.Size(801, 246);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -551,11 +556,15 @@
             this.colcantidad,
             this.colprecio,
             this.coldescuento,
-            this.coltotal,
-            this.colexistencias});
+            this.colexistencias,
+            this.coltotal});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
             // 
             // colid
             // 
@@ -567,21 +576,19 @@
             // 
             // coldescripcion
             // 
-            this.coldescripcion.Caption = "Descripción";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.OptionsColumn.AllowFocus = false;
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
             // 
             // coldescripcionDetallada
             // 
+            this.coldescripcionDetallada.Caption = "Descripción";
             this.coldescripcionDetallada.FieldName = "descripcionDetallada";
             this.coldescripcionDetallada.Name = "coldescripcionDetallada";
+            this.coldescripcionDetallada.Visible = true;
+            this.coldescripcionDetallada.VisibleIndex = 1;
             // 
             // colunidadMedida
             // 
-            this.colunidadMedida.Caption = "UNI.";
             this.colunidadMedida.FieldName = "unidadMedida";
             this.colunidadMedida.Name = "colunidadMedida";
             this.colunidadMedida.OptionsColumn.AllowFocus = false;
@@ -631,10 +638,6 @@
             this.colexistencias.OptionsColumn.AllowFocus = false;
             this.colexistencias.Visible = true;
             this.colexistencias.VisibleIndex = 7;
-            // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
             // 
             // FrmFactura
             // 
@@ -694,6 +697,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource productoBindingSource;
         private System.Windows.Forms.BindingSource facturaGridBindingSource;
+        private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtId;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcionDetallada;
@@ -701,10 +706,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcantidad;
         private DevExpress.XtraGrid.Columns.GridColumn colprecio;
         private DevExpress.XtraGrid.Columns.GridColumn coldescuento;
-        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
         private DevExpress.XtraGrid.Columns.GridColumn colexistencias;
-        private DevComponents.DotNetBar.LabelX labelX10;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtId;
+        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
 
 
     }

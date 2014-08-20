@@ -18,6 +18,10 @@ namespace ClbFacturas
     {
         FacturaGrid oFacturaGrid= new FacturaGrid();
         private bool esEditado = false;
+        private decimal subtotal = 0;
+        private decimal iva = 0;
+        private decimal totPAgar = 0;
+
         public FrmFactura()
         {
             InitializeComponent();
@@ -97,30 +101,79 @@ namespace ClbFacturas
 
             if (e.Column.FieldName == "id")
             {
-                Producto oProducto = new Producto();
+                if ((decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id") == oFacturaGrid.id)
+                {
+                    return;
+                }
+                List<Producto> lista = new List<Producto>();
                 decimal cod = (decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id"); //es caseSensitive
-                oProducto = Productos.ObtenerParaGrid(cod);
+                lista = Productos.ObtenerParaVenta(cod.ToString(),1,true);
 
-                oFacturaGrid.id                   = oProducto.Id;
-                oFacturaGrid.descripcion          = oProducto.Descripcion;
-                oFacturaGrid.descripcionDetallada = oProducto.DescripcionDetallada;
-                oFacturaGrid.unidadMedida         = oProducto.UnidadMedida;
-                oFacturaGrid.cantidad             = 0;
-                oFacturaGrid.precio               = oProducto.Precio;
-                oFacturaGrid.descuento            = 0;
-                oFacturaGrid.total                = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
-                oFacturaGrid.existencias          = oProducto.Existencias;
+                foreach (var p in lista)
+                {
+                    oFacturaGrid.id = p.Id;
+                    oFacturaGrid.descripcion = p.Descripcion;
+                    oFacturaGrid.descripcionDetallada = p.DescripcionDetallada;
+                    oFacturaGrid.unidadMedida = p.UnidadMedida;
+                    oFacturaGrid.cantidad = 0;
+                    oFacturaGrid.precio = p.Precio;
+                    oFacturaGrid.descuento = 0;
+                    oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
+                    oFacturaGrid.existencias = p.Existencias;
+                }
 
-                this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
+               // this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.descripcionDetallada);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", oFacturaGrid.unidadMedida);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", oFacturaGrid.existencias);
-                this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", oFacturaGrid.cantidad);
+               // this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", oFacturaGrid.cantidad);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", oFacturaGrid.precio);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", oFacturaGrid.descuento);
                 this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
 
                 return;
+            }
+
+            if (e.Column.FieldName=="descripcionDetallada")
+            {
+                if ((string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada") == oFacturaGrid.descripcionDetallada)
+                {
+                    return;
+                }
+
+                List<Producto> lista = new List<Producto>();
+                string like = (string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada"); //es caseSensitive
+                lista = Productos.ObtenerParaVenta(like, 1, false);
+                frmConsulta frmCon= new frmConsulta();
+                frmCon.gridControl1.DataSource = lista;
+                frmCon.ShowDialog();
+                if (frmCon.oGenerico != null)
+                {
+                    var oProducto = (Producto)frmCon.oGenerico;
+                    oFacturaGrid.id = oProducto.Id;
+                    oFacturaGrid.descripcion = oProducto.Descripcion;
+                    oFacturaGrid.descripcionDetallada = oProducto.DescripcionDetallada;
+                    oFacturaGrid.unidadMedida = oProducto.UnidadMedida;
+                    oFacturaGrid.cantidad = 0;
+                    oFacturaGrid.precio = oProducto.Precio;
+                    oFacturaGrid.descuento = 0;
+                    oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
+                    oFacturaGrid.existencias = oProducto.Existencias;
+
+                   // this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
+                    
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", oFacturaGrid.unidadMedida);
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", oFacturaGrid.existencias);
+                    //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", oFacturaGrid.cantidad);
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", oFacturaGrid.precio);
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", oFacturaGrid.descuento);
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
+                    
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "id", oFacturaGrid.id);
+                    this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.descripcionDetallada);
+
+                    return;
+                }
             }
 
             if (e.Column.FieldName == "cantidad")
@@ -131,10 +184,37 @@ namespace ClbFacturas
                 if (oFacturaGrid.cantidad > 0)
                 {
                     this.gridView1.AddNewRow();
+                    //calcular();
                     return;
                 }
             }
             return;
+        }
+
+        private void calcular2()
+        {
+            FacturaGrid oGrid = new FacturaGrid();
+            oGrid = (FacturaGrid)gridView1.GetRow(gridView1.GetFocusedDataSourceRowIndex());
+
+        }
+
+        private void calcular()
+        {
+            FacturaGrid oFactGrid= new FacturaGrid();
+            List<FacturaGrid> lista = gridView1.DataSource as List<FacturaGrid>;
+
+            foreach (var linea in lista)
+            {
+                if (linea.total >0)
+                {
+                    subtotal+= linea.total;
+                }
+            }
+            this.txtSubTotal.Text = subtotal.ToString();
+            iva =subtotal*(12/100);
+            this.txtIva.Text = iva.ToString();
+            totPAgar = subtotal + iva;
+            this.txtTotPagar.Text = totPAgar.ToString();
         }
     }
 }
