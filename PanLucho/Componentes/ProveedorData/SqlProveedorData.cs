@@ -1256,8 +1256,7 @@ namespace Componentes.ProveedorData
             return products;
         }
         #region Región de Relleno
-        /// <summary>
-        /// Rellena el producto del IDataReader.
+        /// <summary> Rellena el producto del IDataReader.
         /// </summary>
         /// <param name="valorData">El registro producto.</param>
         /// <returns></returns>
@@ -1287,6 +1286,7 @@ namespace Componentes.ProveedorData
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+                return null;
             }
             return null;}
 

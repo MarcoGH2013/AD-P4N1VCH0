@@ -146,6 +146,11 @@ namespace ClbFacturas
                 lista = Productos.ObtenerParaVenta(like, 1, false);
                 frmConsulta frmCon= new frmConsulta();
                 frmCon.gridControl1.DataSource = lista;
+                int columnas = gridView1.Columns.Count;
+                if (columnas>5)
+                {
+                   //visible false todas las demas
+                }
                 frmCon.ShowDialog();
                 if (frmCon.oGenerico != null)
                 {
@@ -184,18 +189,45 @@ namespace ClbFacturas
                 if (oFacturaGrid.cantidad > 0)
                 {
                     this.gridView1.AddNewRow();
-                    //calcular();
+                    calcular2();
                     return;
                 }
             }
+
+            
             return;
+
         }
 
-        private void calcular2()
+        private void calcular2()//funcional
         {
             FacturaGrid oGrid = new FacturaGrid();
-            oGrid = (FacturaGrid)gridView1.GetRow(gridView1.GetFocusedDataSourceRowIndex());
 
+            subtotal = 0;
+            iva = 0;
+            totPAgar = 0;
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                //oGrid = (FacturaGrid)gridView1.GetRow(0);
+                if (gridView1.GetRowCellValue(i, coltotal) == null)
+                {
+                  continue;  
+                }
+                subtotal += (decimal)gridView1.GetRowCellValue(i, coltotal);
+            }
+
+            txtSubTotal.Text = subtotal.ToString("0.00");
+            iva = subtotal * 12 / 100;
+            this.txtIva.Text = iva.ToString("F");
+            totPAgar = subtotal + iva;
+            this.txtTotPagar.Text = totPAgar.ToString();
+            
+            //Cliente oCliente = new Cliente()
+            //{
+            //    Id = (int)gridView1.GetRowCellValue(1,colcantidad),
+            //    NumeroIdentificacion = gridView1.GetRowCellValue(1, colcantidad).ToString(),
+            //    Apellido =gridView1.GetRowCellValue(1,colcantidad).ToString()
+            //};
         }
 
         private void calcular()
