@@ -3,7 +3,9 @@
 using System.Windows.Forms;
 using ClbClientes;
 using ClbFacturas;
-using ClbPedidosEspeciales;using ClbUsuarios;
+using ClbPedidosEspeciales;
+using ClbRoles;
+using ClbUsuarios;
 using Menu;
 
 
@@ -20,6 +22,7 @@ namespace PanLuchoPrueba
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new FrmUsuarios() { Tag = "c|u|00" });
-            Application.Run(new FrmFactura());}
+            Application.Run(new FrmRoles());
+        }
     }
 }
