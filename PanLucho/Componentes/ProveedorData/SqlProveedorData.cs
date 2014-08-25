@@ -1357,7 +1357,7 @@ namespace Componentes.ProveedorData
                 var db = DatabaseFactory.CreateDatabase("basedatos");
                 var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaCabInsert");
                 sp.CommandType = CommandType.StoredProcedure;
-                db.AddInParameter(sp, "@Id", DbType.Decimal, 0); //por el identity
+               // db.AddInParameter(sp, "@Id", DbType.Decimal, 0); //por el identity
                 db.AddInParameter(sp, "@IdCliente", DbType.Decimal, oFactura.idCliente);
                 db.AddInParameter(sp, "@FechaFacturacion", DbType.Date, oFactura.fechaFacturacion);
                 db.AddInParameter(sp, "@FacturaSRI", DbType.String, oFactura.facturaSRI);
@@ -1371,10 +1371,11 @@ namespace Componentes.ProveedorData
                 db.AddInParameter(sp, "@EsCancelado", DbType.Boolean, oFactura.esCancelado);
                 db.AddInParameter(sp, "@IdSucursal", DbType.Decimal, oFactura.idSucursal);
 
+                db.AddOutParameter(sp, "@Id", DbType.Int32, 4);
                 db.ExecuteNonQuery(sp);
-               // decimal cod1 = db.AddOutParameter(sp, "@Id", DbType.Decimal,8 );
-                var cod = db.GetParameterValue(sp, "@Id");//valor q retorna Stores procedure es el Id del registro hecho
-                return (decimal)cod;
+                var cod1 = db.GetParameterValue(sp, "@Id");
+                //var cod = db.GetParameterValue(sp, "@Id");//valor q retorna Stores procedure es el Id del registro hecho
+                return 0;
             }
             catch (Exception e)
             {
