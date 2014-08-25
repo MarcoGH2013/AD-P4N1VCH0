@@ -12,8 +12,8 @@ namespace Componentes.Transaccion
         public decimal idProducto { get; set; }
         public decimal cantidad { get; set; }
         public decimal totalLinea { get; set; }
-        public decimal? iva { get; set; }
-        public decimal? descuentoPorcentaje { get; set; }
-        public decimal? descuentoValor { get; set; }
+        public decimal iva { get; set; }
+        public decimal descuentoPorcentaje { get; set; }
+        public decimal descuentoValor { get; set; }
     }
 }

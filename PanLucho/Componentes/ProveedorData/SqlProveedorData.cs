@@ -230,7 +230,7 @@ namespace Componentes.ProveedorData
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
                 return null;
             }
         }
@@ -1340,6 +1340,74 @@ namespace Componentes.ProveedorData
         #endregion
         #endregion
         #region Facturacion
+
+        public bool FacturaGuardar(Factura factura)//factura ya debe estar depurada
+        {
+            var codigoCabecera = FacturaCabeceraGuardar(factura);
+            if (codigoCabecera == 0) return false;
+            if (!(FacturaDetalleGuardar(codigoCabecera, factura))) return false;
+
+            return true;
+        }
+
+        private decimal FacturaCabeceraGuardar(Factura oFactura)
+        {
+            try
+            {
+                var db = DatabaseFactory.CreateDatabase("basedatos");
+                var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaCabInsert");
+                sp.CommandType = CommandType.StoredProcedure;
+                db.AddInParameter(sp, "@Id", DbType.Decimal, 0); //por el identity
+                db.AddInParameter(sp, "@IdCliente", DbType.Decimal, oFactura.idCliente);
+                db.AddInParameter(sp, "@FechaFacturacion", DbType.Date, oFactura.fechaFacturacion);
+                db.AddInParameter(sp, "@FacturaSRI", DbType.String, oFactura.facturaSRI);
+                db.AddInParameter(sp, "@SubTotal", DbType.Decimal, oFactura.subTotal);
+                db.AddInParameter(sp, "@IVA", DbType.Decimal, oFactura.iva);
+                db.AddInParameter(sp, "@Descuento", DbType.Decimal, oFactura.descuento);
+                db.AddInParameter(sp, "@TotalPagar", DbType.Decimal, oFactura.totalPagar);
+                db.AddInParameter(sp, "@FechaCreacion", DbType.Date, oFactura.fechaCreacion);
+                db.AddInParameter(sp, "@UserCreador", DbType.String, oFactura.userCreador);
+                db.AddInParameter(sp, "@Procesado", DbType.Boolean, oFactura.procesado);
+                db.AddInParameter(sp, "@EsCancelado", DbType.Boolean, oFactura.esCancelado);
+                db.AddInParameter(sp, "@IdSucursal", DbType.Decimal, oFactura.idSucursal);
+
+                db.ExecuteNonQuery(sp);
+                var cod = db.GetParameterValue(sp, "@Id");//valor q retorna Stores procedure es el Id del registro hecho
+                return (decimal)cod;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return 0;
+            }
+        }
+
+        private bool FacturaDetalleGuardar(decimal codCabecera, Factura oFactura)
+        {
+            var db = DatabaseFactory.CreateDatabase("basedatos");
+            var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
+            sp.CommandType = CommandType.StoredProcedure;
+
+            foreach (var d in oFactura.detalles)//lista ya tiene q estar validada
+            {
+                db.AddInParameter(sp, "@IdFacturaCab", DbType.Decimal, codCabecera); 
+                db.AddInParameter(sp, "@linea", DbType.Decimal, d.linea);
+                db.AddInParameter(sp, "@IdProducto", DbType.Decimal, d.idProducto);
+                db.AddInParameter(sp, "@Cantidad", DbType.Decimal, d.cantidad);
+                db.AddInParameter(sp, "@TotalLinea", DbType.Decimal, d.totalLinea);
+                db.AddInParameter(sp, "@Iva", DbType.Decimal, d.iva);
+                db.AddInParameter(sp, "@DescuentoPorcentaje", DbType.Decimal, d.descuentoPorcentaje);
+                db.AddInParameter(sp, "@DescuentoValor", DbType.Decimal, d.descuentoValor);
+                db.ExecuteNonQuery(sp);
+                decimal cod = (decimal)db.GetParameterValue(sp, "@IdFacturaCab");//valor q retorna Stores procedure es el Id del registro hecho
+                if (cod == 0) return false;
+            }
+
+           
+
+            
+            return true;
+        }
 
         public Producto ObtenerProductoParaFactura(decimal codigo) //funcional
         {

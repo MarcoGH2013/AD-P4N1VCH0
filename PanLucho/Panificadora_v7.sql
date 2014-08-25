@@ -261,8 +261,8 @@ foreign key(IdSucursal)references Sucursal,
 )
 go
 create table FacturaDetalle(
-IdFacturaCab numeric(5, 0) IDENTITY(1,1), --Pk y FK
-linea numeric(5,0) not null, --Pk por producto
+IdFacturaCab numeric(5, 0), --Pk y FK
+linea numeric(5,0) not null, --Pk cambia por producto
 IdProducto numeric(5,0),
 Cantidad numeric(9,0),
 TotalLinea smallmoney, --SubTotal campo calculado

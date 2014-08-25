@@ -61,7 +61,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcionDetallada = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,8 +68,9 @@
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescuento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colexistencias = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.groupPanel2.SuspendLayout();
@@ -566,10 +566,6 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
-            // 
             // colid
             // 
             this.colid.Caption = "Código";
@@ -625,6 +621,16 @@
             this.coldescuento.Visible = true;
             this.coldescuento.VisibleIndex = 5;
             // 
+            // colexistencias
+            // 
+            this.colexistencias.Caption = "Existencias";
+            this.colexistencias.FieldName = "existencias";
+            this.colexistencias.Name = "colexistencias";
+            this.colexistencias.OptionsColumn.AllowFocus = false;
+            this.colexistencias.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.colexistencias.Visible = true;
+            this.colexistencias.VisibleIndex = 7;
+            // 
             // coltotal
             // 
             this.coltotal.Caption = "Total";
@@ -634,14 +640,9 @@
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 6;
             // 
-            // colexistencias
+            // productoBindingSource
             // 
-            this.colexistencias.Caption = "Existencias";
-            this.colexistencias.FieldName = "existencias";
-            this.colexistencias.Name = "colexistencias";
-            this.colexistencias.OptionsColumn.AllowFocus = false;
-            this.colexistencias.Visible = true;
-            this.colexistencias.VisibleIndex = 7;
+            this.productoBindingSource.DataSource = typeof(Componentes.Transaccion.Producto);
             // 
             // FrmFactura
             // 

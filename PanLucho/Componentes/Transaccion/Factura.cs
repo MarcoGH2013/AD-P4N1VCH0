@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Componentes.Transaccion
 {
-    class Factura
+    public class Factura
     {
         public decimal id { get; set; }
         public decimal idCliente { get; set; }

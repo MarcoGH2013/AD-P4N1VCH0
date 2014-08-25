@@ -39,6 +39,12 @@ namespace ClbFacturas
         protected override void Guardar()
         {
             base.Guardar();
+            ObtenerYGuardar();
+        }
+
+        protected override void Deshacer()
+        {
+            base.Deshacer();
         }
 
         protected override void Buscar()
@@ -49,11 +55,13 @@ namespace ClbFacturas
         protected override void Bloquear()
         {
             base.Bloquear();
+            buttonX1.Enabled = false;
         }
 
         protected override void Desbloquear()
         {
             base.Desbloquear();
+            buttonX1.Enabled = true;
         }
 
         private void switchButton1_ValueChanged(object sender, EventArgs e)
@@ -196,8 +204,7 @@ namespace ClbFacturas
 
             
             return;
-
-        }
+            }
 
         private void calcular2()//funcional
         {
@@ -230,23 +237,87 @@ namespace ClbFacturas
             //};
         }
 
-        private void calcular()
+        private void ObtenerYGuardar()
         {
-            FacturaGrid oFactGrid= new FacturaGrid();
-            List<FacturaGrid> lista = gridView1.DataSource as List<FacturaGrid>;
-
-            foreach (var linea in lista)
+            try
             {
-                if (linea.total >0)
+                Factura oFactura= new Factura();
+                if (switchButton1.Value)
                 {
-                    subtotal+= linea.total;
+                    if (!(String.IsNullOrEmpty(txtId.Text)))
+                    {
+                        oFactura.idCliente = Decimal.Parse(txtId.Text);
+                    }
+                }
+                else
+                {
+                    oFactura.idCliente = 1026;//usuario final
+                }
+                oFactura.id = 0;
+                oFactura.fechaFacturacion = DateTime.Now;
+                oFactura.facturaSRI = "666666669666";
+                oFactura.subTotal = Decimal.Parse(txtSubTotal.Text);
+                oFactura.iva = Decimal.Parse(txtIva.Text);
+                // oFactura.descuento = Decimal.Parse(txtDescuento.Text);
+                oFactura.totalPagar = Decimal.Parse(txtTotPagar.Text);
+                oFactura.fechaCreacion = DateTime.Now;
+                oFactura.userCreador = "lquinter";
+                oFactura.procesado = false;//es decir no cerrada
+                oFactura.esCancelado = false;
+                oFactura.idSucursal = 1;
+
+                decimal k = 1;
+                List<FacturaDet> lista = new List<FacturaDet>();
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    if ((gridView1.GetRowCellValue(i, coltotal)) == null)
+                    {
+                        continue;
+                    }
+                    oFacturaGrid = (FacturaGrid)gridView1.GetRow(i);
+
+                    FacturaDet det= new FacturaDet(); //SE PUEDE MEJORAR . check
+                    
+                    det.idFacturaCab = 0; //no se sabe todavia
+                    det.linea = k;
+                    det.idProducto = (decimal)gridView1.GetRowCellValue(i, "id");
+                    det.cantidad = (decimal)gridView1.GetRowCellValue(i, "cantidad");
+                    det.totalLinea = (decimal)gridView1.GetRowCellValue(i, "total");
+                    det.descuentoPorcentaje = 0;
+                    
+                    lista.Add(det);
+                    k++;
+                    oFactura.detalles = lista;
+                }
+
+                if (Facturas.Guardar(oFactura))
+                {
+                    MessageBox.Show("Factura guardada", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            this.txtSubTotal.Text = subtotal.ToString();
-            iva =subtotal*(12/100);
-            this.txtIva.Text = iva.ToString();
-            totPAgar = subtotal + iva;
-            this.txtTotPagar.Text = totPAgar.ToString();
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
+
+        //private void calcular()
+        //{
+        //    FacturaGrid oFactGrid= new FacturaGrid();
+        //    List<FacturaGrid> lista = gridView1.DataSource as List<FacturaGrid>;
+
+        //    foreach (var linea in lista)
+        //    {
+        //        if (linea.total >0)
+        //        {
+        //            subtotal+= linea.total;
+        //        }
+        //    }
+        //    this.txtSubTotal.Text = subtotal.ToString();
+        //    iva =subtotal*(12/100);
+        //    this.txtIva.Text = iva.ToString();
+        //    totPAgar = subtotal + iva;
+        //    this.txtTotPagar.Text = totPAgar.ToString();
+        //}
     }
 }
