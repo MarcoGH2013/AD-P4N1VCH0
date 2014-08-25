@@ -234,7 +234,7 @@ namespace Menu
                     {
                         this.ribbonPage3.Visible = true;
                         this.ribbonPageGroup4.Visible = true;
-                        //this.ribbonPageGroup3.Visible = true;
+                        this.ribbonPageGroup3.Visible = true;
                         this.ribbonPageGroup5.Visible = true;
 
                     }
