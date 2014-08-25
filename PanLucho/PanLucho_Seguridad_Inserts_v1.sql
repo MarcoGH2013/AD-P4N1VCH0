@@ -13,20 +13,18 @@ insert into Estado( Id, descripcion )values ( 1,'activo');
 insert into Estado( Id, descripcion )values ( 2,'inactivo');
 go
 
-<<<<<<< .mine
+
 SET IDENTITY_insert Rol ON
 go
 insert into Rol( Id, Nombre, Descripcion, IdEstado )values( 1,'ADMIN', 'admin',1);
 insert into Rol( Id, Nombre, Descripcion, IdEstado )values( 2,'VENDEDOR', 'factura',1);
-=======
-insert into Direccion(Id,Zona,CallePrincipal,CalleTransversal) values(1, 'Suburbio', 'Portete', '26ava');
-insert into Sucursal( Id, descripcion,IdDireccion, IdEstado )values ( 1,'Matriz',1,1);
-
-insert into Rol(  Nombre, Descripcion, IdEstado )values( 'ADMIN', 'admin',1);
-insert into Rol(  Nombre, Descripcion, IdEstado )values( 'VENDEDOR', 'factura',1);
->>>>>>> .r103
 --insert into Rol( Id, Nombre, Descripcion, IdEstado )values( 3,'PEDIDOSESPECIALES', 'personal con acceso a pantallas de pedidos',1);
 SET IDENTITY_insert Rol OFF
+--insert into Rol(  Nombre, Descripcion, IdEstado )values( 'ADMIN', 'admin',1);
+--insert into Rol(  Nombre, Descripcion, IdEstado )values( 'VENDEDOR', 'factura',1);
+
+insert into Direccion(Id,Zona,CallePrincipal,CalleTransversal) values(1, 'Suburbio', 'Portete', '26ava');
+insert into Sucursal( Id, descripcion,IdDireccion, IdEstado )values ( 1,'Matriz',1,1);
 
 insert into ModuloCategoria values( 1 ,'SEGURIDAD' , 'frm menu seguridad' , getdate() , getdate() , 1 , 'lquinter'  );
 insert into ModuloCategoria values(2, 'VENTAS' , 'frm menu ventas' , getdate() , getdate() , 1 , 'lquinter'  );
@@ -159,6 +157,7 @@ go
 
 
 
+set identity_insert Evento on 
 go
 INSERT Evento ([Id], Descripcion, IdEstado) VALUES (1, 'Quinceañera', 1)
 INSERT Evento ([Id], Descripcion, IdEstado) VALUES (2, 'Matrimonio', 1)
@@ -175,5 +174,6 @@ INSERT Evento ([Id], Descripcion, IdEstado) VALUES (12, 'Dia del Padre', 1)
 INSERT Evento ([Id], Descripcion, IdEstado) VALUES (13, 'Halloween', 1)
 INSERT Evento ([Id], Descripcion, IdEstado) VALUES (14, 'San Valentín', 1)
 INSERT Evento ([Id], Descripcion, IdEstado) VALUES (15, 'Deportivo', 1)
-
+set identity_insert Evento off
 go
+
