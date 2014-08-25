@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Nuevo", 0, 0);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Deshacer", 1, 1);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Eliminar", 2, 2);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Grabar", 3, 3);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Salir", 4, 4);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("", 5, 5);
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("", 6, 6);
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("", 7, 7);
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("", 9, 9);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRoles));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Nuevo", 0, 0);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Deshacer", 1, 1);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Eliminar", 2, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grabar", 3, 3);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Buscar", 4, 4);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Salir", 5, 5);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -47,10 +44,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvwModulos = new System.Windows.Forms.TreeView();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList();
             this.tvwObjecto = new System.Windows.Forms.TreeView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tlblMensaje = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
@@ -147,7 +144,7 @@
             this.groupBox2.Size = new System.Drawing.Size(678, 236);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Permisos (Modulo -> Objetos)";
+            this.groupBox2.Text = "Permisos (Modulo => Objetos)";
             // 
             // splitContainer1
             // 
@@ -181,16 +178,18 @@
             this.tvwModulos.SelectedImageIndex = 0;
             this.tvwModulos.Size = new System.Drawing.Size(331, 209);
             this.tvwModulos.TabIndex = 4;
-            this.tvwModulos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwModules_AfterSelect);
+            this.tvwModulos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwModulos_AfterSelect);
             this.tvwModulos.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwModulos_NodeMouseDoubleClick);
-            this.tvwModulos.Enter += new System.EventHandler(this.tvwModules_Enter);
-            this.tvwModulos.Leave += new System.EventHandler(this.tvwModules_Leave);
+            this.tvwModulos.Enter += new System.EventHandler(this.tvwModulos_Enter);
+            this.tvwModulos.Leave += new System.EventHandler(this.tvwModulos_Leave);
             // 
             // imageList2
             // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Formulario.png");
+            this.imageList2.Images.SetKeyName(1, "Acceder.png");
+            this.imageList2.Images.SetKeyName(2, "Cancelar.png");
             // 
             // tvwObjecto
             // 
@@ -204,72 +203,59 @@
             this.tvwObjecto.Location = new System.Drawing.Point(1, 2);
             this.tvwObjecto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tvwObjecto.Name = "tvwObjecto";
-            treeNode10.ImageIndex = 0;
-            treeNode10.Name = "Node2";
-            treeNode10.SelectedImageIndex = 0;
-            treeNode10.Tag = "c";
-            treeNode10.Text = "Nuevo";
-            treeNode11.ImageIndex = 1;
-            treeNode11.Name = "Node3";
-            treeNode11.SelectedImageIndex = 1;
-            treeNode11.Tag = "u";
-            treeNode11.Text = "Deshacer";
-            treeNode12.ImageIndex = 2;
-            treeNode12.Name = "Node4";
-            treeNode12.SelectedImageIndex = 2;
-            treeNode12.Tag = "d";
-            treeNode12.Text = "Eliminar";
-            treeNode13.ImageIndex = 3;
-            treeNode13.Name = "Node5";
-            treeNode13.SelectedImageIndex = 3;
-            treeNode13.Tag = "c";
-            treeNode13.Text = "Grabar";
-            treeNode14.ImageIndex = 4;
-            treeNode14.Name = "Grabar&Cerrar";
-            treeNode14.SelectedImageIndex = 4;
-            treeNode14.Tag = "00";
-            treeNode14.Text = "Salir";
-            treeNode15.ImageIndex = 5;
-            treeNode15.Name = "Node6";
-            treeNode15.SelectedImageIndex = 5;
-            treeNode15.Tag = "06";
-            treeNode15.Text = "";
-            treeNode16.ImageIndex = 6;
-            treeNode16.Name = "Node7";
-            treeNode16.SelectedImageIndex = 6;
-            treeNode16.Tag = "07";
-            treeNode16.Text = "";
-            treeNode17.ImageIndex = 7;
-            treeNode17.Name = "Node8";
-            treeNode17.SelectedImageIndex = 7;
-            treeNode17.Tag = "08";
-            treeNode17.Text = "";
-            treeNode18.ImageIndex = 9;
-            treeNode18.Name = "Node10";
-            treeNode18.SelectedImageIndex = 9;
-            treeNode18.Tag = "09";
-            treeNode18.Text = "";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "Node2";
+            treeNode1.SelectedImageIndex = 0;
+            treeNode1.Tag = "c";
+            treeNode1.Text = "Nuevo";
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "Node3";
+            treeNode2.SelectedImageIndex = 1;
+            treeNode2.Tag = "u";
+            treeNode2.Text = "Deshacer";
+            treeNode3.ImageIndex = 2;
+            treeNode3.Name = "Node4";
+            treeNode3.SelectedImageIndex = 2;
+            treeNode3.Tag = "d";
+            treeNode3.Text = "Eliminar";
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "Node5";
+            treeNode4.SelectedImageIndex = 3;
+            treeNode4.Tag = "c";
+            treeNode4.Text = "Grabar";
+            treeNode5.ImageIndex = 4;
+            treeNode5.Name = "Grabar&Cerrar";
+            treeNode5.SelectedImageIndex = 4;
+            treeNode5.Tag = "r";
+            treeNode5.Text = "Buscar";
+            treeNode6.ImageIndex = 5;
+            treeNode6.Name = "Node6";
+            treeNode6.SelectedImageIndex = 5;
+            treeNode6.Tag = "00";
+            treeNode6.Text = "Salir";
             this.tvwObjecto.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
             this.tvwObjecto.SelectedImageIndex = 0;
             this.tvwObjecto.Size = new System.Drawing.Size(322, 209);
             this.tvwObjecto.TabIndex = 5;
             this.tvwObjecto.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvwObject_BeforeCheck);
-            this.tvwObjecto.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvwObject_AfterCheck);
+            this.tvwObjecto.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvwObjecto_AfterCheck);
             // 
             // imageList1
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Agregar.png");
+            this.imageList1.Images.SetKeyName(1, "Modificar.png");
+            this.imageList1.Images.SetKeyName(2, "Eliminar.png");
+            this.imageList1.Images.SetKeyName(3, "Guardar.png");
+            this.imageList1.Images.SetKeyName(4, "Buscar.png");
+            this.imageList1.Images.SetKeyName(5, "Cerrar.png");
             // 
             // errorProvider1
             // 
@@ -307,7 +293,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmRoles";
             this.Text = "Mantenimiento de roles";
-            this.Load += new System.EventHandler(this.FrmRolModule_Load);
+            this.Load += new System.EventHandler(this.FrmRoles_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.statusStrip1, 0);

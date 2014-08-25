@@ -24,7 +24,7 @@ namespace ClbRoles
         {
             InitializeComponent();
         }
-        private void FrmRolModule_Load(object sender, EventArgs e)
+        private void FrmRoles_Load(object sender, EventArgs e)
         {
             cargarFormularios = true;
             CargarModulos();
@@ -335,8 +335,7 @@ namespace ClbRoles
             else
             {
                 Roles.Actualizar(rol);
-                Roles.Eliminar(rolIdCodigo);
-
+                ModulosXRols.EliminarXRol(rolIdCodigo);
                 for (int I = 0; I <= tvwModulos.Nodes.Count - 1; I++)
                 {
                     for (int j = 0; j <= tvwModulos.Nodes[I].Nodes.Count - 1; j++)
@@ -355,8 +354,9 @@ namespace ClbRoles
 
         protected override void Deshacer()
         {
+            base.Deshacer();
             rolIdCodigo = 0;
-            LimpiarForm();
+            //LimpiarForm();
         }
 
         private void txtName_Validated(object sender, EventArgs e)
@@ -400,17 +400,17 @@ namespace ClbRoles
 
         }
 
-        private void tvwModules_Enter(object sender, EventArgs e)
+        private void tvwModulos_Enter(object sender, EventArgs e)
         {
             tlblMensaje.Text = "Doble click para dar acceso al modulo..!";
         }
 
-        private void tvwModules_Leave(object sender, EventArgs e)
+        private void tvwModulos_Leave(object sender, EventArgs e)
         {
             tlblMensaje.Text = "";
         }
 
-        private void tvwModules_AfterSelect(object sender, TreeViewEventArgs e)
+        private void tvwModulos_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (cargarFormularios) return;
             try
@@ -439,7 +439,7 @@ namespace ClbRoles
             }
         }
 
-        private void tvwObject_AfterCheck(object sender, TreeViewEventArgs e)
+        private void tvwObjecto_AfterCheck(object sender, TreeViewEventArgs e)
         {
             if (tvwModulos.SelectedNode != null && editarModulo)
             {
