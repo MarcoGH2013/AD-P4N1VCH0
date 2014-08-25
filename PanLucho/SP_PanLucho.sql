@@ -704,7 +704,6 @@ INSERT INTO [dbo].[ModulosXRol] (
 @Parametros
 )
 set @Id = @@identity
-<<<<<<< .mine
 GO
 
 
@@ -744,7 +743,6 @@ SELECT
 [IdEstado]
 FROM
 [dbo].[Evento]
-GO=======
 GO
 
 --region [dbo].[spInsertFacturaCab]
@@ -853,4 +851,4 @@ INSERT INTO [dbo].[FacturaDetalle] (
 
 GO
 
->>>>>>> .r104
+
