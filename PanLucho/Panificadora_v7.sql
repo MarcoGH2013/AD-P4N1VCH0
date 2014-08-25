@@ -190,7 +190,7 @@ foreign key(IdTabla)references Sucursal
 )
 go
 CREATE TABLE Evento(
-Id numeric(5,0) PRIMARY KEY,
+Id numeric(5,0) IDENTITY(1,1) NOT null primary key,
 Descripcion VARCHAR(50),
 IdEstado numeric(5,0),
 FOREIGN KEY(IdEstado)REFERENCES Estado
