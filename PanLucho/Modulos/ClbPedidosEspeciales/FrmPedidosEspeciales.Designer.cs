@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.btnBuscarCliente = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX12 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX11 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -43,8 +42,8 @@
             this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCliente = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCedRUC = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -70,6 +69,7 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,9 +85,7 @@
             this.colImagen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.groupPanel4.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.groupPanel5.SuspendLayout();
@@ -95,24 +93,24 @@
             this.groupPanel6.SuspendLayout();
             this.groupPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.comboBoxEdit1);
+            this.groupPanel1.Controls.Add(this.btnBuscarCliente);
             this.groupPanel1.Controls.Add(this.groupPanel4);
             this.groupPanel1.Controls.Add(this.textBoxX5);
             this.groupPanel1.Controls.Add(this.textBoxX4);
             this.groupPanel1.Controls.Add(this.textBoxX3);
-            this.groupPanel1.Controls.Add(this.textBoxX2);
-            this.groupPanel1.Controls.Add(this.textBoxX1);
+            this.groupPanel1.Controls.Add(this.txtCliente);
+            this.groupPanel1.Controls.Add(this.txtCedRUC);
             this.groupPanel1.Controls.Add(this.labelX5);
             this.groupPanel1.Controls.Add(this.labelX4);
             this.groupPanel1.Controls.Add(this.labelX3);
@@ -153,14 +151,17 @@
             this.groupPanel1.Text = "Datos del Cliente";
             this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
             // 
-            // comboBoxEdit1
+            // btnBuscarCliente
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(59, 77);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(110, 20);
-            this.comboBoxEdit1.TabIndex = 11;
+            this.btnBuscarCliente.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnBuscarCliente.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(247, 6);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(57, 23);
+            this.btnBuscarCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnBuscarCliente.TabIndex = 11;
+            this.btnBuscarCliente.Text = "Buscar";
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // groupPanel4
             // 
@@ -319,6 +320,7 @@
             this.textBoxX5.Name = "textBoxX5";
             this.textBoxX5.Size = new System.Drawing.Size(100, 22);
             this.textBoxX5.TabIndex = 9;
+            this.textBoxX5.Visible = false;
             // 
             // textBoxX4
             // 
@@ -343,30 +345,31 @@
             this.textBoxX3.Name = "textBoxX3";
             this.textBoxX3.Size = new System.Drawing.Size(414, 22);
             this.textBoxX3.TabIndex = 7;
+            this.textBoxX3.Visible = false;
             // 
-            // textBoxX2
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(103, 32);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(250, 22);
-            this.textBoxX2.TabIndex = 6;
-            // 
-            // textBoxX1
+            // txtCliente
             // 
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(103, 6);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(116, 22);
-            this.textBoxX1.TabIndex = 5;
+            this.txtCliente.Border.Class = "TextBoxBorder";
+            this.txtCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCliente.Location = new System.Drawing.Point(103, 32);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(250, 22);
+            this.txtCliente.TabIndex = 6;
+            // 
+            // txtCedRUC
+            // 
+            // 
+            // 
+            // 
+            this.txtCedRUC.Border.Class = "TextBoxBorder";
+            this.txtCedRUC.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCedRUC.Location = new System.Drawing.Point(103, 6);
+            this.txtCedRUC.Name = "txtCedRUC";
+            this.txtCedRUC.Size = new System.Drawing.Size(116, 22);
+            this.txtCedRUC.TabIndex = 5;
             // 
             // labelX5
             // 
@@ -380,6 +383,7 @@
             this.labelX5.Size = new System.Drawing.Size(75, 23);
             this.labelX5.TabIndex = 4;
             this.labelX5.Text = "Teléfono:";
+            this.labelX5.Visible = false;
             // 
             // labelX4
             // 
@@ -406,6 +410,7 @@
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 2;
             this.labelX3.Text = "Dirección:";
+            this.labelX3.Visible = false;
             // 
             // labelX2
             // 
@@ -849,6 +854,10 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // facturaGridBindingSource
+            // 
+            this.facturaGridBindingSource.DataSource = typeof(Componentes.Transaccion.FacturaGrid);
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -943,7 +952,26 @@
             this.repositoryItemColorEdit1.AutoHeight = false;
             this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorEdit1.CustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Orange,
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.Green,
+        System.Drawing.Color.Cyan,
+        System.Drawing.Color.Blue,
+        System.Drawing.Color.Pink,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty};
             this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
+            this.repositoryItemColorEdit1.ShowSystemColors = false;
+            this.repositoryItemColorEdit1.ShowWebColors = false;
             // 
             // colLeyenda
             // 
@@ -974,10 +1002,6 @@
             this.colComentario.Visible = true;
             this.colComentario.VisibleIndex = 9;
             // 
-            // facturaGridBindingSource
-            // 
-            this.facturaGridBindingSource.DataSource = typeof(Componentes.Transaccion.FacturaGrid);
-            // 
             // FrmPedidosEspeciales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -991,7 +1015,6 @@
             this.Controls.SetChildIndex(this.groupPanel2, 0);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
             this.groupPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.groupPanel4.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel5.ResumeLayout(false);
@@ -999,11 +1022,11 @@
             this.groupPanel6.ResumeLayout(false);
             this.groupPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1016,8 +1039,8 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX5;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCliente;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCedRUC;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX3;
@@ -1066,7 +1089,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colImagen;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colComentario;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private System.Windows.Forms.BindingSource facturaGridBindingSource;
+        private DevComponents.DotNetBar.ButtonX btnBuscarCliente;
     }
 }

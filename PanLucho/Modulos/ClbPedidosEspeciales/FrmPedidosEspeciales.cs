@@ -32,6 +32,8 @@ namespace ClbPedidosEspeciales
                 // <- ...
                 Color.Pink
             };
+            
+            
             repositoryItemColorEdit1.CustomColors = colores;
         }
 
@@ -65,22 +67,67 @@ namespace ClbPedidosEspeciales
             {
                 case "id":
                     {
+                        if ((decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id") == oFacturaGrid.id)
+                        {
+                            return;
+                        }
                         var oProductos = new List<Producto>();
                         decimal cod = (decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id"); //es caseSensitive
                         oProductos = Productos.ObtenerParaVenta(cod.ToString(), 1, true);
                         var producto = oProductos[0];
-                        this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", producto.Descripcion);
-                        this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", producto.DescripcionDetallada);
-                        this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", producto.UnidadMedida);
-                        this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", producto.Existencias);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", producto.Descripcion);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", producto.DescripcionDetallada);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", producto.UnidadMedida);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", producto.Existencias);
                         //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", producto.Cantidad);
-                        this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", producto.Precio);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", producto.Precio);
                         //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", producto.Descuento);
                         //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", producto.Total);
-                        break;
+                        return;
                     }
                 case "cantidad":
                     {
+                        break;
+                    }
+                case "descripcionDetallada":
+                    {
+                        if ((string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada") == oFacturaGrid.descripcionDetallada)
+                        {
+                            return;
+                        }
+                        var lista = new List<Producto>();
+                        string like = (string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada"); //es caseSensitive
+                        lista = Productos.ObtenerParaVenta(like, 1, false);
+                        frmConsulta frmCon = new frmConsulta();
+                        frmCon.gridControl1.DataSource = lista;
+                        frmCon.ShowDialog();
+                        if (frmCon.oGenerico != null)
+                        {
+                            var oProducto = (Producto)frmCon.oGenerico;
+                            oFacturaGrid.id = oProducto.Id;
+                            oFacturaGrid.descripcion = oProducto.Descripcion;
+                            oFacturaGrid.descripcionDetallada = oProducto.DescripcionDetallada;
+                            oFacturaGrid.unidadMedida = oProducto.UnidadMedida;
+                            oFacturaGrid.cantidad = 0;
+                            oFacturaGrid.precio = oProducto.Precio;
+                            oFacturaGrid.descuento = 0;
+                            oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
+                            oFacturaGrid.existencias = oProducto.Existencias;
+
+                            // this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
+
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", oFacturaGrid.unidadMedida);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", oFacturaGrid.existencias);
+                            //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", oFacturaGrid.cantidad);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", oFacturaGrid.precio);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", oFacturaGrid.descuento);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
+
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "id", oFacturaGrid.id);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.descripcionDetallada);
+
+                            return;
+                        }
                         break;
                     }
             }
@@ -129,6 +176,21 @@ namespace ClbPedidosEspeciales
         private void groupPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            frmConsulta fcon = new frmConsulta();
+            fcon.gridControl1.DataSource = Clientes.ObtenerLista2();
+            fcon.ShowDialog();
+            // var oCliente = new Cliente();
+            if (fcon.oGenerico != null)
+            {
+                var oCliente = (Cliente)fcon.oGenerico;
+                txtCedRUC.Text = oCliente.NumeroIdentificacion;
+                txtCliente.Text = oCliente.NombreCompleto;
+                //txtId.Text = oCliente.Id.ToString();//this.FormModoParametro = FormModo.Edicion;
+            }
         }
     }
 }
