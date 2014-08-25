@@ -233,9 +233,11 @@ WHERE
 
 GO
 
+
+
 /*
         Autor       :   Usuario
-        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
         Historia    :   
                         30/07/2014
 */
@@ -438,37 +440,6 @@ AS
 				and 
 				IdEstado = @Estado
 GO
-
-
-------------------------------
-/*
-        Autor       :   Usuario
-        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
-        Historia    :   
-                        18/08/2014
-*/
-
-CREATE PROCEDURE [dbo].spUsuarioObtenerLista
-AS
-
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-
-SELECT
-[Id],
-[IdRol],
-[Nombre],
-[Apellido],
-[Ecorreo],
-[Identificacion],
-[Contrasena],
-[FechaCreacion],
-[FechaEdicion],
-[IdEstado]
-FROM
-[dbo].[Usuario]
-
-GO
-
 
 
 /*
@@ -708,7 +679,7 @@ GO
 
 /*
         Autor       :   Usuario
-        Notas       :   Derechos de Autor 2013 ESPOL Todos los derechos reservados
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
         Historia    :   
                         19/08/2014
 */
@@ -733,6 +704,47 @@ INSERT INTO [dbo].[ModulosXRol] (
 @Parametros
 )
 set @Id = @@identity
+<<<<<<< .mine
+GO
+
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        24/08/2014
+*/
+CREATE PROCEDURE [dbo].spModulosXRolEliminar
+@IdRol numeric(5, 0)
+AS
+
+DELETE FROM
+[dbo].[ModulosXRol]
+WHERE
+[IdRol] = @IdRol
+GO
+
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        24/08/2014
+*/
+CREATE PROCEDURE [dbo].spEventoObtenerLista
+AS
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+[Id],
+[Descripcion],
+[IdEstado]
+FROM
+[dbo].[Evento]
+GO=======
 GO
 
 --region [dbo].[spInsertFacturaCab]
@@ -841,3 +853,4 @@ INSERT INTO [dbo].[FacturaDetalle] (
 
 GO
 
+>>>>>>> .r104
