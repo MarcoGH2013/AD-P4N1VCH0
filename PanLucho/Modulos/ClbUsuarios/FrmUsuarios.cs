@@ -62,6 +62,7 @@ namespace ClbUsuarios
                     {
                         case FormModo.Predeterminado:
                             {
+                            //C:\Users\kerberos\Documents\Visual Studio 2010\Projects\PanLucho\Modulos\ClbCierreCaja\Class3.cs
                                 if (MessageBox.Show("Esta seguro de Grabar?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                     return;
                                 var cliente = new Usuario

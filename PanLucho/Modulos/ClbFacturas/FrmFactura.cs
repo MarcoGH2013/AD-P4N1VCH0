@@ -10,6 +10,8 @@ using Componentes.Comun;
 using Componentes.NivelMedio.Transacciones;
 using Componentes.Transaccion;
 using Controles;
+using DevExpress.XtraEditors.Mask;
+using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 
 namespace ClbFacturas
@@ -21,10 +23,11 @@ namespace ClbFacturas
         private decimal subtotal = 0;
         private decimal iva = 0;
         private decimal totPAgar = 0;
-
+        private RepositoryItemTextEdit itemNumberF4 = new RepositoryItemTextEdit();
         public FrmFactura()
         {
             InitializeComponent();
+            CeldaSoloNumeros();
         }
 
         protected override void Nuevo()
@@ -251,7 +254,7 @@ namespace ClbFacturas
                 }
                 else
                 {
-                    oFactura.idCliente = 1026;//usuario final
+                    oFactura.idCliente = 13;//usuario final
                 }
                 oFactura.id = 0;
                 oFactura.fechaFacturacion = DateTime.Now;
@@ -289,6 +292,9 @@ namespace ClbFacturas
                     k++;
                     oFactura.detalles = lista;
                 }
+                
+                
+                
 
                 if (Facturas.Guardar(oFactura))
                 {
@@ -298,6 +304,25 @@ namespace ClbFacturas
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+            }
+        }
+        private void CeldaSoloNumeros()
+        {
+            itemNumberF4.AutoHeight = false;
+            itemNumberF4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            itemNumberF4.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            //itemNumberF4.Mask.EditMask = "f4";
+            itemNumberF4.Mask.EditMask ="d";
+            itemNumberF4.MaxLength = 2;//2 bytes .. 2 caracteres
+            itemNumberF4.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            itemNumberF4.Mask.UseMaskAsDisplayFormat = true;
+        }
+
+        private void gridView1_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName=="cantidad")
+            {
+                e.RepositoryItem = itemNumberF4;
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using Componentes.Transaccion;
 using Microsoft.Practices.EnterpriseLibrary.Data;
@@ -1371,6 +1372,7 @@ namespace Componentes.ProveedorData
                 db.AddInParameter(sp, "@IdSucursal", DbType.Decimal, oFactura.idSucursal);
 
                 db.ExecuteNonQuery(sp);
+               // decimal cod1 = db.AddOutParameter(sp, "@Id", DbType.Decimal,8 );
                 var cod = db.GetParameterValue(sp, "@Id");//valor q retorna Stores procedure es el Id del registro hecho
                 return (decimal)cod;
             }
@@ -1387,8 +1389,14 @@ namespace Componentes.ProveedorData
             var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
             sp.CommandType = CommandType.StoredProcedure;
 
+            
+
             foreach (var d in oFactura.detalles)//lista ya tiene q estar validada
             {
+                if (d.idProducto == 0)
+                {
+                    continue;
+                }
                 db.AddInParameter(sp, "@IdFacturaCab", DbType.Decimal, codCabecera); 
                 db.AddInParameter(sp, "@linea", DbType.Decimal, d.linea);
                 db.AddInParameter(sp, "@IdProducto", DbType.Decimal, d.idProducto);
@@ -1399,8 +1407,7 @@ namespace Componentes.ProveedorData
                 db.AddInParameter(sp, "@DescuentoValor", DbType.Decimal, d.descuentoValor);
                 db.ExecuteNonQuery(sp);
                 decimal cod = (decimal)db.GetParameterValue(sp, "@IdFacturaCab");//valor q retorna Stores procedure es el Id del registro hecho
-                if (cod == 0) return false;
-            }
+                if (cod == 0) return false;}
 
            
 

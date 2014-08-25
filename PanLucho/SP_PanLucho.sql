@@ -773,7 +773,7 @@ AS
 SET NOCOUNT ON
 
 INSERT INTO [dbo].[FacturaCab] (
-	[Id],
+	
 	[IdCliente],
 	[FechaFacturacion],
 	[FacturaSRI],
@@ -787,7 +787,7 @@ INSERT INTO [dbo].[FacturaCab] (
 	[EsCancelado],
 	[IdSucursal]
 ) VALUES (
-	@Id,
+	
 	@IdCliente,
 	@FechaFacturacion,
 	@FacturaSRI,
