@@ -968,24 +968,24 @@ namespace Componentes.ProveedorData
             else throw new ArgumentNullException("modulosxrol");
         }
         /// <summary>
-        /// Elimina el modulosxrol.
+        /// Elimina los modulosxrol.
         /// </summary>
-        /// <param name="modulosxrolId">El modulosxrol id.</param>
-        public int EliminarModulosXRol(int modulosxrolId)
+        /// <param name="rolId">El rol id.</param>
+        public int EliminarModulosXRolXRol(int rolId)
         {
             var miBase = DatabaseFactory.CreateDatabase("basedatos");
-            if (modulosxrolId >= 0)
+            if (rolId >= 0)
             {
                 string sp = string.Format("{0}.spModulosXRolEliminar", PropietarioBD);
 
                 DbCommand dbc = miBase.GetStoredProcCommand(sp);
                 dbc.CommandType = CommandType.StoredProcedure;
 
-                miBase.AddInParameter(dbc, "@Id", DbType.Int32, modulosxrolId);
+                miBase.AddInParameter(dbc, "@IdRol", DbType.Int32, rolId);
 
                 return miBase.ExecuteNonQuery(dbc);
             }
-            else throw new ArgumentNullException("modulosxrolId");
+            else throw new ArgumentNullException("rolId");
         }
         #endregion
 
@@ -1306,7 +1306,6 @@ namespace Componentes.ProveedorData
 
             DbCommand dbc = miBase.GetStoredProcCommand(sp);
             dbc.CommandType = CommandType.StoredProcedure;
-
             List<Evento> eventos = new List<Evento>();
             using (IDataReader dataReader = miBase.ExecuteReader(dbc))
             {
