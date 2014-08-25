@@ -22,11 +22,11 @@ namespace Componentes.NivelMedio.Transacciones
             var sp = new SqlProveedorData();
             return sp.ActualizarModulosXRol(modulosxrol);
         }
-        public static int Eliminar(int modulosxrol)
+        public static int EliminarXRol(int rolId)
         {
-            if (modulosxrol == null) throw new ArgumentNullException("modulosxrol");
+            if (rolId == null) throw new ArgumentNullException("rolId");
             var sp = new SqlProveedorData();
-            return sp.EliminarModulosXRol(modulosxrol);
+            return sp.EliminarModulosXRolXRol(rolId);
         }
         #endregion
         #region Selección Simple
