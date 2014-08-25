@@ -65,31 +65,31 @@ namespace ClbPedidosEspeciales
             //}
             switch (e.Column.FieldName)
             {
-                case "id":
+                case "Id":
                     {
-                        if ((decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id") == oFacturaGrid.id)
+                        if ((decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Id") == oFacturaGrid.id)
                         {
                             return;
                         }
                         var oProductos = new List<Producto>();
-                        decimal cod = (decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id"); //es caseSensitive
+                        decimal cod = (decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Id"); //es caseSensitive
                         oProductos = Productos.ObtenerParaVenta(cod.ToString(), 1, true);
                         var producto = oProductos[0];
                         gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", producto.Descripcion);
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", producto.DescripcionDetallada);
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", producto.UnidadMedida);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DescripcionDetallada", producto.DescripcionDetallada);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "UnidadMedida", producto.UnidadMedida);
                         gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", producto.Existencias);
                         //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", producto.Cantidad);
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", producto.Precio);
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Precio", producto.Precio);
                         //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", producto.Descuento);
                         //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", producto.Total);
                         return;
                     }
-                case "cantidad":
+                case "Cantidad":
                     {
                         break;
                     }
-                case "descripcionDetallada":
+                case "DescripcionDetallada":
                     {
                         if ((string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada") == oFacturaGrid.descripcionDetallada)
                         {
@@ -130,6 +130,19 @@ namespace ClbPedidosEspeciales
                         }
                         break;
                     }
+                case "Observaciones":
+                {
+                    oFacturaGrid.cantidad = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad");
+                    oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
+                    //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
+                    if (oFacturaGrid.cantidad > 0)
+                    {
+                        this.gridView1.AddNewRow();
+                        //calcular2();
+                        return;
+                    }
+                    break;
+                }
             }
             //if (e.Column.FieldName == "id")
             //{

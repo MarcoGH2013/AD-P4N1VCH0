@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.dateTimeInput2 = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.labelX16 = new DevComponents.DotNetBar.LabelX();
             this.btnBuscarCliente = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX12 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -50,6 +53,26 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.ordenGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcionDetallada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colunidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCbxEvento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.colCbxColor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
+            this.colLeyenda = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colImagen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.colorCombControl1 = new DevComponents.DotNetBar.ColorPickers.ColorCombControl();
             this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -67,43 +90,30 @@
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcionDetallada = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colunidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCbxEvento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.colCbxColor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
-            this.colLeyenda = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colImagen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).BeginInit();
             this.groupPanel4.SuspendLayout();
             this.groupPanel2.SuspendLayout();
-            this.groupPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
-            this.groupPanel6.SuspendLayout();
             this.groupPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordenGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
+            this.groupPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
+            this.groupPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.dateTimeInput2);
+            this.groupPanel1.Controls.Add(this.labelX16);
             this.groupPanel1.Controls.Add(this.btnBuscarCliente);
             this.groupPanel1.Controls.Add(this.groupPanel4);
             this.groupPanel1.Controls.Add(this.textBoxX5);
@@ -118,7 +128,7 @@
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Location = new System.Drawing.Point(0, 40);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(799, 145);
+            this.groupPanel1.Size = new System.Drawing.Size(811, 145);
             // 
             // 
             // 
@@ -151,6 +161,68 @@
             this.groupPanel1.Text = "Datos del Cliente";
             this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
             // 
+            // dateTimeInput2
+            // 
+            // 
+            // 
+            // 
+            this.dateTimeInput2.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.dateTimeInput2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInput2.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.dateTimeInput2.ButtonDropDown.Visible = true;
+            this.dateTimeInput2.IsPopupCalendarOpen = false;
+            this.dateTimeInput2.Location = new System.Drawing.Point(103, 86);
+            // 
+            // 
+            // 
+            this.dateTimeInput2.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInput2.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInput2.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.dateTimeInput2.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.dateTimeInput2.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInput2.MonthCalendar.DisplayMonth = new System.DateTime(2014, 7, 1, 0, 0, 0, 0);
+            this.dateTimeInput2.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.dateTimeInput2.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.dateTimeInput2.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInput2.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.dateTimeInput2.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInput2.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.dateTimeInput2.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInput2.MonthCalendar.TodayButtonVisible = true;
+            this.dateTimeInput2.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.dateTimeInput2.Name = "dateTimeInput2";
+            this.dateTimeInput2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimeInput2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.dateTimeInput2.TabIndex = 14;
+            // 
+            // labelX16
+            // 
+            this.labelX16.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX16.Location = new System.Drawing.Point(22, 85);
+            this.labelX16.Name = "labelX16";
+            this.labelX16.Size = new System.Drawing.Size(75, 23);
+            this.labelX16.TabIndex = 13;
+            this.labelX16.Text = "Fecha Entrega:";
+            // 
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -175,7 +247,7 @@
             this.groupPanel4.Controls.Add(this.labelX14);
             this.groupPanel4.Controls.Add(this.labelX13);
             this.groupPanel4.Controls.Add(this.labelX12);
-            this.groupPanel4.Location = new System.Drawing.Point(525, 0);
+            this.groupPanel4.Location = new System.Drawing.Point(534, 0);
             this.groupPanel4.Name = "groupPanel4";
             this.groupPanel4.Size = new System.Drawing.Size(262, 121);
             // 
@@ -442,11 +514,10 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel2.Controls.Add(this.groupPanel5);
             this.groupPanel2.Controls.Add(this.groupPanel3);
             this.groupPanel2.Location = new System.Drawing.Point(0, 187);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(799, 290);
+            this.groupPanel2.Size = new System.Drawing.Size(811, 287);
             // 
             // 
             // 
@@ -478,6 +549,219 @@
             this.groupPanel2.TabIndex = 3;
             this.groupPanel2.Text = "Detalle Pedido";
             // 
+            // groupPanel3
+            // 
+            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.gridControl1);
+            this.groupPanel3.Location = new System.Drawing.Point(0, 0);
+            this.groupPanel3.Name = "groupPanel3";
+            this.groupPanel3.Size = new System.Drawing.Size(802, 232);
+            // 
+            // 
+            // 
+            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel3.Style.BackColorGradientAngle = 90;
+            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderBottomWidth = 1;
+            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderLeftWidth = 1;
+            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderRightWidth = 1;
+            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderTopWidth = 1;
+            this.groupPanel3.Style.CornerDiameter = 4;
+            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel3.TabIndex = 0;
+            this.groupPanel3.Text = "Producto Base";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.ordenGridBindingSource;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBox1,
+            this.repositoryItemColorEdit1,
+            this.repositoryItemImageEdit1,
+            this.repositoryItemMemoEdit1});
+            this.gridControl1.Size = new System.Drawing.Size(796, 209);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // ordenGridBindingSource
+            // 
+            this.ordenGridBindingSource.DataSource = typeof(Componentes.Transaccion.OrdenGrid);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.coldescripcion,
+            this.coldescripcionDetallada,
+            this.colunidadMedida,
+            this.colcantidad,
+            this.colprecio,
+            this.colCbxEvento,
+            this.colCbxColor,
+            this.colLeyenda,
+            this.colImagen,
+            this.colComentario});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            // 
+            // colid
+            // 
+            this.colid.Caption = "Código";
+            this.colid.FieldName = "Id";
+            this.colid.Name = "colid";
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.Caption = "Descripción";
+            this.coldescripcion.FieldName = "DescripcionDetallada";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.OptionsColumn.AllowFocus = false;
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 1;
+            // 
+            // coldescripcionDetallada
+            // 
+            this.coldescripcionDetallada.Name = "coldescripcionDetallada";
+            // 
+            // colunidadMedida
+            // 
+            this.colunidadMedida.Caption = "UNI.";
+            this.colunidadMedida.FieldName = "UnidadMedida";
+            this.colunidadMedida.Name = "colunidadMedida";
+            this.colunidadMedida.OptionsColumn.AllowFocus = false;
+            this.colunidadMedida.Visible = true;
+            this.colunidadMedida.VisibleIndex = 2;
+            // 
+            // colcantidad
+            // 
+            this.colcantidad.Caption = "Cantidad";
+            this.colcantidad.FieldName = "Cantidad";
+            this.colcantidad.Name = "colcantidad";
+            this.colcantidad.Visible = true;
+            this.colcantidad.VisibleIndex = 3;
+            // 
+            // colprecio
+            // 
+            this.colprecio.Caption = "Precio";
+            this.colprecio.FieldName = "Precio";
+            this.colprecio.Name = "colprecio";
+            this.colprecio.OptionsColumn.AllowFocus = false;
+            this.colprecio.Visible = true;
+            this.colprecio.VisibleIndex = 4;
+            // 
+            // colCbxEvento
+            // 
+            this.colCbxEvento.Caption = "Evento";
+            this.colCbxEvento.ColumnEdit = this.repositoryItemComboBox1;
+            this.colCbxEvento.FieldName = "IdEvento";
+            this.colCbxEvento.Name = "colCbxEvento";
+            this.colCbxEvento.Visible = true;
+            this.colCbxEvento.VisibleIndex = 5;
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // colCbxColor
+            // 
+            this.colCbxColor.Caption = "Color";
+            this.colCbxColor.ColumnEdit = this.repositoryItemColorEdit1;
+            this.colCbxColor.FieldName = "Color";
+            this.colCbxColor.Name = "colCbxColor";
+            this.colCbxColor.Visible = true;
+            this.colCbxColor.VisibleIndex = 6;
+            // 
+            // repositoryItemColorEdit1
+            // 
+            this.repositoryItemColorEdit1.AutoHeight = false;
+            this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorEdit1.CustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Orange,
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.Green,
+        System.Drawing.Color.Cyan,
+        System.Drawing.Color.Blue,
+        System.Drawing.Color.Pink,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty,
+        System.Drawing.Color.Empty};
+            this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
+            this.repositoryItemColorEdit1.ShowSystemColors = false;
+            this.repositoryItemColorEdit1.ShowWebColors = false;
+            // 
+            // colLeyenda
+            // 
+            this.colLeyenda.Caption = "Leyenda";
+            this.colLeyenda.FieldName = "Leyenda";
+            this.colLeyenda.Name = "colLeyenda";
+            this.colLeyenda.Visible = true;
+            this.colLeyenda.VisibleIndex = 7;
+            // 
+            // colImagen
+            // 
+            this.colImagen.Caption = "Imagen";
+            this.colImagen.ColumnEdit = this.repositoryItemImageEdit1;
+            this.colImagen.FieldName = "Imagen";
+            this.colImagen.Name = "colImagen";
+            this.colImagen.Visible = true;
+            this.colImagen.VisibleIndex = 8;
+            // 
+            // repositoryItemImageEdit1
+            // 
+            this.repositoryItemImageEdit1.AutoHeight = false;
+            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            // 
+            // colComentario
+            // 
+            this.colComentario.Caption = "Comentario";
+            this.colComentario.ColumnEdit = this.repositoryItemMemoEdit1;
+            this.colComentario.FieldName = "Observaciones";
+            this.colComentario.Name = "colComentario";
+            this.colComentario.Visible = true;
+            this.colComentario.VisibleIndex = 9;
+            // 
+            // repositoryItemMemoEdit1
+            // 
+            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
+            // 
             // groupPanel5
             // 
             this.groupPanel5.CanvasColor = System.Drawing.SystemColors.Control;
@@ -496,10 +780,9 @@
             this.groupPanel5.Controls.Add(this.labelX8);
             this.groupPanel5.Controls.Add(this.labelX7);
             this.groupPanel5.Controls.Add(this.labelX6);
-            this.groupPanel5.Controls.Add(this.groupPanel6);
-            this.groupPanel5.Location = new System.Drawing.Point(13, 290);
+            this.groupPanel5.Location = new System.Drawing.Point(18, 517);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(772, 32);
+            this.groupPanel5.Size = new System.Drawing.Size(772, 17);
             // 
             // 
             // 
@@ -750,9 +1033,9 @@
             this.groupPanel6.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel6.Controls.Add(this.panelEx1);
-            this.groupPanel6.Location = new System.Drawing.Point(437, 1);
+            this.groupPanel6.Location = new System.Drawing.Point(456, 507);
             this.groupPanel6.Name = "groupPanel6";
-            this.groupPanel6.Size = new System.Drawing.Size(326, 168);
+            this.groupPanel6.Size = new System.Drawing.Size(326, 158);
             // 
             // 
             // 
@@ -799,234 +1082,38 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
-            // groupPanel3
-            // 
-            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel3.Controls.Add(this.gridControl1);
-            this.groupPanel3.Location = new System.Drawing.Point(11, 0);
-            this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(776, 232);
-            // 
-            // 
-            // 
-            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel3.Style.BackColorGradientAngle = 90;
-            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderBottomWidth = 1;
-            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderLeftWidth = 1;
-            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderRightWidth = 1;
-            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderTopWidth = 1;
-            this.groupPanel3.Style.CornerDiameter = 4;
-            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 0;
-            this.groupPanel3.Text = "Producto Base";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.DataSource = this.facturaGridBindingSource;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemComboBox1,
-            this.repositoryItemColorEdit1,
-            this.repositoryItemImageEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(770, 209);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // facturaGridBindingSource
-            // 
-            this.facturaGridBindingSource.DataSource = typeof(Componentes.Transaccion.FacturaGrid);
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
-            this.coldescripcion,
-            this.coldescripcionDetallada,
-            this.colunidadMedida,
-            this.colcantidad,
-            this.colprecio,
-            this.colCbxEvento,
-            this.colCbxColor,
-            this.colLeyenda,
-            this.colImagen,
-            this.colComentario});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
-            // 
-            // colid
-            // 
-            this.colid.Caption = "Código";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.Caption = "Descripción";
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.OptionsColumn.AllowFocus = false;
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
-            // 
-            // coldescripcionDetallada
-            // 
-            this.coldescripcionDetallada.FieldName = "descripcionDetallada";
-            this.coldescripcionDetallada.Name = "coldescripcionDetallada";
-            // 
-            // colunidadMedida
-            // 
-            this.colunidadMedida.Caption = "UNI.";
-            this.colunidadMedida.FieldName = "unidadMedida";
-            this.colunidadMedida.Name = "colunidadMedida";
-            this.colunidadMedida.OptionsColumn.AllowFocus = false;
-            this.colunidadMedida.Visible = true;
-            this.colunidadMedida.VisibleIndex = 2;
-            // 
-            // colcantidad
-            // 
-            this.colcantidad.Caption = "Cantidad";
-            this.colcantidad.FieldName = "cantidad";
-            this.colcantidad.Name = "colcantidad";
-            this.colcantidad.Visible = true;
-            this.colcantidad.VisibleIndex = 3;
-            // 
-            // colprecio
-            // 
-            this.colprecio.Caption = "Precio";
-            this.colprecio.FieldName = "precio";
-            this.colprecio.Name = "colprecio";
-            this.colprecio.OptionsColumn.AllowFocus = false;
-            this.colprecio.Visible = true;
-            this.colprecio.VisibleIndex = 4;
-            // 
-            // colCbxEvento
-            // 
-            this.colCbxEvento.Caption = "Evento";
-            this.colCbxEvento.ColumnEdit = this.repositoryItemComboBox1;
-            this.colCbxEvento.Name = "colCbxEvento";
-            this.colCbxEvento.Visible = true;
-            this.colCbxEvento.VisibleIndex = 5;
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // colCbxColor
-            // 
-            this.colCbxColor.Caption = "Color";
-            this.colCbxColor.ColumnEdit = this.repositoryItemColorEdit1;
-            this.colCbxColor.Name = "colCbxColor";
-            this.colCbxColor.Visible = true;
-            this.colCbxColor.VisibleIndex = 6;
-            // 
-            // repositoryItemColorEdit1
-            // 
-            this.repositoryItemColorEdit1.AutoHeight = false;
-            this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemColorEdit1.CustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Red,
-        System.Drawing.Color.Orange,
-        System.Drawing.Color.Yellow,
-        System.Drawing.Color.Green,
-        System.Drawing.Color.Cyan,
-        System.Drawing.Color.Blue,
-        System.Drawing.Color.Pink,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty,
-        System.Drawing.Color.Empty};
-            this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
-            this.repositoryItemColorEdit1.ShowSystemColors = false;
-            this.repositoryItemColorEdit1.ShowWebColors = false;
-            // 
-            // colLeyenda
-            // 
-            this.colLeyenda.Caption = "Leyenda";
-            this.colLeyenda.Name = "colLeyenda";
-            this.colLeyenda.Visible = true;
-            this.colLeyenda.VisibleIndex = 7;
-            // 
-            // colImagen
-            // 
-            this.colImagen.Caption = "Imagen";
-            this.colImagen.ColumnEdit = this.repositoryItemImageEdit1;
-            this.colImagen.Name = "colImagen";
-            this.colImagen.Visible = true;
-            this.colImagen.VisibleIndex = 8;
-            // 
-            // repositoryItemImageEdit1
-            // 
-            this.repositoryItemImageEdit1.AutoHeight = false;
-            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
-            // 
-            // colComentario
-            // 
-            this.colComentario.Caption = "Comentario";
-            this.colComentario.Name = "colComentario";
-            this.colComentario.Visible = true;
-            this.colComentario.VisibleIndex = 9;
-            // 
             // FrmPedidosEspeciales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 527);
+            this.ClientSize = new System.Drawing.Size(811, 475);
+            this.Controls.Add(this.groupPanel5);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.groupPanel2);
+            this.Controls.Add(this.groupPanel6);
             this.Name = "FrmPedidosEspeciales";
             this.Text = "Pedidos especiales";
             this.Load += new System.EventHandler(this.FrmPedidosEspeciales_Load);
+            this.Controls.SetChildIndex(this.groupPanel6, 0);
             this.Controls.SetChildIndex(this.groupPanel2, 0);
             this.Controls.SetChildIndex(this.groupPanel1, 0);
+            this.Controls.SetChildIndex(this.groupPanel5, 0);
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).EndInit();
             this.groupPanel4.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
-            this.groupPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).EndInit();
-            this.groupPanel6.ResumeLayout(false);
             this.groupPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordenGridBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
+            this.groupPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).EndInit();
+            this.groupPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1091,5 +1178,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colComentario;
         private System.Windows.Forms.BindingSource facturaGridBindingSource;
         private DevComponents.DotNetBar.ButtonX btnBuscarCliente;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInput2;
+        private DevComponents.DotNetBar.LabelX labelX16;
+        private System.Windows.Forms.BindingSource ordenGridBindingSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
     }
 }
