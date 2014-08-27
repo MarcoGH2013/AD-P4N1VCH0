@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -15,6 +17,7 @@ namespace ClbPedidosEspeciales
     public partial class FrmPedidosEspeciales : frmMantenimiento
     {
         FacturaGrid oFacturaGrid = new FacturaGrid();
+        private int oId;
         public FrmPedidosEspeciales()
         {
             InitializeComponent();
@@ -44,11 +47,10 @@ namespace ClbPedidosEspeciales
             
         }
 
-        protected override void Buscar()
+        protected override void Guardar()
         {
-            base.Buscar();
-            frmConsulta fcon = new frmConsulta();
-            fcon.ShowDialog();
+            base.Guardar();
+            ObtenerYGuardar();
         }
 
         private void FrmPedidosEspeciales_Load(object sender, EventArgs e)
@@ -202,8 +204,72 @@ namespace ClbPedidosEspeciales
                 var oCliente = (Cliente)fcon.oGenerico;
                 txtCedRUC.Text = oCliente.NumeroIdentificacion;
                 txtCliente.Text = oCliente.NombreCompleto;
+                oId = oCliente.Id;
                 //txtId.Text = oCliente.Id.ToString();//this.FormModoParametro = FormModo.Edicion;
             }
+        }
+        private void ObtenerYGuardar()
+        {
+            try
+            {
+                OrdenEspecialCab oFactura = new OrdenEspecialCab();
+                oFactura.IdCliente = Decimal.Parse(oId.ToString());
+                oFactura.Id = 0;
+                
+                oFactura.SubTotal = Decimal.Parse(txtSubTotal.Text);
+                oFactura.Iva = Decimal.Parse(txtIva.Text);
+                oFactura.Abono = Decimal.Parse(txtAbono.Text);
+                oFactura.FechaEntrega = DateTime.Now;
+                oFactura.FechaCreacion = DateTime.Now;
+                oFactura.UserCreador = "lquinter";
+                oFactura.IdEstado = 1;
+        
+                decimal k = 1;
+                List<OrdenEspecialDetalle> lista = new List<OrdenEspecialDetalle>();
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    if ((gridView1.GetRowCellValue(i, colunidadMedida)) == null)
+                    {
+                        continue;
+                    }
+                    oFacturaGrid = (FacturaGrid)gridView1.GetRow(i);
+
+                    OrdenEspecialDetalle det = new OrdenEspecialDetalle(); //SE PUEDE MEJORAR . check
+                    byte[] image = ImagenAArregloByte((Image)gridView1.GetRowCellValue(i, "Imagen"));
+                    det.IdOrdenEspecialCab = 0; //no se sabe todavia
+                    det.Linea = k;
+                    det.IdProducto = (decimal)gridView1.GetRowCellValue(i, "Id");
+                    det.Cantidad = (decimal)gridView1.GetRowCellValue(i, "Cantidad");
+                    det.IdEvento = (decimal) gridView1.GetRowCellValue(i, "IdEvento");
+                    det.Color = (string)gridView1.GetRowCellValue(i, "Color");
+                    det.Leyenda = (string)gridView1.GetRowCellValue(i, "Leyenda");
+                    det.Imagen = image;
+                    det.Observaciones = (string)gridView1.GetRowCellValue(i, "Observaciones");
+                    lista.Add(det);
+                    k++;
+                    oFactura.Detalles = lista;
+                }
+
+
+
+
+                if (OrdenEspecialCabs.Crear(oFactura))
+                {
+                    MessageBox.Show("Factura guardada", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        public byte[] ImagenAArregloByte(Image imagen)
+        {
+            var ms = new MemoryStream();
+            if (imagen != null)
+                imagen.Save(ms, ImageFormat.Jpeg);
+
+            return ms.ToArray();
         }
     }
 }

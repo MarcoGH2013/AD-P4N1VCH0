@@ -35,9 +35,9 @@
             this.btnBuscarCliente = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX12 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX11 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX10 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX9 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtAbono = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtIva = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtSubTotal = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.labelX13 = new DevComponents.DotNetBar.LabelX();
@@ -240,9 +240,9 @@
             this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel4.Controls.Add(this.textBoxX12);
-            this.groupPanel4.Controls.Add(this.textBoxX11);
-            this.groupPanel4.Controls.Add(this.textBoxX10);
-            this.groupPanel4.Controls.Add(this.textBoxX9);
+            this.groupPanel4.Controls.Add(this.txtAbono);
+            this.groupPanel4.Controls.Add(this.txtIva);
+            this.groupPanel4.Controls.Add(this.txtSubTotal);
             this.groupPanel4.Controls.Add(this.labelX15);
             this.groupPanel4.Controls.Add(this.labelX14);
             this.groupPanel4.Controls.Add(this.labelX13);
@@ -293,41 +293,41 @@
             this.textBoxX12.Size = new System.Drawing.Size(100, 22);
             this.textBoxX12.TabIndex = 14;
             // 
-            // textBoxX11
+            // txtAbono
             // 
             // 
             // 
             // 
-            this.textBoxX11.Border.Class = "TextBoxBorder";
-            this.textBoxX11.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX11.Location = new System.Drawing.Point(93, 48);
-            this.textBoxX11.Name = "textBoxX11";
-            this.textBoxX11.Size = new System.Drawing.Size(100, 22);
-            this.textBoxX11.TabIndex = 13;
+            this.txtAbono.Border.Class = "TextBoxBorder";
+            this.txtAbono.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtAbono.Location = new System.Drawing.Point(93, 48);
+            this.txtAbono.Name = "txtAbono";
+            this.txtAbono.Size = new System.Drawing.Size(100, 22);
+            this.txtAbono.TabIndex = 13;
             // 
-            // textBoxX10
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX10.Border.Class = "TextBoxBorder";
-            this.textBoxX10.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX10.Location = new System.Drawing.Point(93, 24);
-            this.textBoxX10.Name = "textBoxX10";
-            this.textBoxX10.Size = new System.Drawing.Size(100, 22);
-            this.textBoxX10.TabIndex = 12;
-            // 
-            // textBoxX9
+            // txtIva
             // 
             // 
             // 
             // 
-            this.textBoxX9.Border.Class = "TextBoxBorder";
-            this.textBoxX9.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX9.Location = new System.Drawing.Point(93, 0);
-            this.textBoxX9.Name = "textBoxX9";
-            this.textBoxX9.Size = new System.Drawing.Size(100, 22);
-            this.textBoxX9.TabIndex = 11;
+            this.txtIva.Border.Class = "TextBoxBorder";
+            this.txtIva.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtIva.Location = new System.Drawing.Point(93, 24);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(100, 22);
+            this.txtIva.TabIndex = 12;
+            // 
+            // txtSubTotal
+            // 
+            // 
+            // 
+            // 
+            this.txtSubTotal.Border.Class = "TextBoxBorder";
+            this.txtSubTotal.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSubTotal.Location = new System.Drawing.Point(93, 0);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtSubTotal.TabIndex = 11;
             // 
             // labelX15
             // 
@@ -1153,9 +1153,9 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX12;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX11;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX10;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX9;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtAbono;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtIva;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtSubTotal;
         private DevComponents.DotNetBar.LabelX labelX15;
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevComponents.DotNetBar.LabelX labelX13;
