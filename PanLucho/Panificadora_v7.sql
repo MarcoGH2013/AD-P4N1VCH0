@@ -283,7 +283,7 @@ create table FacturaDetallePago(
 go
 
 CREATE TABLE OrdenEspecialCab(
-Id INT PRIMARY KEY,
+Id numeric(5, 0) IDENTITY(1,1) primary key,--numero
 IdCliente numeric(5,0),
 IdSucursal numeric(5,0),
 IdEvento numeric(5,0),
