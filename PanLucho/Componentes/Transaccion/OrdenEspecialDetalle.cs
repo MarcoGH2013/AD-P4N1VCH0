@@ -3,8 +3,8 @@
     public class OrdenEspecialDetalle
     {
         #region AutoPropiedades
-        public int IdOrdenEspecialCab { get; set; }
-        public int Linea { get; set; }
+        public decimal IdOrdenEspecialCab { get; set; }
+        public decimal Linea { get; set; }
         public decimal IdProducto { get; set; }
         public decimal Cantidad { get; set; }
         public decimal IdEvento { get; set; }

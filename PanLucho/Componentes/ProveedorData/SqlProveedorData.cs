@@ -1474,6 +1474,171 @@ namespace Componentes.ProveedorData
         }
 
         #endregion
+        #region Pedidos
 
+        #region Administración
+        public bool CrearOrdenEspecial(OrdenEspecialCab factura)//factura ya debe estar depurada
+        {
+            var codigoCabecera = CrearOrdenEspecialCab(factura);
+            if (codigoCabecera == 0) return false;
+            return CrearOrdenEspecialDet(codigoCabecera, factura);
+        }
+
+        private decimal CrearOrdenEspecialCab(OrdenEspecialCab ordenespecialcab)
+        {
+            try
+            {
+                var miBase = DatabaseFactory.CreateDatabase("basedatos");
+                var dbc = miBase.GetStoredProcCommand(PropietarioBD + "." + "spFacturaCabInsert");
+                dbc.CommandType = CommandType.StoredProcedure;
+                // db.AddInParameter(sp, "@Id", DbType.Decimal, 0); //por el identity
+                miBase.AddInParameter(dbc, "@IdCliente", DbType.Decimal, ordenespecialcab.IdCliente);
+                miBase.AddInParameter(dbc, "@SubTotal", DbType.Decimal, ordenespecialcab.SubTotal);
+                miBase.AddInParameter(dbc, "@Iva", DbType.Decimal, ordenespecialcab.Iva);
+                miBase.AddInParameter(dbc, "@Abono", DbType.Decimal, ordenespecialcab.Abono);
+                miBase.AddInParameter(dbc, "@FechaEntrega", DbType.DateTime, ordenespecialcab.FechaEntrega);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, ordenespecialcab.FechaCreacion);
+                miBase.AddInParameter(dbc, "@UserCreador", DbType.String, ordenespecialcab.UserCreador);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, ordenespecialcab.IdEstado);
+
+                miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+                miBase.ExecuteNonQuery(dbc);
+                ordenespecialcab.Id = (int)miBase.GetParameterValue(dbc, "@Id");
+                //var cod = db.GetParameterValue(sp, "@Id");//valor q retorna Stores procedure es el Id del registro hecho
+                return ordenespecialcab.Id;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return 0;
+            }
+        }
+
+        private bool CrearOrdenEspecialDet(decimal codCabecera, OrdenEspecialCab oFactura)
+        {
+            var _Db = DatabaseFactory.CreateDatabase("basedatos");
+            var dbc = _Db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
+            dbc.CommandType = CommandType.StoredProcedure;
+
+
+
+            foreach (var d in oFactura.Detalles)//lista ya tiene q estar validada
+            {
+                if (d.IdProducto == 0)
+                {
+                    continue;
+                }
+                _Db.AddInParameter(dbc, "@IdFacturaCab", DbType.Decimal, codCabecera);
+
+                _Db.AddInParameter(dbc, "@IdProducto", DbType.Decimal, d.IdProducto);
+                _Db.AddInParameter(dbc, "@Cantidad", DbType.Decimal, d.Cantidad);
+                _Db.AddInParameter(dbc, "@IdEvento", DbType.Decimal, d.IdEvento);
+                _Db.AddInParameter(dbc, "@Color", DbType.String, d.Color);
+                _Db.AddInParameter(dbc, "@Leyenda", DbType.String, d.Leyenda);
+                _Db.AddInParameter(dbc, "@Imagen", DbType.Binary, d.Imagen);
+                _Db.AddInParameter(dbc, "@Observaciones", DbType.String, d.Observaciones);
+                _Db.ExecuteNonQuery(dbc);
+                decimal cod = (decimal)_Db.GetParameterValue(dbc, "@IdFacturaCab");//valor q retorna Stores procedure es el Id del registro hecho
+                if (cod == 0) return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Crear el ordenespecialcab n.
+        /// </summary>
+        /// <param name="ordenespecialcab">El ordenespecialcab.</param>
+        /// <returns></returns>
+        //public int CrearOrdenEspecialCab(OrdenEspecialCab ordenespecialcab)
+        //{
+        //    var miBase = DatabaseFactory.CreateDatabase("basedatos");
+        //    if (ordenespecialcab != null)
+        //    {
+        //        string sp = string.Format("{0}.spOrdenEspecialCabInsertar", PropietarioBD);
+
+        //        DbCommand dbc = miBase.GetStoredProcCommand(sp);
+        //        dbc.CommandType = CommandType.StoredProcedure;
+
+        //        miBase.AddInParameter(dbc, "@IdCliente", DbType.Decimal, ordenespecialcab.IdCliente);
+        //        miBase.AddInParameter(dbc, "@SubTotal", DbType.Decimal, ordenespecialcab.SubTotal);
+        //        miBase.AddInParameter(dbc, "@Iva", DbType.Decimal, ordenespecialcab.Iva);
+        //        miBase.AddInParameter(dbc, "@Abono", DbType.Decimal, ordenespecialcab.Abono);
+        //        miBase.AddInParameter(dbc, "@FechaEntrega", DbType.DateTime, ordenespecialcab.FechaEntrega);
+        //        miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, ordenespecialcab.FechaCreacion);
+        //        miBase.AddInParameter(dbc, "@UserCreador", DbType.String, ordenespecialcab.UserCreador);
+        //        miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, ordenespecialcab.IdEstado);
+        //        miBase.AddOutParameter(dbc, "@Id", DbType.Int32, 4);
+
+        //        miBase.ExecuteNonQuery(dbc);
+
+        //        ordenespecialcab.Id = (int)miBase.GetParameterValue(dbc, "@Id");
+        //        return ordenespecialcab.Id;
+        //    }
+        //    else throw new ArgumentNullException("ordenespecialcab");
+        //}
+        /// <summary>
+        /// Actuliza el ordenespecialcab.
+        /// </summary>
+        /// <param name="ordenespecialcab">El ordenespecialcab.</param>
+        public void ActualizarOrdenEspecialCab(OrdenEspecialCab ordenespecialcab)
+        {
+            var miBase = DatabaseFactory.CreateDatabase("basedatos");
+            if (ordenespecialcab != null)
+            {
+                string sp = string.Format("{0}.spOrdenEspecialCabActualizar", PropietarioBD);
+
+                DbCommand dbc = miBase.GetStoredProcCommand(sp);
+                dbc.CommandType = CommandType.StoredProcedure;
+
+                miBase.AddInParameter(dbc, "@Id", DbType.Int32, ordenespecialcab.Id);
+                miBase.AddInParameter(dbc, "@IdCliente", DbType.Decimal, ordenespecialcab.IdCliente);
+                miBase.AddInParameter(dbc, "@SubTotal", DbType.Decimal, ordenespecialcab.SubTotal);
+                miBase.AddInParameter(dbc, "@Iva", DbType.Decimal, ordenespecialcab.Iva);
+                miBase.AddInParameter(dbc, "@Abono", DbType.Decimal, ordenespecialcab.Abono);
+                miBase.AddInParameter(dbc, "@FechaEntrega", DbType.DateTime, ordenespecialcab.FechaEntrega);
+                miBase.AddInParameter(dbc, "@FechaCreacion", DbType.DateTime, ordenespecialcab.FechaCreacion);
+                miBase.AddInParameter(dbc, "@UserCreador", DbType.String, ordenespecialcab.UserCreador);
+                miBase.AddInParameter(dbc, "@IdEstado", DbType.Decimal, ordenespecialcab.IdEstado);
+
+                miBase.ExecuteNonQuery(dbc);
+
+                return;
+            }
+            else throw new ArgumentNullException("ordenespecialcab");
+        }
+        
+        #endregion
+
+        #region Selección Simple
+        
+        #endregion
+
+        #region Selección múltiple
+        
+        #endregion
+
+        #region Región de Relleno
+        /// <summary>
+        /// Rellena el ordenespecialcab del IDataReader.
+        /// </summary>
+        /// <param name="valorData">El registro ordenespecialcab.</param>
+        /// <returns></returns>
+        public static OrdenEspecialCab RellenarOrdenEspecialCabDeLectorIData(IDataRecord valorData)
+        {
+            var ordenespecialcab = new OrdenEspecialCab();
+            if (valorData != null)
+            {
+                ordenespecialcab.IdCliente = (Decimal)valorData["IdCliente"];
+                ordenespecialcab.SubTotal = (Decimal)valorData["SubTotal"];
+                ordenespecialcab.Iva = (Decimal)valorData["Iva"];
+                ordenespecialcab.Abono = (Decimal)valorData["Abono"];
+                ordenespecialcab.FechaEntrega = (DateTime)valorData["FechaEntrega"];
+                ordenespecialcab.FechaCreacion = (DateTime)valorData["FechaCreacion"];
+                ordenespecialcab.UserCreador = (String)valorData["UserCreador"];
+                ordenespecialcab.IdEstado = (Decimal)valorData["IdEstado"];
+            }
+            return ordenespecialcab;
+        }
+        #endregion
+        #endregion
     }
 }

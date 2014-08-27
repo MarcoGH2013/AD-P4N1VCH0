@@ -59,6 +59,7 @@
     <Compile Include="NivelMedio\Transacciones\ModuloCategorias.cs" />
     <Compile Include="NivelMedio\Transacciones\Modulos.cs" />
     <Compile Include="NivelMedio\Transacciones\ModulosXRols.cs" />
+    <Compile Include="NivelMedio\Transacciones\OrdenEspecialCabs.cs" />
     <Compile Include="NivelMedio\Transacciones\Productos.cs" />
     <Compile Include="NivelMedio\Transacciones\Roles.cs" />
     <Compile Include="NivelMedio\Transacciones\Usuarios.cs">
