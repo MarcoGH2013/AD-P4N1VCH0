@@ -1489,7 +1489,7 @@ namespace Componentes.ProveedorData
             try
             {
                 var miBase = DatabaseFactory.CreateDatabase("basedatos");
-                var dbc = miBase.GetStoredProcCommand(PropietarioBD + "." + "spFacturaCabInsert");
+                var dbc = miBase.GetStoredProcCommand(PropietarioBD + "." + "spOrdenEspecialCabInsertar");
                 dbc.CommandType = CommandType.StoredProcedure;
                 // db.AddInParameter(sp, "@Id", DbType.Decimal, 0); //por el identity
                 miBase.AddInParameter(dbc, "@IdCliente", DbType.Decimal, ordenespecialcab.IdCliente);
@@ -1517,7 +1517,7 @@ namespace Componentes.ProveedorData
         private bool CrearOrdenEspecialDet(decimal codCabecera, OrdenEspecialCab oFactura)
         {
             var _Db = DatabaseFactory.CreateDatabase("basedatos");
-            var dbc = _Db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
+            var dbc = _Db.GetStoredProcCommand(PropietarioBD + "." + "spOrdenEspecialDetalleInsertar");
             dbc.CommandType = CommandType.StoredProcedure;
 
 
