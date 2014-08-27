@@ -284,38 +284,42 @@ go
 
 CREATE TABLE OrdenEspecialCab(
 Id numeric(5, 0) IDENTITY(1,1) primary key,--numero
-IdCliente numeric(5,0),
-IdSucursal numeric(5,0),
-IdEvento numeric(5,0),
-Leyenda varchar(50),
-Imagen bit,
-FechaEntrega date,
-Observaciones varchar(100),
-
-FechaCreacion datetime,
-UserCreador varchar(25),
-IdEstado numeric(5,0),
-
+IdCliente numeric(5, 0) NULL,
+SubTotal money NULL,
+IVA money NULL,
+Abono money NULL,	
+FechaEntrega date NULL,	
+FechaCreacion datetime NULL,
+UserCreador varchar(25) NULL,
+IdEstado numeric(5, 0) NULL,
 FOREIGN KEY(IdEstado)REFERENCES Estado,
 FOREIGN KEY(IdCliente)REFERENCES Cliente,
-FOREIGN KEY(IdSucursal)REFERENCES Sucursal,
-FOREIGN KEY(IdEvento)REFERENCES Evento
 )
 go
 
 create table OrdenEspecialDetalle(
-IdOrdenEspecialCab int not null, --Pk y FK
-linea int not null, --Pk
-
-IdProducto numeric(5,0),
-Cantidad numeric(9,0),
-TotalPagar smallmoney, --SubTotal campo calculado
-Iva numeric(4,2), --el porcentaje max 99,99
-Descuento numeric(4,2),--el porcentaje
-
+IdOrdenEspecialCab numeric(5, 0) not null, --Pk y FK
+Linea numeric(5, 0) not null, --Pk
+IdProducto numeric(5,0) not null,
+Cantidad numeric(9,0) not null,
+IdEvento numeric(5,0),
+Color nvarchar(10),
+Leyenda nvarchar(30),
+Imagen varbinary(max),
+Observaciones nvarchar(70),
+--public int IdOrdenEspecialCab { get; set; }
+--        public int Linea { get; set; }
+--        public decimal IdProducto { get; set; }
+--        public decimal Cantidad { get; set; }
+--        public decimal IdEvento { get; set; }
+--        public string Color { get; set; }
+--        public string Leyenda { get; set; }
+--        public byte[] Imagen { get; set; }
+--        public string Observaciones { get; set; }
 primary key(IdOrdenEspecialCab,linea),
 foreign key(IdOrdenEspecialCab)references OrdenEspecialCab,
-foreign key(IdProducto)references Producto
+foreign key(IdProducto)references Producto,
+FOREIGN KEY(IdEvento)REFERENCES Evento
 )
 go
 create table Kardex(
