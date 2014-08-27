@@ -1332,6 +1332,7 @@ namespace Componentes.ProveedorData
             var evento = new Evento();
             if (valorData != null)
             {
+                evento.Id = (Decimal)valorData["Id"];
                 evento.Descripcion = (String)valorData["Descripcion"];
                 evento.IdEstado = (Decimal)valorData["IdEstado"];
             }
@@ -1521,15 +1522,14 @@ namespace Componentes.ProveedorData
             dbc.CommandType = CommandType.StoredProcedure;
 
 
-
             foreach (var d in oFactura.Detalles)//lista ya tiene q estar validada
             {
                 if (d.IdProducto == 0)
                 {
                     continue;
                 }
-                _Db.AddInParameter(dbc, "@IdFacturaCab", DbType.Decimal, codCabecera);
-
+                _Db.AddInParameter(dbc, "@IdOrdenEspecialCab", DbType.Decimal, codCabecera);
+                _Db.AddInParameter(dbc, "@Linea", DbType.Decimal, d.Linea);
                 _Db.AddInParameter(dbc, "@IdProducto", DbType.Decimal, d.IdProducto);
                 _Db.AddInParameter(dbc, "@Cantidad", DbType.Decimal, d.Cantidad);
                 _Db.AddInParameter(dbc, "@IdEvento", DbType.Decimal, d.IdEvento);
@@ -1538,7 +1538,7 @@ namespace Componentes.ProveedorData
                 _Db.AddInParameter(dbc, "@Imagen", DbType.Binary, d.Imagen);
                 _Db.AddInParameter(dbc, "@Observaciones", DbType.String, d.Observaciones);
                 _Db.ExecuteNonQuery(dbc);
-                decimal cod = (decimal)_Db.GetParameterValue(dbc, "@IdFacturaCab");//valor q retorna Stores procedure es el Id del registro hecho
+                decimal cod = (decimal)_Db.GetParameterValue(dbc, "@IdOrdenEspecialCab");//valor q retorna Stores procedure es el Id del registro hecho
                 if (cod == 0) return false;
             }
             return true;

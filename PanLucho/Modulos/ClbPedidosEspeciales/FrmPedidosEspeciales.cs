@@ -16,16 +16,16 @@ namespace ClbPedidosEspeciales
 {
     public partial class FrmPedidosEspeciales : frmMantenimiento
     {
-        FacturaGrid oFacturaGrid = new FacturaGrid();
+        OrdenGrid oFacturaGrid = new OrdenGrid();
         private int oId;
         public FrmPedidosEspeciales()
         {
             InitializeComponent();
             var eventos = Eventos.GetList();
 
-            foreach (var evento in eventos)
-            {repositoryItemComboBox1.Items.Add(evento.Descripcion);
-            }
+            repositoryItemLookUpEdit1.DataSource = eventos;
+            repositoryItemLookUpEdit1.ValueMember = "Id";
+            repositoryItemLookUpEdit1.DisplayMember = "Descripcion";
             Color[] colores = new Color[] {
                 Color.Yellow,
                 Color.Blue,    // <- color 2
@@ -44,7 +44,9 @@ namespace ClbPedidosEspeciales
         {
             base.Nuevo();
             gridView1.AddNewRow();
-            
+            txtSubTotal.Text = "0";
+            txtIva.Text = "0";
+            txtAbono.Text = "0";
         }
 
         protected override void Guardar()
@@ -69,7 +71,7 @@ namespace ClbPedidosEspeciales
             {
                 case "Id":
                     {
-                        if ((decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Id") == oFacturaGrid.id)
+                        if ((decimal)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Id") == oFacturaGrid.Id)
                         {
                             return;
                         }
@@ -93,7 +95,7 @@ namespace ClbPedidosEspeciales
                     }
                 case "DescripcionDetallada":
                     {
-                        if ((string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada") == oFacturaGrid.descripcionDetallada)
+                        if ((string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada") == oFacturaGrid.DescripcionDetallada)
                         {
                             return;
                         }
@@ -106,27 +108,27 @@ namespace ClbPedidosEspeciales
                         if (frmCon.oGenerico != null)
                         {
                             var oProducto = (Producto)frmCon.oGenerico;
-                            oFacturaGrid.id = oProducto.Id;
-                            oFacturaGrid.descripcion = oProducto.Descripcion;
-                            oFacturaGrid.descripcionDetallada = oProducto.DescripcionDetallada;
-                            oFacturaGrid.unidadMedida = oProducto.UnidadMedida;
-                            oFacturaGrid.cantidad = 0;
-                            oFacturaGrid.precio = oProducto.Precio;
-                            oFacturaGrid.descuento = 0;
-                            oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
-                            oFacturaGrid.existencias = oProducto.Existencias;
+                            oFacturaGrid.Id = oProducto.Id;
+                            //oFacturaGrid.Descripcion = oProducto.Descripcion;
+                            oFacturaGrid.DescripcionDetallada = oProducto.DescripcionDetallada;
+                            oFacturaGrid.UnidadMedida = oProducto.UnidadMedida;
+                            oFacturaGrid.Cantidad = 0;
+                            oFacturaGrid.Precio = oProducto.Precio;
+                            //oFacturaGrid.descuento = 0;
+                            //oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
+                            //oFacturaGrid.existencias = oProducto.Existencias;
 
                             // this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
 
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", oFacturaGrid.unidadMedida);
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", oFacturaGrid.existencias);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", oFacturaGrid.UnidadMedida);
+                            //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", oFacturaGrid.existencias);
                             //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", oFacturaGrid.cantidad);
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", oFacturaGrid.precio);
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", oFacturaGrid.descuento);
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", oFacturaGrid.Precio);
+                            //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", oFacturaGrid.descuento);
+                            //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
 
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "id", oFacturaGrid.id);
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.descripcionDetallada);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "id", oFacturaGrid.Id);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.DescripcionDetallada);
 
                             return;
                         }
@@ -134,10 +136,10 @@ namespace ClbPedidosEspeciales
                     }
                 case "Observaciones":
                 {
-                    oFacturaGrid.cantidad = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad");
-                    oFacturaGrid.total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
+                    oFacturaGrid.Cantidad = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad");
+                    //oFacturaGrid.Total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
                     //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
-                    if (oFacturaGrid.cantidad > 0)
+                    if (oFacturaGrid.Cantidad > 0)
                     {
                         this.gridView1.AddNewRow();
                         //calcular2();
@@ -232,7 +234,7 @@ namespace ClbPedidosEspeciales
                     {
                         continue;
                     }
-                    oFacturaGrid = (FacturaGrid)gridView1.GetRow(i);
+                    oFacturaGrid = (OrdenGrid)gridView1.GetRow(i);
 
                     OrdenEspecialDetalle det = new OrdenEspecialDetalle(); //SE PUEDE MEJORAR . check
                     byte[] image = ImagenAArregloByte((Image)gridView1.GetRowCellValue(i, "Imagen"));
@@ -240,8 +242,8 @@ namespace ClbPedidosEspeciales
                     det.Linea = k;
                     det.IdProducto = (decimal)gridView1.GetRowCellValue(i, "Id");
                     det.Cantidad = (decimal)gridView1.GetRowCellValue(i, "Cantidad");
-                    det.IdEvento = (decimal) gridView1.GetRowCellValue(i, "IdEvento");
-                    det.Color = (string)gridView1.GetRowCellValue(i, "Color");
+                    det.IdEvento = Decimal.Parse(gridView1.GetRowCellValue(i, "IdEvento").ToString());
+                    det.Color = (string)gridView1.GetRowCellValue(i, "Color").ToString();
                     det.Leyenda = (string)gridView1.GetRowCellValue(i, "Leyenda");
                     det.Imagen = image;
                     det.Observaciones = (string)gridView1.GetRowCellValue(i, "Observaciones");
@@ -255,7 +257,7 @@ namespace ClbPedidosEspeciales
 
                 if (OrdenEspecialCabs.Crear(oFactura))
                 {
-                    MessageBox.Show("Factura guardada", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pedido guardado", "Pan Lucho™", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception e)
@@ -268,7 +270,6 @@ namespace ClbPedidosEspeciales
             var ms = new MemoryStream();
             if (imagen != null)
                 imagen.Save(ms, ImageFormat.Jpeg);
-
             return ms.ToArray();
         }
     }

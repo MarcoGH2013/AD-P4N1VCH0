@@ -90,6 +90,7 @@
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).BeginInit();
             this.groupPanel4.SuspendLayout();
@@ -106,6 +107,7 @@
             this.groupPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
             this.groupPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -599,7 +601,8 @@
             this.repositoryItemComboBox1,
             this.repositoryItemColorEdit1,
             this.repositoryItemImageEdit1,
-            this.repositoryItemMemoEdit1});
+            this.repositoryItemMemoEdit1,
+            this.repositoryItemLookUpEdit1});
             this.gridControl1.Size = new System.Drawing.Size(796, 209);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -677,7 +680,7 @@
             // colCbxEvento
             // 
             this.colCbxEvento.Caption = "Evento";
-            this.colCbxEvento.ColumnEdit = this.repositoryItemComboBox1;
+            this.colCbxEvento.ColumnEdit = this.repositoryItemLookUpEdit1;
             this.colCbxEvento.FieldName = "IdEvento";
             this.colCbxEvento.Name = "colCbxEvento";
             this.colCbxEvento.Visible = true;
@@ -1082,6 +1085,13 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            // 
             // FrmPedidosEspeciales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1114,6 +1124,7 @@
             this.groupPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).EndInit();
             this.groupPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1182,5 +1193,6 @@
         private DevComponents.DotNetBar.LabelX labelX16;
         private System.Windows.Forms.BindingSource ordenGridBindingSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
     }
 }
