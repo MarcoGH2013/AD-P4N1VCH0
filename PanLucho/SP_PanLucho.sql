@@ -803,7 +803,6 @@ INSERT INTO [dbo].[FacturaCab] (
 )
 set @Id = @@identity
 --endregion
-
 GO
 
 --region [dbo].[spInsertFacturaDetalle]
@@ -852,3 +851,93 @@ INSERT INTO [dbo].[FacturaDetalle] (
 GO
 
 
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        26/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spOrdenEspecialCabInsertar
+@Id numeric(5, 0) output,
+@IdCliente numeric(5, 0),
+@SubTotal money,
+@IVA money,
+@Abono money,
+@FechaEntrega date,
+@FechaCreacion datetime,
+@UserCreador varchar(25),
+@IdEstado numeric(5, 0)
+AS
+
+-- THIS STORED PROCEDURE NEEDS TO BE MANUALLY COMPLETED
+-- MULITPLE PRIMARY KEY MEMBERS OR NON-GUID/INT PRIMARY KEY
+
+INSERT INTO [dbo].[OrdenEspecialCab] (
+[IdCliente],
+[SubTotal],
+[IVA],
+[Abono],
+[FechaEntrega],
+[FechaCreacion],
+[UserCreador],
+[IdEstado]
+) VALUES (
+@IdCliente,
+@SubTotal,
+@IVA,
+@Abono,
+@FechaEntrega,
+@FechaCreacion,
+@UserCreador,
+@IdEstado
+)
+set @Id = @@identity
+GO
+
+
+
+/*
+        Autor       :   Usuario
+        Notas       :   Derechos de Autor 2014 ESPOL Todos los derechos reservados
+        Historia    :   
+                        26/08/2014
+*/
+
+CREATE PROCEDURE [dbo].spOrdenEspecialDetalleInsertar
+@IdOrdenEspecialCab numeric(5, 0),
+@Linea numeric(5, 0),
+@IdProducto numeric(5, 0),
+@Cantidad numeric(9, 0),
+@IdEvento numeric(5, 0),
+@Color nvarchar(10),
+@Leyenda nvarchar(30),
+@Imagen varbinary(max),
+@Observaciones nvarchar(70)
+AS
+
+-- THIS STORED PROCEDURE NEEDS TO BE MANUALLY COMPLETED
+-- MULITPLE PRIMARY KEY MEMBERS OR NON-GUID/INT PRIMARY KEY
+
+INSERT INTO [dbo].[OrdenEspecialDetalle] (
+[IdOrdenEspecialCab],
+[Linea],
+[IdProducto],
+[Cantidad],
+[IdEvento],
+[Color],
+[Leyenda],
+[Imagen],
+[Observaciones]
+) VALUES (
+@IdOrdenEspecialCab,
+@Linea,
+@IdProducto,
+@Cantidad,
+@IdEvento,
+@Color,
+@Leyenda,
+@Imagen,
+@Observaciones
+)
+GO
