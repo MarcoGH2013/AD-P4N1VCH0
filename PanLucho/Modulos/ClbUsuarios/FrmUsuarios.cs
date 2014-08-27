@@ -60,7 +60,7 @@ namespace ClbUsuarios
                 {
                     switch (FormModoParametro)
                     {
-                        case FormModo.Predeterminado:
+                        case FormModo.Nuevo:
                             {
                             //C:\Users\kerberos\Documents\Visual Studio 2010\Projects\PanLucho\Modulos\ClbCierreCaja\Class3.cs
                                 if (MessageBox.Show("Esta seguro de Grabar?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
