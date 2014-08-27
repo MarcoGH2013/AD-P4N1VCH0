@@ -1375,8 +1375,7 @@ namespace Componentes.ProveedorData
                 db.ExecuteNonQuery(sp);
                 var cod1 = db.GetParameterValue(sp, "@Id");
                 //var cod = db.GetParameterValue(sp, "@Id");//valor q retorna Stores procedure es el Id del registro hecho
-                return 0;
-            }
+                return Decimal.Parse(cod1.ToString());}
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
@@ -1387,8 +1386,7 @@ namespace Componentes.ProveedorData
         private bool FacturaDetalleGuardar(decimal codCabecera, Factura oFactura)
         {
             var db = DatabaseFactory.CreateDatabase("basedatos");
-            var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
-            sp.CommandType = CommandType.StoredProcedure;
+
 
             
 
@@ -1398,6 +1396,8 @@ namespace Componentes.ProveedorData
                 {
                     continue;
                 }
+                var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
+                sp.CommandType = CommandType.StoredProcedure;
                 db.AddInParameter(sp, "@IdFacturaCab", DbType.Decimal, codCabecera); 
                 db.AddInParameter(sp, "@linea", DbType.Decimal, d.linea);
                 db.AddInParameter(sp, "@IdProducto", DbType.Decimal, d.idProducto);
@@ -1408,11 +1408,15 @@ namespace Componentes.ProveedorData
                 db.AddInParameter(sp, "@DescuentoValor", DbType.Decimal, d.descuentoValor);
                 db.ExecuteNonQuery(sp);
                 decimal cod = (decimal)db.GetParameterValue(sp, "@IdFacturaCab");//valor q retorna Stores procedure es el Id del registro hecho
-                if (cod == 0) return false;}
+                sp.Dispose();//importante
+                sp.Connection.Close();//importante
+                if (cod == 0) return false;
+                
+                
+            }
 
            
-
-            
+                
             return true;
         }
 
