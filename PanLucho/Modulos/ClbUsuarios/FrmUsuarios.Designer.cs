@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtECorreo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtApellido = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtNombre = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cbxRol = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem1 = new DevComponents.Editors.ComboItem();
-            this.comboItem2 = new DevComponents.Editors.ComboItem();
-            this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.txtRepetir = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtContraseña = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtUsuario = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -46,7 +44,7 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -115,7 +113,7 @@
             this.txtECorreo.ForeColor = System.Drawing.Color.Black;
             this.txtECorreo.Location = new System.Drawing.Point(153, 186);
             this.txtECorreo.Name = "txtECorreo";
-            this.txtECorreo.Size = new System.Drawing.Size(224, 20);
+            this.txtECorreo.Size = new System.Drawing.Size(224, 22);
             this.txtECorreo.TabIndex = 14;
             // 
             // txtApellido
@@ -129,7 +127,7 @@
             this.txtApellido.ForeColor = System.Drawing.Color.Black;
             this.txtApellido.Location = new System.Drawing.Point(153, 157);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(224, 20);
+            this.txtApellido.Size = new System.Drawing.Size(224, 22);
             this.txtApellido.TabIndex = 13;
             // 
             // txtNombre
@@ -143,36 +141,21 @@
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(153, 128);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(224, 20);
+            this.txtNombre.Size = new System.Drawing.Size(224, 22);
             this.txtNombre.TabIndex = 12;
             // 
             // cbxRol
             // 
             this.cbxRol.DisplayMember = "Text";
             this.cbxRol.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRol.FormattingEnabled = true;
             this.cbxRol.ItemHeight = 16;
-            this.cbxRol.Items.AddRange(new object[] {
-            this.comboItem1,
-            this.comboItem2,
-            this.comboItem3});
             this.cbxRol.Location = new System.Drawing.Point(153, 98);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(149, 22);
             this.cbxRol.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbxRol.TabIndex = 11;
-            // 
-            // comboItem1
-            // 
-            this.comboItem1.Text = "Administrador";
-            // 
-            // comboItem2
-            // 
-            this.comboItem2.Text = "Facturador";
-            // 
-            // comboItem3
-            // 
-            this.comboItem3.Text = "Pedidos";
             // 
             // txtRepetir
             // 
@@ -215,7 +198,7 @@
             this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.Location = new System.Drawing.Point(153, 12);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(149, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(149, 22);
             this.txtUsuario.TabIndex = 8;
             // 
             // labelX7
@@ -355,8 +338,5 @@
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private DevComponents.Editors.ComboItem comboItem1;
-        private DevComponents.Editors.ComboItem comboItem2;
-        private DevComponents.Editors.ComboItem comboItem3;
     }
 }

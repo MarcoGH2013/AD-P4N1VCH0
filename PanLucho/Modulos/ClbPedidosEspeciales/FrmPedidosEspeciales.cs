@@ -21,7 +21,7 @@ namespace ClbPedidosEspeciales
         public FrmPedidosEspeciales()
         {
             InitializeComponent();
-            var eventos = Eventos.GetList();
+            var eventos = Eventos.ObtenerLista();
 
             repositoryItemLookUpEdit1.DataSource = eventos;
             repositoryItemLookUpEdit1.ValueMember = "Id";

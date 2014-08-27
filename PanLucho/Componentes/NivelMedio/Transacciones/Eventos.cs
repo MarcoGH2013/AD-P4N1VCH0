@@ -10,7 +10,7 @@ namespace Componentes.NivelMedio.Transacciones
     public static class Eventos
     {
         #region Selección Multiple
-        public static List<Evento> GetList()
+        public static List<Evento> ObtenerLista()
         {
             var sp = new SqlProveedorData();
             return sp.ObtenerEventos();

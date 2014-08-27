@@ -159,7 +159,10 @@ namespace ClbUsuarios
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            //BotonesSegunPermisos();//copy seguridad
+            var roles = Roles.ObtenerLista();
+            cbxRol.DataSource = roles;
+            cbxRol.ValueMember = "Id";
+            cbxRol.DisplayMember = "Nombre";
         }
 
     }
