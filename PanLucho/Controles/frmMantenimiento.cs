@@ -146,6 +146,8 @@ namespace Controles
         }
         public string Parametros { get; set; } //ej: c|r|u|d
 
+        public string info { get; set; } //
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

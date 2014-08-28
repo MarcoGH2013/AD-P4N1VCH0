@@ -1393,11 +1393,10 @@ namespace Componentes.ProveedorData
 
             foreach (var d in oFactura.detalles)//lista ya tiene q estar validada
             {
-                if (d.idProducto == 0)
+                if (d.totalLinea == 0 || d.idProducto==0)//se puede mejorar usar linq
                 {
                     continue;
-                }
-                var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
+                }var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
                 sp.CommandType = CommandType.StoredProcedure;
                 db.AddInParameter(sp, "@IdFacturaCab", DbType.Decimal, codCabecera); 
                 db.AddInParameter(sp, "@linea", DbType.Decimal, d.linea);

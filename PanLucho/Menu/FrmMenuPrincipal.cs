@@ -87,6 +87,7 @@ namespace Menu
                                                a.nombreForm == typeof(FrmCliente).Name
                                            select a.permisos).First();
                             FrmCliente f = new FrmCliente() { Tag = permiso }; //llamar en evento Load a: BotonesSegunPermisos();
+                            f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                             //f.Parametros = permiso;//enviando ej: c|r|u|d
                             f.MdiParent = this;
                             f.Show();
@@ -146,6 +147,7 @@ namespace Menu
                                        a.nombreForm == typeof(FrmCierreCaja).Name
                                    select a.permisos).First();
                     FrmCierreCaja f = new FrmCierreCaja() { Tag = permiso };
+                    f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -187,6 +189,7 @@ namespace Menu
                                     a.nombreForm== typeof(FrmUsuarios).Name select  a.permisos).First();
                     FrmUsuarios f = new FrmUsuarios(){Tag = permiso}; //llamar en evento Load a: BotonesSegunPermisos();
                   //  f.Parametros = permiso;//enviando ej: c|r|u|d
+                    f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -309,6 +312,7 @@ namespace Menu
                                    select a.permisos).First();
                     FrmRoles f = new FrmRoles(){Tag = permiso}; //llamar en evento Load a: BotonesSegunPermisos();
                   //  f.Parametros = permiso;//enviando ej: c|r|u|d
+                    f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -344,8 +348,8 @@ namespace Menu
                                        a.libreriaClase == typeof(FrmFactura).Namespace &&
                                        a.nombreForm == typeof(FrmFactura).Name
                                    select a.permisos).First();
-                    FrmFactura f = new FrmFactura() { Tag = permiso }; //llamar en evento Load a: BotonesSegunPermisos();
-                //    f.Parametros = permiso;//enviando ej: c|r|u|d
+                    FrmFactura f = new FrmFactura() { Tag = permiso  }; //llamar en evento Load a: BotonesSegunPermisos();
+                    f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -382,7 +386,7 @@ namespace Menu
                                        a.nombreForm == typeof(FrmPedidosEspeciales).Name
                                    select a.permisos).First();
                     FrmPedidosEspeciales f = new FrmPedidosEspeciales() { Tag = permiso }; //llamar en evento Load a: BotonesSegunPermisos();
-             //       f.Parametros = permiso;//enviando ej: c|r|u|d
+                    f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                     f.MdiParent = this;
                     f.Show();
                 }
@@ -421,6 +425,7 @@ namespace Menu
                                    select a.permisos).First();
                     FrmReporteFactura f = new FrmReporteFactura() { Tag = permiso }; //llamar en evento Load a: BotonesSegunPermisos();
                     //       f.Parametros = permiso;//enviando ej: c|r|u|d
+                    f.info = usuarioInformacion.Ecorreo;//enviando datos de usuario que guarda
                     f.MdiParent = this;
                     f.Show();
                 }

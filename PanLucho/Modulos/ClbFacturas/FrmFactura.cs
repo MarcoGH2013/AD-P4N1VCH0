@@ -18,6 +18,7 @@ namespace ClbFacturas
 {
     public partial class FrmFactura : frmMantenimiento
     {
+
         FacturaGrid oFacturaGrid= new FacturaGrid();
         private bool esEditado = false;
         private decimal subtotal = 0;
@@ -34,6 +35,8 @@ namespace ClbFacturas
         {
             base.Nuevo();
             this.switchButton1.Value = false;
+            facturaGridBindingSource.Clear();
+            gridControl1.DataSource = this.facturaGridBindingSource;
             this.gridView1.AddNewRow();
             if (switchButton1.Value == false)
             { Bloquear(); }
@@ -254,7 +257,7 @@ namespace ClbFacturas
                 }
                 else
                 {
-                    oFactura.idCliente = 13;//usuario final
+                    oFactura.idCliente = 1026;//consumidor final
                 }
                 oFactura.id = 0;
                 oFactura.fechaFacturacion = DateTime.Now;
@@ -264,7 +267,7 @@ namespace ClbFacturas
                 // oFactura.descuento = Decimal.Parse(txtDescuento.Text);
                 oFactura.totalPagar = Decimal.Parse(txtTotPagar.Text);
                 oFactura.fechaCreacion = DateTime.Now;
-                oFactura.userCreador = "lquinter";
+                oFactura.userCreador = info;//nick que identifica al usuario
                 oFactura.procesado = false;//es decir no cerrada
                 oFactura.esCancelado = false;
                 oFactura.idSucursal = 1;
@@ -292,7 +295,6 @@ namespace ClbFacturas
                     k++;
                     oFactura.detalles = lista;
                 }
-                
                 
                 
 

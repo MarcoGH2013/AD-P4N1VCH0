@@ -85,5 +85,12 @@ namespace Menu
             Application.Exit();
         }
 
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            FrmAcercaDe f= new FrmAcercaDe();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
+        }
+
     }
 }

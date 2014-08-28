@@ -36,6 +36,7 @@ namespace Menu
             this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
@@ -123,12 +124,23 @@ namespace Menu
             this.comboBox1.TabIndex = 6;
             this.comboBox1.Visible = false;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.simpleButton2.Location = new System.Drawing.Point(254, 147);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(26, 26);
+            this.simpleButton2.TabIndex = 7;
+            this.simpleButton2.Text = "?";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // FrmSesion
             // 
             this.AcceptButton = this.simpleButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(281, 174);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPass);
@@ -162,5 +174,6 @@ namespace Menu
         private DevExpress.XtraEditors.TextEdit txtPass;
         private DevExpress.XtraEditors.TextEdit txtUser;
         private System.Windows.Forms.ComboBox comboBox1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
     }

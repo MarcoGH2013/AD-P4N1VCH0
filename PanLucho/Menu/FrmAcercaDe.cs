@@ -68,7 +68,7 @@ namespace Menu
                         img.SetPixel(x, y, Color.FromKnownColor(randomColorName));
                         //img.SetPixel(x, y, Color.FromArgb(loopgo % 128 * 2, loopgo % 32 * 7, loopgo % 16 * 14));
                     else
-                        img.SetPixel(x, y, Color.Black);
+                        img.SetPixel(x, y, Color.PaleGoldenrod);
 
                 }
             }

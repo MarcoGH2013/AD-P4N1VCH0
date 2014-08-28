@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace Controles
 {
@@ -147,10 +149,30 @@ namespace Controles
         }
 #endregion
 
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+
+            GridView view = (GridView)sender;
+
+            Point pt = view.GridControl.PointToClient(Control.MousePosition);
+
+            DoRowDoubleClick(view, pt);
+        }
+
+        private void DoRowDoubleClick(GridView view, Point pt)
+        {
+            GridHitInfo info = view.CalcHitInfo(pt);
+            if (info.InRow || info.InRowCell)
+            {
+                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+                MessageBox.Show(string.Format("DoubleClick on row: {0}, column: {1}.", info.RowHandle, colCaption));
+            }
+        }
+
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            oGenerico = getRow((DevExpress.XtraGrid.Views.Grid.GridView)sender);
-            Close();
+            //oGenerico = getRow((DevExpress.XtraGrid.Views.Grid.GridView)sender);
+            //Close();
         }
 
         private Object getRow(DevExpress.XtraGrid.Views.Grid.GridView view)

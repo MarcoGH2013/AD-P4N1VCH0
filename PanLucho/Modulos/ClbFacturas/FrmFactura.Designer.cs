@@ -159,6 +159,7 @@
             this.txtId.ForeColor = System.Drawing.Color.Black;
             this.txtId.Location = new System.Drawing.Point(253, 161);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 11;
             // 
@@ -310,6 +311,7 @@
             this.txtCliente.ForeColor = System.Drawing.Color.Black;
             this.txtCliente.Location = new System.Drawing.Point(79, 77);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(354, 20);
             this.txtCliente.TabIndex = 2;
             // 
@@ -324,6 +326,7 @@
             this.txtCedRUC.ForeColor = System.Drawing.Color.Black;
             this.txtCedRUC.Location = new System.Drawing.Point(79, 42);
             this.txtCedRUC.Name = "txtCedRUC";
+            this.txtCedRUC.ReadOnly = true;
             this.txtCedRUC.Size = new System.Drawing.Size(100, 20);
             this.txtCedRUC.TabIndex = 1;
             // 
@@ -338,6 +341,7 @@
             this.txtIva.ForeColor = System.Drawing.Color.Black;
             this.txtIva.Location = new System.Drawing.Point(157, 61);
             this.txtIva.Name = "txtIva";
+            this.txtIva.ReadOnly = true;
             this.txtIva.Size = new System.Drawing.Size(100, 20);
             this.txtIva.TabIndex = 5;
             // 
@@ -352,6 +356,7 @@
             this.txtSubTotal.ForeColor = System.Drawing.Color.Black;
             this.txtSubTotal.Location = new System.Drawing.Point(157, 18);
             this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.ReadOnly = true;
             this.txtSubTotal.Size = new System.Drawing.Size(100, 20);
             this.txtSubTotal.TabIndex = 5;
             // 
@@ -477,6 +482,7 @@
             this.txtTotPagar.ForeColor = System.Drawing.Color.Black;
             this.txtTotPagar.Location = new System.Drawing.Point(157, 143);
             this.txtTotPagar.Name = "txtTotPagar";
+            this.txtTotPagar.ReadOnly = true;
             this.txtTotPagar.Size = new System.Drawing.Size(100, 20);
             this.txtTotPagar.TabIndex = 9;
             // 
@@ -491,6 +497,7 @@
             this.txtDescuento.ForeColor = System.Drawing.Color.Black;
             this.txtDescuento.Location = new System.Drawing.Point(157, 100);
             this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.ReadOnly = true;
             this.txtDescuento.Size = new System.Drawing.Size(100, 20);
             this.txtDescuento.TabIndex = 10;
             // 
