@@ -129,7 +129,7 @@ create table Usuario(
 	Nombre varchar(100) null,
 	Apellido varchar(100) null,
 	Ecorreo varchar(50) null,
-	Identificacion varchar(25) null,
+	Identificacion varchar(13) null,
 	Contrasena varchar(255) null, --usar ENCRYPTBYPASSPHRASE
 	FechaCreacion datetime null,
 	FechaEdicion datetime null,
