@@ -70,6 +70,7 @@
     <Compile Include="Transaccion\Cliente.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Transaccion\ClienteConsultaGrid.cs" />
     <Compile Include="Transaccion\Evento.cs" />
     <Compile Include="Transaccion\Factura.cs">
       <SubType>Code</SubType>
