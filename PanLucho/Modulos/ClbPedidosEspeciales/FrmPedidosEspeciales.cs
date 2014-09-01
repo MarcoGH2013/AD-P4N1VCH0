@@ -43,6 +43,18 @@ namespace ClbPedidosEspeciales
         protected override void Nuevo()
         {
             base.Nuevo();
+            ordenGridBindingSource.Clear();
+            
+            //ordenGridBindingSource.DataSource = null;
+            //gridControl1.DataSource = null;
+            //this.ordenGridBindingSource.DataSource = typeof(Componentes.Transaccion.OrdenGrid);
+            while (gridView1.RowCount != 0)
+            {
+                gridView1.SelectAll();
+                gridView1.DeleteSelectedRows();
+            }
+            //gridControl1.DataSource = ordenGridBindingSource;
+            gridControl1.Refresh();
             gridView1.AddNewRow();
             txtSubTotal.Text = "0";
             txtIva.Text = "0";
@@ -53,6 +65,7 @@ namespace ClbPedidosEspeciales
         {
             base.Guardar();
             ObtenerYGuardar();
+            Nuevo();
         }
 
         private void FrmPedidosEspeciales_Load(object sender, EventArgs e)
@@ -100,11 +113,16 @@ namespace ClbPedidosEspeciales
                             return;
                         }
                         var lista = new List<Producto>();
-                        string like = (string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada"); //es caseSensitive
+                        string like = (string)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DescripcionDetallada"); //es caseSensitive
                         lista = Productos.ObtenerParaVenta(like, 1, false);
                         frmConsulta frmCon = new frmConsulta();
-                        frmCon.gridControl1.DataSource = lista;
-                        frmCon.ShowDialog();
+                        if (lista.Count()!=1)
+                        {
+                            
+                            frmCon.gridControl1.DataSource = lista;
+                            frmCon.ShowDialog(); 
+                        }
+                        
                         if (frmCon.oGenerico != null)
                         {
                             var oProducto = (Producto)frmCon.oGenerico;
@@ -120,15 +138,15 @@ namespace ClbPedidosEspeciales
 
                             // this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcion", oFacturaGrid.descripcion);
 
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "unidadMedida", oFacturaGrid.UnidadMedida);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "UnidadMedida", oFacturaGrid.UnidadMedida);
                             //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "existencias", oFacturaGrid.existencias);
                             //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cantidad", oFacturaGrid.cantidad);
                             gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "precio", oFacturaGrid.Precio);
                             //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descuento", oFacturaGrid.descuento);
                             //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
 
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "id", oFacturaGrid.Id);
-                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "descripcionDetallada", oFacturaGrid.DescripcionDetallada);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Id", oFacturaGrid.Id);
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DescripcionDetallada", oFacturaGrid.DescripcionDetallada);
 
                             return;
                         }
@@ -136,7 +154,8 @@ namespace ClbPedidosEspeciales
                     }
                 case "Observaciones":
                 {
-                    oFacturaGrid.Cantidad = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad");
+                    if (this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad")!=null)
+                        oFacturaGrid.Cantidad = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad");
                     //oFacturaGrid.Total = (oFacturaGrid.precio * oFacturaGrid.cantidad) - oFacturaGrid.descuento;
                     //this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "total", oFacturaGrid.total);
                     if (oFacturaGrid.Cantidad > 0)

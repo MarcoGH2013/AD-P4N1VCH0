@@ -1516,17 +1516,21 @@ namespace Componentes.ProveedorData
 
         private bool CrearOrdenEspecialDet(decimal codCabecera, OrdenEspecialCab oFactura)
         {
+            //foreach (var d in oFactura.detalles)//lista ya tiene q estar validada
+            //{
+            //    if (d.totalLinea == 0 || d.idProducto==0)//se puede mejorar usar linq
+            //    {
+            //        continue;
+            //    }var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spFacturaDetalleInsert");
             var _Db = DatabaseFactory.CreateDatabase("basedatos");
-            var dbc = _Db.GetStoredProcCommand(PropietarioBD + "." + "spOrdenEspecialDetalleInsertar");
-            dbc.CommandType = CommandType.StoredProcedure;
-
-
             foreach (var d in oFactura.Detalles)//lista ya tiene q estar validada
             {
                 if (d.IdProducto == 0)
                 {
                     continue;
                 }
+                var dbc = _Db.GetStoredProcCommand(PropietarioBD + "." + "spOrdenEspecialDetalleInsertar");
+                dbc.CommandType = CommandType.StoredProcedure;
                 _Db.AddInParameter(dbc, "@IdOrdenEspecialCab", DbType.Decimal, codCabecera);
                 _Db.AddInParameter(dbc, "@Linea", DbType.Decimal, d.Linea);
                 _Db.AddInParameter(dbc, "@IdProducto", DbType.Decimal, d.IdProducto);
@@ -1538,8 +1542,9 @@ namespace Componentes.ProveedorData
                 _Db.AddInParameter(dbc, "@Observaciones", DbType.String, d.Observaciones);
                 _Db.ExecuteNonQuery(dbc);
                 decimal cod = (decimal)_Db.GetParameterValue(dbc, "@IdOrdenEspecialCab");//valor q retorna Stores procedure es el Id del registro hecho
-                if (cod == 0) return false;
-            }
+                dbc.Dispose();//importante
+                dbc.Connection.Close();//importante
+                if (cod == 0) return false;}
             return true;
         }
         /// <summary>

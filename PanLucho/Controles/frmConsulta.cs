@@ -72,6 +72,7 @@ namespace Controles
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // frmConsulta
             // 
@@ -149,16 +150,7 @@ namespace Controles
         }
 #endregion
 
-        private void gridView1_DoubleClick(object sender, EventArgs e)
-        {
-
-            GridView view = (GridView)sender;
-
-            Point pt = view.GridControl.PointToClient(Control.MousePosition);
-
-            DoRowDoubleClick(view, pt);
-        }
-
+        
         private void DoRowDoubleClick(GridView view, Point pt)
         {
             GridHitInfo info = view.CalcHitInfo(pt);
@@ -186,6 +178,15 @@ namespace Controles
                 return null;
             }
 
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            oGenerico = getRow((DevExpress.XtraGrid.Views.Grid.GridView)sender);
+            Close();
+            //GridView view = (GridView)sender;
+            //Point pt = view.GridControl.PointToClient(Control.MousePosition);
+            //DoRowDoubleClick(view, pt);
         }
 
     }

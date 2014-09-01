@@ -23,7 +23,7 @@ namespace PanLuchoPrueba
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new FrmUsuarios() { Tag = "c|u|00" });
             //Application.Run(new FrmRoles());
-            Application.Run(new FrmUsuarios());
+            Application.Run(new FrmPedidosEspeciales());
         }
     }
 }
