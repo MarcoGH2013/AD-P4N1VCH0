@@ -39,7 +39,9 @@ namespace ClbFacturas
             gridControl1.DataSource = this.facturaGridBindingSource;
             this.gridView1.AddNewRow();
             if (switchButton1.Value == false)
-            { Bloquear(); }
+            {
+                Bloquear();
+            }
         }
 
         protected override void Guardar()
@@ -62,12 +64,14 @@ namespace ClbFacturas
         {
             base.Bloquear();
             buttonX1.Enabled = false;
+            gridControl1.Enabled = true;
         }
 
         protected override void Desbloquear()
         {
             base.Desbloquear();
             buttonX1.Enabled = true;
+            gridControl1.Enabled = true;
         }
 
         private void switchButton1_ValueChanged(object sender, EventArgs e)
@@ -81,22 +85,27 @@ namespace ClbFacturas
             {
                 labelX8.Text = "Factura: CONSUMIDOR FINAL";
                 Bloquear();
+
             }
+            this.gridControl1.Enabled = true;
             
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
             frmConsulta fcon = new frmConsulta();
-            fcon.gridControl1.DataSource = Clientes.ObtenerLista2();
+
+            List<ClienteConsultaGrid> lista = Clientes.ObtenerListaParaGUI();
+            fcon.gridControl1.DataSource = lista;
+
             fcon.ShowDialog();
            // var oCliente = new Cliente();
             if (fcon.oGenerico != null)
             {
-                var oCliente = (Cliente)fcon.oGenerico;
-                txtCedRUC.Text = oCliente.NumeroIdentificacion;
-                txtCliente.Text = oCliente.NombreCompleto;
-                txtId.Text = oCliente.Id.ToString();//this.FormModoParametro = FormModo.Edicion;
+                var oCliente = (ClienteConsultaGrid)fcon.oGenerico;
+                txtCedRUC.Text = oCliente.numeroIdentificacion;
+                txtCliente.Text = oCliente.nombre +" "+ oCliente.apellido;
+                txtId.Text = oCliente.id.ToString();//this.FormModoParametro = FormModo.Edicion;
             }
         }
 
