@@ -51,6 +51,12 @@ namespace Componentes.NivelMedio.Transacciones
             var sp = new SqlProveedorData();
             return sp.ObtenerClientes2();
         }
+
+        public static List<ClienteConsultaGrid> ObtenerListaParaGUI()
+        {
+            var sp = new SqlProveedorData();
+            return sp.ObtenerClientesParaGUI();
+        }
         #endregion
     }
 }
