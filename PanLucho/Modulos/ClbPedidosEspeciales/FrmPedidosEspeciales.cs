@@ -18,6 +18,9 @@ namespace ClbPedidosEspeciales
     {
         OrdenGrid oFacturaGrid = new OrdenGrid();
         private int oId;
+        private decimal subtotal = 0;
+        private decimal iva = 0;
+        private decimal totPAgar = 0;
         public FrmPedidosEspeciales()
         {
             InitializeComponent();
@@ -64,6 +67,24 @@ namespace ClbPedidosEspeciales
         protected override void Guardar()
         {
             base.Guardar();
+            if (MessageBox.Show("Desea Guardar los Datos", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+            if (txtAbono.Text == "" || txtAbono.Text == "0")
+            {
+                MessageBox.Show("El monto del Abono debe de ser al menos el 50%", Application.ProductName, MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
+            if (txtCedRUC.Text == " " || string.IsNullOrEmpty(txtCedRUC.Text))
+            {
+                MessageBox.Show("Ingrese Datos del Cliente", Application.ProductName, MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
+            if (VScroll)
+            {
+                
+            }
             ObtenerYGuardar();
             Nuevo();
         }
@@ -104,6 +125,15 @@ namespace ClbPedidosEspeciales
                     }
                 case "Cantidad":
                     {
+                        oFacturaGrid.Cantidad = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Cantidad");
+                        oFacturaGrid.Precio = (decimal)this.gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Precio");
+                        oFacturaGrid.Total = (oFacturaGrid.Precio * oFacturaGrid.Cantidad);
+                        this.gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Total", oFacturaGrid.Total);
+                        if (oFacturaGrid.Cantidad > 0)
+                        {
+                            calcular2();
+                            return;
+                        }
                         break;
                     }
                 case "DescripcionDetallada":
@@ -229,6 +259,36 @@ namespace ClbPedidosEspeciales
                 //txtId.Text = oCliente.Id.ToString();//this.FormModoParametro = FormModo.Edicion;
             }
         }
+        private void calcular2()//funcional
+        {
+            FacturaGrid oGrid = new FacturaGrid();
+
+            subtotal = 0;
+            iva = 0;
+            totPAgar = 0;
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                //oGrid = (FacturaGrid)gridView1.GetRow(0);
+                if (gridView1.GetRowCellValue(i, coltotal) == null)
+                {
+                    continue;
+                }
+                subtotal += (decimal)gridView1.GetRowCellValue(i, coltotal);
+            }
+
+            txtSubTotal.Text = subtotal.ToString("0.00");
+            iva = subtotal * 12 / 100;
+            this.txtIva.Text = iva.ToString("F");
+            totPAgar = subtotal + iva;
+            //this.txtTotPagar.Text = totPAgar.ToString();
+
+            //Cliente oCliente = new Cliente()
+            //{
+            //    Id = (int)gridView1.GetRowCellValue(1,colcantidad),
+            //    NumeroIdentificacion = gridView1.GetRowCellValue(1, colcantidad).ToString(),
+            //    Apellido =gridView1.GetRowCellValue(1,colcantidad).ToString()
+            //};
+        }
         private void ObtenerYGuardar()
         {
             try
@@ -261,6 +321,10 @@ namespace ClbPedidosEspeciales
                     det.Linea = k;
                     det.IdProducto = (decimal)gridView1.GetRowCellValue(i, "Id");
                     det.Cantidad = (decimal)gridView1.GetRowCellValue(i, "Cantidad");
+                    if (gridView1.GetRowCellValue(i, "IdEvento")!=null)
+                    {
+                        det.IdEvento = Decimal.Parse(gridView1.GetRowCellValue(i, "IdEvento").ToString());
+                    }
                     det.IdEvento = Decimal.Parse(gridView1.GetRowCellValue(i, "IdEvento").ToString());
                     det.Color = (string)gridView1.GetRowCellValue(i, "Color").ToString();
                     det.Leyenda = (string)gridView1.GetRowCellValue(i, "Leyenda");
@@ -290,6 +354,21 @@ namespace ClbPedidosEspeciales
             if (imagen != null)
                 imagen.Save(ms, ImageFormat.Jpeg);
             return ms.ToArray();
+        }
+
+        private void txtAbono_Leave(object sender, EventArgs e)
+        {
+            if (decimal.Parse(txtAbono.Text) < (decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIva.Text)) / 2)
+            {
+                MessageBox.Show("El valor del Abono debe de ser el 50% del total del Pedido", Application.ProductName,
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtAbono.Text = "0";
+                txtAbono.Focus();
+                //txtSaldo.Text = (decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIva.Text)).ToString();
+                return;
+            }
+            txtSaldo.Text = (decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIva.Text) - decimal.Parse(txtAbono.Text)).ToString("0.00");
+            txtAbono.Text = decimal.Parse(txtAbono.Text).ToString("0.00");
         }
     }
 }

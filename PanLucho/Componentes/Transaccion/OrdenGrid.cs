@@ -10,6 +10,7 @@ namespace Componentes.Transaccion
         public string UnidadMedida { get; set; }
         public decimal Cantidad { get; set; }
         public decimal Precio { get; set; }
+        public decimal Total { get; set; }
         public string IdEvento { get; set; }
         public Color Color { get; set; }
         public string Leyenda { get; set; }

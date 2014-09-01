@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dateTimeInput2 = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX16 = new DevComponents.DotNetBar.LabelX();
             this.btnBuscarCliente = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.textBoxX12 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtSaldo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtAbono = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtIva = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtSubTotal = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -55,7 +54,7 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.ordenGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordenGridBindingSource = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,8 +62,9 @@
             this.colunidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCbxEvento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colCbxColor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
             this.colLeyenda = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,7 +72,8 @@
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.facturaGridBindingSource = new System.Windows.Forms.BindingSource();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.colorCombControl1 = new DevComponents.DotNetBar.ColorPickers.ColorCombControl();
             this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -90,7 +91,6 @@
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).BeginInit();
             this.groupPanel4.SuspendLayout();
@@ -99,15 +99,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).BeginInit();
             this.groupPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
             this.groupPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -241,7 +241,7 @@
             // 
             this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel4.Controls.Add(this.textBoxX12);
+            this.groupPanel4.Controls.Add(this.txtSaldo);
             this.groupPanel4.Controls.Add(this.txtAbono);
             this.groupPanel4.Controls.Add(this.txtIva);
             this.groupPanel4.Controls.Add(this.txtSubTotal);
@@ -283,17 +283,17 @@
             this.groupPanel4.TabIndex = 10;
             this.groupPanel4.Text = "Pagos/Abonos";
             // 
-            // textBoxX12
+            // txtSaldo
             // 
             // 
             // 
             // 
-            this.textBoxX12.Border.Class = "TextBoxBorder";
-            this.textBoxX12.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX12.Location = new System.Drawing.Point(93, 72);
-            this.textBoxX12.Name = "textBoxX12";
-            this.textBoxX12.Size = new System.Drawing.Size(100, 22);
-            this.textBoxX12.TabIndex = 14;
+            this.txtSaldo.Border.Class = "TextBoxBorder";
+            this.txtSaldo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSaldo.Location = new System.Drawing.Point(93, 72);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(100, 22);
+            this.txtSaldo.TabIndex = 14;
             // 
             // txtAbono
             // 
@@ -306,6 +306,7 @@
             this.txtAbono.Name = "txtAbono";
             this.txtAbono.Size = new System.Drawing.Size(100, 22);
             this.txtAbono.TabIndex = 13;
+            this.txtAbono.Leave += new System.EventHandler(this.txtAbono_Leave);
             // 
             // txtIva
             // 
@@ -405,6 +406,7 @@
             this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxX4.Location = new System.Drawing.Point(417, 6);
             this.textBoxX4.Name = "textBoxX4";
+            this.textBoxX4.ReadOnly = true;
             this.textBoxX4.Size = new System.Drawing.Size(100, 22);
             this.textBoxX4.TabIndex = 8;
             // 
@@ -430,6 +432,7 @@
             this.txtCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtCliente.Location = new System.Drawing.Point(103, 32);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(250, 22);
             this.txtCliente.TabIndex = 6;
             // 
@@ -621,6 +624,7 @@
             this.colunidadMedida,
             this.colcantidad,
             this.colprecio,
+            this.coltotal,
             this.colCbxEvento,
             this.colCbxColor,
             this.colLeyenda,
@@ -677,6 +681,15 @@
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 4;
             // 
+            // coltotal
+            // 
+            this.coltotal.Caption = "Total";
+            this.coltotal.FieldName = "Total";
+            this.coltotal.Name = "coltotal";
+            this.coltotal.OptionsColumn.AllowFocus = false;
+            this.coltotal.Visible = true;
+            this.coltotal.VisibleIndex = 6;
+            // 
             // colCbxEvento
             // 
             this.colCbxEvento.Caption = "Evento";
@@ -686,12 +699,12 @@
             this.colCbxEvento.Visible = true;
             this.colCbxEvento.VisibleIndex = 5;
             // 
-            // repositoryItemComboBox1
+            // repositoryItemLookUpEdit1
             // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             // 
             // colCbxColor
             // 
@@ -700,7 +713,7 @@
             this.colCbxColor.FieldName = "Color";
             this.colCbxColor.Name = "colCbxColor";
             this.colCbxColor.Visible = true;
-            this.colCbxColor.VisibleIndex = 6;
+            this.colCbxColor.VisibleIndex = 7;
             // 
             // repositoryItemColorEdit1
             // 
@@ -734,7 +747,7 @@
             this.colLeyenda.FieldName = "Leyenda";
             this.colLeyenda.Name = "colLeyenda";
             this.colLeyenda.Visible = true;
-            this.colLeyenda.VisibleIndex = 7;
+            this.colLeyenda.VisibleIndex = 8;
             // 
             // colImagen
             // 
@@ -743,7 +756,7 @@
             this.colImagen.FieldName = "Imagen";
             this.colImagen.Name = "colImagen";
             this.colImagen.Visible = true;
-            this.colImagen.VisibleIndex = 8;
+            this.colImagen.VisibleIndex = 9;
             // 
             // repositoryItemImageEdit1
             // 
@@ -759,11 +772,18 @@
             this.colComentario.FieldName = "Observaciones";
             this.colComentario.Name = "colComentario";
             this.colComentario.Visible = true;
-            this.colComentario.VisibleIndex = 9;
+            this.colComentario.VisibleIndex = 10;
             // 
             // repositoryItemMemoEdit1
             // 
             this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
             // groupPanel5
             // 
@@ -1085,13 +1105,6 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            // 
             // FrmPedidosEspeciales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1116,15 +1129,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenGridBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaGridBindingSource)).EndInit();
             this.groupPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).EndInit();
             this.groupPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1163,7 +1176,7 @@
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX12;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtSaldo;
         private DevComponents.DotNetBar.Controls.TextBoxX txtAbono;
         private DevComponents.DotNetBar.Controls.TextBoxX txtIva;
         private DevComponents.DotNetBar.Controls.TextBoxX txtSubTotal;
@@ -1194,5 +1207,6 @@
         private System.Windows.Forms.BindingSource ordenGridBindingSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn coltotal;
     }
 }
