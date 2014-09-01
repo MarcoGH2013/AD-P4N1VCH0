@@ -163,8 +163,8 @@ namespace Controles
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            //oGenerico = getRow((DevExpress.XtraGrid.Views.Grid.GridView)sender);
-            //Close();
+            oGenerico = getRow((DevExpress.XtraGrid.Views.Grid.GridView)sender);
+            Close();
         }
 
         private Object getRow(DevExpress.XtraGrid.Views.Grid.GridView view)
