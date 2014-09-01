@@ -166,6 +166,25 @@ namespace Componentes.ProveedorData
             return lista;
         }
 
+        public List<ClienteConsultaGrid> ObtenerClientesParaGUI()
+        {
+            Database db = DatabaseFactory.CreateDatabase("basedatos");
+            var sp = db.GetStoredProcCommand(PropietarioBD + "." + "spClienteObtenerLista");
+            sp.CommandType = CommandType.StoredProcedure;
+
+            List<ClienteConsultaGrid> lista = new List<ClienteConsultaGrid>();
+            using (IDataReader dataReader = db.ExecuteReader(sp))
+            {
+                while (dataReader.Read())
+                {
+                    lista.Add(RellenarClienteDeLectorIData3(dataReader));
+                }
+                dataReader.Close();
+            }
+            sp.Dispose();
+            return lista;
+        }
+
         #endregion
 
         #region Región de Relleno
@@ -218,14 +237,6 @@ namespace Componentes.ProveedorData
                     if (!string.IsNullOrEmpty(datos["FechaNacimiento"].ToString()))
                         cliente.FechaNacimiento = (DateTime)datos["FechaNacimiento"];
                     cliente.Estado = Convert.ToInt32(datos["Estado"].ToString());
-                    //cliente.FechaCreacion = (DateTime)valorData["FechaCreacion"];
-                    //cliente.FechaModificacion = (DateTime)valorData["FechaEdicion"];
-
-                    //if (!string.IsNullOrEmpty(valorData["UsuarioCreacion"].ToString()))
-                    //    cliente.UsuarioCreacion = (string)valorData["UsuarioCreacion"];
-
-                    //if (!string.IsNullOrEmpty(valorData["UsuarioEdicion"].ToString()))
-                    //    cliente.UsuarioActualizacion = (string)valorData["UsuarioEdicion"];
                 }
                 return cliente;
             }
@@ -235,6 +246,32 @@ namespace Componentes.ProveedorData
                 return null;
             }
         }
+
+        public static ClienteConsultaGrid RellenarClienteDeLectorIData3(IDataRecord datos)
+        {
+            try
+            {
+                var cliente = new ClienteConsultaGrid();
+                if (datos != null)
+                {
+                    cliente.id = Convert.ToInt32(datos["Id"].ToString());
+                    cliente.nombre = datos["Nombre"].ToString();
+                    cliente.apellido = datos["Apellido"].ToString();
+                    cliente.TipoIdentificacion = datos["TipoIdentificacion"].ToString();
+                    cliente.numeroIdentificacion = datos["NumeroIdentificacion"].ToString();
+
+                    if (!string.IsNullOrEmpty(datos["Ecorreo"].ToString()))
+                        cliente.usuario = datos["Ecorreo"].ToString();
+                }
+                return cliente;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.ToString());
+                return null;
+            }
+        }
+
 
         #endregion
 
